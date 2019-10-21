@@ -1,5 +1,9 @@
 #' Capitalize
 #'
+#' Applies sentence case style capitalization.
+#'
+#' Only capitalizes the first letter in the string.
+#'
 #' @export
 #' @note Updated 2019-10-21.
 #'
@@ -8,7 +12,7 @@
 #' @return Modified object, with names capitalized.
 #'
 #' @examples
-#' capitalize(c("hello", "world"))
+#' capitalize(c("hello", "world", "foo bar"))
 capitalize <- function(x) {
     vapply(
         X = as.character(x),

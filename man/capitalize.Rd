@@ -13,11 +13,14 @@ capitalize(x)
 Modified object, with names capitalized.
 }
 \description{
-Capitalize
+Applies sentence case style capitalization.
+}
+\details{
+Only capitalizes the first letter in the string.
 }
 \note{
 Updated 2019-10-21.
 }
 \examples{
-capitalize(c("hello", "world"))
+capitalize(c("hello", "world", "foo bar"))
 }

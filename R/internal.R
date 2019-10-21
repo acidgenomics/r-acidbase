@@ -1,3 +1,7 @@
+## nocov start
+
+
+
 ## Updated 2019-10-21.
 .hasLength <- function(x, n = NULL) {
     length <- length(x)
@@ -107,3 +111,7 @@
     if (!isTRUE(ok)) return(FALSE)
     TRUE
 }
+
+
+
+## nocov end
