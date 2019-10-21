@@ -1,0 +1,26 @@
+Package: acidbase
+Title: Low-Level Base Functions
+Description: Low-level base functions imported by Acid Genomics packages.
+Version: 0.0.1
+Date: 2019-10-21
+Authors@R: c(
+    person(
+        "Michael", "Steinbaugh",
+        email = "mike@steinbaugh.com",
+        role = c("aut", "cre"),
+        comment = c(ORCID = "0000-0002-2403-2221")
+    ),
+    person(
+        given = "Acid Genomics",
+        role = c("cph", "fnd")
+    ))
+URL:
+    https://acidbase.acidgenomics.com/,
+    https://github.com/acidgenomics/acidbase/
+BugReports: https://github.com/acidgenomics/acidbase/issues/
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: R (>= 3.6)
+Imports: methods, utils
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
