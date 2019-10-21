@@ -2,9 +2,12 @@
 % Please edit documentation in R/capitalize.R
 \name{capitalize}
 \alias{capitalize}
+\alias{sentenceCase}
 \title{Capitalize}
 \usage{
 capitalize(x)
+
+sentenceCase(x)
 }
 \arguments{
 \item{x}{Object.}
@@ -13,14 +16,31 @@ capitalize(x)
 Modified object, with names capitalized.
 }
 \description{
-Applies sentence case style capitalization.
+Apply simple capitlization rules.
 }
 \details{
-Only capitalizes the first letter in the string.
+For complex renaming, refer to syntactic package.
 }
+\section{Functions}{
+\itemize{
+\item \code{capitalize}: Capitalize the first letter of all words.
+
+\item \code{sentenceCase}: Only capitalize the first letter in the sentence.
+}}
+
 \note{
 Updated 2019-10-21.
 }
 \examples{
-capitalize(c("hello", "world", "foo bar"))
+x <- c("the quick brown fox", "using AIC for model selection")
+capitalize(x)
+sentenceCase(x)
+}
+\seealso{
+\itemize{
+\item \code{toupper()}, \code{tolower()}.
+\item stringr package.
+\item \code{tools::toTitleCase()}. I generally avoid title case, since there's a poor
+general consensus on which works to keep lower case.
+}
 }
