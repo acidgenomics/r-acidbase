@@ -1,4 +1,4 @@
-#' Truncate input to a specified width
+#' Shorten (truncate) input to a specified width
 #'
 #' Automatically generate a substring and add trailing "..." if necessary.
 #'
@@ -13,9 +13,10 @@
 #'
 #' @examples
 #' x <- "the quick brown fox"
-#' x <- truncate(x, width = 10L)
+#' x <- shorten(x, width = 10L)
 #' nchar(x)
-truncate <- function(x, width = getOption("width")) {
+shorten <- function(x, width = getOption("width")) {
+    stopifnot(.isInt(width), isTRUE(width > 3L))
     x <- as.character(x)
     ifelse(
         test = nchar(x) > width,
