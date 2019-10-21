@@ -1,6 +1,6 @@
 #' Capitalize
 #'
-#' @name capitalize
+#' @export
 #' @note Updated 2019-10-21.
 #'
 #' @inheritParams params

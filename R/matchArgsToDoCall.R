@@ -45,8 +45,8 @@ matchArgsToDoCall <- function(
     verbose = getOption("verbose", default = FALSE)
 ) {
     stopifnot(
-        .isAny(args, classes = c("list", "NULL")),
-        .isAny(removeFormals, classes = c("character", "NULL")),
+        is.list(args) || is.null(args),
+        .isCharacter(removeFormals) || is.null(removeFormals),
         .isInt(which),
         .isFlag(verbose)
     )
@@ -117,13 +117,5 @@ matchArgsToDoCall <- function(
         ## nocov end
     }
     stopifnot(.hasNames(args), .hasNoDuplicates(names(args)))
-    invisible(lapply(
-        X = args,
-        FUN = function(x) {
-            stopifnot(as.logical(
-                !.isAny(x, classes = c("call", "name", "symbol"))
-            ))
-        }
-    ))
     args
 }

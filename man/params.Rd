@@ -4,6 +4,9 @@
 \alias{params}
 \title{Shared parameter documentation}
 \arguments{
+\item{width}{\code{integer(1)}.
+Width.}
+
 \item{x}{Object.}
 }
 \value{

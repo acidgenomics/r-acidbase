@@ -42,16 +42,6 @@
 
 
 ## Updated 2019-10-21.
-.isAny <- function(x, classes) {
-    stopifnot(isCharacter(classes))
-    ok <- any(is2(x, class = classes))
-    if (!isTRUE(ok)) return(FALSE)
-    TRUE
-}
-
-
-
-## Updated 2019-10-21.
 .isCharacter <- function(x) {
     ok <- is.character(x)
     if (!isTRUE(ok)) return(FALSE)

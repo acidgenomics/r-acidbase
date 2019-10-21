@@ -8,6 +8,9 @@ truncate(x, width = getOption("width"))
 }
 \arguments{
 \item{x}{Object.}
+
+\item{width}{\code{integer(1)}.
+Width.}
 }
 \description{
 Automatically generate a substring and add trailing "..." if necessary.

@@ -6,6 +6,9 @@
 \usage{
 stripAttributes(x)
 }
+\arguments{
+\item{x}{Object.}
+}
 \description{
 Strip attributes
 }
