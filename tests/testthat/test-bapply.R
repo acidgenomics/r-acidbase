@@ -1,4 +1,4 @@
-context("base : bapply")
+context("bapply")
 
 test_that("bapply", {
     expect_identical(

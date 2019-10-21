@@ -1,4 +1,4 @@
-context("base : standardizeCall")
+context("standardizeCall")
 
 aaa <- "AAA"
 bbb <- "BBB"

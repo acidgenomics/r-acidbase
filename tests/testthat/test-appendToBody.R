@@ -1,4 +1,4 @@
-context("base : appendToBody")
+context("appendToBody")
 
 test_that("appendToBody", {
     ## Add a deprecation call into function body.

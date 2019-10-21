@@ -1,4 +1,4 @@
-context("base : toNames")
+context("toNames")
 
 test_that("Non character", {
     expect_identical(toNames(1L), "1")

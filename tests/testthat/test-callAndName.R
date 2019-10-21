@@ -1,4 +1,4 @@
-context("base : callAndName")
+context("callAndName")
 
 test_that("callAndName", {
     expect_identical(

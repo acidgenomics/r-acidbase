@@ -1,4 +1,4 @@
-context("base : printString")
+context("printString")
 
 test_that("printString", {
     ## Check for vector concatenation to string.

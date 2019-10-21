@@ -1,4 +1,4 @@
-context("base : methodDefinition")
+context("methodDefinition")
 
 test_that("as.data.frame", {
     ## Use `substitute()` to put a missing argument in pairlist.
