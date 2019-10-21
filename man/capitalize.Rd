@@ -5,7 +5,7 @@
 \alias{sentenceCase}
 \title{Capitalize}
 \usage{
-capitalize(x)
+capitalize(x, strict = FALSE)
 
 sentenceCase(x)
 }
@@ -26,14 +26,16 @@ For complex renaming, refer to syntactic package.
 \item \code{capitalize}: Capitalize the first letter of all words.
 
 \item \code{sentenceCase}: Only capitalize the first letter in the sentence.
+Note that this function attempts to preserve capitalization of acronyms.
 }}
 
 \note{
 Updated 2019-10-21.
 }
 \examples{
-x <- c("the quick brown fox", "using AIC for model selection")
-capitalize(x)
+x <- c("the quick Brown fox", "using AIC for model selection")
+capitalize(x, strict = FALSE)
+capitalize(x, strict = TRUE)
 sentenceCase(x)
 }
 \seealso{

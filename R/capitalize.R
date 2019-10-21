@@ -18,8 +18,9 @@
 #'   general consensus on which works to keep lower case.
 #'
 #' @examples
-#' x <- c("the quick brown fox", "using AIC for model selection")
-#' capitalize(x)
+#' x <- c("the quick Brown fox", "using AIC for model selection")
+#' capitalize(x, strict = FALSE)
+#' capitalize(x, strict = TRUE)
 #' sentenceCase(x)
 NULL
 
@@ -27,17 +28,16 @@ NULL
 
 #' @describeIn capitalize Capitalize the first letter of all words.
 #' @export
-capitalize <- function(x) {
+capitalize <- function(x, strict = FALSE) {
     vapply(
-        X = as.character(x),
+        X = strsplit(as.character(x), split = " "),
         FUN = function(x) {
-            x <- strsplit(x, " ")[[1L]]
-            paste(
-                toupper(substring(x, 1L, 1L)),
-                substring(x, 2L),
-                sep = "",
-                collapse = " "
-            )
+            first <- toupper(substring(x, 1L, 1L))
+            tail <- substring(x, 2L)
+            if (isTRUE(strict)) {
+                tail <- tolower(tail)
+            }
+            paste(first, tail, sep = "", collapse = " ")
         },
         FUN.VALUE = character(1L),
         USE.NAMES = FALSE
@@ -47,16 +47,32 @@ capitalize <- function(x) {
 
 
 #' @describeIn capitalize Only capitalize the first letter in the sentence.
+#'   Note that this function attempts to preserve capitalization of acronyms.
 #' @export
 sentenceCase <- function(x) {
     vapply(
         X = as.character(x),
         FUN = function(x) {
-            if (is.na(x)) return(x)
-            first <- substring(x, first = 1L, last = 1L)
-            first <- toupper(first)
-            tail <- tolower(substring(x, first = 2L))
-            paste(first, tail, sep = "")
+            x <- strsplit(x, split = " ")[[1L]]
+            ## Only capitalize the first letter of the first word.
+            firstWord <- paste0(
+                toupper(substring(x[[1L]], first = 1L, last = 1L)),
+                substring(x[[1L]], first = 2L)
+            )
+            ## Loop across the other words and look for acronyms. Convert to
+            ## lower case otherwise.
+            otherWords <- vapply(
+                X = tail(x, n = -1L),
+                FUN = function(x) {
+                    if (!isTRUE(grepl("^[.A-Z0-9]+$", x))) {
+                        x <- tolower(x)
+                    }
+                    x
+                },
+                FUN.VALUE = character(1L),
+                USE.NAMES = FALSE
+            )
+            paste(c(firstWord, otherWords), sep = "", collapse = " ")
         },
         FUN.VALUE = character(1L),
         USE.NAMES = FALSE
