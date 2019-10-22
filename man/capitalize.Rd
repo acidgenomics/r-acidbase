@@ -2,12 +2,9 @@
 % Please edit documentation in R/capitalize.R
 \name{capitalize}
 \alias{capitalize}
-\alias{sentenceCase}
 \title{Capitalize}
 \usage{
 capitalize(x, strict = FALSE)
-
-sentenceCase(x)
 }
 \arguments{
 \item{x}{Object.}
@@ -24,9 +21,6 @@ For complex renaming, refer to syntactic package.
 \section{Functions}{
 \itemize{
 \item \code{capitalize}: Capitalize the first letter of all words.
-
-\item \code{sentenceCase}: Only capitalize the first letter in the sentence.
-Note that this function attempts to preserve capitalization of acronyms.
 }}
 
 \note{
