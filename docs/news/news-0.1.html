@@ -124,6 +124,8 @@
 <a href="#acidbase-011-2019-10-22" class="anchor"></a>acidbase 0.1.1 (2019-10-22)</h2>
 <ul>
 <li>Migrated <code>realpath</code> from brio package. Reworked slightly to not depend on any assert checks from goalie package. Now this function essentially wraps <code>normalizePath</code> but provides a more informative error message.</li>
+<li>
+<code>basenameSansExt</code>: Minor tweak to ensure that files without an extension still return basename as expected.</li>
 </ul>
 </div>
   </div>
