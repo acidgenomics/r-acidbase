@@ -1,9 +1,9 @@
 context("basenameSansExt")
 
 test_that("basenameSansExt", {
-    path <- c("dir/foo.txt", "dir/bar.tar.gz", "dir/")
+    path <- c("dir/foo.txt", "bar.tar.gz", "DESCRIPTION")
     expect_identical(
         basenameSansExt(path),
-        c("foo", "bar", NA_character_)
+        c("foo", "bar", "DESCRIPTION")
     )
 })

@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @note This function intentionally doesn't check whether a file exists.
-#' @note Updated 2019-10-12.
+#' @note Updated 2019-10-22.
 #'
 #' @param path `character`.
 #'   File path(s).
@@ -17,7 +17,8 @@
 #' - `tools::file_path_sans_ext()`.
 #'
 #' @examples
-#' basenameSansExt(c("dir/foo.txt", "dir/bar.tar.gz", "dir/"))
+#' path <- c("dir/foo.txt", "bar.tar.gz", "DESCRIPTION")
+#' basenameSansExt(path)
 basenameSansExt <- function(path) {
     vapply(
         X = basename(path = path),
@@ -25,10 +26,9 @@ basenameSansExt <- function(path) {
             if (isTRUE(
                 grepl(pattern = extPattern, x = x, ignore.case = TRUE)
             )) {
-                sub(pattern = extPattern, replacement = "", x = x)
-            } else {
-                NA_character_
+                x <- sub(pattern = extPattern, replacement = "", x = x)
             }
+            x
         },
         FUN.VALUE = character(1L),
         USE.NAMES = FALSE
