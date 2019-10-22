@@ -1,8 +1,8 @@
 Package: acidbase
 Title: Low-Level Base Functions
 Description: Low-level base functions imported by Acid Genomics packages.
-Version: 0.1.0
-Date: 2019-10-21
+Version: 0.1.1
+Date: 2019-10-22
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
