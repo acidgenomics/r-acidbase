@@ -21,8 +21,11 @@
 realpath <- function(path) {
     hasAccess <- file.access(names = path, mode = 0L) == 0L
     if (!all(hasAccess)) {
-        fail <- deparse(basename(path[which(!hasAccess)]))
-        stop("Access failure: ", toString(fail, width = 200L))
+        fail <- basename(path[which(!hasAccess)])
+        stop(
+            "Access failure: ",
+            toString(paste0("'", fail, "'"), width = 200L)
+        )
     }
     normalizePath(
         path = path,
