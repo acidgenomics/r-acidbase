@@ -43,38 +43,3 @@ capitalize <- function(x, strict = FALSE) {
         USE.NAMES = FALSE
     )
 }
-
-
-
-#' @describeIn capitalize Only capitalize the first letter in the sentence.
-#'   Note that this function attempts to preserve capitalization of acronyms.
-#' @export
-sentenceCase <- function(x) {
-    vapply(
-        X = as.character(x),
-        FUN = function(x) {
-            x <- strsplit(x, split = " ")[[1L]]
-            ## Only capitalize the first letter of the first word.
-            firstWord <- paste0(
-                toupper(substring(x[[1L]], first = 1L, last = 1L)),
-                substring(x[[1L]], first = 2L)
-            )
-            ## Loop across the other words and look for acronyms. Convert to
-            ## lower case otherwise.
-            otherWords <- vapply(
-                X = tail(x, n = -1L),
-                FUN = function(x) {
-                    if (!isTRUE(grepl("^[.A-Z0-9]+$", x))) {
-                        x <- tolower(x)
-                    }
-                    x
-                },
-                FUN.VALUE = character(1L),
-                USE.NAMES = FALSE
-            )
-            paste(c(firstWord, otherWords), sep = "", collapse = " ")
-        },
-        FUN.VALUE = character(1L),
-        USE.NAMES = FALSE
-    )
-}
