@@ -22,10 +22,11 @@ Base name without the file extension
 \note{
 This function intentionally doesn't check whether a file exists.
 
-Updated 2019-10-12.
+Updated 2019-10-22.
 }
 \examples{
-basenameSansExt(c("dir/foo.txt", "dir/bar.tar.gz", "dir/"))
+path <- c("dir/foo.txt", "bar.tar.gz", "DESCRIPTION")
+basenameSansExt(path)
 }
 \seealso{
 \itemize{
