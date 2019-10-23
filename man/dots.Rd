@@ -43,4 +43,3 @@ dots(a, b, c, character = TRUE)
 \item \href{https://goo.gl/bM5TrP}{devtools infrastructure}.
 }
 }
-\keyword{internal}
