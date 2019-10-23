@@ -39,7 +39,7 @@ dots <- function(..., character = FALSE) {
     if (!all(bapply(dots, is.symbol))) {
         stop(
             "This function uses non-standard evaluation (NSE).\n",
-            "Dot objects must be unquoted.\n\n",
+            "Dots must be unquoted.\n\n",
             "More details on NSE:\n",
             "- https://cran.r-project.org/package=lazyeval\n",
             "- https://dplyr.tidyverse.org/articles/programming.html\n",
