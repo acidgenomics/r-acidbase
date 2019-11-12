@@ -22,7 +22,7 @@ Package name.}
 \value{
 \itemize{
 \item \code{methodFormals}: \code{list}. Extract the sealed formal arguments.
-\item \code{methodFunction}: \code{function}. Extract the sealed function.
+\item \code{methodFunction}: \verb{function}. Extract the sealed function.
 }
 }
 \description{

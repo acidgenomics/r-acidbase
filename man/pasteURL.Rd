@@ -16,7 +16,7 @@ a protocol in the first element of the dots.}
 }
 \value{
 \code{character}.
-URL path, containing forward slashes (\code{/}).
+URL path, containing forward slashes (\verb{/}).
 }
 \description{
 Concatenate strings to form a URL

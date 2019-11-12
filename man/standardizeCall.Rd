@@ -4,9 +4,13 @@
 \alias{standardizeCall}
 \title{Standardize call}
 \usage{
-standardizeCall(which = sys.parent(n = 1L), defaults = TRUE,
-  expandDots = TRUE, return = c("call", "list"),
-  verbose = getOption("verbose", default = FALSE))
+standardizeCall(
+  which = sys.parent(n = 1L),
+  defaults = TRUE,
+  expandDots = TRUE,
+  return = c("call", "list"),
+  verbose = getOption("verbose", default = FALSE)
+)
 }
 \arguments{
 \item{which}{the frame number if non-negative, the number of frames

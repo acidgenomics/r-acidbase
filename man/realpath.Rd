@@ -37,7 +37,7 @@ Convert file paths to canonical form for the platform, to display them
   be compared.
 }
 \details{
-Tilde-expansion (see \code{\link{path.expand}}) is first done on
+Tilde-expansion (see \code{\link[base]{path.expand}}) is first done on
   \code{paths}.
 
   Where the Unix-alike platform supports it attempts to turn paths into

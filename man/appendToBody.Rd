@@ -7,7 +7,7 @@
 appendToBody(fun, values, after = 1L)
 }
 \arguments{
-\item{fun}{\code{function}.}
+\item{fun}{\verb{function}.}
 
 \item{values}{\code{call}.
 Quoted values (i.e. call) to slot in the function body.}
@@ -17,7 +17,7 @@ Where to append in the \code{body}.
 The default of \code{1L} places directly after the opening curly bracket.}
 }
 \value{
-\code{function}.
+\verb{function}.
 }
 \description{
 Append values to function body
