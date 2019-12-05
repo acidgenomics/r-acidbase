@@ -4,9 +4,12 @@
 \alias{matchArgsToDoCall}
 \title{Match arguments to \code{do.call}}
 \usage{
-matchArgsToDoCall(args = NULL, removeFormals = NULL,
-  which = sys.parent(n = 1L), verbose = getOption("verbose", default =
-  FALSE))
+matchArgsToDoCall(
+  args = NULL,
+  removeFormals = NULL,
+  which = sys.parent(n = 1L),
+  verbose = getOption("verbose", default = FALSE)
+)
 }
 \arguments{
 \item{args}{a \emph{list} of arguments to the function call.  The
