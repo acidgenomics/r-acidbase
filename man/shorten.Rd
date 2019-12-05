@@ -12,6 +12,9 @@ shorten(x, width = getOption("width"))
 \item{width}{\code{integer(1)}.
 Width.}
 }
+\value{
+\code{character}.
+}
 \description{
 Automatically generate a substring and add trailing "..." if necessary.
 }
@@ -19,7 +22,7 @@ Automatically generate a substring and add trailing "..." if necessary.
 Note that return matches the desired width.
 }
 \note{
-Updated 2019-10-21.
+Updated 2019-12-05.
 }
 \examples{
 x <- "the quick brown fox"
