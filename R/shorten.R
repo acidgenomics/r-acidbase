@@ -5,11 +5,13 @@
 #' Note that return matches the desired width.
 #'
 #' @export
-#' @note Updated 2019-10-21.
+#' @note Updated 2019-12-05.
 #'
 #' @inheritParams params
 #'
 #' @seealso `assertive.base:::truncate()`.
+#'
+#' @return `character`.
 #'
 #' @examples
 #' x <- "the quick brown fox"
