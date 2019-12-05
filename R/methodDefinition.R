@@ -21,18 +21,18 @@
 #' @examples
 #' ## Function ====
 #' x <- methodFunction(
-#'     f = "as.data.frame",
-#'     signature = "DataFrame",
-#'     package = "BiocGenerics"
+#'     f = "show",
+#'     signature = "ANY",
+#'     package = "methods"
 #' )
 #' class(x)
-#' formals(x)
+#' body(x)
 #'
 #' ## Formals ====
 #' x <- methodFormals(
-#'     f = "as.data.frame",
-#'     signature = "DataFrame",
-#'     package = "BiocGenerics"
+#'     f = "show",
+#'     signature = "ANY",
+#'     package = "methods"
 #' )
 #' class(x)
 #' print(x)

@@ -167,38 +167,18 @@ Package name.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Function ====</span>
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>methodFunction</span>(
-    <span class='kw'>f</span> <span class='kw'>=</span> <span class='st'>"as.data.frame"</span>,
-    <span class='kw'>signature</span> <span class='kw'>=</span> <span class='st'>"DataFrame"</span>,
-    <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"BiocGenerics"</span>
+    <span class='kw'>f</span> <span class='kw'>=</span> <span class='st'>"show"</span>,
+    <span class='kw'>signature</span> <span class='kw'>=</span> <span class='st'>"ANY"</span>,
+    <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"methods"</span>
 )
-<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "function"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/formals.html'>formals</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; $x
-#&gt; 
-#&gt; 
-#&gt; $row.names
-#&gt; NULL
-#&gt; 
-#&gt; $optional
-#&gt; [1] FALSE
-#&gt; 
-#&gt; $...
-#&gt; 
-#&gt; </div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "function"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/body.html'>body</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; showDefault(object, FALSE)</div><div class='input'>
 <span class='co'>## Formals ====</span>
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>methodFormals</span>(
-    <span class='kw'>f</span> <span class='kw'>=</span> <span class='st'>"as.data.frame"</span>,
-    <span class='kw'>signature</span> <span class='kw'>=</span> <span class='st'>"DataFrame"</span>,
-    <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"BiocGenerics"</span>
+    <span class='kw'>f</span> <span class='kw'>=</span> <span class='st'>"show"</span>,
+    <span class='kw'>signature</span> <span class='kw'>=</span> <span class='st'>"ANY"</span>,
+    <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"methods"</span>
 )
-<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "pairlist"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; $x
-#&gt; 
-#&gt; 
-#&gt; $row.names
-#&gt; NULL
-#&gt; 
-#&gt; $optional
-#&gt; [1] FALSE
-#&gt; 
-#&gt; $...
+<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "pairlist"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; $object
 #&gt; 
 #&gt; </div></pre>
   </div>
