@@ -4,20 +4,30 @@
 \alias{fileDepth}
 \title{File depth}
 \usage{
-fileDepth(..., fsep = .Platform[["file.sep"]])
+fileDepth(path, fsep = .Platform[["file.sep"]])
 }
-\description{
-This function is parameterized, and works on multiple files and/or
-directories.
-}
-\details{
-File path(s) do not have to exist on disk, similar to the approach employed
-by \code{\link[base:file.path]{file.path()}}.
+\arguments{
+\item{path}{\code{character}.
+File path(s).
+This function is vectorized and supports multiple files.}
 
+\item{fsep}{\code{character(1)}.
+Platform-specific file path separator (e.g. "/" on Unix).}
+}
+\value{
+\code{integer}.
+Unnamed vector denoting file path depth.
 Note that "/" will return 0 here (zero indexed).
 }
+\description{
+File depth
+}
 \note{
+This function intentionally doesn't check whether a file exists.
+
 Updated 2019-09-05.
+}
+\examples{
 a <- tempdir()
 b <- tempfile()
 fileDepth(a, b)

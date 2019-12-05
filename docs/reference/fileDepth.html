@@ -38,8 +38,7 @@
   
 
 <meta property="og:title" content="File depth — fileDepth" />
-<meta property="og:description" content="This function is parameterized, and works on multiple files and/or
-directories." />
+<meta property="og:description" content="File depth" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -117,31 +116,49 @@ directories." />
     </div>
 
     <div class="ref-description">
-    <p>This function is parameterized, and works on multiple files and/or
-directories.</p>
+    <p>File depth</p>
     </div>
 
-    <pre class="usage"><span class='fu'>fileDepth</span>(<span class='no'>...</span>, <span class='kw'>fsep</span> <span class='kw'>=</span> <span class='no'>.Platform</span><span class='kw'>[[</span><span class='st'>"file.sep"</span>]])</pre>
+    <pre class="usage"><span class='fu'>fileDepth</span>(<span class='no'>path</span>, <span class='kw'>fsep</span> <span class='kw'>=</span> <span class='no'>.Platform</span><span class='kw'>[[</span><span class='st'>"file.sep"</span>]])</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>path</th>
+      <td><p><code>character</code>.
+File path(s).
+This function is vectorized and supports multiple files.</p></td>
+    </tr>
+    <tr>
+      <th>fsep</th>
+      <td><p><code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>.
+Platform-specific file path separator (e.g. "/" on Unix).</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>File path(s) do not have to exist on disk, similar to the approach employed
-by <code><a href='https://rdrr.io/r/base/file.path.html'>file.path()</a></code>.</p>
-<p>Note that "/" will return 0 here (zero indexed).</p>
+    <p><code>integer</code>.
+Unnamed vector denoting file path depth.
+Note that "/" will return 0 here (zero indexed).</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>Updated 2019-09-05.
-a &lt;- tempdir()
-b &lt;- tempfile()
-fileDepth(a, b)</p>
+    <p>This function intentionally doesn't check whether a file exists.</p>
+<p>Updated 2019-09-05.</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>a</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>()
+<span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()
+<span class='fu'>fileDepth</span>(<span class='no'>a</span>, <span class='no'>b</span>)</div><div class='output co'>#&gt; [1] 0</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#details">Details</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
       <li><a href="#note">Note</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
