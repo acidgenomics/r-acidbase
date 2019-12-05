@@ -17,7 +17,7 @@ Where to append in the \code{body}.
 The default of \code{1L} places directly after the opening curly bracket.}
 }
 \value{
-\verb{function}.
+\code{function}.
 }
 \description{
 Append values to function body

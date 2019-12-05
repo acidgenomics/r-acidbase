@@ -9,7 +9,7 @@ bapply(X, FUN, ...)
 \arguments{
 \item{X}{\code{atomic} or \code{list}.}
 
-\item{FUN}{\verb{function}.
+\item{FUN}{\code{function}.
 An assert check function that returns \code{logical(1)} boolean flag
 (\code{TRUE}/\code{FALSE}) to \link[base:apply]{apply}.}
 
