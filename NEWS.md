@@ -1,3 +1,7 @@
+## acidbase 0.1.2 (2019-12-05)
+
+- Added new `fileDepth` function.
+
 ## acidbase 0.1.1 (2019-10-22)
 
 - Migrated `realpath` from brio package. Reworked slightly to not depend on any
