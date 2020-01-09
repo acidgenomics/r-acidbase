@@ -4,7 +4,7 @@
 #' identical to the generic, and use a nested `.local` call.
 #'
 #' @export
-#' @note Updated 2019-10-21.
+#' @note Updated 2020-01-09.
 #'
 #' @inheritParams base::sys.call
 #' @inheritParams acidroxygen::params
@@ -134,12 +134,6 @@ standardizeCall <- function(
     if (isTRUE(verbose)) {
         print(list(match.call = call))  # nocov
     }
-    ## Check call integrity before returning.
-    ## ## Require that all arguments are named before returning.
-    ## This check is especially important for S4 methods containing `.local`.
-    stopifnot(
-        is.call(call),
-        .isCharacter(names(as.list(call)[-1L]))
-    )
+    stopifnot(is.call(call))
     switch(EXPR = return, call = call, list = list)
 }
