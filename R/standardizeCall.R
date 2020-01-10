@@ -107,8 +107,6 @@ standardizeCall <- function(
         print(list)  # nocov
     }
     ## Now ready to match the call.
-    ## FIXME This step is causing `brio::import()` to fail inside a nested
-    ## function call (see `bb8::import()` for example).
     call <- match.call(
         definition = definition,
         call = call,
