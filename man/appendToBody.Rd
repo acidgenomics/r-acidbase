@@ -7,7 +7,7 @@
 appendToBody(fun, values, after = 1L)
 }
 \arguments{
-\item{fun}{\verb{function}.}
+\item{fun}{\code{function}.}
 
 \item{values}{\code{call}.
 Quoted values (i.e. call) to slot in the function body.}

@@ -7,7 +7,7 @@
 callAndName(fun, x, ...)
 }
 \arguments{
-\item{fun}{\verb{function}.}
+\item{fun}{\code{function}.}
 
 \item{x}{The first input to \code{fun}.}
 
