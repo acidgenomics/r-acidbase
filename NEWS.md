@@ -1,8 +1,18 @@
+## acidbase 0.1.3 (2020-01-10)
+
+### Minor changes
+
+- `standardizeCall`: Removed extra unnecessary assert check.
+
 ## acidbase 0.1.2 (2019-12-05)
+
+### New functions
 
 - Added new `fileDepth` function.
 
 ## acidbase 0.1.1 (2019-10-22)
+
+### Minor changes
 
 - Migrated `realpath` from brio package. Reworked slightly to not depend on any
   assert checks from goalie package. Now this function essentially wraps
