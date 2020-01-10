@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">acidbase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
       </span>
     </div>
 
@@ -122,18 +122,38 @@
     <div id="acidbase-0-1-1-2019-10-22" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acidbase-0-1-1-2019-10-22" class="anchor"></a>acidbase 0.1.1 (2019-10-22)</h2>
+<div id="minor-changes-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#minor-changes-1" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Migrated <code>realpath</code> from brio package. Reworked slightly to not depend on any assert checks from goalie package. Now this function essentially wraps <code>normalizePath</code> but provides a more informative error message.</li>
 <li>
 <code>basenameSansExt</code>: Minor tweak to ensure that files without an extension still return basename as expected.</li>
 </ul>
 </div>
+</div>
     <div id="acidbase-0-1-2-2019-12-05" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acidbase-0-1-2-2019-12-05" class="anchor"></a>acidbase 0.1.2 (2019-12-05)</h2>
+<div id="new-functions" class="section level3">
+<h3 class="hasAnchor">
+<a href="#new-functions" class="anchor"></a>New functions</h3>
 <ul>
 <li>Added new <code>fileDepth</code> function.</li>
 </ul>
+</div>
+</div>
+    <div id="acidbase-0-1-3-2020-01-10" class="section level2">
+<h2 class="hasAnchor">
+<a href="#acidbase-0-1-3-2020-01-10" class="anchor"></a>acidbase 0.1.3 (2020-01-10)</h2>
+<div id="minor-changes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#minor-changes" class="anchor"></a>Minor changes</h3>
+<ul>
+<li>
+<code>standardizeCall</code>: Removed extra unnecessary assert check.</li>
+</ul>
+</div>
 </div>
   </div>
 
@@ -144,6 +164,7 @@
         <li><a href="#acidbase-0-1-0-2019-10-21">0.1.0</a></li>
         <li><a href="#acidbase-0-1-1-2019-10-22">0.1.1</a></li>
         <li><a href="#acidbase-0-1-2-2019-12-05">0.1.2</a></li>
+        <li><a href="#acidbase-0-1-3-2020-01-10">0.1.3</a></li>
       </ul>
     </div>
   </div>
