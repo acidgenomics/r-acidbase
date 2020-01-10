@@ -53,3 +53,11 @@ test_that("Inside S4 method with .local", {
         "testing(a = aaa, b = bbb)"
     )
 })
+
+test_that("Very simple, minimal function", {
+    fun <- function(...) {
+        standardizeCall()
+    }
+    x <- fun()
+    expect_is(x, "call")
+})
