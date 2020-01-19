@@ -56,8 +56,9 @@ Updated 2020-01-19.
 }
 \examples{
 ## Create an example text file.
+text <- c("hello","world")
 file <- "test.txt"
-writeLines(text = c("hello","world"), con = file)
+writeLines(text = text, con = file)
 readLines(con = file)
 
 ## Apply gzip compression.

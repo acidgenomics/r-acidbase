@@ -35,8 +35,9 @@
 #'
 #' @examples
 #' ## Create an example text file.
+#' text <- c("hello","world")
 #' file <- "test.txt"
-#' writeLines(text = c("hello","world"), con = file)
+#' writeLines(text = text, con = file)
 #' readLines(con = file)
 #'
 #' ## Apply gzip compression.
@@ -91,7 +92,7 @@ compress <- function(
     )
     ## For ZIP files, hand off to `utils::zip()` and early return.
     if (identical(ext, "zip")) {
-        zip(zipfile = destfile, files = file)
+        zip(zipfile = destfile, files = basename(file))
         if (isTRUE(remove)) {
             file.remove(file)
         }
