@@ -55,9 +55,47 @@ For ZIP files, refer to \code{zip} and \code{unzip} in the utils package.
 Updated 2020-01-19.
 }
 \examples{
-con <- file("test.txt")
-writeLines(c("hello","world"), con)
+## Create an example text file.
+file <- "test.txt"
+unlink(file)
+con <- file(description = file)
+writeLines(text = c("hello","world"), con = con)
+readLines(con = con)
 close(con)
+
+## gzip ====
+destfile <- compress(file, ext = "gz", remove = TRUE, overwrite = TRUE)
+destfile
+readLines(con = destfile)
+file.exists(file)
+decompress(destfile, remove = TRUE, overwrite = TRUE)
+file.exists(file)
+
+## bzip2 ====
+destfile <- compress(file, ext = "bz2", remove = FALSE, overwrite = TRUE)
+destfile
+readLines(con = destfile)
+file.exists(file)
+decompress(destfile, remove = TRUE, overwrite = TRUE)
+file.exists(file)
+
+## xz ====
+destfile <- compress(file, ext = "xz", remove = FALSE, overwrite = TRUE)
+destfile
+readLines(con = destfile)
+file.exists(file)
+decompress(destfile, remove = TRUE, overwrite = TRUE)
+file.exists(file)
+
+## zip ====
+destfile <- compress(file, ext = "zip", remove = FALSE, overwrite = TRUE)
+destfile
+## Note that `readLines()` doesn't support ZIP compression.
+file.exists(file)
+decompress(destfile, remove = TRUE, overwrite = TRUE)
+file.exists(file)
+
+unlink(file)
 }
 \seealso{
 \itemize{
