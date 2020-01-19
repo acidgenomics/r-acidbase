@@ -49,19 +49,10 @@ formalsList <- list(
         getOption("acid.export.dir", default = ".")
     ),
     export.ext = quote(
-        getOption(
-            "acid.export.ext",
-            default = c(
-                "csv", "csv.gz", "csv.bz2",
-                "tsv", "tsv.gz", "tsv.bz2"
-            )
-        )
+        getOption("acid.export.ext", default = "csv")
     ),
     export.sparse.ext = quote(
-        getOption(
-            "acid.export.sparse.ext",
-            default = c("mtx", "mtx.gz", "mtx.bz2")
-        )
+        getOption("acid.export.sparse.ext", default = "mtx")
     ),
     export.quiet = quote(
         getOption("acid.export.quiet", default = FALSE)
@@ -85,6 +76,6 @@ formalsList <- list(
         getOption("acid.save.dir", default = ".")
     ),
     save.ext = quote(
-        getOption("acid.save.ext", default = c("rds", "rda"))
+        getOption("acid.save.ext", default = "rds")
     )
 )
