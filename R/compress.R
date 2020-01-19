@@ -7,6 +7,21 @@
 #' @note For ZIP files, refer to `zip` and `unzip` in the utils package.
 #' @note Updated 2020-01-19.
 #'
+#' @inheritParams acidroxygen::params
+#' @param ext `character(1)`.
+#'   Compression file format extension.
+#'   Uses [`match.arg()`][base::match.arg] internally and defaults to the first
+#'   argument in the `character` vector.
+#'
+#'   Supported formats:
+#'   - `gz`: gzip compression;
+#'     calls [`gzfile()`][base::gzfile] internally.
+#'   - `bz`: bzip2 (lzma) compression;
+#'     calls [`bzfile()`][base::bzfile] internally.
+#'   - `xz`: xz compression;
+#'     calls [`xzfile()`][base::xzfile] internally.
+#'   - `zip`: zip compression;
+#'     calls [`zip()`][utils::zip] or [`unzip()`][utils::unzip] internally.
 #' @param remove `logical(1)`.
 #'   Remove the input file once the output file is fully created and the
 #'   connection is closed.
