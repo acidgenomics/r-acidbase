@@ -17,7 +17,7 @@
 #' @examples
 #' a <- tempdir()
 #' b <- tempfile()
-#' fileDepth(a, b)
+#' fileDepth(c(a, b))
 fileDepth <- function(path, fsep = .Platform[["file.sep"]]) {
     path <- normalizePath(path, winslash = fsep, mustWork = FALSE)
     vapply(
