@@ -56,7 +56,7 @@ Updated 2020-01-19.
 }
 \examples{
 ## Create an example text file.
-text <- c("hello","world")
+text <- c("hello", "world")
 file <- "test.txt"
 writeLines(text = text, con = file)
 readLines(con = file)
