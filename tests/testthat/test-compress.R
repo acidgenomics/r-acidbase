@@ -1,6 +1,6 @@
 context("compress")
 
-text <- c("hello","world")
+text <- c("hello", "world")
 file <- "test.txt"
 writeLines(text = text, con = file)
 
