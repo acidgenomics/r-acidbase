@@ -77,12 +77,14 @@ compress <- function(
     destfile <- sprintf("%s.%s", file, ext)
     stopifnot(!identical(file, destfile))
     if (isTRUE(file.exists(destfile))) {
+        ## nocov start
         if (isTRUE(overwrite)) {
             message(sprintf("Overwriting file: '%s'.", destfile))
             file.remove(destfile)
         } else {
             stop(sprintf("File exists: '%s'.", destfile))
         }
+        ## nocov end
     }
     whatFun <- switch(
         EXPR = ext,
@@ -110,8 +112,10 @@ compress <- function(
     outComplete <- FALSE
     out <- FUN(description = destfile, open = "wb")
     on.exit({
+        ## nocov start
         if (!is.null(out)) close(out)
         if (!isTRUE(outComplete)) file.remove(destfile)
+        ## nocov end
     }, add = TRUE)
     nbytes <- 0
     repeat {
@@ -181,12 +185,14 @@ decompress <- function(
     )
     stopifnot(!identical(file, destfile))
     if (isTRUE(file.exists(destfile))) {
+        ## nocov start
         if (isTRUE(overwrite)) {
             file.remove(destfile)
         }
         else {
             stop(sprintf("File exists: '%s'.", destfile))
         }
+        ## nocov end
     }
     ## For ZIP files, hand off to `utils::unzip()` and early return.
     if (identical(ext, "zip")) {
@@ -201,7 +207,9 @@ decompress <- function(
             setTimes = FALSE
         )
         if (length(destfile) > 1L) {
+            ## nocov start
             message(sprintf("'%s' contains multiple files.", basename(file)))
+            ## nocov end
         }
         if (isTRUE(remove)) {
             file.remove(file)
@@ -227,8 +235,10 @@ decompress <- function(
     outComplete <- FALSE
     out <- file(destfile, open = "wb")
     on.exit({
+        ## nocov start
         if (!is.null(out)) close(out)
         if (!outComplete) file.remove(destfile)
+        ## nocov end
     }, add = TRUE)
     nbytes <- 0
     repeat {

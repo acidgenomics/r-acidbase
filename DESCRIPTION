@@ -22,6 +22,6 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Depends: R (>= 3.6)
 Imports: methods, utils
-Suggests: testthat
+Suggests: patrick, testthat
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.2
