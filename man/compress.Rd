@@ -57,20 +57,20 @@ Updated 2020-01-19.
 \examples{
 ## Create an example text file.
 file <- "test.txt"
-unlink(file)
 con <- file(description = file)
 writeLines(text = c("hello","world"), con = con)
 readLines(con = con)
 close(con)
 
-## gzip ====
-destfile <- compress(file, ext = "gz", remove = TRUE, overwrite = TRUE)
-destfile
-readLines(con = destfile)
-file.exists(file)
-decompress(destfile, remove = TRUE, overwrite = TRUE)
+## Apply gzip compression.
+gzfile <- compress(file = file, ext = "gz", remove = TRUE, overwrite = TRUE)
+gzfile
+readLines(con = gzfile)
 file.exists(file)
 
+## Decompress the gzipped file.
+file <- decompress(file = gzfile, remove = TRUE, overwrite = TRUE)
+file.exists(file)
 unlink(file)
 }
 \seealso{
