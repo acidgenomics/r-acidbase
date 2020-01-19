@@ -35,7 +35,7 @@
 #'
 #' @examples
 #' ## Create an example text file.
-#' text <- c("hello","world")
+#' text <- c("hello", "world")
 #' file <- "test.txt"
 #' writeLines(text = text, con = file)
 #' readLines(con = file)
@@ -100,31 +100,31 @@ compress <- function(
         }
         return(invisible(destfile))
     }
-    FUN <- get(
+    fun <- get(
         x = whatFun,
         envir = asNamespace("base"),
         mode = "function",
         inherits = FALSE
     )
-    stopifnot(is.function(FUN))
+    stopifnot(is.function(fun))
     inn <- file(description = file, open = "rb")
     on.exit(if (!is.null(inn)) close(inn))
     outComplete <- FALSE
-    out <- FUN(description = destfile, open = "wb")
+    out <- fun(description = destfile, open = "wb")
     on.exit({
         ## nocov start
         if (!is.null(out)) close(out)
         if (!isTRUE(outComplete)) file.remove(destfile)
         ## nocov end
     }, add = TRUE)
-    nbytes <- 0
+    nbytes <- 0L
     repeat {
         bfr <- readBin(
             con = inn,
             what = raw(0L),
             size = 1L,
             ## See 'BFR.SIZE' argument in `R.utils::compressFile`.
-            n = 1e+07
+            n = 1e+07L
         )
         n <- length(bfr)
         if (n == 0L) break
@@ -223,14 +223,14 @@ decompress <- function(
         gz = "gzfile",
         xz = "xzfile"
     )
-    FUN <- get(
+    fun <- get(
         x = whatFun,
         envir = asNamespace("base"),
         mode = "function",
         inherits = FALSE
     )
-    stopifnot(is.function(FUN))
-    inn <- FUN(file, open = "rb")
+    stopifnot(is.function(fun))
+    inn <- fun(file, open = "rb")
     on.exit(if (!is.null(inn)) close(inn))
     outComplete <- FALSE
     out <- file(destfile, open = "wb")
@@ -240,14 +240,14 @@ decompress <- function(
         if (!outComplete) file.remove(destfile)
         ## nocov end
     }, add = TRUE)
-    nbytes <- 0
+    nbytes <- 0L
     repeat {
         bfr <- readBin(
             inn,
             what = raw(0L),
             size = 1L,
             ## See 'BFR.SIZE' argument in `R.utils::decompressFile`.
-            n = 1e+07
+            n = 1e+07L
         )
         n <- length(bfr)
         if (n == 0L) break
