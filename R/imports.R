@@ -1,3 +1,3 @@
 #' @importFrom methods is isGeneric selectMethod slot
-#' @importFrom utils capture.output head
+#' @importFrom utils capture.output head unzip zip
 NULL
