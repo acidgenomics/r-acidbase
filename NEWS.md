@@ -1,3 +1,15 @@
+## acidbase 0.1.4 (2020-01-19)
+
+### New functions
+
+- `compress`, `decompress`: Added dynamic file compression/decompression support
+  for GZ, BZ2, XZ, and ZIP files. Inspired by approach used in R.utils
+  `compressFile` and `decompressFile`.
+
+### Minor changes
+
+- `fileDepth`: Updated unit test to work reliably on macOS.
+
 ## acidbase 0.1.3 (2020-01-10)
 
 ### Minor changes
