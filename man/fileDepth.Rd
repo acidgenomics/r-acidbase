@@ -30,5 +30,5 @@ Updated 2019-09-05.
 \examples{
 a <- tempdir()
 b <- tempfile()
-fileDepth(a, b)
+fileDepth(c(a, b))
 }
