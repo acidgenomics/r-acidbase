@@ -36,20 +36,20 @@
 #' @examples
 #' ## Create an example text file.
 #' file <- "test.txt"
-#' con <- file(description = file)
-#' writeLines(text = c("hello","world"), con = con)
-#' readLines(con = con)
-#' close(con)
+#' writeLines(text = c("hello","world"), con = file)
+#' readLines(con = file)
 #'
 #' ## Apply gzip compression.
 #' gzfile <- compress(file = file, ext = "gz", remove = TRUE, overwrite = TRUE)
 #' gzfile
 #' readLines(con = gzfile)
+#' ## When `remove = TRUE`, the original input file will be removed.
 #' file.exists(file)
 #'
 #' ## Decompress the gzipped file.
 #' file <- decompress(file = gzfile, remove = TRUE, overwrite = TRUE)
-#' file.exists(file)
+#' file
+#'
 #' unlink(file)
 NULL
 
