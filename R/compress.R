@@ -50,30 +50,6 @@
 #' decompress(destfile, remove = TRUE, overwrite = TRUE)
 #' file.exists(file)
 #'
-#' ## bzip2 ====
-#' destfile <- compress(file, ext = "bz2", remove = FALSE, overwrite = TRUE)
-#' destfile
-#' readLines(con = destfile)
-#' file.exists(file)
-#' decompress(destfile, remove = TRUE, overwrite = TRUE)
-#' file.exists(file)
-#'
-#' ## xz ====
-#' destfile <- compress(file, ext = "xz", remove = FALSE, overwrite = TRUE)
-#' destfile
-#' readLines(con = destfile)
-#' file.exists(file)
-#' decompress(destfile, remove = TRUE, overwrite = TRUE)
-#' file.exists(file)
-#'
-#' ## zip ====
-#' destfile <- compress(file, ext = "zip", remove = FALSE, overwrite = TRUE)
-#' destfile
-#' ## Note that `readLines()` doesn't support ZIP compression.
-#' file.exists(file)
-#' decompress(destfile, remove = TRUE, overwrite = TRUE)
-#' file.exists(file)
-#'
 #' unlink(file)
 NULL
 
