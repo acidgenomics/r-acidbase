@@ -19,9 +19,32 @@ decompress(
 )
 }
 \arguments{
+\item{file}{\code{character(1)}.
+File path.}
+
+\item{ext}{\code{character(1)}.
+Compression file format extension.
+Uses \code{\link[base:match.arg]{match.arg()}} internally and defaults to the first
+argument in the \code{character} vector.
+
+Supported formats:
+\itemize{
+\item \code{gz}: gzip compression;
+calls \code{\link[base:gzfile]{gzfile()}} internally.
+\item \code{bz}: bzip2 (lzma) compression;
+calls \code{\link[base:bzfile]{bzfile()}} internally.
+\item \code{xz}: xz compression;
+calls \code{\link[base:xzfile]{xzfile()}} internally.
+\item \code{zip}: zip compression;
+calls \code{\link[utils:zip]{zip()}} or \code{\link[utils:unzip]{unzip()}} internally.
+}}
+
 \item{remove}{\code{logical(1)}.
 Remove the input file once the output file is fully created and the
 connection is closed.}
+
+\item{overwrite}{\code{logical(1)}.
+Overwrite existing file on disk.}
 }
 \description{
 Compress or decompress using gzip, bzip2, or xz compression.
