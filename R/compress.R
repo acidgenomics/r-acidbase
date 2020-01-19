@@ -34,9 +34,20 @@
 #' - `memCompress`, `memDecompress`.
 #'
 #' @examples
-#' con <- file("test.txt")
-#' writeLines(c("hello","world"), con)
+#' file <- "test.txt"
+#' unlink(file)
+#' con <- file(description = file)
+#' writeLines(text = c("hello","world"), con = con)
+#' readLines(con = con)
 #' close(con)
+#'
+#' ## gzip ===
+#'
+#' ## bzip2 ===
+#'
+#' ## xz ====
+#'
+#' ## zip ====
 NULL
 
 
@@ -65,9 +76,13 @@ compress <- function(
         EXPR = ext,
         bz2 = "bzfile",
         gz = "gzfile",
-        xz = "xzfile",
-        zip = "zip"
+        xz = "xzfile"
     )
+    ## For ZIP files, hand off to `utils::zip()` and early return.
+    if (identical(ext, "zip")) {
+        zip(zipfile = destfile, files = file)
+        return(invisible(destfile))
+    }
     FUN <- get(
         x = whatFun,
         envir = asNamespace("base"),
@@ -82,11 +97,6 @@ compress <- function(
         } else {
             stop(sprintf("File exists: '%s'.", destfile))
         }
-    }
-    ## For ZIP files, hand off to `utils::zip()` and early return.
-    if (identical(ext, "zip")) {
-        FUN(zipfile = destfile, files = file)
-        return(invisible(destfile))
     }
     inn <- file(description = file, open = "rb")
     on.exit(if (!is.null(inn)) close(inn))
@@ -156,20 +166,6 @@ decompress <- function (
             ignore.case = TRUE
         ) + 1L
     )
-    whatFun <- switch(
-        EXPR = ext,
-        bz2 = "bzfile",
-        gz = "gzfile",
-        xz = "xzfile",
-        zip = "unzip"
-    )
-    FUN <- get(
-        x = whatFun,
-        envir = asNamespace("base"),
-        mode = "function",
-        inherits = FALSE
-    )
-    stopifnot(is.function(FUN))
     destfile <- gsub(
         pattern = sprintf("[.]%s$", ext),
         replacement = "",
@@ -177,17 +173,9 @@ decompress <- function (
         ignore.case = TRUE
     )
     stopifnot(!identical(file, destfile))
-    if (isTRUE(file.exists(destfile))) {
-        if (isTRUE(overwrite)) {
-            file.remove(destfile)
-        }
-        else {
-            stop(sprintf("File exists: '%s'.", destfile))
-        }
-    }
     ## For ZIP files, hand off to `utils::unzip()` and early return.
     if (identical(ext, "zip")) {
-        destfile <- FUN(
+        destfile <- unzip(
             zipfile = file,
             files = NULL,
             list = FALSE,
@@ -202,6 +190,27 @@ decompress <- function (
         }
         destfile <- realpath(destfile)
         return(invisible(destfile))
+    }
+    whatFun <- switch(
+        EXPR = ext,
+        bz2 = "bzfile",
+        gz = "gzfile",
+        xz = "xzfile"
+    )
+    FUN <- get(
+        x = whatFun,
+        envir = asNamespace("base"),
+        mode = "function",
+        inherits = FALSE
+    )
+    stopifnot(is.function(FUN))
+    if (isTRUE(file.exists(destfile))) {
+        if (isTRUE(overwrite)) {
+            file.remove(destfile)
+        }
+        else {
+            stop(sprintf("File exists: '%s'.", destfile))
+        }
     }
     inn <- FUN(file, open = "rb")
     on.exit(if (!is.null(inn)) close(inn))
