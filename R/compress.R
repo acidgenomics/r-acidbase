@@ -36,20 +36,20 @@
 #' @examples
 #' ## Create an example text file.
 #' file <- "test.txt"
-#' unlink(file)
 #' con <- file(description = file)
 #' writeLines(text = c("hello","world"), con = con)
 #' readLines(con = con)
 #' close(con)
 #'
-#' ## gzip ====
-#' destfile <- compress(file, ext = "gz", remove = TRUE, overwrite = TRUE)
-#' destfile
-#' readLines(con = destfile)
-#' file.exists(file)
-#' decompress(destfile, remove = TRUE, overwrite = TRUE)
+#' ## Apply gzip compression.
+#' gzfile <- compress(file = file, ext = "gz", remove = TRUE, overwrite = TRUE)
+#' gzfile
+#' readLines(con = gzfile)
 #' file.exists(file)
 #'
+#' ## Decompress the gzipped file.
+#' file <- decompress(file = gzfile, remove = TRUE, overwrite = TRUE)
+#' file.exists(file)
 #' unlink(file)
 NULL
 
@@ -68,10 +68,10 @@ compress <- function(
 ) {
     stopifnot(
         .isString(file),
-        isTRUE(file.exists(file)),
         .isFlag(remove),
         .isFlag(overwrite)
     )
+    file <- realpath(file)
     ext <- match.arg(ext)
     destfile <- sprintf("%s.%s", file, ext)
     stopifnot(!identical(file, destfile))
@@ -152,18 +152,18 @@ formals(compress)[c("remove", "overwrite")] <-
 
 #' @rdname compress
 #' @export
-decompress <- function (
+decompress <- function(
     file,
     remove,
     overwrite
 ) {
     stopifnot(
         .isString(file),
-        isTRUE(file.exists(file)),
-        isTRUE(grepl(pattern = compressExtPattern, x = file)),
         .isFlag(remove),
         .isFlag(overwrite)
     )
+    file <- realpath(file)
+    stopifnot(isTRUE(grepl(pattern = compressExtPattern, x = file)))
     ext <- substring(
         text = file,
         first = regexpr(
