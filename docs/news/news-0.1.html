@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">acidbase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5</span>
       </span>
     </div>
 
@@ -122,9 +122,9 @@
     <div id="acidbase-0-1-1-2019-10-22" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acidbase-0-1-1-2019-10-22" class="anchor"></a>acidbase 0.1.1 (2019-10-22)</h2>
-<div id="minor-changes-2" class="section level3">
+<div id="minor-changes-3" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-2" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-3" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Migrated <code>realpath</code> from brio package. Reworked slightly to not depend on any assert checks from goalie package. Now this function essentially wraps <code>normalizePath</code> but provides a more informative error message.</li>
 <li>
@@ -146,9 +146,9 @@
     <div id="acidbase-0-1-3-2020-01-10" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acidbase-0-1-3-2020-01-10" class="anchor"></a>acidbase 0.1.3 (2020-01-10)</h2>
-<div id="minor-changes-1" class="section level3">
+<div id="minor-changes-2" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-1" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-2" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>
 <code>standardizeCall</code>: Removed extra unnecessary assert check.</li>
@@ -166,12 +166,23 @@
 <code>compress</code>, <code>decompress</code>: Added dynamic file compression/decompression support for GZ, BZ2, XZ, and ZIP files. Inspired by approach used in R.utils <code>compressFile</code> and <code>decompressFile</code>.</li>
 </ul>
 </div>
+<div id="minor-changes-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#minor-changes-1" class="anchor"></a>Minor changes</h3>
+<ul>
+<li>
+<code>fileDepth</code>: Updated unit test to work reliably on macOS.</li>
+</ul>
+</div>
+</div>
+    <div id="acidbase-0-1-5-2020-01-28" class="section level2">
+<h2 class="hasAnchor">
+<a href="#acidbase-0-1-5-2020-01-28" class="anchor"></a>acidbase 0.1.5 (2020-01-28)</h2>
 <div id="minor-changes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#minor-changes" class="anchor"></a>Minor changes</h3>
 <ul>
-<li>
-<code>fileDepth</code>: Updated unit test to work reliably on macOS.</li>
+<li>Documentation fixes to pass CRAN release checks.</li>
 </ul>
 </div>
 </div>
@@ -186,6 +197,7 @@
         <li><a href="#acidbase-0-1-2-2019-12-05">0.1.2</a></li>
         <li><a href="#acidbase-0-1-3-2020-01-10">0.1.3</a></li>
         <li><a href="#acidbase-0-1-4-2020-01-19">0.1.4</a></li>
+        <li><a href="#acidbase-0-1-5-2020-01-28">0.1.5</a></li>
       </ul>
     </div>
   </div>

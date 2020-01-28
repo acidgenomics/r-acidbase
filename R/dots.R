@@ -18,8 +18,8 @@
 #' @seealso
 #' `help("dotsMethods", "methods")`.
 #'
-#' [tidyverse](http://tidyverse.org) documentation:
-#' - [rlang](http://rlang.tidyverse.org).
+#' [tidyverse](http://tidyverse.org/) documentation:
+#' - [rlang](https://rlang.r-lib.org/).
 #' - [dplyr utils](https://goo.gl/fhAuak).
 #' - [devtools infrastructure](https://goo.gl/bM5TrP).
 #'

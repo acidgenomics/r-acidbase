@@ -36,9 +36,9 @@ dots(a, b, c, character = TRUE)
 \seealso{
 \code{help("dotsMethods", "methods")}.
 
-\href{http://tidyverse.org}{tidyverse} documentation:
+\href{http://tidyverse.org/}{tidyverse} documentation:
 \itemize{
-\item \href{http://rlang.tidyverse.org}{rlang}.
+\item \href{https://rlang.r-lib.org/}{rlang}.
 \item \href{https://goo.gl/fhAuak}{dplyr utils}.
 \item \href{https://goo.gl/bM5TrP}{devtools infrastructure}.
 }
