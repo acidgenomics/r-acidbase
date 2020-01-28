@@ -3,6 +3,7 @@
 ### Minor changes
 
 - Documentation fixes to pass CRAN release checks.
+- Switched license from MIT to GPL-3.
 
 ## acidbase 0.1.4 (2020-01-19)
 
