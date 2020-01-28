@@ -27,7 +27,7 @@ Extract dots from function
 \note{
 This function uses non-standard evaluation.
 
-Updated 2019-10-22.
+Updated 2020-01-28.
 }
 \examples{
 dots(a, b, c, character = FALSE)
@@ -35,11 +35,8 @@ dots(a, b, c, character = TRUE)
 }
 \seealso{
 \code{help("dotsMethods", "methods")}.
-
-\href{http://tidyverse.org/}{tidyverse} documentation:
 \itemize{
 \item \href{https://rlang.r-lib.org/}{rlang}.
-\item \href{https://goo.gl/fhAuak}{dplyr utils}.
-\item \href{https://goo.gl/bM5TrP}{devtools infrastructure}.
+\item \href{http://tidyverse.org/}{tidyverse}.
 }
 }
