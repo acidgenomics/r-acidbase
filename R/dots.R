@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @note This function uses non-standard evaluation.
-#' @note Updated 2019-10-22.
+#' @note Updated 2020-01-28.
 #'
 #' @param ... Objects as dots.
 #' @param character `logical(1)`.
@@ -18,10 +18,8 @@
 #' @seealso
 #' `help("dotsMethods", "methods")`.
 #'
-#' [tidyverse](http://tidyverse.org/) documentation:
 #' - [rlang](https://rlang.r-lib.org/).
-#' - [dplyr utils](https://goo.gl/fhAuak).
-#' - [devtools infrastructure](https://goo.gl/bM5TrP).
+#' - [tidyverse](http://tidyverse.org/).
 #'
 #' @examples
 #' dots(a, b, c, character = FALSE)
