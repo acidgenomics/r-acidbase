@@ -3,6 +3,7 @@
 ^[._][-._a-zA-Z0-9]+$
 ^\.Rproj\.user$
 ^CONTRIBUTING\.md$
+^cran-comments\.md$
 ^data-raw$
 ^doc(s)?$
 ^Meta$

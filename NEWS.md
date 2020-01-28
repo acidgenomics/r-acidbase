@@ -1,3 +1,9 @@
+## acidbase 0.1.5 (2020-01-28)
+
+### Minor changes
+
+- Documentation fixes to pass CRAN release checks.
+
 ## acidbase 0.1.4 (2020-01-19)
 
 ### New functions
