@@ -1,3 +1,10 @@
+## acidbase 0.1.6 (2020-04-07)
+
+### New functions
+
+- `parseArgs` and `positionalArgs`: Migrated these functions previously defined
+  inside [koopa][] shell bootloader package.
+
 ## acidbase 0.1.5 (2020-01-28)
 
 ### Minor changes
@@ -42,3 +49,6 @@
 ## acidbase 0.1.0 (2019-10-21)
 
 - Initial release.
+
+
+[koopa]: https://koopa.acidgenomics.com/
