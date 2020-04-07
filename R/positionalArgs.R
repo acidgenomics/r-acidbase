@@ -1,11 +1,17 @@
-#' Positional arguments
+#' Positional command line arguments
 #'
 #' These arguments do not contain `--` prefixes.
 #'
-#' @note Updated 2020-02-20.
-#' @noRd
+#' Intended for using inside Rscript files.
+#'
+#' @export
+#' @note Updated 2020-04-07.
+#'
+#' @examples
+#' positionalArgs()
 positionalArgs <- function() {
-    trailingArgs <- commandArgs(trailingOnly = TRUE)
-    keep <- !grepl(pattern = "^--", x = trailingArgs)
-    trailingArgs[keep]
+    x <- commandArgs(trailingOnly = TRUE)
+    keep <- !grepl(pattern = "^--", x = x)
+    x <- x[keep]
+    x
 }
