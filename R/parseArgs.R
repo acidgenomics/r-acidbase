@@ -1,7 +1,16 @@
-#' Parse argument flags
+#' Parse command line argument flags
 #'
+#' @export
 #' @note Updated 2020-04-07.
-#' @noRd
+#'
+#' @param positional `logical(1)`.
+#'   Error if required positional arguments are missing.
+#' @param validArgs `character` or `NULL`.
+#'   Valid key-value pair argument names.
+#'   For example, `aaa` for `--aaa=AAA`.
+#' @param validFlags `character` or `NULL`.
+#'   Valid flag names.
+#'   For example, `aaa` for `--aaa`.
 #'
 #' @return `character`.
 #'   Arguments.
