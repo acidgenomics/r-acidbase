@@ -28,3 +28,15 @@ Parse command line argument flags
 \note{
 Updated 2020-04-07.
 }
+\examples{
+parseArgs()
+
+## $ Rscript test.Rscript --a="A" --b
+## > parseArgs(positional = FALSE, validArgs = "a", validFlags = "b")
+}
+\seealso{
+\itemize{
+\item argparser R package
+\item argparse Python package
+}
+}

@@ -14,6 +14,16 @@
 #'
 #' @return `character`.
 #'   Arguments.
+#'
+#' @seealso
+#' - argparser R package
+#' - argparse Python package
+#'
+#' @examples
+#' parseArgs()
+#'
+#' ## $ Rscript test.Rscript --a="A" --b
+#' ## > parseArgs(positional = FALSE, validArgs = "a", validFlags = "b")
 parseArgs <- function(
     positional = FALSE,
     validArgs = NULL,

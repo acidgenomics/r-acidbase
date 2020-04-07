@@ -17,4 +17,8 @@ Updated 2020-04-07.
 }
 \examples{
 positionalArgs()
+
+## $ Rscript test.Rscript "AAA" "BBB"
+## > positionalArgs()
+## c("AAA", "BBB")
 }
