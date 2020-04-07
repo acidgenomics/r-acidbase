@@ -55,9 +55,9 @@ parseArgs <- function(
         flagNames <- gsub(pattern = "^--", replacement = "", x = flags)
         stopifnot(
             !any(duplicated(flagNames)),
-            !hasLength(intersect(argNames, flagNames)),
-            !hasLength(intersect(argNames, validFlags)),
-            !hasLength(intersect(flagNames, validArgs))
+            !.hasLength(intersect(argNames, flagNames)),
+            !.hasLength(intersect(argNames, validFlags)),
+            !.hasLength(intersect(flagNames, validArgs))
         )
     }
     ## Check for valid arguments.
