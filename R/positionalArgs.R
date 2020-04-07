@@ -9,6 +9,10 @@
 #'
 #' @examples
 #' positionalArgs()
+#'
+#' ## $ Rscript test.Rscript "AAA" "BBB"
+#' ## > positionalArgs()
+#' ## c("AAA", "BBB")
 positionalArgs <- function() {
     x <- commandArgs(trailingOnly = TRUE)
     keep <- !grepl(pattern = "^--", x = x)
