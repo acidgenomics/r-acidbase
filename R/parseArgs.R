@@ -35,22 +35,9 @@ parseArgs <- function(
             stop("Required positional arguments are missing.")
         }
     }
-    args <- commandArgs(trailingOnly = FALSE)
+    args <- commandArgs(trailingOnly = TRUE)
     keep <- grepl(pattern = "^--", x = args)
     x <- args[keep]
-    x <- setdiff(
-        x = x,
-        y = c(
-            "--args",
-            "--no-echo",
-            "--no-restore",
-            "--no-save",
-            "--slave"
-        )
-    )
-    ## Always drop the file argument in this parser.
-    keep <- !grepl(pattern = "^--file=", x = x)
-    x <- x[keep]
     ## Check for valid arguments.
     if (!is.null(validArgs) || !is.null(validFlags)) {
         ## Get the argument names (`--a="XXX"` to "a").
