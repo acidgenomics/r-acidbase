@@ -16,8 +16,9 @@
 #'   Arguments.
 #'
 #' @seealso
-#' - argparser R package
 #' - argparse Python package
+#' - argparser R package
+#' - optparse R package
 #'
 #' @examples
 #' parseArgs()
