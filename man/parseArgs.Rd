@@ -36,7 +36,8 @@ parseArgs()
 }
 \seealso{
 \itemize{
-\item argparser R package
 \item argparse Python package
+\item argparser R package
+\item optparse R package
 }
 }
