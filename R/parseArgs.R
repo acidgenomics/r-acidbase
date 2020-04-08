@@ -1,3 +1,10 @@
+## This function is covered inside Rscript calls defined in koopa package.
+## This is hard to unit test using testthat package.
+
+## nocov start
+
+
+
 #' Parse command line argument flags
 #'
 #' @export
@@ -91,3 +98,7 @@ parseArgs <- function(
     ## Return arguments.
     x
 }
+
+
+
+## nocov end
