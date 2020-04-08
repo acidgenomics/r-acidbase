@@ -1,5 +1,7 @@
 ## More robust versions of these functions are defined in goalie package.
 
+## nocov start
+
 
 
 ## Updated 2019-10-21.
@@ -111,3 +113,7 @@
     if (!isTRUE(ok)) return(FALSE)
     TRUE
 }
+
+
+
+## nocov end
