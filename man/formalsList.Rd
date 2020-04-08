@@ -4,7 +4,9 @@
 \name{formalsList}
 \alias{formalsList}
 \title{List of global formals}
-\format{An object of class \code{list} of length 14.}
+\format{
+An object of class \code{list} of length 14.
+}
 \usage{
 formalsList
 }
