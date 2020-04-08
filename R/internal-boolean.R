@@ -1,3 +1,5 @@
+## More robust versions of these functions are defined in goalie package.
+
 ## nocov start
 
 

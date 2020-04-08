@@ -1,3 +1,12 @@
+## acidbase 0.1.6 (2020-04-08)
+
+### New functions
+
+- `parseArgs` and `positionalArgs`: Migrated these functions previously defined
+  inside [koopa][] shell bootloader package.
+- `requireNamespaces`: Parameterized variant of `requireNamespace` that allows
+  for easy loading of multiple package namespaces in a single call.
+
 ## acidbase 0.1.5 (2020-01-28)
 
 ### Minor changes
@@ -42,3 +51,6 @@
 ## acidbase 0.1.0 (2019-10-21)
 
 - Initial release.
+
+
+[koopa]: https://koopa.acidgenomics.com/
