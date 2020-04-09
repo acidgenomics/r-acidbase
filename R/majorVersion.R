@@ -6,11 +6,17 @@
 #' @inheritParams params
 #'
 #' @examples
-#' majorVersion("1.0.0")
+#' majorVersion(c("1.0.0", "2.1"))
 majorVersion <- function(x) {
     x <- as.character(x)
     x <- strsplit(x = x, split = "\\.")
-    x <- x[[1L]][[1L]]
+    x <- vapply(
+        X = x,
+        FUN = `[[`,
+        FUN.VALUE = character(1L),
+        USE.NAMES = FALSE,
+        1L
+    )
     x <- numeric_version(x)
     x
 }
