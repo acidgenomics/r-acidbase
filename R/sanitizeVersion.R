@@ -9,6 +9,7 @@
 #' x <- c("2.7.15rc1", "1.10.0-patch1", "1.0.2k-fips")
 #' sanitizeVersion(x)
 sanitizeVersion <- function(x) {
+    x <- as.character(x)
     ## Strip anything following a space.
     x <- sub("[[:space:]].+$", "", x)
     ## Strip trailing "+" (e.g. "Python 2.7.15+").
@@ -22,5 +23,6 @@ sanitizeVersion <- function(x) {
     x <- sub("^[a-z]+", "", x)
     ## Strip trailing letter.
     x <- sub("[a-z]+$", "", x)
+    x <- numeric_version(x)
     x
 }

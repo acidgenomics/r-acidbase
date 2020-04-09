@@ -1,3 +1,13 @@
+## acidbase 0.1.7 (2020-04-09)
+
+### New functions
+
+- `majorVersion`, `minorVersion`, `sanitizeVersion`: Additional version utilites
+  that help extraction major and minor release versions. `sanitizeVersion` helps
+  strip extra characters at the end of version strings commonly found in the
+  return of some shell commands (e.g. via `--version` command).
+- `shell`: Wrapper for base `system2` function.
+
 ## acidbase 0.1.6 (2020-04-08)
 
 ### New functions
