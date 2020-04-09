@@ -9,6 +9,9 @@ majorVersion(x)
 \arguments{
 \item{x}{Object.}
 }
+\value{
+\code{numeric_version}.
+}
 \description{
 Major version
 }
