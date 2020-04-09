@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Boolean apply — bapply • acidbase</title>
+<title>Invoke a command in the system command-line shell — shell • acidbase</title>
 
 
 <!-- jquery -->
@@ -41,9 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Boolean apply — bapply" />
-<meta property="og:description" content="bapply() is a wrapper for vapply() that enforces
-FUN.VALUE = logical(1)." />
+<meta property="og:title" content="Invoke a command in the system command-line shell — shell" />
+<meta property="og:description" content="Invoke a command in the system command-line shell" />
 
 
 
@@ -114,61 +113,69 @@ FUN.VALUE = logical(1)." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Boolean apply</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/acidbase/blob/master/R/bapply.R'><code>R/bapply.R</code></a></small>
-    <div class="hidden name"><code>bapply.Rd</code></div>
+    <h1>Invoke a command in the system command-line shell</h1>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/acidbase/blob/master/R/shell.R'><code>R/shell.R</code></a></small>
+    <div class="hidden name"><code>shell.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><code>bapply()</code> is a wrapper for <code><a href='https://rdrr.io/r/base/lapply.html'>vapply()</a></code> that enforces
-<code>FUN.VALUE = logical(1)</code>.</p>
+    <p>Invoke a command in the system command-line shell</p>
     </div>
 
-    <pre class="usage"><span class='fu'>bapply</span>(<span class='no'>X</span>, <span class='no'>FUN</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>shell</span>(<span class='no'>command</span>, <span class='no'>args</span>, <span class='kw'>stdout</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>stderr</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>X</th>
-      <td><p><code>atomic</code> or <code>list</code>.</p></td>
+      <th>command</th>
+      <td><p><code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>.</p></td>
     </tr>
     <tr>
-      <th>FUN</th>
-      <td><p><code>function</code>.
-An assert check function that returns <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code> boolean flag
-(<code>TRUE</code>/<code>FALSE</code>) to <a href='https://rdrr.io/r/base/apply.html'>apply</a>.</p></td>
+      <th>args</th>
+      <td><p><code>character</code>.</p></td>
+    </tr>
+    <tr>
+      <th>stdout, stderr</th>
+      <td><p><code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>, <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>, or <code>NULL</code>.
+Where output to <code>stdout</code> or <code>stderr</code> should be sent.</p>
+<p>Possible values:</p><ul>
+<li><p><code>""</code>: Output to the R console.</p></li>
+<li><p><code>FALSE</code> or <code>NULL</code>: Discard the output.</p></li>
+<li><p><code>TRUE</code>: Capture the output in a character vector.</p></li>
+<li><p><code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>: Capture the output in a defined file name.</p></li>
+</ul></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Additional arguments passed to <a href='https://rdrr.io/r/base/lapply.html'>vapply()</a>.</p></td>
+      <td><p>Passthrough arguments to <code><a href='https://rdrr.io/r/base/system2.html'>system2()</a></code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>logical</code>.</p>
+    <p>If <code>stdout = TRUE</code> or <code>stderr = TRUE</code>, a character vector giving the output
+of the command, one line per character string. If the command could not be
+run, an R error is generated. If command runs but gives a non-zero exit
+status this will be reported with a warning and in the attribute "status" of
+the result.</p>
+<p>In other cases, the return value is an invisible error code
+(<code>0</code> for success). If the command could not be run for any reason, the value
+is <code>127</code> and a warning is issued. If the command times out, a warning is
+issued and the exit status is <code>124</code>.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    
-<ul>
-<li><p><code>FUN.VALUE</code> is always set to <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.</p></li>
-<li><p><code>USE.NAMES</code> is always set to <code>TRUE</code>.</p></li>
-</ul>
-
-<p>Updated 2019-10-22.</p>
+    <p>Updated 2020-04-09.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'>
 <ul>
-<li><p><code><a href='https://rdrr.io/pkg/assertive.base/man/bapply.html'>assertive.base::bapply()</a></code>.</p></li>
-<li><p><code><a href='https://rdrr.io/r/base/lapply.html'>vapply()</a></code>.</p></li>
+<li><p><code>system2</code>.</p></li>
 </ul>
 </div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>bapply</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='st'>"example"</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>1</span>), <span class='no'>is.character</span>)</div><div class='output co'>#&gt;     a     b 
-#&gt;  TRUE FALSE </div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>shell</span>(<span class='kw'>command</span> <span class='kw'>=</span> <span class='st'>"echo"</span>, <span class='kw'>args</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"hello"</span>, <span class='st'>"world"</span>))</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
