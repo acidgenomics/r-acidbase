@@ -1,0 +1,41 @@
+#' Invoke a command in the system command-line shell
+#'
+#' @export
+#' @note Updated 2020-04-09.
+#'
+#' @param command `character(1)`.
+#' @param args `character`.
+#' @param stdout,stderr `character(1)`, `logical(1)`, or `NULL`.
+#'   Where output to `stdout` or `stderr` should be sent.
+#'
+#'   Possible values:
+#'   - `""`: Output to the R console.
+#'   - `FALSE` or `NULL`: Discard the output.
+#'   - `TRUE`: Capture the output in a character vector.
+#'   - `character(1)`: Capture the output in a defined file name.
+#' @param ... Passthrough arguments to [`system2()`][base::system2].
+#'
+#' @seealso
+#' - `system2`.
+#'
+#' @examples
+#' shell(command = "echo", args = c("hello", "world"))
+shell <- function(
+    command,
+    args,
+    stdout = "",
+    stderr = "",
+    ...
+) {
+    out <- system2(
+        command = command,
+        args = args,
+        stdout = stdout,
+        stderr = stderr,
+        ...
+    )
+    if (all(!isTRUE(stdout), !isTRUE(stderr))) {
+        stopifnot(out == 0L)
+    }
+    invisible(out)
+}
