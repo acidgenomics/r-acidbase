@@ -24,6 +24,18 @@ Possible values:
 
 \item{...}{Passthrough arguments to \code{\link[base:system2]{system2()}}.}
 }
+\value{
+If \code{stdout = TRUE} or \code{stderr = TRUE}, a character vector giving the output
+of the command, one line per character string. If the command could not be
+run, an R error is generated. If command runs but gives a non-zero exit
+status this will be reported with a warning and in the attribute "status" of
+the result.
+
+In other cases, the return value is an invisible error code
+(\code{0} for success). If the command could not be run for any reason, the value
+is \code{127} and a warning is issued. If the command times out, a warning is
+issued and the exit status is \code{124}.
+}
 \description{
 Invoke a command in the system command-line shell
 }

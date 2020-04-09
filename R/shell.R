@@ -18,6 +18,18 @@
 #' @seealso
 #' - `system2`.
 #'
+#' @return
+#' If `stdout = TRUE` or `stderr = TRUE`, a character vector giving the output
+#' of the command, one line per character string. If the command could not be
+#' run, an R error is generated. If command runs but gives a non-zero exit
+#' status this will be reported with a warning and in the attribute "status" of
+#' the result.
+#'
+#' In other cases, the return value is an invisible error code
+#' (`0` for success). If the command could not be run for any reason, the value
+#' is `127` and a warning is issued. If the command times out, a warning is
+#' issued and the exit status is `124`.
+#'
 #' @examples
 #' shell(command = "echo", args = c("hello", "world"))
 shell <- function(

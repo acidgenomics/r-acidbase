@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Boolean apply — bapply • acidbase</title>
+<title>Require package namespaces — requireNamespaces • acidbase</title>
 
 
 <!-- jquery -->
@@ -41,9 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Boolean apply — bapply" />
-<meta property="og:description" content="bapply() is a wrapper for vapply() that enforces
-FUN.VALUE = logical(1)." />
+<meta property="og:title" content="Require package namespaces — requireNamespaces" />
+<meta property="og:description" content="Require package namespaces" />
 
 
 
@@ -114,61 +113,50 @@ FUN.VALUE = logical(1)." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Boolean apply</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/acidbase/blob/master/R/bapply.R'><code>R/bapply.R</code></a></small>
-    <div class="hidden name"><code>bapply.Rd</code></div>
+    <h1>Require package namespaces</h1>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/acidbase/blob/master/R/requireNamespaces.R'><code>R/requireNamespaces.R</code></a></small>
+    <div class="hidden name"><code>requireNamespaces.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><code>bapply()</code> is a wrapper for <code><a href='https://rdrr.io/r/base/lapply.html'>vapply()</a></code> that enforces
-<code>FUN.VALUE = logical(1)</code>.</p>
+    <p>Require package namespaces</p>
     </div>
 
-    <pre class="usage"><span class='fu'>bapply</span>(<span class='no'>X</span>, <span class='no'>FUN</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>requireNamespaces</span>(<span class='no'>packages</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>X</th>
-      <td><p><code>atomic</code> or <code>list</code>.</p></td>
-    </tr>
-    <tr>
-      <th>FUN</th>
-      <td><p><code>function</code>.
-An assert check function that returns <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code> boolean flag
-(<code>TRUE</code>/<code>FALSE</code>) to <a href='https://rdrr.io/r/base/apply.html'>apply</a>.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Additional arguments passed to <a href='https://rdrr.io/r/base/lapply.html'>vapply()</a>.</p></td>
+      <th>packages</th>
+      <td><p><code>character</code>.
+Package names to load.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>logical</code>.</p>
+    <p>This function intentionally does not attach packages, unlike <code>library</code>,
+<code>require</code>, or <code>attachNamespace</code> functions.</p>
+<p>Intended for use inside package functions that relying upon optional
+dependencies defined via <code>Suggests</code> instead of <code>Imports</code> or <code>Depends</code> in
+<code>DESCRIPTION</code> file.</p>
+<p>Unlike <code>requireNamespace</code>, this variant always errors on namespace failure.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    
-<ul>
-<li><p><code>FUN.VALUE</code> is always set to <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.</p></li>
-<li><p><code>USE.NAMES</code> is always set to <code>TRUE</code>.</p></li>
-</ul>
-
-<p>Updated 2019-10-22.</p>
+    <p>Updated 2020-04-08.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'>
 <ul>
-<li><p><code><a href='https://rdrr.io/pkg/assertive.base/man/bapply.html'>assertive.base::bapply()</a></code>.</p></li>
-<li><p><code><a href='https://rdrr.io/r/base/lapply.html'>vapply()</a></code>.</p></li>
+<li><p><code>requireNamespace</code></p></li>
+<li><p><code>attachNamespace</code></p></li>
+<li><p><code>loadNamespace</code></p></li>
 </ul>
 </div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>bapply</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='st'>"example"</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>1</span>), <span class='no'>is.character</span>)</div><div class='output co'>#&gt;     a     b 
-#&gt;  TRUE FALSE </div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>requireNamespaces</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"base"</span>, <span class='st'>"utils"</span>))</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

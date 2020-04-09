@@ -5,6 +5,8 @@
 #'
 #' @inheritParams params
 #'
+#' @return `numeric_version`.
+#'
 #' @examples
 #' minorVersion(c("1.0.0", "2.1"))
 minorVersion <- function(x) {
