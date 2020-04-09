@@ -16,5 +16,5 @@ Major version
 Updated 2020-04-09.
 }
 \examples{
-majorVersion("1.0.0")
+majorVersion(c("1.0.0", "2.1"))
 }

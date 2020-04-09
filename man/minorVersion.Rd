@@ -16,5 +16,5 @@ Minor version
 Updated 2020-04-09.
 }
 \examples{
-minorVersion("1.0.0")
+minorVersion(c("1.0.0", "2.1"))
 }
