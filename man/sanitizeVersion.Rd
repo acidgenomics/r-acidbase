@@ -18,5 +18,4 @@ Updated 2020-04-09.
 \examples{
 x <- c("2.7.15rc1", "1.10.0-patch1", "1.0.2k-fips")
 sanitizeVersion(x)
-sanitizeVersion("1.10.0-patch1")
 }
