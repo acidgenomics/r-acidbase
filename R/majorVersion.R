@@ -5,6 +5,8 @@
 #'
 #' @inheritParams params
 #'
+#' @return `numeric_version`.
+#'
 #' @examples
 #' majorVersion(c("1.0.0", "2.1"))
 majorVersion <- function(x) {
