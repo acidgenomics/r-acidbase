@@ -1,3 +1,10 @@
+## acidbase 0.1.8 (2020-05-05)
+
+### New functions
+
+- `shell`: The `args` argument has been changed to `""` by default so that
+  only `command` argument is required as input.
+
 ## acidbase 0.1.7 (2020-04-09)
 
 ### New functions

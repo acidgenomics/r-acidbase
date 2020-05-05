@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">acidbase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.8</span>
       </span>
     </div>
 
@@ -139,9 +139,9 @@
     <div id="acidbase-0-1-2-2019-12-05" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acidbase-0-1-2-2019-12-05" class="anchor"></a>acidbase 0.1.2 (2019-12-05)</h2>
-<div id="new-functions-3" class="section level3">
+<div id="new-functions-4" class="section level3">
 <h3 class="hasAnchor">
-<a href="#new-functions-3" class="anchor"></a>New functions</h3>
+<a href="#new-functions-4" class="anchor"></a>New functions</h3>
 <ul>
 <li>Added new <code>fileDepth</code> function.</li>
 </ul>
@@ -162,9 +162,9 @@
     <div id="acidbase-0-1-4-2020-01-19" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acidbase-0-1-4-2020-01-19" class="anchor"></a>acidbase 0.1.4 (2020-01-19)</h2>
-<div id="new-functions-2" class="section level3">
+<div id="new-functions-3" class="section level3">
 <h3 class="hasAnchor">
-<a href="#new-functions-2" class="anchor"></a>New functions</h3>
+<a href="#new-functions-3" class="anchor"></a>New functions</h3>
 <ul>
 <li>
 <code>compress</code>, <code>decompress</code>: Added dynamic file compression/decompression support for GZ, BZ2, XZ, and ZIP files. Inspired by approach used in R.utils <code>compressFile</code> and <code>decompressFile</code>.</li>
@@ -194,9 +194,9 @@
     <div id="acidbase-0-1-6-2020-04-08" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acidbase-0-1-6-2020-04-08" class="anchor"></a>acidbase 0.1.6 (2020-04-08)</h2>
-<div id="new-functions-1" class="section level3">
+<div id="new-functions-2" class="section level3">
 <h3 class="hasAnchor">
-<a href="#new-functions-1" class="anchor"></a>New functions</h3>
+<a href="#new-functions-2" class="anchor"></a>New functions</h3>
 <ul>
 <li>
 <code>parseArgs</code> and <code>positionalArgs</code>: Migrated these functions previously defined inside <a href="https://koopa.acidgenomics.com/">koopa</a> shell bootloader package.</li>
@@ -208,14 +208,26 @@
     <div id="acidbase-0-1-7-2020-04-09" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acidbase-0-1-7-2020-04-09" class="anchor"></a>acidbase 0.1.7 (2020-04-09)</h2>
+<div id="new-functions-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#new-functions-1" class="anchor"></a>New functions</h3>
+<ul>
+<li>
+<code>majorVersion</code>, <code>minorVersion</code>, <code>sanitizeVersion</code>: Additional version utilites that help extraction major and minor release versions. <code>sanitizeVersion</code> helps strip extra characters at the end of version strings commonly found in the return of some shell commands (e.g. via <code>--version</code> command).</li>
+<li>
+<code>shell</code>: Wrapper for base <code>system2</code> function.</li>
+</ul>
+</div>
+</div>
+    <div id="acidbase-0-1-8-2020-05-05" class="section level2">
+<h2 class="hasAnchor">
+<a href="#acidbase-0-1-8-2020-05-05" class="anchor"></a>acidbase 0.1.8 (2020-05-05)</h2>
 <div id="new-functions" class="section level3">
 <h3 class="hasAnchor">
 <a href="#new-functions" class="anchor"></a>New functions</h3>
 <ul>
 <li>
-<code>majorVersion</code>, <code>minorVersion</code>, <code>sanitizeVersion</code>: Additional version utilites that help extraction major and minor release versions. <code>sanitizeVersion</code> helps strip extra characters at the end of version strings commonly found in the return of some shell commands (e.g.Â via <code>--version</code> command).</li>
-<li>
-<code>shell</code>: Wrapper for base <code>system2</code> function.</li>
+<code>shell</code>: The <code>args</code> argument has been changed to <code>""</code> by default so that only <code>command</code> argument is required as input.</li>
 </ul>
 </div>
 </div>
@@ -236,7 +248,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
