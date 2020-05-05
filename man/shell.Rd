@@ -4,7 +4,7 @@
 \alias{shell}
 \title{Invoke a command in the system command-line shell}
 \usage{
-shell(command, args, stdout = "", stderr = "", ...)
+shell(command, args = "", stdout = "", stderr = "", ...)
 }
 \arguments{
 \item{command}{\code{character(1)}.}
@@ -40,7 +40,7 @@ issued and the exit status is \code{124}.
 Invoke a command in the system command-line shell
 }
 \note{
-Updated 2020-04-09.
+Updated 2020-05-05.
 }
 \examples{
 shell(command = "echo", args = c("hello", "world"))
