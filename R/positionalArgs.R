@@ -25,5 +25,5 @@ positionalArgs <- function(required = TRUE) {
             stop("No positional arguments are defined.")
         }
     }
-    x
+    x  # nocov
 }
