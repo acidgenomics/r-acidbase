@@ -5,7 +5,7 @@
 #' Intended for using inside Rscript files.
 #'
 #' @export
-#' @note Updated 2020-04-07.
+#' @note Updated 2020-05-09.
 #'
 #' @examples
 #' positionalArgs()
@@ -17,5 +17,8 @@ positionalArgs <- function() {
     x <- commandArgs(trailingOnly = TRUE)
     keep <- !grepl(pattern = "^--", x = x)
     x <- x[keep]
+    if (length(x) == 0L) {
+        stop("No positional arguments are defined.")
+    }
     x
 }
