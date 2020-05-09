@@ -4,7 +4,14 @@
 \alias{positionalArgs}
 \title{Positional command line arguments}
 \usage{
-positionalArgs()
+positionalArgs(required = TRUE)
+}
+\arguments{
+\item{required}{\code{logical(1)}.
+Error if no positional arguments are defined.}
+}
+\value{
+\code{character}.
 }
 \description{
 These arguments do not contain \verb{--} prefixes.
@@ -13,11 +20,9 @@ These arguments do not contain \verb{--} prefixes.
 Intended for using inside Rscript files.
 }
 \note{
-Updated 2020-04-07.
+Updated 2020-05-09.
 }
 \examples{
-positionalArgs()
-
 ## $ Rscript test.Rscript "AAA" "BBB"
 ## > positionalArgs()
 ## c("AAA", "BBB")
