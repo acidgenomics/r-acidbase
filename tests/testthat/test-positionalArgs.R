@@ -3,8 +3,8 @@ context("positionalArgs")
 ## This function is well-covered inside koopa package.
 
 test_that("No arguments", {
-    expect_identical(
+    expect_error(
         object = positionalArgs(),
-        expected = character()
+        regexp = "No positional arguments are defined."
     )
 })
