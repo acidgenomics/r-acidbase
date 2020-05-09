@@ -1,6 +1,13 @@
+## acidbase 0.1.9 (2020-05-09)
+
+### Minor changes
+
+- `positionalArgs`: Function now intentionally errors when no positional
+  arguments are defined.
+
 ## acidbase 0.1.8 (2020-05-05)
 
-### New functions
+### Minor changes
 
 - `shell`: The `args` argument has been changed to `""` by default so that
   only `command` argument is required as input.
