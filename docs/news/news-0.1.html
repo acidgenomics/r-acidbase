@@ -126,9 +126,9 @@
     <div id="acidbase-011-2019-10-22" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acidbase-011-2019-10-22" class="anchor"></a>acidbase 0.1.1 (2019-10-22)</h2>
-<div id="minor-changes-5" class="section level3">
+<div id="minor-changes-6" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-5" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-6" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Migrated <code>realpath</code> from brio package. Reworked slightly to not depend on any assert checks from goalie package. Now this function essentially wraps <code>normalizePath</code> but provides a more informative error message.</li>
 <li>
@@ -150,9 +150,9 @@
     <div id="acidbase-013-2020-01-10" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acidbase-013-2020-01-10" class="anchor"></a>acidbase 0.1.3 (2020-01-10)</h2>
-<div id="minor-changes-4" class="section level3">
+<div id="minor-changes-5" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-4" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-5" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>
 <code>standardizeCall</code>: Removed extra unnecessary assert check.</li>
@@ -170,9 +170,9 @@
 <code>compress</code>, <code>decompress</code>: Added dynamic file compression/decompression support for GZ, BZ2, XZ, and ZIP files. Inspired by approach used in R.utils <code>compressFile</code> and <code>decompressFile</code>.</li>
 </ul>
 </div>
-<div id="minor-changes-3" class="section level3">
+<div id="minor-changes-4" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-3" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-4" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>
 <code>fileDepth</code>: Updated unit test to work reliably on macOS.</li>
@@ -182,9 +182,9 @@
     <div id="acidbase-015-2020-01-28" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acidbase-015-2020-01-28" class="anchor"></a>acidbase 0.1.5 (2020-01-28)</h2>
-<div id="minor-changes-2" class="section level3">
+<div id="minor-changes-3" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-2" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-3" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Documentation fixes to pass CRAN release checks.</li>
 <li>Switched license from MIT to GPL-3.</li>
@@ -222,9 +222,9 @@
     <div id="acidbase-018-2020-05-05" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acidbase-018-2020-05-05" class="anchor"></a>acidbase 0.1.8 (2020-05-05)</h2>
-<div id="minor-changes-1" class="section level3">
+<div id="minor-changes-2" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-1" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-2" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>
 <code>shell</code>: The <code>args</code> argument has been changed to <code>""</code> by default so that only <code>command</code> argument is required as input.</li>
@@ -234,12 +234,24 @@
     <div id="acidbase-019-2020-05-09" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acidbase-019-2020-05-09" class="anchor"></a>acidbase 0.1.9 (2020-05-09)</h2>
+<div id="minor-changes-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#minor-changes-1" class="anchor"></a>Minor changes</h3>
+<ul>
+<li>
+<code>positionalArgs</code>: Function now intentionally errors when no positional arguments are defined.</li>
+</ul>
+</div>
+</div>
+    <div id="acidbase-0110-2020-07-07" class="section level2">
+<h2 class="hasAnchor">
+<a href="#acidbase-0110-2020-07-07" class="anchor"></a>acidbase 0.1.10 (2020-07-07)</h2>
 <div id="minor-changes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#minor-changes" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>
-<code>positionalArgs</code>: Function now intentionally errors when no positional arguments are defined.</li>
+<code>formalsList</code>: Added <code>acid.import.make.names</code> global.</li>
 </ul>
 </div>
 </div>
