@@ -13,13 +13,13 @@ bapply(X, FUN, ...)
 An assert check function that returns \code{logical(1)} boolean flag
 (\code{TRUE}/\code{FALSE}) to \link[base:apply]{apply}.}
 
-\item{...}{Additional arguments passed to \link[base:vapply]{vapply()}.}
+\item{...}{Additional arguments passed to \link[base:lapply]{vapply()}.}
 }
 \value{
 \code{logical}.
 }
 \description{
-\code{\link[=bapply]{bapply()}} is a wrapper for \code{\link[base:vapply]{vapply()}} that enforces
+\code{\link[=bapply]{bapply()}} is a wrapper for \code{\link[base:lapply]{vapply()}} that enforces
 \code{FUN.VALUE = logical(1)}.
 }
 \note{

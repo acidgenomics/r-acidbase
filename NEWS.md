@@ -1,3 +1,9 @@
+## acidbase 0.1.10 (2020-07-07)
+
+### Minor changes
+
+- `formalsList`: Added `acid.import.make.names` global.
+
 ## acidbase 0.1.9 (2020-05-09)
 
 ### Minor changes

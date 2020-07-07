@@ -57,6 +57,9 @@ formalsList <- list(
     export.quiet = quote(
         getOption("acid.export.quiet", default = FALSE)
     ),
+    import.make.names = quote(
+        getOption("acid.import.make.names", default = syntactic::makeNames)
+    ),
     import.metadata = quote(
         getOption("acid.import.metadata", default = FALSE)
     ),
