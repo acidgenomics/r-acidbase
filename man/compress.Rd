@@ -30,11 +30,11 @@ argument in the \code{character} vector.
 Supported formats:
 \itemize{
 \item \code{gz}: gzip compression;
-calls \code{\link[base:gzfile]{gzfile()}} internally.
+calls \code{\link[base:connections]{gzfile()}} internally.
 \item \code{bz}: bzip2 (lzma) compression;
-calls \code{\link[base:bzfile]{bzfile()}} internally.
+calls \code{\link[base:connections]{bzfile()}} internally.
 \item \code{xz}: xz compression;
-calls \code{\link[base:xzfile]{xzfile()}} internally.
+calls \code{\link[base:connections]{xzfile()}} internally.
 \item \code{zip}: zip compression;
 calls \code{\link[utils:zip]{zip()}} or \code{\link[utils:unzip]{unzip()}} internally.
 }}
