@@ -1,8 +1,8 @@
 Package: acidbase
 Title: Acid Genomics Base Functions
 Description: Low-level base functions imported by Acid Genomics packages.
-Version: 0.1.10
-Date: 2020-07-07
+Version: 0.1.11
+Date: 2020-07-24
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -20,7 +20,7 @@ URL:
 BugReports: https://github.com/acidgenomics/acidbase/issues/
 License: GPL-3
 Encoding: UTF-8
-Depends: R (>= 3.6)
+Depends: R (>= 4.0)
 Imports: methods, utils
 Suggests: patrick, testthat
 Roxygen: list(markdown = TRUE)

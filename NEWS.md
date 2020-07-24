@@ -1,3 +1,9 @@
+## acidbase 0.1.11 (2020-07-24)
+
+### Minor changes
+
+- Maintenance release, increasing minimum R dependency to 4.0.
+
 ## acidbase 0.1.10 (2020-07-07)
 
 ### Minor changes
