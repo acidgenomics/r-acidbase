@@ -4,10 +4,9 @@ text <- c("hello", "world")
 file <- "test.txt"
 writeLines(text = text, con = file)
 
-ext <- eval(formals(compress)[["ext"]])
-with_parameters_test_that(
-    desc_stub = toString(ext),
-    code = {
+exts <- eval(formals(compress)[["ext"]])
+test_that(toString(exts), {
+    for (ext in exts) {
         ## Compress the file.
         zfile <- compress(
             file = file,
@@ -25,8 +24,7 @@ with_parameters_test_that(
             object = readLines(con = file),
             expected = text
         )
-    },
-    ext = ext
-)
+    }
+})
 
 unlink(file)
