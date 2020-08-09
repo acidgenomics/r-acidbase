@@ -66,9 +66,9 @@ parseArgs <- function(
         flags <- grep(pattern = flagPattern, x = cmdArgs, value = TRUE)
         names(flags) <-
             gsub(pattern = flagPattern, replacement = "\\1", x = flags)
-        match <- match(x = names(flags), table = optionalFlags)
-        if (any(is.na(match))) {
-            fail <- names(flags)[is.na(match)]
+        ok <- names(flags) %in% optionalFlags
+        if (!all(ok)) {
+            fail <- names(flags)[!ok]
             stop(sprintf(
                 "Invalid flags detected: %s.",
                 toString(fail, width = 200L)
@@ -82,6 +82,14 @@ parseArgs <- function(
         args <- grep(pattern = argPattern, x = cmdArgs, value = TRUE)
         names(args) <- gsub(pattern = argPattern, replacement = "\\1", x = args)
         if (!is.null(requiredArgs)) {
+            ok <- requiredArgs %in% names(args)
+            if (!all(ok)) {
+                fail <- requiredArgs[!ok]
+                stop(sprintf(
+                    "Invalid args detected: %s.",
+                    toString(fail, width = 200L)
+                ))
+            }
             match <- match(x = requiredArgs, table = names(args))
             if (any(is.na(match))) {
                 fail <- requiredArgs[is.na(match)]
