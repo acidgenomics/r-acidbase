@@ -1,0 +1,3 @@
+#!/usr/bin/env Rscript
+
+acidbase::parseArgs(flags = c("aaa", "bbb"))
