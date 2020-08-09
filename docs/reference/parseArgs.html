@@ -197,14 +197,11 @@ Named list containing arguments, organized by type:</p><ul>
 #&gt; [6] "    flags = c(\"eee\", \"fff\"),"                
 #&gt; [7] "    positionalArgs = TRUE"                       
 #&gt; [8] ")"                                               </div><div class='input'><span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='shell.html'>shell</a></span>(<span class='kw'>command</span> <span class='kw'>=</span> <span class='no'>command</span>, <span class='kw'>args</span> <span class='kw'>=</span> <span class='no'>args</span>, <span class='kw'>stdout</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>out</span>)</div><div class='output co'>#&gt;  [1] "$requiredArgs"                "        aaa         bbb "    
-#&gt;  [3] "\"--aaa=AAA\" \"--bbb=BBB\" " ""                            
-#&gt;  [5] "$optionalArgs"                "        ccc         ddd "    
-#&gt;  [7] "\"--ccc=CCC\" \"--ddd=DDD\" " ""                            
-#&gt;  [9] "$flags"                       "    eee     fff "            
-#&gt; [11] "\"--eee\" \"--fff\" "         ""                            
-#&gt; [13] "$positionalArgs"              "[1] \"GGG\" \"HHH\""         
-#&gt; [15] ""                            </div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>out</span>)</div><div class='output co'>#&gt;  [1] "$requiredArgs"       "  aaa   bbb "        "\"AAA\" \"BBB\" "   
+#&gt;  [4] ""                    "$optionalArgs"       "  ccc   ddd "       
+#&gt;  [7] "\"CCC\" \"DDD\" "    ""                    "$flags"             
+#&gt; [10] "[1] \"eee\" \"fff\"" ""                    "$positionalArgs"    
+#&gt; [13] "[1] \"GGG\" \"HHH\"" ""                   </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
