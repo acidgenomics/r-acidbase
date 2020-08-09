@@ -145,10 +145,7 @@ parseArgs <- function(
             .hasLength(cmdArgs) ||
             !any(grepl(pattern = "^--", x = cmdArgs))
         ) {
-            stop(sprintf(
-                "Invalid positional arguments detected: %s",
-                toString(cmdArgs, width = 200L)
-            ))
+            stop("Positional arguments are required but missing.")
         }
         out[["positionalArgs"]] <- cmdArgs
     } else {
