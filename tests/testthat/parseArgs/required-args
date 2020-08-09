@@ -1,5 +1,3 @@
 #!/usr/bin/env Rscript
 
-acidbase::parseArgs(
-    requiredArgs = c("aaa", "bbb", "yyy")
-)
+acidbase::parseArgs(requiredArgs = c("aaa", "bbb"))
