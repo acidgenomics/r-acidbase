@@ -6,7 +6,6 @@
   list as follows: `requiredFlags`, `optionalFlags`, `requiredArgs`,
   `optionalArgs`, and `positionalArgs`. This makes downstream handoff inside
   of koopa scripts easier.
-- Removed `positionalArgs` function, as no longer necessary.
 
 ## acidbase 0.1.11 (2020-07-24)
 
