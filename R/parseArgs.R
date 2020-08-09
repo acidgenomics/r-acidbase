@@ -140,7 +140,7 @@ parseArgs <- function(
         }
         stopifnot(!.hasLength(args), !.hasLength(argNames))
     }
-    if (!isTRUE(positionalArgs)) {
+    if (isTRUE(positionalArgs)) {
         stopifnot(.hasLength(cmdArgs))
         out[["positionalArgs"]] <- cmdArgs
     } else {
