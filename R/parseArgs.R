@@ -65,21 +65,18 @@ parseArgs <- function(
         flagPattern <- "^--([^=[:space:]]+)$"
         flags <- grep(pattern = flagPattern, x = cmdArgs, value = TRUE)
         flagNames <- gsub(pattern = flagPattern, replacement = "\\1", x = flags)
-        match <- match(x = optionalFlags, table = flagNames)
+        ## Check for invalid flags.
+        match <- match(x = flagNames, table = optionalFlags)
         if (any(!is.na(match))) {
-            hits <- flags[!is.na(match)]
-            names(hits) <- flagNames[!is.na(match)]
-            out[["flags"]] <- hits
-            flags <- setdiff(flags, hits)
-            flagNames <- setdiff(flagNames, names(hits))
-            cmdArgs <- setdiff(cmdArgs, hits)
-        }
-        if (.hasLength(flagNames)) {
+            fail <- flagNames[is.na(match)]
             stop(sprintf(
-                "Invalid flags: %s.",
-                toString(flagNames, width = 200L)
+                "Invalid flags detected: %s.",
+                toString(fail, width = 200L)
             ))
         }
+        names(flags) <- flagNames
+        out[["flags"]] <- flags
+        cmdArgs <- setdiff(cmdArgs, flags)
     }
     if (!is.null(requiredArgs) || !is.null(optionalArgs)) {
         argPattern <- "^--([^=[:space:]]+)=([^[:space:]]+)$"
@@ -91,7 +88,7 @@ parseArgs <- function(
                 fail <- requiredArgs[is.na(match)]
                 stop(sprintf(
                     "Failed to match required arg: %s.",
-                    toString(fail)
+                    toString(fail, width = 200L)
                 ))
             }
             hits <- args[match]
@@ -102,6 +99,7 @@ parseArgs <- function(
             cmdArgs <- setdiff(cmdArgs, hits)
         }
         if (!is.null(optionalArgs)) {
+            ## FIXME WHAT IF WE PUT AN INVALID ARG NAME IN HERE?
             match <- match(x = optionalArgs, table = argNames)
             if (any(!is.na(match))) {
                 hits <- args[!is.na(match)]
