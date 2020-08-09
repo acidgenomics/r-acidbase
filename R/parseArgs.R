@@ -104,7 +104,7 @@ parseArgs <- function(
             args <- args[!args %in% hits]
             cmdArgs <- setdiff(cmdArgs, hits)
         }
-        if (!is.null(optionalArgs)) {
+        if (!is.null(optionalArgs) && .hasLength(cmdArgs)) {
             match <- match(x = names(args), table = optionalArgs)
             if (any(is.na(match))) {
                 fail <- names(args)[is.na(match)]
