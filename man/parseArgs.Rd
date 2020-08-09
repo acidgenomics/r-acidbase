@@ -4,40 +4,67 @@
 \alias{parseArgs}
 \title{Parse command line argument flags}
 \usage{
-parseArgs(positional = FALSE, validArgs = NULL, validFlags = NULL)
+parseArgs(
+  requiredFlags = NULL,
+  optionalFlags = NULL,
+  requiredArgs = NULL,
+  optionalArgs = NULL,
+  positionalArgs = FALSE
+)
 }
 \arguments{
-\item{positional}{\code{logical(1)}.
-Error if required positional arguments are missing.}
-
-\item{validArgs}{\code{character} or \code{NULL}.
-Valid key-value pair argument names.
-For example, \code{aaa} for \code{--aaa=AAA}.}
-
-\item{validFlags}{\code{character} or \code{NULL}.
-Valid flag names.
+\item{requiredFlags, optionalFlags}{\code{character} or \code{NULL}.
+Valid long flag names.
 For example, \code{aaa} for \code{--aaa}.}
+
+\item{requiredArgs, optionalArgs}{\code{character} or \code{NULL}.
+Valid key-value pair argument names.
+For example, \code{aaa} for \code{--aaa=AAA} or \verb{--aaa AAA}.
+Note that \verb{--aaa AAA}-style arguments are not currently supported.}
+
+\item{positional}{\code{logical(1)}.
+Error if required positional arguments (>= 1) are missing.}
 }
 \value{
-\code{character}.
-Arguments.
+\code{list}.
+Named list containing arguments, organized by type:
+\itemize{
+\item requiredFlags
+\item optionalFlags
+\item requiredArgs
+\item optionalArgs
+\item positionalArgs
+}
 }
 \description{
 Parse command line argument flags
 }
 \note{
-Updated 2020-04-07.
+Updated 2020-08-09.
+
+Short flags, such as \code{-r}, are intentionally not supported.
 }
 \examples{
-parseArgs()
-
-## $ Rscript test.Rscript --a="A" --b
-## > parseArgs(positional = FALSE, validArgs = "a", validFlags = "b")
+command <- system.file("scripts", "parse-args", package = "acidbase")
+args <- c(
+    ## Required flags:
+    "--aaa", "--bbb",
+    ## Optional flags:
+    "--ccc", "--ddd",
+    ## Required args:
+    "--eee=EEE", "--fff=FFF",
+    ## Optional args:
+    "--ggg=GGG", "--hhh=HHH",
+    ## Positional args:
+    "III", "JJJ"
+)
+readLines(command)
+shell(command = command, args = args)
 }
 \seealso{
 \itemize{
-\item argparse Python package
-\item argparser R package
-\item optparse R package
+\item argparse Python package.
+\item argparser R package.
+\item optparse R package.
 }
 }
