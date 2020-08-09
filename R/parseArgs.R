@@ -127,6 +127,11 @@ parseArgs <- function(
 #' @rdname parseArgs
 #' @export
 positionalArgs <- function() {
-    x <- parseArgs(positionalArgs = TRUE)
+    x <- parseArgs(
+        requiredArgs = NULL,
+        optionalArgs = NULL,
+        flags = NULL,
+        positionalArgs = TRUE
+    )
     x[["positionalArgs"]]
 }
