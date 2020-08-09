@@ -39,7 +39,7 @@ shell <- function(
     stderr = "",
     ...
 ) {
-    if (isTRUE(stderr)) stdout <- TRUE
+    if (isTRUE(stderr)) stdout <- TRUE  # nocov
     out <- system2(
         command = command,
         args = args,
