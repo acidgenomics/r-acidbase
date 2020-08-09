@@ -2,6 +2,7 @@
 % Please edit documentation in R/parseArgs.R
 \name{parseArgs}
 \alias{parseArgs}
+\alias{positionalArgs}
 \title{Parse command line argument flags}
 \usage{
 parseArgs(
@@ -10,6 +11,8 @@ parseArgs(
   flags = NULL,
   positionalArgs = FALSE
 )
+
+positionalArgs()
 }
 \arguments{
 \item{requiredArgs, optionalArgs}{\code{character} or \code{NULL}.
