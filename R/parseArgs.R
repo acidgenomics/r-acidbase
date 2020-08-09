@@ -93,7 +93,7 @@ parseArgs <- function(
             hits <- args[match]
             out[["requiredArgs"]] <- hits
             ## Note that `setdiff()` causes names to drop.
-            args <- args[args %in% hits]
+            args <- args[!args %in% hits]
             cmdArgs <- setdiff(cmdArgs, hits)
         }
         if (!is.null(optionalArgs)) {
