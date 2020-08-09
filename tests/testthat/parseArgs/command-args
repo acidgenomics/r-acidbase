@@ -1,3 +1,0 @@
-#!/usr/bin/env Rscript
-
-commandArgs(trailingOnly = FALSE)
