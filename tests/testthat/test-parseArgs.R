@@ -23,9 +23,9 @@ test_that("Working example", {
     )
 })
 
-test_that("Missing required flags", {
-    command <- file.path("parseArgs", "required-flags")
-    args <- c("--aaa", "--bbb")
+test_that("Invalid required args", {
+    command <- file.path("parseArgs", "required-args")
+    args <- "--zzz=ZZZ"
     out <- shell(
         command = command,
         args = args,
@@ -33,13 +33,13 @@ test_that("Missing required flags", {
     )
     expect_match(
         object = paste(out, collapse = "\n"),
-        regexp = "Failed to match required flag"
+        regexp = "Missing required args: aaa, bbb."
     )
 })
 
 test_that("Missing required args", {
     command <- file.path("parseArgs", "required-args")
-    args <- c("--aaa=AAA", "--bbb=BBB")
+    args <- "--aaa=AAA"
     out <- shell(
         command = command,
         args = args,
@@ -47,7 +47,47 @@ test_that("Missing required args", {
     )
     expect_match(
         object = paste(out, collapse = "\n"),
-        regexp = "Failed to match required arg"
+        regexp = "Missing required args: bbb."
+    )
+})
+
+test_that("Invalid optional arguments", {
+    command <- file.path("parseArgs", "optional-args")
+    args <- "--ccc=CCC"
+    out <- shell(
+        command = command,
+        args = args,
+        stderr = TRUE
+    )
+    expect_match(
+        object = paste(out, collapse = "\n"),
+        regexp = "Invalid args detected: ccc."
+    )
+})
+
+test_that("Invalid flags", {
+    command <- file.path("parseArgs", "flags")
+    args <- "--ccc"
+    out <- shell(
+        command = command,
+        args = args,
+        stderr = TRUE
+    )
+    expect_match(
+        object = paste(out, collapse = "\n"),
+        regexp = "Invalid flags detected: ccc."
+    )
+})
+
+test_that("Missing positional args", {
+    command <- file.path("parseArgs", "positional-args")
+    out <- shell(
+        command = command,
+        stderr = TRUE
+    )
+    expect_match(
+        object = paste(out, collapse = "\n"),
+        regexp = "Positional arguments are required but missing."
     )
 })
 
@@ -57,18 +97,6 @@ test_that("Unset args or flags as positional args", {
     out <- shell(
         command = command,
         args = args,
-        stderr = TRUE
-    )
-    expect_match(
-        object = paste(out, collapse = "\n"),
-        regexp = "positionalArgs"
-    )
-})
-
-test_that("Missing positional args", {
-    command <- file.path("parseArgs", "positional-args")
-    out <- shell(
-        command = command,
         stderr = TRUE
     )
     expect_match(
