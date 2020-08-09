@@ -1,33 +1,25 @@
-## FIXME This needs to support `--days 2`.
-## FIXME This needs to error if the user passes in extra stuff.
-## FIXME Need to add Rscript unit tests for this.
-## FIXME Improve working example to include functional script.
-## FIXME NEED TO DEFINE REQUIREDFLAGS, REQUIREDARGS
-
-
-
 #' Parse command line argument flags
 #'
 #' @export
 #' @note Updated 2020-08-09.
-#' @note Short flags, such as `-r`, are intentionally not supported.
 #'
-#' @param requiredFlags,optionalFlags `character` or `NULL`.
-#'   Valid long flag names.
-#'   For example, `aaa` for `--aaa`.
 #' @param requiredArgs,optionalArgs `character` or `NULL`.
 #'   Valid key-value pair argument names.
 #'   For example, `aaa` for `--aaa=AAA` or `--aaa AAA`.
-#'   Note that `--aaa AAA`-style arguments are not currently supported.
-#' @param positional `logical(1)`.
-#'   Error if required positional arguments (>= 1) are missing.
+#'   Note that `--aaa AAA`-style arguments (note lack of `=`) are not currently
+#'   supported.
+#' @param flags `character` or `NULL`.
+#'   Valid long flag names.
+#'   For example, `aaa` for `--aaa`.
+#'   Short flags, such as `-r`, are intentionally not supported.
+#' @param positionalArgs `logical(1)`.
+#'   Require positional arguments to be defined.
 #'
 #' @return `list`.
 #'   Named list containing arguments, organized by type:
-#'   - `requiredFlags`
-#'   - `optionalFlags`
 #'   - `requiredArgs`
 #'   - `optionalArgs`
+#'   - `flags`
 #'   - `positionalArgs`
 #'
 #' @seealso
@@ -38,75 +30,56 @@
 #' @examples
 #' command <- system.file("scripts", "parse-args", package = "acidbase")
 #' args <- c(
-#'     ## Required flags:
-#'     "--aaa", "--bbb",
-#'     ## Optional flags:
-#'     "--ccc", "--ddd",
 #'     ## Required args:
-#'     "--eee=EEE", "--fff=FFF",
+#'     "--aaa=AAA", "--bbb=BBB",
 #'     ## Optional args:
-#'     "--ggg=GGG", "--hhh=HHH",
+#'     "--ccc=CCC", "--ddd=DDD",
+#'     ## Flags:
+#'     "--eee", "--fff",
 #'     ## Positional args:
-#'     "III", "JJJ"
+#'     "GGG", "HHH"
 #' )
 #' readLines(command)
 #' out <- shell(command = command, args = args, stdout = TRUE)
 #' print(out)
 parseArgs <- function(
-    requiredFlags = NULL,
-    optionalFlags = NULL,
     requiredArgs = NULL,
     optionalArgs = NULL,
+    flags = NULL,
     positionalArgs = FALSE
 ) {
     stopifnot(
-        !.hasLength(intersect(requiredFlags, optionalFlags)),
-        !.hasLength(intersect(requiredFlags, requiredArgs)),
-        !.hasLength(intersect(requiredFlags, optionalArgs)),
-        !.hasLength(intersect(optionalFlags, requiredArgs)),
-        !.hasLength(intersect(optionalFlags, optionalArgs)),
-        !.hasLength(intersect(requiredArgs, optionalArgs))
+        !.hasLength(intersect(requiredArgs, optionalArgs)),
+        !.hasLength(intersect(requiredArgs, flags)),
+        !.hasLength(intersect(optionalArgs, flags))
     )
     cmdArgs <- commandArgs(trailingOnly = TRUE)
     out <- list(
-        requiredFlags = NULL,
-        optionalFlags = NULL,
         requiredArgs = NULL,
         optionalArgs = NULL,
+        flags = NULL,
         positionalArgs = NULL
     )
-    if (!is.null(requiredFlags) || !is.null(optionalFlags)) {
+    if (!is.null(flags)) {
+        optionalFlags <- flags
         flagPattern <- "^--([^=[:space:]]+)$"
         flags <- grep(pattern = flagPattern, x = cmdArgs, value = TRUE)
         flagNames <- gsub(pattern = flagPattern, replacement = "\\1", x = flags)
-        if (!is.null(requiredFlags)) {
-            match <- match(x = requiredFlags, table = flagNames)
-            if (any(is.na(match))) {
-                fail <- requiredFlags[is.na(match)]
-                stop(sprintf(
-                    "Failed to match required flag: %s.",
-                    toString(fail)
-                ))
-            }
-            hits <- flags[match]
-            names(hits) <- flagNames[match]
-            out[["requiredFlags"]] <- hits
+        match <- match(x = optionalFlags, table = flagNames)
+        if (any(!is.na(match))) {
+            hits <- flags[!is.na(match)]
+            names(hits) <- flagNames[!is.na(match)]
+            out[["flags"]] <- hits
             flags <- setdiff(flags, hits)
             flagNames <- setdiff(flagNames, names(hits))
             cmdArgs <- setdiff(cmdArgs, hits)
         }
-        if (!is.null(optionalFlags)) {
-            match <- match(x = optionalFlags, table = flagNames)
-            if (any(!is.na(match))) {
-                hits <- flags[!is.na(match)]
-                names(hits) <- flagNames[!is.na(match)]
-                out[["optionalFlags"]] <- hits
-                flags <- setdiff(flags, hits)
-                flagNames <- setdiff(flagNames, names(hits))
-                cmdArgs <- setdiff(cmdArgs, hits)
-            }
+        if (hasLength(flagNames)) {
+            stop(sprintf(
+                "Invalid flags: %s.",
+                toString(flagNames, width = 200L)
+            ))
         }
-        stopifnot(!.hasLength(flags), !.hasLength(flagNames))
     }
     if (!is.null(requiredArgs) || !is.null(optionalArgs)) {
         argPattern <- "^--([^=[:space:]]+)=([^[:space:]]+)$"

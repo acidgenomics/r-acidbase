@@ -5,34 +5,34 @@
 \title{Parse command line argument flags}
 \usage{
 parseArgs(
-  requiredFlags = NULL,
-  optionalFlags = NULL,
   requiredArgs = NULL,
   optionalArgs = NULL,
+  flags = NULL,
   positionalArgs = FALSE
 )
 }
 \arguments{
-\item{requiredFlags, optionalFlags}{\code{character} or \code{NULL}.
-Valid long flag names.
-For example, \code{aaa} for \code{--aaa}.}
-
 \item{requiredArgs, optionalArgs}{\code{character} or \code{NULL}.
 Valid key-value pair argument names.
 For example, \code{aaa} for \code{--aaa=AAA} or \verb{--aaa AAA}.
-Note that \verb{--aaa AAA}-style arguments are not currently supported.}
+Note that \verb{--aaa AAA}-style arguments (note lack of \code{=}) are not currently
+supported.}
 
-\item{positional}{\code{logical(1)}.
-Error if required positional arguments (>= 1) are missing.}
+\item{flags}{\code{character} or \code{NULL}.
+Valid long flag names.
+For example, \code{aaa} for \code{--aaa}.
+Short flags, such as \code{-r}, are intentionally not supported.}
+
+\item{positionalArgs}{\code{logical(1)}.
+Require positional arguments to be defined.}
 }
 \value{
 \code{list}.
 Named list containing arguments, organized by type:
 \itemize{
-\item \code{requiredFlags}
-\item \code{optionalFlags}
 \item \code{requiredArgs}
 \item \code{optionalArgs}
+\item \code{flags}
 \item \code{positionalArgs}
 }
 }
@@ -41,22 +41,18 @@ Parse command line argument flags
 }
 \note{
 Updated 2020-08-09.
-
-Short flags, such as \code{-r}, are intentionally not supported.
 }
 \examples{
 command <- system.file("scripts", "parse-args", package = "acidbase")
 args <- c(
-    ## Required flags:
-    "--aaa", "--bbb",
-    ## Optional flags:
-    "--ccc", "--ddd",
     ## Required args:
-    "--eee=EEE", "--fff=FFF",
+    "--aaa=AAA", "--bbb=BBB",
     ## Optional args:
-    "--ggg=GGG", "--hhh=HHH",
+    "--ccc=CCC", "--ddd=DDD",
+    ## Flags:
+    "--eee", "--fff",
     ## Positional args:
-    "III", "JJJ"
+    "GGG", "HHH"
 )
 readLines(command)
 out <- shell(command = command, args = args, stdout = TRUE)
