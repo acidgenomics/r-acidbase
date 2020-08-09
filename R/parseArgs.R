@@ -64,11 +64,8 @@ parseArgs <- function(
         optionalFlags <- flags
         flagPattern <- "^--([^=[:space:]]+)$"
         flags <- grep(pattern = flagPattern, x = cmdArgs, value = TRUE)
-        names(flags) <- gsub(
-            pattern = flagPattern,
-            replacement = "\\1",
-            x = flags
-        )
+        names(flags) <-
+            gsub(pattern = flagPattern, replacement = "\\1", x = flags)
         match <- match(x = names(flags), table = optionalFlags)
         if (any(is.na(match))) {
             fail <- names(flags)[is.na(match)]
@@ -83,11 +80,7 @@ parseArgs <- function(
     if (!is.null(requiredArgs) || !is.null(optionalArgs)) {
         argPattern <- "^--([^=[:space:]]+)=([^[:space:]]+)$"
         args <- grep(pattern = argPattern, x = cmdArgs, value = TRUE)
-        names(args) <- gsub(
-            pattern = argPattern,
-            replacement = "\\1",
-            x = args
-        )
+        names(args) <- gsub(pattern = argPattern, replacement = "\\1", x = args)
         if (!is.null(requiredArgs)) {
             match <- match(x = requiredArgs, table = names(args))
             if (any(is.na(match))) {
@@ -99,7 +92,8 @@ parseArgs <- function(
             }
             hits <- args[match]
             out[["requiredArgs"]] <- hits
-            args <- setdiff(args, hits)
+            ## Note that `setdiff()` causes names to drop.
+            args <- args[args %in% hits]
             cmdArgs <- setdiff(cmdArgs, hits)
         }
         if (!is.null(optionalArgs)) {
