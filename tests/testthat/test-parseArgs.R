@@ -25,9 +25,12 @@ test_that("Working example", {
     )
 })
 
-test_that("No arguments", {
-    expect_identical(
-        object = parseArgs(),
-        expected = character()
+test_that("Required flags mismatch", {
+    command <- file.path("parseArgs", "required-flags-error")
+    args <- c("--aaa", "--bbb")
+    shell(
+        command = command,
+        args = args
     )
+
 })
