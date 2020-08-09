@@ -2,10 +2,7 @@
 
 ### Major changes
 
-- `parseArgs`: Reworked argument parsing engine. Now returns values in a named
-  list as follows: `requiredFlags`, `optionalFlags`, `requiredArgs`,
-  `optionalArgs`, and `positionalArgs`. This makes downstream handoff inside
-  of koopa scripts easier.
+- Migrated `parseArgs` and `positionalArgs` out of package.
 
 ## acidbase 0.1.11 (2020-07-24)
 
