@@ -1,7 +1,7 @@
 #' Invoke a command in the system command-line shell
 #'
 #' @export
-#' @note Updated 2020-05-05.
+#' @note Updated 2020-08-09.
 #'
 #' @param command `character(1)`.
 #' @param args `character`.
@@ -39,6 +39,7 @@ shell <- function(
     stderr = "",
     ...
 ) {
+    if (isTRUE(stderr)) stdout <- TRUE
     out <- system2(
         command = command,
         args = args,
