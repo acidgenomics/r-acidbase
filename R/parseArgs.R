@@ -86,7 +86,7 @@ parseArgs <- function(
             if (!all(ok)) {
                 fail <- requiredArgs[!ok]
                 stop(sprintf(
-                    "Invalid args detected: %s.",
+                    "Missing required args: %s.",
                     toString(fail, width = 200L)
                 ))
             }
