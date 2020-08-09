@@ -81,7 +81,7 @@ parseArgs <- function(
         if (!is.null(requiredFlags)) {
             match <- match(x = requiredFlags, table = flagNames)
             if (any(is.na(match))) {
-                fail <- flags[is.na(match)]
+                fail <- requiredFlags[is.na(match)]
                 stop(sprintf(
                     "Failed to match required flag: %s.",
                     toString(fail)
@@ -114,7 +114,7 @@ parseArgs <- function(
         if (!is.null(requiredArgs)) {
             match <- match(x = requiredArgs, table = argNames)
             if (any(is.na(match))) {
-                fail <- args[is.na(match)]
+                fail <- requiredArgs[is.na(match)]
                 stop(sprintf(
                     "Failed to match required arg: %s.",
                     toString(fail)
