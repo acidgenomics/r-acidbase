@@ -64,12 +64,11 @@ parseArgs <- function(
         optionalFlags <- flags
         flagPattern <- "^--([^=[:space:]]+)$"
         flags <- grep(pattern = flagPattern, x = cmdArgs, value = TRUE)
-        names(flags) <-
-            gsub(pattern = flagPattern, replacement = "\\1", x = flags)
         cmdArgs <- setdiff(cmdArgs, flags)
-        ok <- names(flags) %in% optionalFlags
+        flags <- gsub(pattern = flagPattern, replacement = "\\1", x = flags)
+        ok <- flags %in% optionalFlags
         if (!all(ok)) {
-            fail <- names(flags)[!ok]
+            fail <- flags[!ok]
             stop(sprintf(
                 "Invalid flags detected: %s.",
                 toString(fail, width = 200L)
@@ -80,8 +79,9 @@ parseArgs <- function(
     if (!is.null(requiredArgs) || !is.null(optionalArgs)) {
         argPattern <- "^--([^=[:space:]]+)=([^[:space:]]+)$"
         args <- grep(pattern = argPattern, x = cmdArgs, value = TRUE)
-        names(args) <- gsub(pattern = argPattern, replacement = "\\1", x = args)
         cmdArgs <- setdiff(cmdArgs, args)
+        names(args) <- gsub(pattern = argPattern, replacement = "\\1", x = args)
+        args <- gsub(pattern = argPattern, replacement = "\\2", x = args)
         if (!is.null(requiredArgs)) {
             ok <- requiredArgs %in% names(args)
             if (!all(ok)) {
