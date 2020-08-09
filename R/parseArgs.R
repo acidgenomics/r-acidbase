@@ -74,7 +74,7 @@ parseArgs <- function(
             flagNames <- setdiff(flagNames, names(hits))
             cmdArgs <- setdiff(cmdArgs, hits)
         }
-        if (hasLength(flagNames)) {
+        if (.hasLength(flagNames)) {
             stop(sprintf(
                 "Invalid flags: %s.",
                 toString(flagNames, width = 200L)
