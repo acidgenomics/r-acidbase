@@ -79,6 +79,20 @@ test_that("Invalid flags", {
     )
 })
 
+test_that("Positional arguments only", {
+    command <- file.path("parseArgs", "positional-args")
+    args <- c("aaa", "bbb")
+    out <- shell(
+        command = command,
+        args = args,
+        stdout = TRUE
+    )
+    expect_match(
+        object = paste(out, collapse = "\n"),
+        regexp = "aaa"
+    )
+})
+
 test_that("Missing positional args", {
     command <- file.path("parseArgs", "positional-args")
     out <- shell(
