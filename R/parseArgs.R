@@ -64,26 +64,32 @@ parseArgs <- function(
         optionalFlags <- flags
         flagPattern <- "^--([^=[:space:]]+)$"
         flags <- grep(pattern = flagPattern, x = cmdArgs, value = TRUE)
-        flagNames <- gsub(pattern = flagPattern, replacement = "\\1", x = flags)
-        ## Check for invalid flags.
-        match <- match(x = flagNames, table = optionalFlags)
-        if (any(!is.na(match))) {
-            fail <- flagNames[is.na(match)]
+        names(flags) <- gsub(
+            pattern = flagPattern,
+            replacement = "\\1",
+            x = flags
+        )
+        match <- match(x = names(flags), table = optionalFlags)
+        if (any(is.na(match))) {
+            fail <- names(flags)[is.na(match)]
             stop(sprintf(
                 "Invalid flags detected: %s.",
                 toString(fail, width = 200L)
             ))
         }
-        names(flags) <- flagNames
         out[["flags"]] <- flags
         cmdArgs <- setdiff(cmdArgs, flags)
     }
     if (!is.null(requiredArgs) || !is.null(optionalArgs)) {
         argPattern <- "^--([^=[:space:]]+)=([^[:space:]]+)$"
         args <- grep(pattern = argPattern, x = cmdArgs, value = TRUE)
-        argNames <- gsub(pattern = argPattern, replacement = "\\1", x = args)
+        names(args) <- gsub(
+            pattern = argPattern,
+            replacement = "\\1",
+            x = args
+        )
         if (!is.null(requiredArgs)) {
-            match <- match(x = requiredArgs, table = argNames)
+            match <- match(x = requiredArgs, table = names(args))
             if (any(is.na(match))) {
                 fail <- requiredArgs[is.na(match)]
                 stop(sprintf(
@@ -92,31 +98,25 @@ parseArgs <- function(
                 ))
             }
             hits <- args[match]
-            names(hits) <- argNames[match]
             out[["requiredArgs"]] <- hits
             args <- setdiff(args, hits)
-            argNames <- setdiff(argNames, names(hits))
             cmdArgs <- setdiff(cmdArgs, hits)
         }
         if (!is.null(optionalArgs)) {
-            ## FIXME WHAT IF WE PUT AN INVALID ARG NAME IN HERE?
-            match <- match(x = optionalArgs, table = argNames)
-            if (any(!is.na(match))) {
-                hits <- args[!is.na(match)]
-                names(hits) <- argNames[!is.na(match)]
-                out[["optionalArgs"]] <- hits
-                args <- setdiff(args, hits)
-                argNames <- setdiff(argNames, names(hits))
-                cmdArgs <- setdiff(cmdArgs, hits)
+            match <- match(x = argNames, table = optionalArgs)
+            if (any(is.na(match))) {
+                fail <- argNames[is.na(match)]
+                stop(sprintf(
+                    "Invalid args detected: %s.",
+                    toString(fail, width = 200L)
+                ))
             }
+            out[["optionalArgs"]] <- args
+            cmdArgs <- setdiff(cmdArgs, args)
         }
-        stopifnot(!.hasLength(args), !.hasLength(argNames))
     }
     if (isTRUE(positionalArgs)) {
-        if(
-            !.hasLength(cmdArgs) ||
-            any(grepl(pattern = "^--", x = cmdArgs))
-        ) {
+        if(!.hasLength(cmdArgs) || any(grepl(pattern = "^--", x = cmdArgs))) {
             stop("Positional arguments are required but missing.")
         }
         out[["positionalArgs"]] <- cmdArgs
