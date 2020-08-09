@@ -1,3 +1,0 @@
-#!/usr/bin/env Rscript
-
-cat(acidbase::positionalArgs(required = TRUE), sep = "\n")

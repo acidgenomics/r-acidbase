@@ -1,9 +1,9 @@
 #!/usr/bin/env Rscript
 
 acidbase::parseArgs(
-    requiredArgs = "aaa",
-    requiredFlags = "bbb",
-    optionalArgs = "ccc",
-    optionalFlags = "ddd",
-    positional = TRUE
+    requiredFlags = c("aaa", "bbb"),
+    optionalFlags = c("ccc", "ddd", "yyy"),
+    requiredArgs = c("eee", "fff"),
+    optionalArgs = c("ggg", "hhh", "zzz"),
+    positionalArgs = TRUE
 )
