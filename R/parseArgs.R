@@ -141,10 +141,23 @@ parseArgs <- function(
         stopifnot(!.hasLength(args), !.hasLength(argNames))
     }
     if (isTRUE(positionalArgs)) {
-        stopifnot(.hasLength(cmdArgs))
+        if(
+            .hasLength(cmdArgs) ||
+            !any(grepl(pattern = "^--", x = cmdArgs))
+        ) {
+            stop(sprintf(
+                "Invalid positional arguments detected: %s",
+                toString(cmdArgs, width = 200L)
+            ))
+        }
         out[["positionalArgs"]] <- cmdArgs
     } else {
-        stopifnot(!.hasLength(cmdArgs))
+        if (.hasLength(cmdArgs)) {
+            stop(sprintf(
+                "Positional arguments are defined but not allowed: %s.",
+                toString(cmdArgs, width = 200L)
+            ))
+        }
     }
     out
 }
