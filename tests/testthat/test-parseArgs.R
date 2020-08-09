@@ -3,16 +3,14 @@ context("parseArgs")
 test_that("Working example", {
     command <- system.file("scripts", "parse-args", package = "acidbase")
     args <- c(
-        ## Required flags:
-        "--aaa", "--bbb",
-        ## Optional flags:
-        "--ccc", "--ddd",
-        ## Required args:
-        "--eee=EEE", "--fff=FFF",
-        ## Optional args:
-        "--ggg=GGG", "--hhh=HHH",
+        ## Required arguments:
+        "--aaa=AAA", "--bbb=BBB",
+        ## Optional arguments:
+        "--ccc=CCC", "--ddd=DDD",
+        ## Flags:
+        "--eee", "--fff",
         ## Positional args:
-        "III", "JJJ"
+        "GGG", "HHH"
     )
     out <- shell(
         command = command,
@@ -21,7 +19,7 @@ test_that("Working example", {
     )
     expect_match(
         object = paste(out, collapse = "\n"),
-        regexp = "requiredFlags"
+        regexp = "requiredArgs"
     )
 })
 
