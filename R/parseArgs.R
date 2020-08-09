@@ -66,6 +66,7 @@ parseArgs <- function(
         flags <- grep(pattern = flagPattern, x = cmdArgs, value = TRUE)
         names(flags) <-
             gsub(pattern = flagPattern, replacement = "\\1", x = flags)
+        cmdArgs <- setdiff(cmdArgs, flags)
         ok <- names(flags) %in% optionalFlags
         if (!all(ok)) {
             fail <- names(flags)[!ok]
@@ -75,12 +76,12 @@ parseArgs <- function(
             ))
         }
         out[["flags"]] <- flags
-        cmdArgs <- setdiff(cmdArgs, flags)
     }
     if (!is.null(requiredArgs) || !is.null(optionalArgs)) {
         argPattern <- "^--([^=[:space:]]+)=([^[:space:]]+)$"
         args <- grep(pattern = argPattern, x = cmdArgs, value = TRUE)
         names(args) <- gsub(pattern = argPattern, replacement = "\\1", x = args)
+        cmdArgs <- setdiff(cmdArgs, args)
         if (!is.null(requiredArgs)) {
             ok <- requiredArgs %in% names(args)
             if (!all(ok)) {
@@ -90,19 +91,8 @@ parseArgs <- function(
                     toString(fail, width = 200L)
                 ))
             }
-            match <- match(x = requiredArgs, table = names(args))
-            if (any(is.na(match))) {
-                fail <- requiredArgs[is.na(match)]
-                stop(sprintf(
-                    "Failed to match required arg: %s.",
-                    toString(fail, width = 200L)
-                ))
-            }
-            hits <- args[match]
-            out[["requiredArgs"]] <- hits
-            ## Note that `setdiff()` causes names to drop.
-            args <- args[!args %in% hits]
-            cmdArgs <- setdiff(cmdArgs, hits)
+            out[["requiredArgs"]] <- args[requiredArgs]
+            args <- args[!names(args) %in% requiredArgs]
         }
         if (!is.null(optionalArgs) && .hasLength(cmdArgs)) {
             match <- match(x = names(args), table = optionalArgs)
@@ -114,7 +104,6 @@ parseArgs <- function(
                 ))
             }
             out[["optionalArgs"]] <- args
-            cmdArgs <- setdiff(cmdArgs, args)
         }
     }
     if (isTRUE(positionalArgs)) {
