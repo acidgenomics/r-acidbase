@@ -1,0 +1,9 @@
+#!/usr/bin/env Rscript
+
+acidbase::parseArgs(
+    requiredArgs = "aaa",
+    requiredFlags = "bbb",
+    optionalArgs = "ccc",
+    optionalFlags = "ddd",
+    positional = TRUE
+)
