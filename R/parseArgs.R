@@ -103,9 +103,9 @@ parseArgs <- function(
             cmdArgs <- setdiff(cmdArgs, hits)
         }
         if (!is.null(optionalArgs)) {
-            match <- match(x = argNames, table = optionalArgs)
+            match <- match(x = names(args), table = optionalArgs)
             if (any(is.na(match))) {
-                fail <- argNames[is.na(match)]
+                fail <- names(args)[is.na(match)]
                 stop(sprintf(
                     "Invalid args detected: %s.",
                     toString(fail, width = 200L)
