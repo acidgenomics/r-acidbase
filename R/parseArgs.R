@@ -94,7 +94,7 @@ parseArgs <- function(
             out[["requiredArgs"]] <- args[requiredArgs]
             args <- args[!names(args) %in% requiredArgs]
         }
-        if (!is.null(optionalArgs) && .hasLength(cmdArgs)) {
+        if (!is.null(optionalArgs)) {
             match <- match(x = names(args), table = optionalArgs)
             if (any(is.na(match))) {
                 fail <- names(args)[is.na(match)]
