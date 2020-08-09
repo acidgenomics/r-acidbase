@@ -29,11 +29,11 @@ Error if required positional arguments (>= 1) are missing.}
 \code{list}.
 Named list containing arguments, organized by type:
 \itemize{
-\item requiredFlags
-\item optionalFlags
-\item requiredArgs
-\item optionalArgs
-\item positionalArgs
+\item \code{requiredFlags}
+\item \code{optionalFlags}
+\item \code{requiredArgs}
+\item \code{optionalArgs}
+\item \code{positionalArgs}
 }
 }
 \description{
@@ -59,7 +59,8 @@ args <- c(
     "III", "JJJ"
 )
 readLines(command)
-shell(command = command, args = args)
+out <- shell(command = command, args = args, stdout = TRUE)
+print(out)
 }
 \seealso{
 \itemize{

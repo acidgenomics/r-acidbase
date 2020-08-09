@@ -24,11 +24,11 @@
 #'
 #' @return `list`.
 #'   Named list containing arguments, organized by type:
-#'   - requiredFlags
-#'   - optionalFlags
-#'   - requiredArgs
-#'   - optionalArgs
-#'   - positionalArgs
+#'   - `requiredFlags`
+#'   - `optionalFlags`
+#'   - `requiredArgs`
+#'   - `optionalArgs`
+#'   - `positionalArgs`
 #'
 #' @seealso
 #' - argparse Python package.
@@ -50,7 +50,8 @@
 #'     "III", "JJJ"
 #' )
 #' readLines(command)
-#' shell(command = command, args = args)
+#' out <- shell(command = command, args = args, stdout = TRUE)
+#' print(out)
 parseArgs <- function(
     requiredFlags = NULL,
     optionalFlags = NULL,
