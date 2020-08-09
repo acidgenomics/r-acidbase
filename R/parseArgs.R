@@ -107,7 +107,7 @@ parseArgs <- function(
         }
     }
     if (isTRUE(positionalArgs)) {
-        if(!.hasLength(cmdArgs) || any(grepl(pattern = "^--", x = cmdArgs))) {
+        if (!.hasLength(cmdArgs) || any(grepl(pattern = "^--", x = cmdArgs))) {
             stop("Positional arguments are required but missing.")
         }
         out[["positionalArgs"]] <- cmdArgs
