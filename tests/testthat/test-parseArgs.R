@@ -69,24 +69,20 @@ test_that("Unset args or flags as positional args", {
 
 test_that("Missing positional args", {
     command <- file.path("parseArgs", "positional-args")
-    args <- ""
     out <- shell(
         command = command,
-        args = args,
         stderr = TRUE
     )
     expect_match(
         object = paste(out, collapse = "\n"),
-        regexp = "positionalArgs"
+        regexp = "Positional arguments are required but missing."
     )
 })
 
 test_that("No positional args allowed", {
     command <- file.path("parseArgs", "no-positional-args")
-    args <- ""
     out <- shell(
         command = command,
-        args = args,
         stdout = TRUE
     )
     expect_match(
@@ -101,6 +97,6 @@ test_that("No positional args allowed", {
     )
     expect_match(
         object = paste(out, collapse = "\n"),
-        regexp = "hasLength"
+        regexp = "Positional arguments are defined but not allowed"
     )
 })
