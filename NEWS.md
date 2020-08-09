@@ -1,3 +1,9 @@
+## acidbase 0.1.12 (2020-08-09)
+
+### Major changes
+
+- Migrated `parseArgs` and `positionalArgs` out of package.
+
 ## acidbase 0.1.11 (2020-07-24)
 
 ### Minor changes

@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">acidbase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.12</span>
       </span>
     </div>
 
@@ -122,52 +122,86 @@
     <p>Parse command line argument flags</p>
     </div>
 
-    <pre class="usage"><span class='fu'>parseArgs</span>(<span class='kw'>positional</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>validArgs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>validFlags</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>parseArgs</span>(
+  <span class='kw'>requiredArgs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>optionalArgs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>flags</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>positionalArgs</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>positional</th>
-      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
-Error if required positional arguments are missing.</p></td>
-    </tr>
-    <tr>
-      <th>validArgs</th>
+      <th>requiredArgs, optionalArgs</th>
       <td><p><code>character</code> or <code>NULL</code>.
 Valid key-value pair argument names.
-For example, <code>aaa</code> for <code>--aaa=AAA</code>.</p></td>
+For example, <code>aaa</code> for <code>--aaa=AAA</code> or <code>--aaa AAA</code>.
+Note that <code>--aaa AAA</code>-style arguments (note lack of <code>=</code>) are not currently
+supported.</p></td>
     </tr>
     <tr>
-      <th>validFlags</th>
+      <th>flags</th>
       <td><p><code>character</code> or <code>NULL</code>.
-Valid flag names.
-For example, <code>aaa</code> for <code>--aaa</code>.</p></td>
+Valid long flag names.
+For example, <code>aaa</code> for <code>--aaa</code>.
+Short flags, such as <code>-r</code>, are intentionally not supported.</p></td>
+    </tr>
+    <tr>
+      <th>positionalArgs</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
+Require positional arguments to be defined.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>character</code>.
-Arguments.</p>
+    <p><code>list</code>.
+Named list containing arguments, organized by type:</p><ul>
+<li><p><code>requiredArgs</code></p></li>
+<li><p><code>optionalArgs</code></p></li>
+<li><p><code>flags</code></p></li>
+<li><p><code>positionalArgs</code></p></li>
+</ul>
+
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>Updated 2020-04-07.</p>
+    <p>Updated 2020-08-09.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'>
 <ul>
-<li><p>argparse Python package</p></li>
-<li><p>argparser R package</p></li>
-<li><p>optparse R package</p></li>
+<li><p>argparse Python package.</p></li>
+<li><p>argparser R package.</p></li>
+<li><p>optparse R package.</p></li>
 </ul>
 </div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>parseArgs</span>()</div><div class='output co'>#&gt; character(0)</div><div class='input'>
-## $ Rscript test.Rscript --a="A" --b
-## &gt; parseArgs(positional = FALSE, validArgs = "a", validFlags = "b")
-</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>command</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"scripts"</span>, <span class='st'>"parse-args"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"acidbase"</span>)
+<span class='no'>args</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
+    <span class='co'>## Required args:</span>
+    <span class='st'>"--aaa=AAA"</span>, <span class='st'>"--bbb=BBB"</span>,
+    <span class='co'>## Optional args:</span>
+    <span class='st'>"--ccc=CCC"</span>, <span class='st'>"--ddd=DDD"</span>,
+    <span class='co'>## Flags:</span>
+    <span class='st'>"--eee"</span>, <span class='st'>"--fff"</span>,
+    <span class='co'>## Positional args:</span>
+    <span class='st'>"GGG"</span>, <span class='st'>"HHH"</span>
+)
+<span class='fu'><a href='https://rdrr.io/r/base/readLines.html'>readLines</a></span>(<span class='no'>command</span>)</div><div class='output co'>#&gt; [1] "#!/usr/bin/env Rscript"                          
+#&gt; [2] ""                                                
+#&gt; [3] "acidbase::parseArgs("                            
+#&gt; [4] "    requiredArgs = c(\"aaa\", \"bbb\"),"         
+#&gt; [5] "    optionalArgs = c(\"ccc\", \"ddd\", \"zzz\"),"
+#&gt; [6] "    flags = c(\"eee\", \"fff\"),"                
+#&gt; [7] "    positionalArgs = TRUE"                       
+#&gt; [8] ")"                                               </div><div class='input'><span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='shell.html'>shell</a></span>(<span class='kw'>command</span> <span class='kw'>=</span> <span class='no'>command</span>, <span class='kw'>args</span> <span class='kw'>=</span> <span class='no'>args</span>, <span class='kw'>stdout</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>out</span>)</div><div class='output co'>#&gt;  [1] "$requiredArgs"       "  aaa   bbb "        "\"AAA\" \"BBB\" "   
+#&gt;  [4] ""                    "$optionalArgs"       "  ccc   ddd "       
+#&gt;  [7] "\"CCC\" \"DDD\" "    ""                    "$flags"             
+#&gt; [10] "[1] \"eee\" \"fff\"" ""                    "$positionalArgs"    
+#&gt; [13] "[1] \"GGG\" \"HHH\"" ""                   </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
