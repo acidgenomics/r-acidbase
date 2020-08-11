@@ -273,9 +273,7 @@
 <h3 class="hasAnchor">
 <a href="#major-changes" class="anchor"></a>Major changes</h3>
 <ul>
-<li>
-<code>parseArgs</code>: Reworked argument parsing engine. Now returns values in a named list as follows: <code>requiredFlags</code>, <code>optionalFlags</code>, <code>requiredArgs</code>, <code>optionalArgs</code>, and <code>positionalArgs</code>. This makes downstream handoff inside of koopa scripts easier.</li>
-<li>Removed <code>positionalArgs</code> function, as no longer necessary.</li>
+<li>Migrated <code>parseArgs</code> and <code>positionalArgs</code> out of package.</li>
 </ul>
 </div>
 </div>
