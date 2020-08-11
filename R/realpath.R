@@ -26,13 +26,15 @@ realpath <- function(path) {
         winslash = .Platform$file.sep,  # nolint
         mustWork = TRUE
     )
+    ## nocov start
     hasAccess <- file.access(names = path, mode = 0L) == 0L
     if (!all(hasAccess)) {
         fail <- path[which(!hasAccess)]
-        stop(
-            "Access failure: ",
-            toString(paste0("'", fail, "'"), width = 200L)
-        )
+        stop(sprintf(
+            "Access failure: %s.",
+            toString(fail, width = 200L)
+        ))
     }
+    ## nocov end
     path
 }
