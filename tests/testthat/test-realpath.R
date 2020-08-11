@@ -11,6 +11,6 @@ test_that("realpath", {
     unlink(c("AAA", "BBB"), recursive = TRUE)
     expect_error(
         object = realpath(c("AAA", "BBB")),
-        regexp = "Access failure: 'AAA', 'BBB'"
+        regexp = "No such"
     )
 })
