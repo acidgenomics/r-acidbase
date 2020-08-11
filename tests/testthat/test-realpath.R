@@ -9,8 +9,5 @@ test_that("realpath", {
         expected = c("AAA", "BBB")
     )
     unlink(c("AAA", "BBB"), recursive = TRUE)
-    expect_error(
-        object = realpath(c("AAA", "BBB")),
-        regexp = "Access failure: 'AAA', 'BBB'"
-    )
+    expect_error(realpath(c("AAA", "BBB")))
 })

@@ -1,3 +1,9 @@
+## acidbase 0.1.13 (2020-08-11)
+
+### Minor changes
+
+- Bug fix for `realpath` file path resolution using `..`.
+
 ## acidbase 0.1.12 (2020-08-09)
 
 ### Major changes

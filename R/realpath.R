@@ -1,8 +1,11 @@
 #' Express file paths in canonical form
 #'
 #' @export
-#' @inherit base::normalizePath
-#' @note Updated 2019-10-22.
+#' @note Updated 2020-08-11.
+#' @note Use `normalizePath()` instead for non-existing file paths.
+#'
+#' @param path `character`.
+#'   File paths, which must exist on disk.
 #'
 #' @seealso
 #' Standard path modifiers:
@@ -17,19 +20,21 @@
 #'
 #' @examples
 #' realpath(".")
-#' normalizePath(".")
 realpath <- function(path) {
-    hasAccess <- file.access(names = path, mode = 0L) == 0L
-    if (!all(hasAccess)) {
-        fail <- basename(path[which(!hasAccess)])
-        stop(
-            "Access failure: ",
-            toString(paste0("'", fail, "'"), width = 200L)
-        )
-    }
-    normalizePath(
+    path <- normalizePath(
         path = path,
         winslash = .Platform$file.sep,  # nolint
         mustWork = TRUE
     )
+    ## nocov start
+    hasAccess <- file.access(names = path, mode = 0L) == 0L
+    if (!all(hasAccess)) {
+        fail <- path[which(!hasAccess)]
+        stop(sprintf(
+            "Access failure: %s.",
+            toString(fail, width = 200L)
+        ))
+    }
+    ## nocov end
+    path
 }
