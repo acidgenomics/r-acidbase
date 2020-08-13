@@ -14,7 +14,10 @@ This is an [R][] package.
 ### [R][] method
 
 ```r
-install.packages("acidbase", repos = "r.acidgenomics.com")
+install.packages(
+    pkgs = "acidbase",
+    repos = c("r.acidgenomics.com", getOption("repos"))
+)
 ```
 
 [acid genomics]: https://acidgenomics.com/
