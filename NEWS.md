@@ -1,3 +1,10 @@
+## acidbase 0.1.14 (2020-08-25)
+
+### Minor changes
+
+- Migrated some globals previously exported in basejump.
+- Updated `formalsList` to consolidate params from basejump.
+
 ## acidbase 0.1.13 (2020-08-11)
 
 ### Minor changes

@@ -1,3 +1,17 @@
+## barcodePattern ==============================================================
+#' Single-sell barcode pattern
+#'
+#' Trailing number is to match cellranger output.
+#'
+#' @export
+#' @note Updated 2019-08-21.
+#'
+#' @examples
+#' barcodePattern
+barcodePattern <- ")_([ACGT_]{6,})(_[0-9]+)?$"
+
+
+
 ## extPattern ==================================================================
 #' File extension pattern matching
 #'
@@ -9,33 +23,54 @@
 #' compressExtPattern
 NULL
 
-#' @rdname extPattern
-#' @name extPattern
-#' @export
-NULL
+.compressExtPattern <- "\\.(bz2|gz|xz|zip)"
 
 #' @rdname extPattern
-#' @name compressExtPattern
 #' @export
-NULL
-
-compressExtPattern <- "\\.(bz2|gz|xz|zip)"
 extPattern <- paste0(
     "\\.([a-zA-Z0-9]+)",
-    "(", compressExtPattern, ")?$"
+    "(", .compressExtPattern, ")?$"
 )
-compressExtPattern <- paste0(compressExtPattern, "$")
+
+#' @rdname extPattern
+#' @export
+compressExtPattern <- paste0(.compressExtPattern, "$")
 
 
 
 ## formalsList =================================================================
-#' List of global formals
+#' Shared list of optional default formals
 #'
 #' These can be overwritten using the `options` function.
 #'
 #' @export
-#' @note Updated 2020-01-19
+#' @note Updated 2020-08-25.
+#'
+#' @seealso
+#' - https://ggplot2.tidyverse.org/reference/scale_colour_continuous.html
+#' - https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html
+#'
+#' @examples
+#' head(formalsList)
 formalsList <- list(
+    color.continuous = quote(
+        getOption(
+            x = "acid.color.continuous",
+            default = getOption(
+                x = "ggplot2.continuous.colour",
+                default = acidplots::scale_color_synesthesia_c()
+            )
+        )
+    ),
+    color.discrete = quote(
+        getOption(
+            x = "acid.color.discrete",
+            default = getOption(
+                x = "ggplot2.discrete.colour",
+                default = acidplots::scale_color_synesthesia_d()
+            )
+        )
+    ),
     compress.remove = quote(
         getOption("acid.compress.remove", default = TRUE)
     ),
@@ -57,17 +92,71 @@ formalsList <- list(
     export.quiet = quote(
         getOption("acid.export.quiet", default = FALSE)
     ),
+    fill.continuous = quote(
+        getOption(
+            x = "acid.fill.continuous",
+            default = getOption(
+                x = "ggplot2.continuous.fill",
+                default = acidplots::scale_fill_synesthesia_c()
+            )
+        )
+    ),
+    fill.discrete = quote(
+        getOption(
+            x = "acid.fill.discrete",
+            default = getOption(
+                x = "ggplot2.discrete.fill",
+                default = acidplots::scale_fill_synesthesia_d()
+            )
+        )
+    ),
+    flip = quote(
+        getOption(x = "acid.flip", default = TRUE)
+    ),
+    heatmap.color = quote(
+        getOption(
+            x = "acid.heatmap.color",
+            default = acidplots::blueYellow
+        )
+    ),
+    heatmap.correlation.color = quote(
+        getOption(
+            x = "acid.heatmap.correlation.color",
+            default = viridis::viridis
+        )
+    ),
+    heatmap.legend.color = quote(
+        getOption(
+            x = "acid.heatmap.legend.color",
+            default = acidplots::synesthesia
+        )
+    ),
+    heatmap.quantile.color = quote(
+        getOption(
+            x = "acid.heatmap.quantile.color",
+            default = viridis::viridis
+        )
+    ),
     import.make.names = quote(
         getOption("acid.import.make.names", default = syntactic::makeNames)
     ),
     import.metadata = quote(
         getOption("acid.import.metadata", default = FALSE)
     ),
+    label = quote(
+        getOption(x = "acid.label", default = FALSE)
+    ),
+    legend = quote(
+        getOption(x = "acid.legend", default = TRUE)
+    ),
     load.dir = quote(
         getOption("acid.load.dir", default = ".")
     ),
     overwrite = quote(
         getOption("acid.overwrite", default = TRUE)
+    ),
+    point.size = quote(
+        getOption(x = "acid.point.size", default = 3L)
     ),
     quiet = quote(
         getOption("acid.quiet", default = FALSE)
@@ -82,3 +171,96 @@ formalsList <- list(
         getOption("acid.save.ext", default = "rds")
     )
 )
+
+
+
+## genomeMetadataNames =========================================================
+#' Slot names in metadata containing genome information
+#'
+#' @export
+#' @note Updated 2019-08-21.
+#'
+#' @examples
+#' genomeMetadataNames
+genomeMetadataNames <- c("organism", "genomeBuild", "ensemblRelease")
+
+
+
+## lanePattern =================================================================
+#' Sequencing lane grep pattern
+#'
+#' @export
+#' @note Updated 2019-08-21.
+#'
+#' @examples
+#' lanePattern
+lanePattern <- "_L([[:digit:]]{3})"
+
+
+
+## metadataBlacklist ===========================================================
+#' Sample metadata blacklist
+#'
+#' @export
+#' @note `sampleID` is set automatically for multiplexed/cell-level data.
+#' @note Updated 2019-09-05.
+#'
+#' @examples
+#' metadataBlacklist
+metadataBlacklist <- sort(c(
+    ## Automatic / used internally:
+    "interestingGroups",
+    "revcomp",
+    "rowname",
+    ## > "sampleID",
+    ## interestingGroups variants:
+    "interestinggroups",
+    "intgroup",
+    ## sampleID, sampleName variants:
+    "ID",
+    "Id",
+    "id",
+    "name",
+    "names",
+    "sample",
+    "samples",
+    "sampleId",
+    "sampleid",
+    "sampleNames",
+    "samplename",
+    "samplenames"
+))
+
+
+
+## metricsCols =================================================================
+#' Quality control metric columns
+#'
+#' Column names returned by `calculateMetrics()`.
+#'
+#' @export
+#' @note Previously: "nGene", "log10GenesPerUMI".
+#' @note Updated 2019-08-21.
+#'
+#' @examples
+#' metricsCols
+metricsCols <- c(
+    "nCount",
+    "nFeature",
+    "nCoding",
+    "nMito",
+    "log10FeaturesPerCount",
+    "mitoRatio"
+)
+
+
+
+## updateMessage ===============================================================
+#' Update message
+#'
+#' @export
+#' @note Updated 2019-08-21.
+#'
+#' @examples
+#' message(updateMessage)
+updateMessage <- "Run 'updateObject()' to update your object."

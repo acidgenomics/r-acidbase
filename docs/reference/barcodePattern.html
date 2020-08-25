@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>File extension pattern matching — extPattern • acidbase</title>
+<title>Single-sell barcode pattern — barcodePattern • acidbase</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="File extension pattern matching — extPattern" />
-<meta property="og:description" content="File extension pattern matching" />
+<meta property="og:title" content="Single-sell barcode pattern — barcodePattern" />
+<meta property="og:description" content="Trailing number is to match cellranger output." />
 
 
 
@@ -113,30 +113,27 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>File extension pattern matching</h1>
+    <h1>Single-sell barcode pattern</h1>
     <small class="dont-index">Source: <a href='https://github.com/acidgenomics/acidbase/blob/master/R/AllGlobals.R'><code>R/AllGlobals.R</code></a></small>
-    <div class="hidden name"><code>extPattern.Rd</code></div>
+    <div class="hidden name"><code>barcodePattern.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>File extension pattern matching</p>
+    <p>Trailing number is to match cellranger output.</p>
     </div>
 
-    <pre class="usage"><span class='no'>extPattern</span>
-
-<span class='no'>compressExtPattern</span></pre>
+    <pre class="usage"><span class='no'>barcodePattern</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>An object of class <code>character</code> of length 1.</p>
-<p>An object of class <code>character</code> of length 1.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>Updated 2019-10-21.</p>
+    <p>Updated 2019-08-21.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>extPattern</span></div><div class='output co'>#&gt; [1] "\\.([a-zA-Z0-9]+)(\\.(bz2|gz|xz|zip))?$"</div><div class='input'><span class='no'>compressExtPattern</span></div><div class='output co'>#&gt; [1] "\\.(bz2|gz|xz|zip)$"</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>barcodePattern</span></div><div class='output co'>#&gt; [1] ")_([ACGT_]{6,})(_[0-9]+)?$"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
