@@ -3,9 +3,9 @@
 \docType{data}
 \name{formalsList}
 \alias{formalsList}
-\title{List of global formals}
+\title{Shared list of optional default formals}
 \format{
-An object of class \code{list} of length 15.
+An object of class \code{list} of length 27.
 }
 \usage{
 formalsList
@@ -14,6 +14,15 @@ formalsList
 These can be overwritten using the \code{options} function.
 }
 \note{
-Updated 2020-01-19
+Updated 2020-08-25.
+}
+\examples{
+head(formalsList)
+}
+\seealso{
+\itemize{
+\item https://ggplot2.tidyverse.org/reference/scale_colour_continuous.html
+\item https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html
+}
 }
 \keyword{datasets}
