@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Standardize call — standardizeCall • acidbase</title>
+<title>Standardize call — standardizeCall • AcidBase</title>
 
 
 <!-- jquery -->
@@ -74,8 +74,8 @@ identical to the generic, and use a nested .local call." />
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">acidbase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.14</span>
+        <a class="navbar-link" href="../index.html">AcidBase</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -96,7 +96,13 @@ identical to the generic, and use a nested .local call." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/acidgenomics/acidbase/">
+  <a href="https://acidgenomics.com/">
+    <span class="fas fa fas fa-vial fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/acidgenomics/AcidBase/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -115,7 +121,7 @@ identical to the generic, and use a nested .local call." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Standardize call</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/acidbase/blob/master/R/standardizeCall.R'><code>R/standardizeCall.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/AcidBase/blob/master/R/standardizeCall.R'><code>R/standardizeCall.R</code></a></small>
     <div class="hidden name"><code>standardizeCall.Rd</code></div>
     </div>
 
@@ -124,13 +130,13 @@ identical to the generic, and use a nested .local call." />
 identical to the generic, and use a nested <code>.local</code> call.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>standardizeCall</span>(
-  <span class='kw'>which</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sys.parent.html'>sys.parent</a></span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1L</span>),
-  <span class='kw'>defaults</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>expandDots</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>return</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"call"</span>, <span class='st'>"list"</span>),
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"verbose"</span>, <span class='kw'>default</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-)</pre>
+    <pre class="usage"><span class='fu'>standardizeCall</span><span class='op'>(</span>
+  which <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sys.parent.html'>sys.parent</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>1L</span><span class='op'>)</span>,
+  defaults <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  expandDots <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  return <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"call"</span>, <span class='st'>"list"</span><span class='op'>)</span>,
+  verbose <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"verbose"</span>, default <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -189,29 +195,32 @@ call was standardized. Recommended for debugging purposes only.</p></li>
 </div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>aaa</span> <span class='kw'>&lt;-</span> <span class='st'>"AAA"</span>
-<span class='no'>bbb</span> <span class='kw'>&lt;-</span> <span class='st'>"BBB"</span>
+    <pre class="examples"><div class='input'><span class='va'>aaa</span> <span class='op'>&lt;-</span> <span class='st'>"AAA"</span>
+<span class='va'>bbb</span> <span class='op'>&lt;-</span> <span class='st'>"BBB"</span>
 
 <span class='co'>## Standard function.</span>
-<span class='no'>testing</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>a</span>, <span class='no'>b</span>) {
-    <span class='fu'>standardizeCall</span>()
-}
-<span class='fu'>testing</span>(<span class='no'>aaa</span>, <span class='no'>bbb</span>)</div><div class='output co'>#&gt; testing(a = aaa, b = bbb)</div><div class='input'>
+<span class='va'>testing</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>a</span>, <span class='va'>b</span><span class='op'>)</span> <span class='op'>{</span>
+    <span class='fu'>standardizeCall</span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>}</span>
+<span class='fu'>testing</span><span class='op'>(</span><span class='va'>aaa</span>, <span class='va'>bbb</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; testing(a = aaa, b = bbb)</div><div class='input'>
 <span class='co'>## Inside S4 method.</span>
-<span class='fu'>setGeneric</span>(
-    <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"testing"</span>,
-    <span class='kw'>def</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>a</span>, <span class='no'>b</span>, <span class='no'>...</span>) {
-        <span class='fu'><a href='https://rdrr.io/r/base/standardGeneric.html'>standardGeneric</a></span>(<span class='st'>"testing"</span>)
-    }
-)</div><div class='output co'>#&gt; [1] "testing"</div><div class='input'>
-<span class='fu'>setMethod</span>(
-    <span class='kw'>f</span> <span class='kw'>=</span> <span class='st'>"testing"</span>,
-    <span class='kw'>signature</span> <span class='kw'>=</span> <span class='fu'>signature</span>(<span class='st'>"character"</span>),
-    <span class='kw'>definition</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>a</span>, <span class='no'>b</span>, <span class='no'>...</span>) {
-        <span class='fu'>standardizeCall</span>()
-    }
-)
-<span class='fu'>testing</span>(<span class='no'>aaa</span>, <span class='no'>bbb</span>)</div><div class='output co'>#&gt; testing(a = aaa, b = bbb)</div></pre>
+<span class='kw'>setGeneric</span><span class='op'>(</span>
+    name <span class='op'>=</span> <span class='st'>"testing"</span>,
+    def <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>a</span>, <span class='va'>b</span>, <span class='va'>...</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='fu'><a href='https://rdrr.io/r/base/standardGeneric.html'>standardGeneric</a></span><span class='op'>(</span><span class='st'>"testing"</span><span class='op'>)</span>
+    <span class='op'>}</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "testing"</div><div class='input'>
+<span class='kw'>setMethod</span><span class='op'>(</span>
+    f <span class='op'>=</span> <span class='st'>"testing"</span>,
+    signature <span class='op'>=</span> <span class='fu'>signature</span><span class='op'>(</span><span class='st'>"character"</span><span class='op'>)</span>,
+    definition <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>a</span>, <span class='va'>b</span>, <span class='va'>...</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='fu'>standardizeCall</span><span class='op'>(</span><span class='op'>)</span>
+    <span class='op'>}</span>
+<span class='op'>)</span>
+<span class='fu'>testing</span><span class='op'>(</span><span class='va'>aaa</span>, <span class='va'>bbb</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; testing(a = aaa, b = bbb)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -227,7 +236,7 @@ call was standardized. Recommended for debugging purposes only.</p></li>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
