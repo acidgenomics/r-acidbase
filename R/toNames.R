@@ -5,7 +5,7 @@
 #'   will not be identical to output from [`make.names()`][base::make.names()].
 #' @note Updated 2019-10-21.
 #'
-#' @inheritParams acidroxygen::params
+#' @inheritParams AcidRoxygen::params
 #'
 #' @return `character`.
 #'

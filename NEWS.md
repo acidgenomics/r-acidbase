@@ -1,3 +1,10 @@
+## AcidBase 0.2.1 (2020-10-06)
+
+### New functions
+
+- Added `forceDetach`, previously used internally inside basejump.
+- Updated documentation to inherit from AcidRoxygen instead of acidroxygen.
+
 ## AcidBase 0.2.0 (2020-10-06)
 
 ### Major changes
