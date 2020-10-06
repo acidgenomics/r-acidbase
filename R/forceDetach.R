@@ -1,3 +1,7 @@
+## nocov start
+
+
+
 #' Force detach packages
 #'
 #' Force detach unwanted packages loaded into the current environment.
@@ -35,3 +39,7 @@ forceDetach <- function(keep = .packages()) {
     }
     stopifnot(identical(.packages(), keep))
 }
+
+
+
+## nocov end
