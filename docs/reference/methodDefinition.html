@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Access the data inside an S4 method definition — methodDefinition • acidbase</title>
+<title>Access the data inside an S4 method definition — methodDefinition • AcidBase</title>
 
 
 <!-- jquery -->
@@ -73,8 +73,8 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">acidbase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.14</span>
+        <a class="navbar-link" href="../index.html">AcidBase</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -95,7 +95,13 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/acidgenomics/acidbase/">
+  <a href="https://acidgenomics.com/">
+    <span class="fas fa fas fa-vial fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/acidgenomics/AcidBase/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -114,7 +120,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Access the data inside an S4 method definition</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/acidbase/blob/master/R/methodDefinition.R'><code>R/methodDefinition.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/AcidBase/blob/master/R/methodDefinition.R'><code>R/methodDefinition.R</code></a></small>
     <div class="hidden name"><code>methodDefinition.Rd</code></div>
     </div>
 
@@ -122,9 +128,9 @@
     <p>Access the data inside an S4 method definition</p>
     </div>
 
-    <pre class="usage"><span class='fu'>methodFunction</span>(<span class='no'>f</span>, <span class='no'>signature</span>, <span class='no'>package</span>)
+    <pre class="usage"><span class='fu'>methodFunction</span><span class='op'>(</span><span class='va'>f</span>, <span class='va'>signature</span>, <span class='va'>package</span><span class='op'>)</span>
 
-<span class='fu'>methodFormals</span>(<span class='no'>f</span>, <span class='no'>signature</span>, <span class='no'>package</span>)</pre>
+<span class='fu'>methodFormals</span><span class='op'>(</span><span class='va'>f</span>, <span class='va'>signature</span>, <span class='va'>package</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -169,19 +175,23 @@ Package name.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Function ====</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>methodFunction</span>(
-    <span class='kw'>f</span> <span class='kw'>=</span> <span class='st'>"show"</span>,
-    <span class='kw'>signature</span> <span class='kw'>=</span> <span class='st'>"ANY"</span>,
-    <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"methods"</span>
-)
-<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "function"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/body.html'>body</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; showDefault(object)</div><div class='input'>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>methodFunction</span><span class='op'>(</span>
+    f <span class='op'>=</span> <span class='st'>"show"</span>,
+    signature <span class='op'>=</span> <span class='st'>"ANY"</span>,
+    package <span class='op'>=</span> <span class='st'>"methods"</span>
+<span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "function"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/body.html'>body</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; showDefault(object)</div><div class='input'>
 <span class='co'>## Formals ====</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>methodFormals</span>(
-    <span class='kw'>f</span> <span class='kw'>=</span> <span class='st'>"show"</span>,
-    <span class='kw'>signature</span> <span class='kw'>=</span> <span class='st'>"ANY"</span>,
-    <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"methods"</span>
-)
-<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "pairlist"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; $object
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>methodFormals</span><span class='op'>(</span>
+    f <span class='op'>=</span> <span class='st'>"show"</span>,
+    signature <span class='op'>=</span> <span class='st'>"ANY"</span>,
+    package <span class='op'>=</span> <span class='st'>"methods"</span>
+<span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "pairlist"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $object
 #&gt; 
 #&gt; </div></pre>
   </div>
@@ -199,7 +209,7 @@ Package name.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
