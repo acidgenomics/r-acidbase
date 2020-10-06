@@ -1,3 +1,9 @@
+## AcidBase 0.2.0 (2020-10-06)
+
+### Major changes
+
+- Renamed package from acidbase to AcidBase.
+
 ## acidbase 0.1.14 (2020-08-25)
 
 ### Minor changes
