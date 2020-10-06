@@ -7,7 +7,7 @@
 #' @note For ZIP files, refer to `zip` and `unzip` in the utils package.
 #' @note Updated 2020-01-19.
 #'
-#' @inheritParams acidroxygen::params
+#' @inheritParams AcidRoxygen::params
 #' @param ext `character(1)`.
 #'   Compression file format extension.
 #'   Uses [`match.arg()`][base::match.arg] internally and defaults to the first

@@ -5,7 +5,7 @@
 #'
 #' @inheritParams standardizeCall
 #' @inheritParams base::do.call
-#' @inheritParams acidroxygen::params
+#' @inheritParams AcidRoxygen::params
 #' @param removeFormals `character`.
 #'   Names of formal arguments to remove from `args` list.
 #'
