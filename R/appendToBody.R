@@ -3,7 +3,7 @@
 #' @export
 #' @note Updated 2019-08-23.
 #'
-#' @inheritParams acidroxygen::params
+#' @inheritParams AcidRoxygen::params
 #' @param values `call`.
 #'   Quoted values (i.e. call) to slot in the function body.
 #' @param after `integer(1)`.

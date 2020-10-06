@@ -7,7 +7,7 @@
 #' @note Updated 2020-01-09.
 #'
 #' @inheritParams base::sys.call
-#' @inheritParams acidroxygen::params
+#' @inheritParams AcidRoxygen::params
 #' @param defaults `logical(1)`.
 #'   Include default arguments in the call.
 #' @param expandDots `logical(1)`.
