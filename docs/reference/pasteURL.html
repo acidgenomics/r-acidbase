@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Concatenate strings to form a URL — pasteURL • acidbase</title>
+<title>Concatenate strings to form a URL — pasteURL • AcidBase</title>
 
 
 <!-- jquery -->
@@ -73,8 +73,8 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">acidbase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.14</span>
+        <a class="navbar-link" href="../index.html">AcidBase</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -95,7 +95,13 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/acidgenomics/acidbase/">
+  <a href="https://acidgenomics.com/">
+    <span class="fas fa fas fa-vial fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/acidgenomics/AcidBase/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -114,7 +120,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Concatenate strings to form a URL</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/acidbase/blob/master/R/pasteURL.R'><code>R/pasteURL.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/AcidBase/blob/master/R/pasteURL.R'><code>R/pasteURL.R</code></a></small>
     <div class="hidden name"><code>pasteURL.Rd</code></div>
     </div>
 
@@ -122,7 +128,7 @@
     <p>Concatenate strings to form a URL</p>
     </div>
 
-    <pre class="usage"><span class='fu'>pasteURL</span>(<span class='no'>...</span>, <span class='kw'>protocol</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"https"</span>, <span class='st'>"http"</span>, <span class='st'>"ftp"</span>, <span class='st'>"none"</span>))</pre>
+    <pre class="usage"><span class='fu'>pasteURL</span><span class='op'>(</span><span class='va'>...</span>, protocol <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"https"</span>, <span class='st'>"http"</span>, <span class='st'>"ftp"</span>, <span class='st'>"none"</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -143,31 +149,33 @@ a protocol in the first element of the dots.</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>character</code>.
-URL path, containing forward slashes (<code>/</code>).</p>
+URL path, containing forward slashes (<code><a href='https://rdrr.io/r/base/Arithmetic.html'>/</a></code>).</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>Updated 2019-10-22.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## HTTPS</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>pasteURL</span>(
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>pasteURL</span><span class='op'>(</span>
     <span class='st'>"steinbaugh.com"</span>,
     <span class='st'>"basejump"</span>,
     <span class='st'>"reference"</span>,
-    <span class='kw'>protocol</span> <span class='kw'>=</span> <span class='st'>"https"</span>
-)
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "https://steinbaugh.com/basejump/reference"</div><div class='input'>
+    protocol <span class='op'>=</span> <span class='st'>"https"</span>
+<span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "https://steinbaugh.com/basejump/reference"</div><div class='input'>
 <span class='co'>## FTP</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>pasteURL</span>(
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>pasteURL</span><span class='op'>(</span>
     <span class='st'>"ftp.ensembl.org"</span>,
     <span class='st'>"pub"</span>,
     <span class='st'>"release-94"</span>,
     <span class='st'>"gtf"</span>,
     <span class='st'>"homo_sapiens"</span>,
     <span class='st'>"Homo_sapiens.GRCh38.94.gtf.gz"</span>,
-    <span class='kw'>protocol</span> <span class='kw'>=</span> <span class='st'>"ftp"</span>
-)
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "ftp://ftp.ensembl.org/pub/release-94/gtf/homo_sapiens/Homo_sapiens.GRCh38.94.gtf.gz"</div></pre>
+    protocol <span class='op'>=</span> <span class='st'>"ftp"</span>
+<span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "ftp://ftp.ensembl.org/pub/release-94/gtf/homo_sapiens/Homo_sapiens.GRCh38.94.gtf.gz"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -183,7 +191,7 @@ URL path, containing forward slashes (<code>/</code>).</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

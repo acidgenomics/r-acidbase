@@ -1,3 +1,3 @@
 library(testthat)
-library(acidbase)
-test_check("acidbase")
+library(AcidBase)
+test_check("AcidBase")

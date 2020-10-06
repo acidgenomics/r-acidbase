@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get the name of a variable defined in the parent frame — getNameInParent • acidbase</title>
+<title>Get the name of a variable defined in the parent frame — getNameInParent • AcidBase</title>
 
 
 <!-- jquery -->
@@ -73,8 +73,8 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">acidbase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.14</span>
+        <a class="navbar-link" href="../index.html">AcidBase</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -95,7 +95,13 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/acidgenomics/acidbase/">
+  <a href="https://acidgenomics.com/">
+    <span class="fas fa fas fa-vial fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/acidgenomics/AcidBase/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -114,7 +120,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get the name of a variable defined in the parent frame</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/acidbase/blob/master/R/getNameInParent.R'><code>R/getNameInParent.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/AcidBase/blob/master/R/getNameInParent.R'><code>R/getNameInParent.R</code></a></small>
     <div class="hidden name"><code>getNameInParent.Rd</code></div>
     </div>
 
@@ -122,7 +128,7 @@
     <p>Get the name of a variable defined in the parent frame</p>
     </div>
 
-    <pre class="usage"><span class='fu'>getNameInParent</span>(<span class='no'>x</span>, <span class='kw'>escapePercent</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>100L</span>)</pre>
+    <pre class="usage"><span class='fu'>getNameInParent</span><span class='op'>(</span><span class='va'>x</span>, escapePercent <span class='op'>=</span> <span class='cn'>TRUE</span>, width <span class='op'>=</span> <span class='fl'>100L</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -161,7 +167,8 @@ Maximum width of the name.</p></td>
 </div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>getNameInParent</span>(<span class='no'>test</span>)</div><div class='output co'>#&gt; [1] "test"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>getNameInParent</span><span class='op'>(</span><span class='va'>test</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "test"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -177,7 +184,7 @@ Maximum width of the name.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

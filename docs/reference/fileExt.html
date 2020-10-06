@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>File extension — fileExt • acidbase</title>
+<title>File extension — fileExt • AcidBase</title>
 
 
 <!-- jquery -->
@@ -73,8 +73,8 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">acidbase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.14</span>
+        <a class="navbar-link" href="../index.html">AcidBase</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -95,7 +95,13 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/acidgenomics/acidbase/">
+  <a href="https://acidgenomics.com/">
+    <span class="fas fa fas fa-vial fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/acidgenomics/AcidBase/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -114,7 +120,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>File extension</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/acidbase/blob/master/R/fileExt.R'><code>R/fileExt.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/AcidBase/blob/master/R/fileExt.R'><code>R/fileExt.R</code></a></small>
     <div class="hidden name"><code>fileExt.Rd</code></div>
     </div>
 
@@ -122,7 +128,7 @@
     <p>File extension</p>
     </div>
 
-    <pre class="usage"><span class='fu'>fileExt</span>(<span class='no'>path</span>)</pre>
+    <pre class="usage"><span class='fu'>fileExt</span><span class='op'>(</span><span class='va'>path</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -154,7 +160,8 @@ on extension match failure.</p></li>
 </div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>fileExt</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"dir/foo.txt"</span>, <span class='st'>"dir/bar.tar.gz"</span>, <span class='st'>"dir/"</span>))</div><div class='output co'>#&gt; [1] "txt"    "tar.gz" NA      </div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>fileExt</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"dir/foo.txt"</span>, <span class='st'>"dir/bar.tar.gz"</span>, <span class='st'>"dir/"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "txt"    "tar.gz" NA      </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -170,7 +177,7 @@ on extension match failure.</p></li>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
