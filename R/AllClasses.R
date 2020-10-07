@@ -1,1 +1,1 @@
-setOldClass("atomic")
+setOldClass(Classes = "atomic")

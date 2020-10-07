@@ -57,6 +57,22 @@ setMethod(
 
 
 ## Updated 2020-10-07.
+`headtail,vector` <-
+    `headtail,atomic`
+
+
+
+#' @rdname headtail
+#' @export
+setMethod(
+    f = "headtail",
+    signature = signature("vector"),
+    definition = `headtail,vector`
+)
+
+
+
+## Updated 2020-10-07.
 `headtail,matrix` <-  # nolint
     function(x, n = 2L) {
         stopifnot(
@@ -64,7 +80,6 @@ setMethod(
             is.integer(n), isTRUE(n > 0L)
         )
         if (nrow(x) <= n * 2L || ncol(x) <= n * 2L) {
-            message("Object can't be split into quadrants.")
             out <- x[
                 head(rownames(x), n = n * 2L),
                 head(colnames(x), n = n * 2L),
@@ -92,7 +107,7 @@ setMethod(
                 X = square,
                 FUN = function(x) {
                     if (is.factor(x)) {
-                        as.character(x)
+                        as.character(x)  # nocov
                     } else if (is.atomic(x)) {
                         x
                     } else {
