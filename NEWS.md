@@ -1,3 +1,12 @@
+## AcidBase 0.2.2 (2020-10-07)
+
+### New functions
+
+- Migrated `headtail` atomic, matrix, and data.frame methods here from basejump.
+  The methods that work on S4 objects, such as DataFrame, Matrix, GRanges,
+  and SummarizedExperiment are still defined in basejump.
+- `showSlotInfo`: Migrated from basejump, so we can use in AcidGenomes.
+
 ## AcidBase 0.2.1 (2020-10-06)
 
 ### New functions

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Call a function and give the result names — callAndName • AcidBase</title>
+<title>Return the first and last parts of an object — headtail • AcidBase</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Call a function and give the result names — callAndName" />
-<meta property="og:description" content="Calls a function and names the result with the first argument." />
+<meta property="og:title" content="Return the first and last parts of an object — headtail" />
+<meta property="og:description" content="Applies to both rows and columns, enabling quick inspection during
+interactive use." />
 
 
 
@@ -119,49 +120,86 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Call a function and give the result names</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/AcidBase/blob/master/R/callAndName.R'><code>R/callAndName.R</code></a></small>
-    <div class="hidden name"><code>callAndName.Rd</code></div>
+    <h1>Return the first and last parts of an object</h1>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/AcidBase/blob/master/R/headtail-methods.R'><code>R/headtail-methods.R</code></a></small>
+    <div class="hidden name"><code>headtail.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Calls a function and names the result with the first argument.</p>
+    <p>Applies to both rows and columns, enabling quick inspection during
+interactive use.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>callAndName</span><span class='op'>(</span><span class='va'>fun</span>, <span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>headtail</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for list</span>
+<span class='fu'>headtail</span><span class='op'>(</span><span class='va'>x</span>, n <span class='op'>=</span> <span class='fl'>2L</span><span class='op'>)</span>
+
+<span class='co'># S4 method for vector</span>
+<span class='fu'>headtail</span><span class='op'>(</span><span class='va'>x</span>, n <span class='op'>=</span> <span class='fl'>2L</span><span class='op'>)</span>
+
+<span class='co'># S4 method for matrix</span>
+<span class='fu'>headtail</span><span class='op'>(</span><span class='va'>x</span>, n <span class='op'>=</span> <span class='fl'>2L</span><span class='op'>)</span>
+
+<span class='co'># S4 method for data.frame</span>
+<span class='fu'>headtail</span><span class='op'>(</span><span class='va'>x</span>, n <span class='op'>=</span> <span class='fl'>2L</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>fun</th>
-      <td><p><code>function</code>.</p></td>
+      <th>x</th>
+      <td><p>Object.</p></td>
     </tr>
     <tr>
-      <th>x</th>
-      <td><p>The first input to <code>fun</code>.</p></td>
+      <th>n</th>
+      <td><p><code><a href='https://rdrr.io/r/base/integer.html'>integer(1)</a></code>.
+Positive integer denoting the number of first and last items to include.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Additional arguments passed to function defined in <code>fun</code>.</p></td>
+      <td><p>Additional arguments.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The result of <code>fun(x, ...)</code>, with the names given by the argument
-<code>x</code>.</p>
+    <p>Invisible <code>NULL</code>.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Inspired by the <code><a href='https://rdrr.io/r/base/print.html'>print()</a></code> method for <code>DataFrame</code> class
+objects.</p>
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+
+    
+<ul>
+<li><p><code>headtail,list-method</code>: Paste collapse to a <code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>.</p></li>
+<li><p><code>headtail,matrix-method</code>: Show first and last rows.</p></li>
+<li><p><code>headtail,data.frame-method</code>: Same method as <code>matrix</code>.</p></li>
+</ul>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>Updated 2019-07-29.</p>
+    <p>Updated 2020-10-07.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/assertive.base/man/call_and_name.html'>assertive.base::call_and_name()</a></code>.</p></div>
+    <div class='dont-index'>
+<ul>
+<li><p><code><a href='https://rdrr.io/r/utils/head.html'>utils::head()</a></code>, <code><a href='https://rdrr.io/r/utils/head.html'>utils::tail()</a></code>.</p></li>
+<li><p><code><a href='https://rdrr.io/r/base/cat.html'>cat()</a></code>.</p></li>
+</ul>
+</div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>callAndName</span><span class='op'>(</span><span class='va'>is.finite</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='cn'>Inf</span>, <span class='cn'>NA</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; 1.000000000000000e+00                   Inf                    NA 
-#&gt;                  TRUE                 FALSE                 FALSE </div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>mtcars</span>, package <span class='op'>=</span> <span class='st'>"datasets"</span><span class='op'>)</span>
+
+<span class='co'>## data.frame ====</span>
+<span class='fu'>headtail</span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;                mpg cyl ... gear carb
+#&gt; Mazda RX4       21   6 ...    4    4
+#&gt; Mazda RX4 Wag   21   6 ...    4    4
+#&gt; ...            ... ... ...  ...  ...
+#&gt; Maserati Bora   15   8 ...    5    8
+#&gt; Volvo 142E    21.4   4 ...    4    2</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
