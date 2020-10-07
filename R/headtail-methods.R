@@ -16,15 +16,6 @@ NULL
 
 
 
-#' @rdname headtail
-#' @name headtail
-#' @importFrom AcidGenerics headtail
-#' @usage headtail(x, ...)
-#' @export
-NULL
-
-
-
 ## Updated 2020-10-07.
 `headtail,atomic` <-  # nolint
     function(x, n = 2L) {
