@@ -3,6 +3,7 @@
 \name{headtail}
 \alias{headtail}
 \alias{headtail,atomic-method}
+\alias{headtail,vector-method}
 \alias{headtail,matrix-method}
 \alias{headtail,data.frame-method}
 \title{Return the first and last parts of an object}
@@ -10,6 +11,8 @@
 headtail(x, ...)
 
 \S4method{headtail}{atomic}(x, n = 2L)
+
+\S4method{headtail}{vector}(x, n = 2L)
 
 \S4method{headtail}{matrix}(x, n = 2L)
 
