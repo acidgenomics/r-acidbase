@@ -132,7 +132,10 @@ interactive use.</p>
 
     <pre class="usage"><span class='fu'>headtail</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='co'># S4 method for atomic</span>
+<span class='co'># S4 method for list</span>
+<span class='fu'>headtail</span><span class='op'>(</span><span class='va'>x</span>, n <span class='op'>=</span> <span class='fl'>2L</span><span class='op'>)</span>
+
+<span class='co'># S4 method for vector</span>
 <span class='fu'>headtail</span><span class='op'>(</span><span class='va'>x</span>, n <span class='op'>=</span> <span class='fl'>2L</span><span class='op'>)</span>
 
 <span class='co'># S4 method for matrix</span>
@@ -170,7 +173,7 @@ objects.</p>
 
     
 <ul>
-<li><p><code>headtail,atomic-method</code>: Paste collapse to a <code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>.</p></li>
+<li><p><code>headtail,list-method</code>: Paste collapse to a <code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>.</p></li>
 <li><p><code>headtail,matrix-method</code>: Show first and last rows.</p></li>
 <li><p><code>headtail,data.frame-method</code>: Same method as <code>matrix</code>.</p></li>
 </ul>
