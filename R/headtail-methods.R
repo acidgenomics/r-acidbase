@@ -9,14 +9,9 @@
 #'
 #' @examples
 #' data(mtcars, package = "datasets")
-#' data(RangedSummarizedExperiment, package = "AcidTest")
-#' rse <- RangedSummarizedExperiment
 #'
 #' ## data.frame ====
 #' headtail(mtcars)
-#'
-#' ## SummarizedExperiment ====
-#' headtail(rse)
 NULL
 
 
@@ -30,23 +25,18 @@ NULL
 
 
 
-## Updated 2019-07-22.
+## Updated 2020-10-07.
 `headtail,atomic` <-  # nolint
     function(x, n = 2L) {
-        assert(
+        stopifnot(
             is.atomic(x),
-            isInt(n),
-            isPositive(n)
+            is.integer(n), isTRUE(n > 0L)
         )
         if (length(x) <= n * 2L) {
             out <- paste(x, collapse = " ")
         } else {
             out <- paste(
-                c(
-                    head(x, n = n),
-                    "...",
-                    tail(x, n = n)
-                ),
+                c(head(x, n = n), "...", tail(x, n = n)),
                 collapse = " "
             )
         }
@@ -66,16 +56,15 @@ setMethod(
 
 
 
-## Updated 2020-05-11.
+## Updated 2020-10-07.
 `headtail,matrix` <-  # nolint
     function(x, n = 2L) {
-        assert(
-            hasDims(x),
-            isInt(n),
-            isPositive(n)
+        stopifnot(
+            isTRUE(nrow(x) > 0L), isTRUE(ncol(x) > 0L),
+            is.integer(n), isTRUE(n > 0L)
         )
         if (nrow(x) <= n * 2L || ncol(x) <= n * 2L) {
-            cli_alert_warning("Object can't be split into quadrants.")
+            message("Object can't be split into quadrants.")
             out <- x[
                 head(rownames(x), n = n * 2L),
                 head(colnames(x), n = n * 2L),
@@ -120,7 +109,7 @@ setMethod(
                 stringsAsFactors = FALSE
             )
             ## Check that we have square dimensions.
-            assert(
+            stopifnot(
                 nrow(square) == n * 2L,
                 ncol(square) == n * 2L
             )
