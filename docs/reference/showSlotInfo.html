@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Call a function and give the result names — callAndName • AcidBase</title>
+<title>Show slot information — showSlotInfo • AcidBase</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Call a function and give the result names — callAndName" />
-<meta property="og:description" content="Calls a function and names the result with the first argument." />
+<meta property="og:title" content="Show slot information — showSlotInfo" />
+<meta property="og:description" content="Show slot information" />
 
 
 
@@ -119,49 +119,46 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Call a function and give the result names</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/AcidBase/blob/master/R/callAndName.R'><code>R/callAndName.R</code></a></small>
-    <div class="hidden name"><code>callAndName.Rd</code></div>
+    <h1>Show slot information</h1>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/AcidBase/blob/master/R/showSlotInfo.R'><code>R/showSlotInfo.R</code></a></small>
+    <div class="hidden name"><code>showSlotInfo.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Calls a function and names the result with the first argument.</p>
+    <p>Show slot information</p>
     </div>
 
-    <pre class="usage"><span class='fu'>callAndName</span><span class='op'>(</span><span class='va'>fun</span>, <span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>showSlotInfo</span><span class='op'>(</span><span class='va'>list</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>fun</th>
-      <td><p><code>function</code>.</p></td>
-    </tr>
-    <tr>
-      <th>x</th>
-      <td><p>The first input to <code>fun</code>.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Additional arguments passed to function defined in <code>fun</code>.</p></td>
+      <th>list</th>
+      <td><p><code>list</code>.
+Named list containing slot metadata.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The result of <code>fun(x, ...)</code>, with the names given by the argument
-<code>x</code>.</p>
+    <p>Invisible <code>NULL</code>.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Standardized to Bioconductor <code>show()</code> method conventions.
+Refer to <code>SummarizedExperiment</code> method for example.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>Updated 2019-07-29.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/assertive.base/man/call_and_name.html'>assertive.base::call_and_name()</a></code>.</p></div>
+    <p>Updated 2020-10-07.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>callAndName</span><span class='op'>(</span><span class='va'>is.finite</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='cn'>Inf</span>, <span class='cn'>NA</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; 1.000000000000000e+00                   Inf                    NA 
-#&gt;                  TRUE                 FALSE                 FALSE </div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>showSlotInfo</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+    dir <span class='op'>=</span> <span class='st'>"~"</span>,
+    skip <span class='op'>=</span> <span class='cn'>NULL</span>,
+    filtered <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; dir: ~
+#&gt; filtered: TRUE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

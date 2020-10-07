@@ -4,8 +4,8 @@
 #' @note Updated 2020-10-07.
 #'
 #' @details
-#' Standardized to Bioconductor `show()` conventions.
-## Refer to SummarizedExperiment method for example.
+#' Standardized to Bioconductor `show()` method conventions.
+#' Refer to `SummarizedExperiment` method for example.
 #'
 #' @param list `list`.
 #'   Named list containing slot metadata.
@@ -19,9 +19,9 @@
 #'     filtered = TRUE
 #' ))
 showSlotInfo <- function(list) {
-    assert(is.list(list))
+    stopifnot(is.list(list))
     list <- Filter(f = Negate(is.null), x = list)
-    list <- Filter(f = hasLength, x = list)
+    list <- Filter(f = .hasLength, x = list)
     out <- mapply(
         name = names(list),
         x = list,
