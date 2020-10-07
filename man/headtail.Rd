@@ -48,14 +48,9 @@ Updated 2020-10-07.
 }
 \examples{
 data(mtcars, package = "datasets")
-data(RangedSummarizedExperiment, package = "AcidTest")
-rse <- RangedSummarizedExperiment
 
 ## data.frame ====
 headtail(mtcars)
-
-## SummarizedExperiment ====
-headtail(rse)
 }
 \seealso{
 \itemize{
