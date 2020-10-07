@@ -47,7 +47,7 @@ NULL
 
 
 ## Updated 2020-10-07.
-`headtail,list` <-
+`headtail,list` <-  # nolint
     `headtail,atomic`
 
 
@@ -63,7 +63,7 @@ setMethod(
 
 
 ## Updated 2020-10-07.
-`headtail,vector` <-
+`headtail,vector` <-  # nolint
     `headtail,atomic`
 
 
