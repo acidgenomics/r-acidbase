@@ -2,7 +2,7 @@
 % Please edit documentation in R/headtail-methods.R
 \name{headtail}
 \alias{headtail}
-\alias{headtail,atomic-method}
+\alias{headtail,list-method}
 \alias{headtail,vector-method}
 \alias{headtail,matrix-method}
 \alias{headtail,data.frame-method}
@@ -10,7 +10,7 @@
 \usage{
 headtail(x, ...)
 
-\S4method{headtail}{atomic}(x, n = 2L)
+\S4method{headtail}{list}(x, n = 2L)
 
 \S4method{headtail}{vector}(x, n = 2L)
 
@@ -39,7 +39,7 @@ objects.
 }
 \section{Functions}{
 \itemize{
-\item \code{headtail,atomic-method}: Paste collapse to a \code{character(1)}.
+\item \code{headtail,list-method}: Paste collapse to a \code{character(1)}.
 
 \item \code{headtail,matrix-method}: Show first and last rows.
 

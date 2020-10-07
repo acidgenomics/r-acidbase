@@ -46,12 +46,18 @@ NULL
 
 
 
+## Updated 2020-10-07.
+`headtail,list` <-
+    `headtail,atomic`
+
+
+
 #' @describeIn headtail Paste collapse to a `character(1)`.
 #' @export
 setMethod(
     f = "headtail",
-    signature = signature("atomic"),
-    definition = `headtail,atomic`
+    signature = signature("list"),
+    definition = `headtail,list`
 )
 
 
