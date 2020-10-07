@@ -25,6 +25,8 @@ Imports:
     AcidGenerics (>= 0.4.0),
     methods,
     utils
-Suggests: testthat
+Suggests:
+    AcidTest (>= 0.4.0),
+    testthat
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
