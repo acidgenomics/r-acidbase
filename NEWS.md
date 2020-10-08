@@ -1,3 +1,7 @@
+## AcidBase 0.2.3 (2020-10-07)
+
+- Fixed reference to AcidPlots package, renamed from previous "acidplots".
+
 ## AcidBase 0.2.2 (2020-10-07)
 
 ### New functions
