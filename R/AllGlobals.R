@@ -58,7 +58,7 @@ formalsList <- list(
             x = "acid.color.continuous",
             default = getOption(
                 x = "ggplot2.continuous.colour",
-                default = acidplots::scale_color_synesthesia_c()
+                default = AcidPlots::scale_color_synesthesia_c()
             )
         )
     ),
@@ -67,7 +67,7 @@ formalsList <- list(
             x = "acid.color.discrete",
             default = getOption(
                 x = "ggplot2.discrete.colour",
-                default = acidplots::scale_color_synesthesia_d()
+                default = AcidPlots::scale_color_synesthesia_d()
             )
         )
     ),
@@ -97,7 +97,7 @@ formalsList <- list(
             x = "acid.fill.continuous",
             default = getOption(
                 x = "ggplot2.continuous.fill",
-                default = acidplots::scale_fill_synesthesia_c()
+                default = AcidPlots::scale_fill_synesthesia_c()
             )
         )
     ),
@@ -106,7 +106,7 @@ formalsList <- list(
             x = "acid.fill.discrete",
             default = getOption(
                 x = "ggplot2.discrete.fill",
-                default = acidplots::scale_fill_synesthesia_d()
+                default = AcidPlots::scale_fill_synesthesia_d()
             )
         )
     ),
@@ -116,7 +116,7 @@ formalsList <- list(
     heatmap.color = quote(
         getOption(
             x = "acid.heatmap.color",
-            default = acidplots::blueYellow
+            default = AcidPlots::blueYellow
         )
     ),
     heatmap.correlation.color = quote(
@@ -128,7 +128,7 @@ formalsList <- list(
     heatmap.legend.color = quote(
         getOption(
             x = "acid.heatmap.legend.color",
-            default = acidplots::synesthesia
+            default = AcidPlots::synesthesia
         )
     ),
     heatmap.quantile.color = quote(
