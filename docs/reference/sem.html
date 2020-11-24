@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Expression deparsing — safeDeparse • AcidBase</title>
+<title>Standard error of the mean — sem • AcidBase</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Expression deparsing — safeDeparse" />
-<meta property="og:description" content="Turn unevaluated expressions into character strings." />
+<meta property="og:title" content="Standard error of the mean — sem" />
+<meta property="og:description" content="Standard error of the mean" />
 
 
 
@@ -119,53 +119,55 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Expression deparsing</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/AcidBase/blob/master/R/safeDeparse.R'><code>R/safeDeparse.R</code></a></small>
-    <div class="hidden name"><code>safeDeparse.Rd</code></div>
+    <h1>Standard error of the mean</h1>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/AcidBase/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/acidgenomics/AcidBase/blob/master/R/sem-methods.R'><code>R/sem-methods.R</code></a></small>
+    <div class="hidden name"><code>sem.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Turn unevaluated expressions into character strings.</p>
+    <p>Standard error of the mean</p>
     </div>
 
-    <pre class="usage"><span class='fu'>safeDeparse</span><span class='op'>(</span><span class='va'>expr</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>sem</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for numeric</span>
+<span class='fu'>sem</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>expr</th>
-      <td><p><code>expression</code>.
-Any R expression.</p></td>
+      <th>x</th>
+      <td><p>Object.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Passed to <code><a href='https://rdrr.io/r/base/deparse.html'>deparse()</a></code>.</p></td>
+      <td><p>Additional arguments.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>.</p>
+    <p><code>numeric</code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>safeDeparse()</code> is modified version of <code><a href='https://rdrr.io/r/base/deparse.html'>deparse()</a></code> that
-always returns <code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>.</p>
+    <p>Alternatively, can use: <code>sd(x) / sqrt(length(x))</code>.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>Updated 2019-07-29.</p>
+    <p>Updated 2020-11-24.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'>
 <ul>
-<li><p><code>assertive.base::safe_deparse()</code>.</p></li>
-<li><p><code><a href='https://rdrr.io/r/base/deparse.html'>deparse()</a></code>.</p></li>
+<li><p>https://stackoverflow.com/questions/2676554/</p></li>
 </ul>
 </div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>safeDeparse</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/character.html'>is.character</a></span><span class='op'>(</span><span class='st'>"a"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "TRUE"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>sem</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "nonstandardGenericFunction"
+#&gt; attr(,"package")
+#&gt; [1] "methods"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
