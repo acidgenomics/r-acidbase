@@ -3,6 +3,8 @@
 ### Bug fixes
 
 - `sem`: Requires `AsIs` class support, to work inside dplyr summarize calls.
+- Now need to import BiocGenerics, for proper import of `AsIs` S4 class, which
+  is an `oldClass` of the S3 class.
 
 ## AcidBase 0.2.4 (2020-11-24)
 
