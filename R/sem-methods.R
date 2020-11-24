@@ -33,3 +33,18 @@ setMethod(
     signature = signature("numeric"),
     definition = `sem,numeric`
 )
+
+
+
+`sem,AsIs` <-  # nolint
+    `sem,numeric`
+
+
+
+#' @rdname sem
+#' @export
+setMethod(
+    f = "sem",
+    signature = signature("AsIs"),
+    definition = `sem,AsIs`
+)

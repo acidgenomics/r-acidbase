@@ -1,3 +1,9 @@
+## AcidBase 0.2.5 (2020-11-25)
+
+### Bug fixes
+
+- `sem`: Requires `AsIs` class support, to work inside dplyr summarize calls.
+
 ## AcidBase 0.2.4 (2020-11-24)
 
 ### New functions
