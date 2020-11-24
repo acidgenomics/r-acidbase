@@ -27,7 +27,9 @@ Alternatively, can use: \code{sd(x) / sqrt(length(x))}.
 Updated 2020-11-24.
 }
 \examples{
-class(sem)
+x <- seq(from = 1L, to = 10L, by = 1L)
+x <- sem(x)
+x
 }
 \seealso{
 \itemize{
