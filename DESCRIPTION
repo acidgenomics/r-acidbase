@@ -24,6 +24,7 @@ Depends: R (>= 4.0)
 Imports:
     AcidGenerics (>= 0.4.1),
     methods,
+    stats,
     utils
 Suggests:
     AcidTest (>= 0.4.0),
