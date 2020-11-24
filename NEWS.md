@@ -1,3 +1,9 @@
+## AcidBase 0.2.4 (2020-11-24)
+
+### New functions
+
+- `sem`: Added support for standard error of the mean calculation.
+
 ## AcidBase 0.2.3 (2020-10-07)
 
 - Fixed reference to AcidPlots package, renamed from previous "acidplots".
