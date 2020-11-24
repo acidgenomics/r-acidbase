@@ -19,9 +19,10 @@ NULL
 
 
 
-`sem,numeric` <- function(x) {
-    sqrt(var(x) / length(x))
-}
+`sem,numeric` <-  # nolint
+    function(x) {
+        sqrt(var(x) / length(x))
+    }
 
 
 
