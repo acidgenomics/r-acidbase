@@ -10,6 +10,11 @@
 #'
 #' @seealso
 #' - https://stackoverflow.com/questions/2676554/
+#'
+#' @examples
+#' x <- seq(from = 1L, to = 10L, by = 1L)
+#' x <- sem(x)
+#' x
 NULL
 
 
