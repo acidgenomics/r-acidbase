@@ -3,11 +3,14 @@
 \name{sem}
 \alias{sem}
 \alias{sem,numeric-method}
+\alias{sem,AsIs-method}
 \title{Standard error of the mean}
 \usage{
 sem(x, ...)
 
 \S4method{sem}{numeric}(x)
+
+\S4method{sem}{AsIs}(x)
 }
 \arguments{
 \item{x}{Object.}
