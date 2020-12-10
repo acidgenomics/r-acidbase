@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Shared list of optional default formals — formalsList • AcidBase</title>
+<title>Download a file from the Internet — download • AcidBase</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Shared list of optional default formals — formalsList" />
-<meta property="og:description" content="These can be overwritten using the options function." />
+<meta property="og:title" content="Download a file from the Internet — download" />
+<meta property="og:description" content="Download a file from the Internet" />
 
 
 
@@ -119,55 +119,64 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Shared list of optional default formals</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/AcidBase/blob/master/R/AllGlobals.R'><code>R/AllGlobals.R</code></a></small>
-    <div class="hidden name"><code>formalsList.Rd</code></div>
+    <h1>Download a file from the Internet</h1>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/AcidBase/blob/master/R/download.R'><code>R/download.R</code></a></small>
+    <div class="hidden name"><code>download.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>These can be overwritten using the <code>options</code> function.</p>
+    <p>Download a file from the Internet</p>
     </div>
 
-    <pre class="usage"><span class='va'>formalsList</span></pre>
+    <pre class="usage"><span class='fu'>download</span><span class='op'>(</span><span class='va'>url</span>, <span class='va'>destfile</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>url</th>
+      <td><p><code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>.
+URL.</p></td>
+    </tr>
+    <tr>
+      <th>destfile</th>
+      <td><p><code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>.
+Destination file.</p></td>
+    </tr>
+    <tr>
+      <th>quiet</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
+Suppress status messages.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Passthrough arguments to <code><a href='https://rdrr.io/r/utils/download.file.html'>utils::download.file()</a></code>.</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An object of class <code>list</code> of length 27.</p>
+    <p><code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>.
+Destination file path.
+Note that this differs from <code>download.file</code>, which returns a status code
+(e.g. <code>0</code> for success) instead.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Unlike <code><a href='https://rdrr.io/r/utils/download.file.html'>utils::download.file()</a></code>, intentionally errors on any download
+failure. Automatically sets a long time out internally via
+<code><a href='https://rdrr.io/r/base/options.html'>options(timeout = 9999L)</a></code>, to avoid download issues related to <code>timeout</code>
+configuration in <code>Rprofile</code>.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>Updated 2020-08-25.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'>
-<ul>
-<li><p>https://ggplot2.tidyverse.org/reference/scale_colour_continuous.html</p></li>
-<li><p>https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html</p></li>
-</ul>
-</div>
+    <p>Updated 2020-12-10.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>formalsList</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $color.continuous
-#&gt; getOption(x = "acid.color.continuous", default = getOption(x = "ggplot2.continuous.colour", 
-#&gt;     default = AcidPlots::scale_color_synesthesia_c()))
-#&gt; 
-#&gt; $color.discrete
-#&gt; getOption(x = "acid.color.discrete", default = getOption(x = "ggplot2.discrete.colour", 
-#&gt;     default = AcidPlots::scale_color_synesthesia_d()))
-#&gt; 
-#&gt; $compress.remove
-#&gt; getOption("acid.compress.remove", default = TRUE)
-#&gt; 
-#&gt; $decompress.remove
-#&gt; getOption("acid.compress.remove", default = TRUE)
-#&gt; 
-#&gt; $export.compress
-#&gt; getOption("acid.export.compress", default = FALSE)
-#&gt; 
-#&gt; $export.dir
-#&gt; getOption("acid.export.dir", default = ".")
-#&gt; </div></pre>
+    <pre class="examples"><div class='input'><span class='va'>url</span> <span class='op'>&lt;-</span> <span class='st'>"https://bioconductor.org/bioc-version"</span>
+<span class='va'>destfile</span> <span class='op'>&lt;-</span> <span class='st'>"bioc-version.txt"</span>
+<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='fu'>download</span><span class='op'>(</span>url <span class='op'>=</span> <span class='va'>url</span>, destfile <span class='op'>=</span> <span class='va'>destfile</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Downloading 'https://bioconductor.org/bioc-version' to 'bioc-version.txt'.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>out</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "bioc-version.txt"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.remove</a></span><span class='op'>(</span><span class='va'>out</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
