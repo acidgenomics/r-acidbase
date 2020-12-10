@@ -266,7 +266,7 @@ decompress <- function(
             what = raw(0L),
             size = 1L,
             ## See 'BFR.SIZE' in `R.utils::decompressFile`.
-            n = 1e+07
+            n = 1e+07L
         )
         n <- length(bfr)
         if (n == 0L) break
