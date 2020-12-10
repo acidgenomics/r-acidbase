@@ -13,6 +13,8 @@
 #'   URL.
 #' @param destfile `character(1)`.
 #'   Destination file.
+#' @param quiet `logical(1)`.
+#'   Suppress status messages.
 #' @param ... Passthrough arguments to [utils::download.file()].
 #'
 #' @return `character(1)`.

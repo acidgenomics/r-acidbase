@@ -13,6 +13,9 @@ URL.}
 \item{destfile}{\code{character(1)}.
 Destination file.}
 
+\item{quiet}{\code{logical(1)}.
+Suppress status messages.}
+
 \item{...}{Passthrough arguments to \code{\link[utils:download.file]{utils::download.file()}}.}
 }
 \value{

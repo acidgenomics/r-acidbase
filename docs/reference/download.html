@@ -144,6 +144,11 @@ URL.</p></td>
 Destination file.</p></td>
     </tr>
     <tr>
+      <th>quiet</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
+Suppress status messages.</p></td>
+    </tr>
+    <tr>
       <th>...</th>
       <td><p>Passthrough arguments to <code><a href='https://rdrr.io/r/utils/download.file.html'>utils::download.file()</a></code>.</p></td>
     </tr>
@@ -169,9 +174,9 @@ configuration in <code>Rprofile</code>.</p>
     <pre class="examples"><div class='input'><span class='va'>url</span> <span class='op'>&lt;-</span> <span class='st'>"https://bioconductor.org/bioc-version"</span>
 <span class='va'>destfile</span> <span class='op'>&lt;-</span> <span class='st'>"bioc-version.txt"</span>
 <span class='va'>out</span> <span class='op'>&lt;-</span> <span class='fu'>download</span><span class='op'>(</span>url <span class='op'>=</span> <span class='va'>url</span>, destfile <span class='op'>=</span> <span class='va'>destfile</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in assert(isAURL(url), isString(destfile), isFlag(quiet)): could not find function "assert"</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>out</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in print(out): object 'out' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.remove</a></span><span class='op'>(</span><span class='va'>out</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in file.remove(out): object 'out' not found</span></div></pre>
+</div><div class='output co'>#&gt; <span class='message'>Downloading 'https://bioconductor.org/bioc-version' to 'bioc-version.txt'.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>out</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "bioc-version.txt"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.remove</a></span><span class='op'>(</span><span class='va'>out</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
