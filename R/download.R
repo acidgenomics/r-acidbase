@@ -33,10 +33,10 @@ download <-
         quiet = FALSE,
         ...
     ) {
-        assert(
-            isAURL(url),
-            isString(destfile),
-            isFlag(quiet)
+        stopifnot(
+            .isString(url),
+            .isString(destfile),
+            .isFlag(quiet)
         )
         destfile <- normalizePath(destfile, mustWork = FALSE)
         timeout <- getOption("timeout")
@@ -44,8 +44,8 @@ download <-
             options("timeout" = 99999L)
         }
         if (isFALSE(quiet)) {
-            cli_alert(sprintf(
-                "Downloading {.url %s} to {.file %s}.",
+            message(sprintf(
+                "Downloading '%s' to '%s'.",
                 url, destfile
             ))
         }
