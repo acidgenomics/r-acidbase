@@ -1,3 +1,23 @@
+## AcidBase 0.2.5 (2020-12-10)
+
+### New functions
+
+- Added `download`, which acts as a hardened wrapper for `utils::download.file`.
+  Annoying, `download.file` returns status codes but does not intentionally
+  error on any unsuccessful downloads. Our wrapper ensures that R always errors
+  on any file download issue. It also sets a longer timeout internally, to
+  avoid any potential issues with the `timeout` option being defined in
+  `Rprofile`.
+
+### Bug fixes
+
+- `compress` and `decompress` were found to potentially generate integer
+  overflow warnings on very large files, due to R using 32-bit integers.
+  This issue has been resolving by ensuring the internal `nbytes` counter
+  is set as `numeric` instead. See related
+  [Stack Overflow post](https://stackoverflow.com/questions/8804779/) for
+  details on integer overflows in R.
+
 ## AcidBase 0.2.4 (2020-11-24)
 
 ### New functions
