@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">AcidBase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.5</span>
       </span>
     </div>
 
@@ -136,9 +136,9 @@
     <div id="acidbase-021-2020-10-06" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acidbase-021-2020-10-06" class="anchor"></a>AcidBase 0.2.1 (2020-10-06)</h2>
-<div id="new-functions-1" class="section level3">
+<div id="new-functions-3" class="section level3">
 <h3 class="hasAnchor">
-<a href="#new-functions-1" class="anchor"></a>New functions</h3>
+<a href="#new-functions-3" class="anchor"></a>New functions</h3>
 <ul>
 <li>Added <code>forceDetach</code>, previously used internally inside basejump.</li>
 <li>Updated documentation to inherit from AcidRoxygen instead of acidroxygen.</li>
@@ -148,9 +148,9 @@
     <div id="acidbase-022-2020-10-07" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acidbase-022-2020-10-07" class="anchor"></a>AcidBase 0.2.2 (2020-10-07)</h2>
-<div id="new-functions" class="section level3">
+<div id="new-functions-2" class="section level3">
 <h3 class="hasAnchor">
-<a href="#new-functions" class="anchor"></a>New functions</h3>
+<a href="#new-functions-2" class="anchor"></a>New functions</h3>
 <ul>
 <li>Migrated <code>headtail</code> atomic, matrix, and data.frame methods here from basejump. The methods that work on S4 objects, such as DataFrame, Matrix, GRanges, and SummarizedExperiment are still defined in basejump.</li>
 <li>
@@ -164,6 +164,37 @@
 <ul>
 <li>Fixed reference to AcidPlots package, renamed from previous “acidplots”.</li>
 </ul>
+</div>
+    <div id="acidbase-024-2020-11-24" class="section level2">
+<h2 class="hasAnchor">
+<a href="#acidbase-024-2020-11-24" class="anchor"></a>AcidBase 0.2.4 (2020-11-24)</h2>
+<div id="new-functions-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#new-functions-1" class="anchor"></a>New functions</h3>
+<ul>
+<li>
+<code>sem</code>: Added support for standard error of the mean calculation.</li>
+</ul>
+</div>
+</div>
+    <div id="acidbase-025-2020-12-10" class="section level2">
+<h2 class="hasAnchor">
+<a href="#acidbase-025-2020-12-10" class="anchor"></a>AcidBase 0.2.5 (2020-12-10)</h2>
+<div id="new-functions" class="section level3">
+<h3 class="hasAnchor">
+<a href="#new-functions" class="anchor"></a>New functions</h3>
+<ul>
+<li>Added <code>download</code>, which acts as a hardened wrapper for <code><a href="https://rdrr.io/r/utils/download.file.html">utils::download.file</a></code>. Annoying, <code>download.file</code> returns status codes but does not intentionally error on any unsuccessful downloads. Our wrapper ensures that R always errors on any file download issue. It also sets a longer timeout internally, to avoid any potential issues with the <code>timeout</code> option being defined in <code>Rprofile</code>.</li>
+</ul>
+</div>
+<div id="bug-fixes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#bug-fixes" class="anchor"></a>Bug fixes</h3>
+<ul>
+<li>
+<code>compress</code> and <code>decompress</code> were found to potentially generate integer overflow warnings on very large files, due to R using 32-bit integers. This issue has been resolving by ensuring the internal <code>nbytes</code> counter is set as <code>numeric</code> instead. See related <a href="https://stackoverflow.com/questions/8804779/">Stack Overflow post</a> for details on integer overflows in R.</li>
+</ul>
+</div>
 </div>
   </div>
 
