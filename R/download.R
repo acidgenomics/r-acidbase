@@ -57,14 +57,16 @@ download <-
                 ...
             ),
             warning = function(w) {
-                stop(w)
+                stop(w)  # nocov
             }
         )
         if (!identical(status, 0L)) {
+            ## nocov start
             stop(sprintf(
                 "Failed to download '%s' to '%s' successfully.",
                 url, destfile
             ))
+            ## nocov end
         }
         if (is.numeric(timeout)) {
             options("timeout" = timeout)
