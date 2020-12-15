@@ -4,7 +4,7 @@
 \alias{pasteURL}
 \title{Concatenate strings to form a URL}
 \usage{
-pasteURL(..., protocol = c("https", "http", "ftp", "none"))
+pasteURL(..., protocol = c("none", "https", "http", "ftp"))
 }
 \arguments{
 \item{...}{one or more \R objects, to be converted to character vectors.}
@@ -22,7 +22,7 @@ URL path, containing forward slashes (\code{/}).
 Concatenate strings to form a URL
 }
 \note{
-Updated 2019-10-22.
+Updated 2020-12-10.
 }
 \examples{
 ## HTTPS
