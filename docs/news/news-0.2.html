@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">AcidBase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.6</span>
       </span>
     </div>
 
@@ -193,6 +193,20 @@
 <ul>
 <li>
 <code>compress</code> and <code>decompress</code> were found to potentially generate integer overflow warnings on very large files, due to R using 32-bit integers. This issue has been resolving by ensuring the internal <code>nbytes</code> counter is set as <code>numeric</code> instead. See related <a href="https://stackoverflow.com/questions/8804779/">Stack Overflow post</a> for details on integer overflows in R.</li>
+</ul>
+</div>
+</div>
+    <div id="acidbase-026-2020-12-15" class="section level2">
+<h2 class="hasAnchor">
+<a href="#acidbase-026-2020-12-15" class="anchor"></a>AcidBase 0.2.6 (2020-12-15)</h2>
+<div id="minor-changes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#minor-changes" class="anchor"></a>Minor changes</h3>
+<ul>
+<li>
+<code>download</code>: Function now recursively creates destination file parent directory if necessary.</li>
+<li>
+<code>pasteURL</code>: Now defaulting to no protocol (e.g. “https”) by default. This makes pasting of an existing URL with subdirectories easier.</li>
 </ul>
 </div>
 </div>

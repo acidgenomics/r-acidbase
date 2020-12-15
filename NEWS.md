@@ -1,3 +1,12 @@
+## AcidBase 0.2.6 (2020-12-15)
+
+### Minor changes
+
+- `download`: Function now recursively creates destination file parent directory
+  if necessary.
+- `pasteURL`: Now defaulting to no protocol (e.g. "https") by default. This
+  makes pasting of an existing URL with subdirectories easier.
+
 ## AcidBase 0.2.5 (2020-12-10)
 
 ### New functions
