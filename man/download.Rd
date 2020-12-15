@@ -34,7 +34,7 @@ failure. Automatically sets a long time out internally via
 configuration in \code{Rprofile}.
 }
 \note{
-Updated 2020-12-10.
+Updated 2020-12-15.
 }
 \examples{
 url <- "https://bioconductor.org/bioc-version"
