@@ -1,7 +1,7 @@
 #' Download a file from the Internet
 #'
 #' @export
-#' @note Updated 2020-12-10.
+#' @note Updated 2020-12-15.
 #'
 #' @details
 #' Unlike [utils::download.file()], intentionally errors on any download
@@ -41,6 +41,9 @@ download <-
             .isFlag(quiet)
         )
         destfile <- normalizePath(destfile, mustWork = FALSE)
+        if (!isTRUE(dir.exists(dirname(destfile)))) {
+            dir.create(path = dirname(destfile), recursive = TRUE)
+        }
         timeout <- getOption("timeout")
         if (is.numeric(timeout)) {
             options("timeout" = 99999L)
