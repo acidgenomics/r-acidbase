@@ -1,3 +1,10 @@
+## AcidBase 0.2.6 (UNRELEASED)
+
+### Minor changes
+
+- `pasteURL`: Now defaulting to no protocol (e.g. "https") by default. This
+  makes pasting of an existing URL with subdirectories easier.
+
 ## AcidBase 0.2.5 (2020-12-10)
 
 ### New functions
