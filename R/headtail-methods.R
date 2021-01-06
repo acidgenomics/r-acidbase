@@ -19,7 +19,7 @@ NULL
 ## Updated 2020-10-07.
 `headtail,atomic` <-  # nolint
     function(x, n = 2L) {
-        stopifnot(
+        assert(
             is.atomic(x),
             is.integer(n), isTRUE(n > 0L)
         )
@@ -78,7 +78,7 @@ setMethod(
 `headtail,matrix` <-  # nolint
     function(x, n = 2L) {
         ## FIXME THIS IS CAUSING COVR TO FREAK OUT.
-        ## > stopifnot(
+        ## > assert(
         ## >     isTRUE(nrow(x) > 0L), isTRUE(ncol(x) > 0L),
         ## >     is.integer(n), isTRUE(n > 0L)
         ## > )
@@ -127,7 +127,7 @@ setMethod(
                 stringsAsFactors = FALSE
             )
             ## Check that we have square dimensions.
-            stopifnot(
+            assert(
                 nrow(square) == n * 2L,
                 ncol(square) == n * 2L
             )

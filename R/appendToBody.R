@@ -32,13 +32,13 @@
 #' x <- appendToBody(fun = fun, values = values)
 #' body(x)
 appendToBody <- function(fun, values, after = 1L) {
-    stopifnot(
+    assert(
         is.function(fun),
         is.call(values) || is.list(values),
         is.integer(after)
     )
     if (is.list(values)) {
-        stopifnot(all(vapply(
+        assert(all(vapply(
             X = values,
             FUN = is.call,
             FUN.VALUE = logical(1L)
@@ -47,7 +47,7 @@ appendToBody <- function(fun, values, after = 1L) {
     b <- body(fun)
     b <- as.list(b)
     ## Hardening against 1 liners and/or lack of curly brackets.
-    stopifnot(identical(b[[1L]], as.name("{")))
+    assert(identical(b[[1L]], as.name("{")))
     b <- append(b, values = values, after = after)
     b <- as.call(b)
     body(fun) <- b

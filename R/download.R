@@ -35,7 +35,7 @@ download <-
         quiet = FALSE,
         ...
     ) {
-        stopifnot(
+        assert(
             .isString(url),
             .isString(destfile),
             .isFlag(quiet)
