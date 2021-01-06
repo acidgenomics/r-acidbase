@@ -1,54 +1,3 @@
-## FIXME SWITCH TO GOALIE FOR THIS...
-
-## More robust versions of these functions are defined in goalie package.
-
-## nocov start
-
-
-
-## Updated 2019-10-21.
-.hasLength <- function(x, n = NULL) {
-    length <- length(x)
-    if (is.null(n)) {
-        if (identical(length, 0L)) {
-            return(FALSE)
-        } else {
-            return(TRUE)
-        }
-    }
-    assert(.isInt(n), isTRUE(n >= 0L))
-    ok <- identical(length, n)
-    if (!isTRUE(ok)) return(FALSE)
-    TRUE
-}
-
-
-
-## Updated 2019-10-21.
-.hasNames <- function(x) {
-    names <- tryCatch(expr = names(x), error = function(e) e)
-    if (is(names, "error")) {
-        FALSE
-    } else if (is.null(names)) {
-        FALSE
-    } else if (!any(nzchar(names))) {
-        FALSE
-    } else {
-        TRUE
-    }
-}
-
-
-
-## Updated 2019-10-21.
-.hasNoDuplicates <- function(x) {
-    ok <- !any(duplicated(x))
-    if (!isTRUE(ok)) return(FALSE)
-    TRUE
-}
-
-
-
 ## Updated 2019-10-21.
 .isCharacter <- function(x) {
     ok <- is.character(x)
@@ -115,7 +64,3 @@
     if (!isTRUE(ok)) return(FALSE)
     TRUE
 }
-
-
-
-## nocov end

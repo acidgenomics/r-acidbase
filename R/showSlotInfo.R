@@ -21,7 +21,7 @@
 showSlotInfo <- function(list) {
     assert(is.list(list))
     list <- Filter(f = Negate(is.null), x = list)
-    list <- Filter(f = .hasLength, x = list)
+    list <- Filter(f = hasLength, x = list)
     out <- mapply(
         name = names(list),
         x = list,
@@ -29,7 +29,7 @@ showSlotInfo <- function(list) {
             if (length(x) == 1L) {
                 paste0(name, ": ", x)
             } else {
-                if (.hasNames(x) && length(x) <= 4L) {
+                if (hasNames(x) && length(x) <= 4L) {
                     prefix <- paste0("[", names(x), "]")
                     info <- paste(prefix, x, sep = " ", collapse = "; ")
                 } else {
