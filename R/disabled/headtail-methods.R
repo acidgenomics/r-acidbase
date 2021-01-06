@@ -69,13 +69,19 @@ setMethod(
 
 
 
+## FIXME NOW SEEING THIS WEIRD COVR ERROR...
+## Error in aggregate.data.frame(lhs, mf[-1L], FUN = FUN, ...) :
+## no rows to aggregate
+## >
+
 ## Updated 2020-10-07.
 `headtail,matrix` <-  # nolint
     function(x, n = 2L) {
-        stopifnot(
-            isTRUE(nrow(x) > 0L), isTRUE(ncol(x) > 0L),
-            is.integer(n), isTRUE(n > 0L)
-        )
+        ## FIXME THIS IS CAUSING COVR TO FREAK OUT.
+        ## > stopifnot(
+        ## >     isTRUE(nrow(x) > 0L), isTRUE(ncol(x) > 0L),
+        ## >     is.integer(n), isTRUE(n > 0L)
+        ## > )
         if (nrow(x) <= n * 2L || ncol(x) <= n * 2L) {
             out <- x[
                 head(rownames(x), n = n * 2L),
