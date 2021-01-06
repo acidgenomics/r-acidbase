@@ -25,7 +25,7 @@
 #' @examples
 #' url <- "https://bioconductor.org/bioc-version"
 #' destfile <- "bioc-version.txt"
-#' out <- download(url = url, destfile = destfile)
+#' out <- download(url = url, destfile = destfile, quiet = TRUE)
 #' print(out)
 #' file.remove(out)
 download <-
