@@ -8,9 +8,6 @@
 \alias{extPattern}
 \alias{getNameInParent}
 \alias{printString}
-\alias{safeDeparse}
-\alias{shorten}
-\alias{toNames}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -18,6 +15,6 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{goalie}{\code{\link[goalie:engine-bapply]{bapply}}, \code{\link[goalie:extPattern]{compressExtPattern}}, \code{\link[goalie]{extPattern}}, \code{\link[goalie:engine-getNameInParent]{getNameInParent}}, \code{\link[goalie:engine-printString]{printString}}, \code{\link[goalie:engine-safeDeparse]{safeDeparse}}, \code{\link[goalie:engine-shorten]{shorten}}, \code{\link[goalie:engine-toNames]{toNames}}}
+  \item{goalie}{\code{\link[goalie:engine-bapply]{bapply}}, \code{\link[goalie:extPattern]{compressExtPattern}}, \code{\link[goalie]{extPattern}}, \code{\link[goalie:engine-getNameInParent]{getNameInParent}}, \code{\link[goalie:engine-printString]{printString}}}
 }}
 
