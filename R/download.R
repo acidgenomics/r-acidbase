@@ -49,8 +49,8 @@ download <-
             options("timeout" = 99999L)
         }
         if (isFALSE(quiet)) {
-            message(sprintf(
-                "Downloading '%s' to '%s'.",
+            alert(sprintf(
+                "Downloading {.url %s} to {.file %s}.",
                 url, destfile
             ))
         }
