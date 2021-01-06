@@ -42,7 +42,7 @@ download <-
         )
         destfile <- normalizePath(destfile, mustWork = FALSE)
         if (!isTRUE(dir.exists(dirname(destfile)))) {
-            dir.create(path = dirname(destfile), recursive = TRUE)
+            dir.create(path = dirname(destfile), recursive = TRUE)  # nocov
         }
         timeout <- getOption("timeout")
         if (is.numeric(timeout)) {
