@@ -44,7 +44,7 @@ NULL
 #' @export
 ## Updated 2019-10-21.
 methodFunction <- function(f, signature, package) {
-    assert(.isString(package))
+    assert(isString(package))
     envir <- asNamespace(package)
     ## Locate the S4 generic. We're opting to get either the `standardGeneric`
     ## or the `nonstandardGenericFunction` instead of requiring

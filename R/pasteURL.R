@@ -38,7 +38,7 @@ pasteURL <- function(
     protocol = c("none", "https", "http", "ftp")
 ) {
     dots <- unlist(list(...))
-    assert(.isCharacter(dots))
+    assert(isCharacter(dots))
     protocol <- match.arg(protocol)
     dots <- gsub(pattern = "/$", replacement = "", x = dots)
     url <- paste(dots, collapse = "/")
