@@ -52,7 +52,7 @@ Compress or decompress using gzip, bzip2, or xz compression.
 \note{
 For ZIP files, refer to \code{zip} and \code{unzip} in the utils package.
 
-Updated 2020-01-19.
+Updated 2021-01-06.
 }
 \examples{
 ## Create an example text file.
