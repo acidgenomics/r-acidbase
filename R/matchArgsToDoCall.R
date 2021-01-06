@@ -1,7 +1,7 @@
 #' Match arguments to `do.call`
 #'
 #' @export
-#' @note Updated 2019-10-21.
+#' @note Updated 2021-01-06.
 #'
 #' @inheritParams standardizeCall
 #' @inheritParams base::do.call
@@ -44,14 +44,14 @@ matchArgsToDoCall <- function(
     which = sys.parent(n = 1L),
     verbose = getOption("verbose", default = FALSE)
 ) {
-    stopifnot(
+    assert(
         is.list(args) || is.null(args),
-        .isCharacter(removeFormals) || is.null(removeFormals),
-        .isInt(which),
-        .isFlag(verbose)
+        isCharacter(removeFormals, nullOK = TRUE),
+        isInt(which),
+        isFlag(verbose)
     )
     if (is.list(args)) {
-        stopifnot(.hasLength(args), .hasNames(args))
+        assert(hasLength(args), hasNames(args))
     } else {
         args <- list()  # nocov
     }
@@ -67,7 +67,7 @@ matchArgsToDoCall <- function(
     )
     definition <- list[["definition"]]
     call <- list[["match.call"]]
-    stopifnot(
+    assert(
         is.function(definition),
         is.call(call)
     )
@@ -116,6 +116,6 @@ matchArgsToDoCall <- function(
         ))
         ## nocov end
     }
-    stopifnot(.hasNames(args), .hasNoDuplicates(names(args)))
+    assert(hasNames(args), hasNoDuplicates(names(args)))
     args
 }

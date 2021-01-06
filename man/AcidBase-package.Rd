@@ -11,9 +11,9 @@ Low-level base functions imported by Acid Genomics packages.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://acidbase.acidgenomics.com/}
-  \item \url{https://github.com/acidgenomics/AcidBase/}
-  \item Report bugs at \url{https://github.com/acidgenomics/AcidBase/issues/}
+  \item \url{https://r.acidgenomics.com/packages/acidbase/}
+  \item \url{https://github.com/acidgenomics/r-acidbase/}
+  \item Report bugs at \url{https://github.com/acidgenomics/r-acidbase/issues/}
 }
 
 }

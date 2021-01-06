@@ -1,7 +1,7 @@
 #' Invoke a command in the system command-line shell
 #'
 #' @export
-#' @note Updated 2020-08-09.
+#' @note Updated 2021-01-06.
 #'
 #' @param command `character(1)`.
 #' @param args `character`.
@@ -16,7 +16,7 @@
 #' @param ... Passthrough arguments to [`system2()`][base::system2].
 #'
 #' @seealso
-#' - `system2`.
+#' - [`system2()`][base::system2].
 #'
 #' @return
 #' If `stdout = TRUE` or `stderr = TRUE`, a character vector giving the output
@@ -40,15 +40,23 @@ shell <- function(
     ...
 ) {
     if (isTRUE(stderr)) stdout <- TRUE  # nocov
-    out <- system2(
-        command = command,
-        args = args,
-        stdout = stdout,
-        stderr = stderr,
-        ...
+    ## Ensure any warnings get converted to errors.
+    tryCatch(
+        expr = {
+            out <- system2(
+                command = command,
+                args = args,
+                stdout = stdout,
+                stderr = stderr,
+                ...
+            )
+        },
+        warning = function(w) {
+            stop(w)  # nocov
+        }
     )
     if (all(!isTRUE(stdout), !isTRUE(stderr))) {
-        stopifnot(out == 0L)
+        assert(out == 0L)
     }
     invisible(out)
 }

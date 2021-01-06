@@ -27,10 +27,10 @@
 dots <- function(..., character = FALSE) {
     ## Alternatively, can use `rlang::eval_bare()` here.
     dots <- eval(substitute(alist(...)))
-    stopifnot(
+    assert(
         is.list(dots),
-        .hasLength(dots),
-        .hasNoDuplicates(dots)
+        hasLength(dots),
+        hasNoDuplicates(dots)
     )
     ## Provide an informative error message when a user attempts to accidentally
     ## use standard evaluation with quotation.
@@ -46,7 +46,7 @@ dots <- function(..., character = FALSE) {
     }
     ## Convert names (symbols) to character.
     names <- vapply(dots, as.character, character(1L))
-    stopifnot(.hasNoDuplicates(names))
+    assert(hasNoDuplicates(names))
     if (isTRUE(character)) {
         names
     } else {

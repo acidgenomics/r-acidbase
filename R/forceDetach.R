@@ -37,7 +37,7 @@ forceDetach <- function(keep = .packages()) {
             }
         ))
     }
-    stopifnot(identical(.packages(), keep))
+    assert(identical(.packages(), keep))
 }
 
 

@@ -1,7 +1,40 @@
-## AcidBase 0.2.5 (2020-11-25)
+## AcidBase 0.3.0 (2021-01-06)
+
+### Major changes
+
+- Reworked internal function organization a bit, handing off some functions
+  back into the goalie package.
+- Now that goalie doesn't depend on AcidBase, we can import and use the superior
+  assert checks defined in the package.
+
+## AcidBase 0.2.6 (2020-12-15)
+
+### Minor changes
+
+- `download`: Function now recursively creates destination file parent directory
+  if necessary.
+- `pasteURL`: Now defaulting to no protocol (e.g. "https") by default. This
+  makes pasting of an existing URL with subdirectories easier.
+
+## AcidBase 0.2.5 (2020-12-10)
+
+### New functions
+
+- Added `download`, which acts as a hardened wrapper for `utils::download.file`.
+  Annoying, `download.file` returns status codes but does not intentionally
+  error on any unsuccessful downloads. Our wrapper ensures that R always errors
+  on any file download issue. It also sets a longer timeout internally, to
+  avoid any potential issues with the `timeout` option being defined in
+  `Rprofile`.
 
 ### Bug fixes
 
+- `compress` and `decompress` were found to potentially generate integer
+  overflow warnings on very large files, due to R using 32-bit integers.
+  This issue has been resolving by ensuring the internal `nbytes` counter
+  is set as `numeric` instead. See related
+  [Stack Overflow post](https://stackoverflow.com/questions/8804779/) for
+  details on integer overflows in R.
 - `sem`: Requires `AsIs` class support, to work inside dplyr summarize calls.
 - Now need to import BiocGenerics, for proper import of `AsIs` S4 class, which
   is an `oldClass` of the S3 class.

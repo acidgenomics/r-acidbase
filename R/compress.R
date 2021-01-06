@@ -5,7 +5,7 @@
 #' @name compress
 #' @export
 #' @note For ZIP files, refer to `zip` and `unzip` in the utils package.
-#' @note Updated 2020-01-19.
+#' @note Updated 2021-01-06.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ext `character(1)`.
@@ -57,7 +57,11 @@ NULL
 
 
 ## Modified version of:
-## > getS3method(f = "compressFile", class = "default")
+## > getS3method(
+## >     f = "compressFile",
+## >     class = "default",
+## >     envir = asNamespace("R.utils")
+## > )
 
 #' @rdname compress
 #' @export
@@ -67,16 +71,16 @@ compress <- function(
     remove,
     overwrite
 ) {
-    stopifnot(
-        .isString(file),
-        .isFlag(remove),
-        .isFlag(overwrite)
+    assert(
+        isString(file),
+        isFlag(remove),
+        isFlag(overwrite)
     )
     file <- realpath(file)
     ext <- match.arg(ext)
     destfile <- sprintf("%s.%s", file, ext)
-    stopifnot(!identical(file, destfile))
-    if (isTRUE(file.exists(destfile))) {
+    assert(!identical(file, destfile))
+    if (isAFile(destfile)) {
         ## nocov start
         if (isTRUE(overwrite)) {
             message(sprintf("Overwriting file: '%s'.", destfile))
@@ -106,7 +110,7 @@ compress <- function(
         mode = "function",
         inherits = FALSE
     )
-    stopifnot(is.function(fun))
+    assert(is.function(fun))
     inn <- file(description = file, open = "rb")
     on.exit(if (!is.null(inn)) close(inn))
     outComplete <- FALSE
@@ -117,13 +121,15 @@ compress <- function(
         if (!isTRUE(outComplete)) file.remove(destfile)
         ## nocov end
     }, add = TRUE)
-    nbytes <- 0L
+    ## Don't keep as integer here, otherwise can hit integer overflow
+    ## on large files.
+    nbytes <- as.numeric(0L)
     repeat {
         bfr <- readBin(
             con = inn,
             what = raw(0L),
             size = 1L,
-            ## See 'BFR.SIZE' argument in `R.utils::compressFile`.
+            ## See 'BFR.SIZE' in `R.utils::compressFile`.
             n = 1e+07L
         )
         n <- length(bfr)
@@ -153,7 +159,18 @@ formals(compress)[c("remove", "overwrite")] <-
 
 
 ## Modified version of:
-## > getS3method(f = "decompressFile", class = "default")
+## > getS3method(
+## >     f = "decompressFile",
+## >     class = "default",
+## >     envir = asNamespace("R.utils")
+## > )
+##
+## Note that `gunzip`, etc. are wrappers of `decompressFile`:
+## > getS3method(
+## >     f = "gunzip",
+## >     class = "default",
+## >     envir = asNamespace("R.utils")
+## > )
 
 #' @rdname compress
 #' @export
@@ -162,13 +179,13 @@ decompress <- function(
     remove,
     overwrite
 ) {
-    stopifnot(
-        .isString(file),
-        .isFlag(remove),
-        .isFlag(overwrite)
+    assert(
+        isString(file),
+        isFlag(remove),
+        isFlag(overwrite)
     )
     file <- realpath(file)
-    stopifnot(isTRUE(grepl(pattern = compressExtPattern, x = file)))
+    assert(isTRUE(grepl(pattern = compressExtPattern, x = file)))
     ext <- substring(
         text = file,
         first = regexpr(
@@ -183,8 +200,8 @@ decompress <- function(
         x = file,
         ignore.case = TRUE
     )
-    stopifnot(!identical(file, destfile))
-    if (isTRUE(file.exists(destfile))) {
+    assert(!identical(file, destfile))
+    if (isAFile(destfile)) {
         ## nocov start
         if (isTRUE(overwrite)) {
             file.remove(destfile)
@@ -229,7 +246,7 @@ decompress <- function(
         mode = "function",
         inherits = FALSE
     )
-    stopifnot(is.function(fun))
+    assert(is.function(fun))
     inn <- fun(file, open = "rb")
     on.exit(if (!is.null(inn)) close(inn))
     outComplete <- FALSE
@@ -240,13 +257,15 @@ decompress <- function(
         if (!outComplete) file.remove(destfile)
         ## nocov end
     }, add = TRUE)
-    nbytes <- 0L
+    ## Don't keep as integer here, otherwise can hit integer overflow
+    ## on large files.
+    nbytes <- as.numeric(0L)
     repeat {
         bfr <- readBin(
-            inn,
+            con = inn,
             what = raw(0L),
             size = 1L,
-            ## See 'BFR.SIZE' argument in `R.utils::decompressFile`.
+            ## See 'BFR.SIZE' in `R.utils::decompressFile`.
             n = 1e+07L
         )
         n <- length(bfr)
