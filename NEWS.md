@@ -1,3 +1,9 @@
+## AcidBase 0.3.1 (2021-01-06)
+
+### Minor changes
+
+- Now importing new AcidCLI package, to improve CLI messages.
+
 ## AcidBase 0.3.0 (2021-01-06)
 
 ### Major changes
