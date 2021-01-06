@@ -5,7 +5,7 @@
 #' @name compress
 #' @export
 #' @note For ZIP files, refer to `zip` and `unzip` in the utils package.
-#' @note Updated 2020-01-19.
+#' @note Updated 2021-01-06.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ext `character(1)`.
@@ -72,15 +72,15 @@ compress <- function(
     overwrite
 ) {
     assert(
-        .isString(file),
-        .isFlag(remove),
-        .isFlag(overwrite)
+        isString(file),
+        isFlag(remove),
+        isFlag(overwrite)
     )
     file <- realpath(file)
     ext <- match.arg(ext)
     destfile <- sprintf("%s.%s", file, ext)
     assert(!identical(file, destfile))
-    if (isTRUE(file.exists(destfile))) {
+    if (isAFile(destfile)) {
         ## nocov start
         if (isTRUE(overwrite)) {
             message(sprintf("Overwriting file: '%s'.", destfile))
@@ -180,9 +180,9 @@ decompress <- function(
     overwrite
 ) {
     assert(
-        .isString(file),
-        .isFlag(remove),
-        .isFlag(overwrite)
+        isString(file),
+        isFlag(remove),
+        isFlag(overwrite)
     )
     file <- realpath(file)
     assert(isTRUE(grepl(pattern = compressExtPattern, x = file)))
@@ -201,7 +201,7 @@ decompress <- function(
         ignore.case = TRUE
     )
     assert(!identical(file, destfile))
-    if (isTRUE(file.exists(destfile))) {
+    if (isAFile(destfile)) {
         ## nocov start
         if (isTRUE(overwrite)) {
             file.remove(destfile)
