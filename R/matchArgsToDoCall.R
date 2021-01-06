@@ -51,7 +51,7 @@ matchArgsToDoCall <- function(
         .isFlag(verbose)
     )
     if (is.list(args)) {
-        assert(.hasLength(args), .hasNames(args))
+        assert(hasLength(args), hasNames(args))
     } else {
         args <- list()  # nocov
     }
@@ -116,6 +116,6 @@ matchArgsToDoCall <- function(
         ))
         ## nocov end
     }
-    assert(.hasNames(args), .hasNoDuplicates(names(args)))
+    assert(hasNames(args), hasNoDuplicates(names(args)))
     args
 }
