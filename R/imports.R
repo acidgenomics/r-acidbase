@@ -1,5 +1,6 @@
 #' @importClassesFrom AcidGenerics AsIs
 #'
+#' @importFrom AcidCLI alert alertWarning
 #' @importFrom goalie assert bapply compressExtPattern extPattern hasLength
 #'   hasNames hasNoDuplicates isADir isAFile isCharacter isFlag isInt isScalar
 #'   isString
