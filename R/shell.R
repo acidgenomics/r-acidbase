@@ -1,7 +1,7 @@
 #' Invoke a command in the system command-line shell
 #'
 #' @export
-#' @note Updated 2020-08-09.
+#' @note Updated 2021-01-06.
 #'
 #' @param command `character(1)`.
 #' @param args `character`.
@@ -40,12 +40,19 @@ shell <- function(
     ...
 ) {
     if (isTRUE(stderr)) stdout <- TRUE  # nocov
-    out <- system2(
-        command = command,
-        args = args,
-        stdout = stdout,
-        stderr = stderr,
-        ...
+    tryCatch(
+        expr = {
+            out <- system2(
+                command = command,
+                args = args,
+                stdout = stdout,
+                stderr = stderr,
+                ...
+            )
+        },
+        warning = function(w) {
+            stop(w)
+        }
     )
     if (all(!isTRUE(stdout), !isTRUE(stderr))) {
         stopifnot(out == 0L)
