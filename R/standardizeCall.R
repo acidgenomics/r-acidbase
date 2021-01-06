@@ -59,13 +59,13 @@ standardizeCall <- function(
     return = c("call", "list"),
     verbose = getOption("verbose", default = FALSE)
 ) {
-    stopifnot(
-        .isInt(which),
+    assert(
+        isInt(which),
         isTRUE(which >= 0L),
         isTRUE(which < length(sys.calls())),
-        .isFlag(defaults),
-        .isFlag(expandDots),
-        .isFlag(verbose)
+        isFlag(defaults),
+        isFlag(expandDots),
+        isFlag(verbose)
     )
     return <- match.arg(return)
     ## Don't allow a `which` value less than 1.
@@ -94,7 +94,7 @@ standardizeCall <- function(
     )
     ## Extract the definition from `.local`, if necessary.
     if (isTRUE(.local)) {
-        stopifnot(!isTRUE(.isLocalCall(call)))
+        assert(!isTRUE(.isLocalCall(call)))
         ## Update definition.
         if (is(definition, "MethodDefinition")) {
             ## Pull the ".local()" function out, which has the formals we need
@@ -134,6 +134,18 @@ standardizeCall <- function(
     if (isTRUE(verbose)) {
         print(list(match.call = call))  # nocov
     }
-    stopifnot(is.call(call))
+    assert(is.call(call))
     switch(EXPR = return, call = call, list = list)
+}
+
+
+
+## Detect `.local()` inside an S4 method.
+## Updated 2019-10-21.
+.isLocalCall <- function(x) {
+    ok <- is.call(x)
+    if (!isTRUE(ok)) return(FALSE)  # nocov
+    ok <- identical(x[[1L]], as.symbol(".local"))
+    if (!isTRUE(ok)) return(FALSE)
+    TRUE
 }

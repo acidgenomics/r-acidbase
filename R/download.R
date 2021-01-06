@@ -1,7 +1,7 @@
 #' Download a file from the Internet
 #'
 #' @export
-#' @note Updated 2020-12-15.
+#' @note Updated 2021-01-06.
 #'
 #' @details
 #' Unlike [utils::download.file()], intentionally errors on any download
@@ -25,7 +25,7 @@
 #' @examples
 #' url <- "https://bioconductor.org/bioc-version"
 #' destfile <- "bioc-version.txt"
-#' out <- download(url = url, destfile = destfile)
+#' out <- download(url = url, destfile = destfile, quiet = TRUE)
 #' print(out)
 #' file.remove(out)
 download <-
@@ -35,14 +35,14 @@ download <-
         quiet = FALSE,
         ...
     ) {
-        stopifnot(
-            .isString(url),
-            .isString(destfile),
-            .isFlag(quiet)
+        assert(
+            isString(url),
+            isString(destfile),
+            isFlag(quiet)
         )
         destfile <- normalizePath(destfile, mustWork = FALSE)
-        if (!isTRUE(dir.exists(dirname(destfile)))) {
-            dir.create(path = dirname(destfile), recursive = TRUE)
+        if (!isADir(dirname(destfile))) {
+            dir.create(path = dirname(destfile), recursive = TRUE)  # nocov
         }
         timeout <- getOption("timeout")
         if (is.numeric(timeout)) {
