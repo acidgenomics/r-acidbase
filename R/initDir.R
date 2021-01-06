@@ -6,7 +6,7 @@
 #' directory.
 #'
 #' @export
-#' @note Updated 2019-10-22.
+#' @note Updated 2020-01-06.
 #'
 #' @param dir `character(1)`.
 #'   Directory path.
@@ -21,8 +21,8 @@
 #' ## Clean up.
 #' unlink("testdir", recursive = TRUE)
 initDir <- function(dir) {
-    assert(.isString(dir))
-    if (!dir.exists(dir)) {
+    assert(isString(dir))
+    if (!isADir(dir)) {
         dir.create(dir, recursive = TRUE, showWarnings = FALSE)
     }
     invisible(realpath(dir))
