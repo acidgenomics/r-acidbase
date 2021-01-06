@@ -15,14 +15,14 @@ Authors@R: c(
         role = c("cph", "fnd")
     ))
 URL:
-    https://acidbase.acidgenomics.com/,
+    https://r.acidgenomics.com/packages/acidbase/,
     https://github.com/acidgenomics/r-acidbase/
 BugReports: https://github.com/acidgenomics/r-acidbase/issues/
 License: GPL-3
 Encoding: UTF-8
 Depends: R (>= 4.0)
 Imports:
-    AcidGenerics (>= 0.4.1),
+    AcidGenerics (>= 0.5.0),
     goalie (>= 0.4.12),
     methods,
     stats,
