@@ -19,7 +19,7 @@
 #'     filtered = TRUE
 #' ))
 showSlotInfo <- function(list) {
-    stopifnot(is.list(list))
+    assert(is.list(list))
     list <- Filter(f = Negate(is.null), x = list)
     list <- Filter(f = .hasLength, x = list)
     out <- mapply(

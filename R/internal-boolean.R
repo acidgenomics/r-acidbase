@@ -16,7 +16,7 @@
             return(TRUE)
         }
     }
-    stopifnot(.isInt(n), isTRUE(n >= 0L))
+    assert(.isInt(n), isTRUE(n >= 0L))
     ok <- identical(length, n)
     if (!isTRUE(ok)) return(FALSE)
     TRUE

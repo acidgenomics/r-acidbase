@@ -56,7 +56,7 @@ shell <- function(
         }
     )
     if (all(!isTRUE(stdout), !isTRUE(stderr))) {
-        stopifnot(out == 0L)
+        assert(out == 0L)
     }
     invisible(out)
 }

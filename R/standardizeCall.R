@@ -59,7 +59,7 @@ standardizeCall <- function(
     return = c("call", "list"),
     verbose = getOption("verbose", default = FALSE)
 ) {
-    stopifnot(
+    assert(
         .isInt(which),
         isTRUE(which >= 0L),
         isTRUE(which < length(sys.calls())),
@@ -94,7 +94,7 @@ standardizeCall <- function(
     )
     ## Extract the definition from `.local`, if necessary.
     if (isTRUE(.local)) {
-        stopifnot(!isTRUE(.isLocalCall(call)))
+        assert(!isTRUE(.isLocalCall(call)))
         ## Update definition.
         if (is(definition, "MethodDefinition")) {
             ## Pull the ".local()" function out, which has the formals we need
@@ -134,6 +134,6 @@ standardizeCall <- function(
     if (isTRUE(verbose)) {
         print(list(match.call = call))  # nocov
     }
-    stopifnot(is.call(call))
+    assert(is.call(call))
     switch(EXPR = return, call = call, list = list)
 }
