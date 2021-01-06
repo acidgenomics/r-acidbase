@@ -22,7 +22,7 @@ Useful for setting up functions that require writes to a user-specified
 directory.
 }
 \note{
-Updated 2019-10-22.
+Updated 2020-01-06.
 }
 \examples{
 initDir("testdir")

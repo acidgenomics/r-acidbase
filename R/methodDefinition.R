@@ -44,7 +44,7 @@ NULL
 #' @export
 ## Updated 2019-10-21.
 methodFunction <- function(f, signature, package) {
-    stopifnot(.isString(package))
+    assert(isString(package))
     envir <- asNamespace(package)
     ## Locate the S4 generic. We're opting to get either the `standardGeneric`
     ## or the `nonstandardGenericFunction` instead of requiring
@@ -65,7 +65,7 @@ methodFunction <- function(f, signature, package) {
         }
     )
     ## Assert that we're getting an S4 generic.
-    stopifnot(isS4(generic))
+    assert(isS4(generic))
     args <- Filter(
         f = Negate(is.null),
         x = list(
@@ -74,7 +74,7 @@ methodFunction <- function(f, signature, package) {
             getName = FALSE
         )
     )
-    stopifnot(do.call(what = isGeneric, args = args))
+    assert(do.call(what = isGeneric, args = args))
     ## Now select the method from the generic.
     definition <- selectMethod(
         f = generic,
@@ -82,7 +82,7 @@ methodFunction <- function(f, signature, package) {
         useInherited = TRUE,
         doCache = FALSE
     )
-    stopifnot(is(definition, "MethodDefinition"))
+    assert(is(definition, "MethodDefinition"))
     ## S4 dispatch will nest `.local` function inside the method definition when
     ## the formals aren't identical to the generic. Otherwise it will be slotted
     ## in ".Data".
@@ -91,7 +91,7 @@ methodFunction <- function(f, signature, package) {
     } else {
         fun <- slot(definition, ".Data")
     }
-    stopifnot(is.function(fun))
+    assert(is.function(fun))
     fun
 }
 
@@ -113,10 +113,10 @@ methodFormals <- function(f, signature, package) {
 
 ## Updated 2019-07-29.
 .extractLocal <- function(definition) {
-    stopifnot(.hasLocal(definition))
+    assert(.hasLocal(definition))
     body <- body(definition)
     local <- eval(body[[2L]][[3L]])
-    stopifnot(is.function(local))
+    assert(is.function(local))
     local
 }
 
@@ -124,7 +124,7 @@ methodFormals <- function(f, signature, package) {
 
 ## Updated 2019-07-29.
 .hasLocal <- function(definition) {
-    stopifnot(
+    assert(
         is(definition, "MethodDefinition"),
         is(definition, "function")
     )

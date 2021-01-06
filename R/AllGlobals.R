@@ -12,32 +12,6 @@ barcodePattern <- ")_([ACGT_]{6,})(_[0-9]+)?$"
 
 
 
-## extPattern ==================================================================
-#' File extension pattern matching
-#'
-#' @name extPattern
-#' @note Updated 2019-10-21.
-#'
-#' @examples
-#' extPattern
-#' compressExtPattern
-NULL
-
-.compressExtPattern <- "\\.(bz2|gz|xz|zip)"
-
-#' @rdname extPattern
-#' @export
-extPattern <- paste0(
-    "\\.([a-zA-Z0-9]+)",
-    "(", .compressExtPattern, ")?$"
-)
-
-#' @rdname extPattern
-#' @export
-compressExtPattern <- paste0(.compressExtPattern, "$")
-
-
-
 ## formalsList =================================================================
 #' Shared list of optional default formals
 #'

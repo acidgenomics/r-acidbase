@@ -60,7 +60,6 @@ test_that(".local handling", {
     )
     expect_true(.hasLocal(md))
     expect_is(.extractLocal(md), "function")
-
     md <- getMethod(
         f = "as.data.frame",
         signature = "ANY",
