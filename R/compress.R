@@ -83,7 +83,7 @@ compress <- function(
     if (isAFile(destfile)) {
         ## nocov start
         if (isTRUE(overwrite)) {
-            message(sprintf("Overwriting file: '%s'.", destfile))
+            alertWarning(sprintf("Overwriting file: {.file %s}.", destfile))
             file.remove(destfile)
         } else {
             stop(sprintf("File exists: '%s'.", destfile))
@@ -225,7 +225,10 @@ decompress <- function(
         )
         if (length(destfile) > 1L) {
             ## nocov start
-            message(sprintf("'%s' contains multiple files.", basename(file)))
+            alertWarning(sprintf(
+                "{.var %s} contains multiple files.",
+                basename(file)
+            ))
             ## nocov end
         }
         if (isTRUE(remove)) {
