@@ -1,7 +1,7 @@
 #' Concatenate strings to form a URL
 #'
 #' @export
-#' @note Updated 2019-10-22.
+#' @note Updated 2020-12-10.
 #'
 #' @inheritParams base::paste
 #' @param protocol `character(1)`.
@@ -33,9 +33,12 @@
 #'     protocol = "ftp"
 #' )
 #' print(x)
-pasteURL <- function(..., protocol = c("https", "http", "ftp", "none")) {
+pasteURL <- function(
+    ...,
+    protocol = c("none", "https", "http", "ftp")
+) {
     dots <- unlist(list(...))
-    stopifnot(.isCharacter(dots))
+    assert(isCharacter(dots))
     protocol <- match.arg(protocol)
     dots <- gsub(pattern = "/$", replacement = "", x = dots)
     url <- paste(dots, collapse = "/")
