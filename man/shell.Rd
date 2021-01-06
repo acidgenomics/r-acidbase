@@ -47,6 +47,6 @@ shell(command = "echo", args = c("hello", "world"))
 }
 \seealso{
 \itemize{
-\item \code{system2}.
+\item \code{\link[base:system2]{system2()}}.
 }
 }
