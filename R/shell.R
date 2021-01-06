@@ -16,7 +16,7 @@
 #' @param ... Passthrough arguments to [`system2()`][base::system2].
 #'
 #' @seealso
-#' - `system2`.
+#' - [`system2()`][base::system2].
 #'
 #' @return
 #' If `stdout = TRUE` or `stderr = TRUE`, a character vector giving the output
@@ -40,6 +40,7 @@ shell <- function(
     ...
 ) {
     if (isTRUE(stderr)) stdout <- TRUE  # nocov
+    ## Ensure any warnings get converted to errors.
     tryCatch(
         expr = {
             out <- system2(
@@ -51,7 +52,7 @@ shell <- function(
             )
         },
         warning = function(w) {
-            stop(w)
+            stop(w)  # nocov
         }
     )
     if (all(!isTRUE(stdout), !isTRUE(stderr))) {
