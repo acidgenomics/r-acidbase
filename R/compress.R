@@ -71,7 +71,7 @@ compress <- function(
     remove,
     overwrite
 ) {
-    stopifnot(
+    assert(
         .isString(file),
         .isFlag(remove),
         .isFlag(overwrite)
@@ -79,7 +79,7 @@ compress <- function(
     file <- realpath(file)
     ext <- match.arg(ext)
     destfile <- sprintf("%s.%s", file, ext)
-    stopifnot(!identical(file, destfile))
+    assert(!identical(file, destfile))
     if (isTRUE(file.exists(destfile))) {
         ## nocov start
         if (isTRUE(overwrite)) {
@@ -110,7 +110,7 @@ compress <- function(
         mode = "function",
         inherits = FALSE
     )
-    stopifnot(is.function(fun))
+    assert(is.function(fun))
     inn <- file(description = file, open = "rb")
     on.exit(if (!is.null(inn)) close(inn))
     outComplete <- FALSE
@@ -179,13 +179,13 @@ decompress <- function(
     remove,
     overwrite
 ) {
-    stopifnot(
+    assert(
         .isString(file),
         .isFlag(remove),
         .isFlag(overwrite)
     )
     file <- realpath(file)
-    stopifnot(isTRUE(grepl(pattern = compressExtPattern, x = file)))
+    assert(isTRUE(grepl(pattern = compressExtPattern, x = file)))
     ext <- substring(
         text = file,
         first = regexpr(
@@ -200,7 +200,7 @@ decompress <- function(
         x = file,
         ignore.case = TRUE
     )
-    stopifnot(!identical(file, destfile))
+    assert(!identical(file, destfile))
     if (isTRUE(file.exists(destfile))) {
         ## nocov start
         if (isTRUE(overwrite)) {
@@ -246,7 +246,7 @@ decompress <- function(
         mode = "function",
         inherits = FALSE
     )
-    stopifnot(is.function(fun))
+    assert(is.function(fun))
     inn <- fun(file, open = "rb")
     on.exit(if (!is.null(inn)) close(inn))
     outComplete <- FALSE
