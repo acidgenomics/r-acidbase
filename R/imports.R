@@ -1,7 +1,5 @@
-## FIXME isLocalCall is not defined in goalie...
-
-#' @importFrom goalie assert hasLength hasNames hasNoDuplicates isCharacter
-#'   isFlag isInt isScalar isString
+#' @importFrom goalie assert hasLength hasNames hasNoDuplicates isADir isAFile
+#'   isCharacter isFlag isInt isScalar isString
 #' @importFrom methods is isGeneric selectMethod setMethod setOldClass signature
 #'   slot
 #' @importFrom stats var
