@@ -1,7 +1,7 @@
 #' Download a file from the Internet
 #'
 #' @export
-#' @note Updated 2020-12-15.
+#' @note Updated 2021-01-06.
 #'
 #' @details
 #' Unlike [utils::download.file()], intentionally errors on any download
@@ -36,12 +36,12 @@ download <-
         ...
     ) {
         assert(
-            .isString(url),
-            .isString(destfile),
-            .isFlag(quiet)
+            isString(url),
+            isString(destfile),
+            isFlag(quiet)
         )
         destfile <- normalizePath(destfile, mustWork = FALSE)
-        if (!isTRUE(dir.exists(dirname(destfile)))) {
+        if (!isADir(dirname(destfile))) {
             dir.create(path = dirname(destfile), recursive = TRUE)  # nocov
         }
         timeout <- getOption("timeout")
