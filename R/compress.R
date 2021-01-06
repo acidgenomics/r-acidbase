@@ -5,7 +5,7 @@
 #' @name compress
 #' @export
 #' @note For ZIP files, refer to `zip` and `unzip` in the utils package.
-#' @note Updated 2020-01-19.
+#' @note Updated 2021-01-06.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ext `character(1)`.
@@ -71,16 +71,16 @@ compress <- function(
     remove,
     overwrite
 ) {
-    stopifnot(
-        .isString(file),
-        .isFlag(remove),
-        .isFlag(overwrite)
+    assert(
+        isString(file),
+        isFlag(remove),
+        isFlag(overwrite)
     )
     file <- realpath(file)
     ext <- match.arg(ext)
     destfile <- sprintf("%s.%s", file, ext)
-    stopifnot(!identical(file, destfile))
-    if (isTRUE(file.exists(destfile))) {
+    assert(!identical(file, destfile))
+    if (isAFile(destfile)) {
         ## nocov start
         if (isTRUE(overwrite)) {
             message(sprintf("Overwriting file: '%s'.", destfile))
@@ -110,7 +110,7 @@ compress <- function(
         mode = "function",
         inherits = FALSE
     )
-    stopifnot(is.function(fun))
+    assert(is.function(fun))
     inn <- file(description = file, open = "rb")
     on.exit(if (!is.null(inn)) close(inn))
     outComplete <- FALSE
@@ -179,13 +179,13 @@ decompress <- function(
     remove,
     overwrite
 ) {
-    stopifnot(
-        .isString(file),
-        .isFlag(remove),
-        .isFlag(overwrite)
+    assert(
+        isString(file),
+        isFlag(remove),
+        isFlag(overwrite)
     )
     file <- realpath(file)
-    stopifnot(isTRUE(grepl(pattern = compressExtPattern, x = file)))
+    assert(isTRUE(grepl(pattern = compressExtPattern, x = file)))
     ext <- substring(
         text = file,
         first = regexpr(
@@ -200,8 +200,8 @@ decompress <- function(
         x = file,
         ignore.case = TRUE
     )
-    stopifnot(!identical(file, destfile))
-    if (isTRUE(file.exists(destfile))) {
+    assert(!identical(file, destfile))
+    if (isAFile(destfile)) {
         ## nocov start
         if (isTRUE(overwrite)) {
             file.remove(destfile)
@@ -246,7 +246,7 @@ decompress <- function(
         mode = "function",
         inherits = FALSE
     )
-    stopifnot(is.function(fun))
+    assert(is.function(fun))
     inn <- fun(file, open = "rb")
     on.exit(if (!is.null(inn)) close(inn))
     outComplete <- FALSE

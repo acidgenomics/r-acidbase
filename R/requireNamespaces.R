@@ -37,6 +37,6 @@ requireNamespaces <- function(packages) {
             toString(names(ok)[!ok])
         ))
     }
-    ## Returning boolean flag here, for use inside `assert()` / `stopifnot()`.
+    ## Returning boolean flag here, for use inside `assert()` / `assert()`.
     invisible(TRUE)
 }

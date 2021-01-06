@@ -32,7 +32,7 @@ Arguments to pass to \code{\link[base:do.call]{do.call()}}.
 Match arguments to \code{do.call}
 }
 \note{
-Updated 2019-10-21.
+Updated 2021-01-06.
 }
 \examples{
 ## Match the arguments in call.

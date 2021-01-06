@@ -1,3 +1,12 @@
+## AcidBase 0.3.0 (2021-01-06)
+
+### Major changes
+
+- Reworked internal function organization a bit, handing off some functions
+  back into the goalie package.
+- Now that goalie doesn't depend on AcidBase, we can import and use the superior
+  assert checks defined in the package.
+
 ## AcidBase 0.2.6 (2020-12-15)
 
 ### Minor changes
