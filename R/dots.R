@@ -19,7 +19,7 @@
 #' `help("dotsMethods", "methods")`.
 #'
 #' - [rlang](https://rlang.r-lib.org/).
-#' - [tidyverse](http://tidyverse.org/).
+#' - [tidyverse](https://www.tidyverse.org/).
 #'
 #' @examples
 #' dots(a, b, c, character = FALSE)

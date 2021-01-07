@@ -37,6 +37,6 @@ dots(a, b, c, character = TRUE)
 \code{help("dotsMethods", "methods")}.
 \itemize{
 \item \href{https://rlang.r-lib.org/}{rlang}.
-\item \href{http://tidyverse.org/}{tidyverse}.
+\item \href{https://www.tidyverse.org/}{tidyverse}.
 }
 }
