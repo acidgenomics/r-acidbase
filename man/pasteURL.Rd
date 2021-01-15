@@ -4,15 +4,15 @@
 \alias{pasteURL}
 \title{Concatenate strings to form a URL}
 \usage{
-pasteURL(..., protocol = c("none", "https", "http", "ftp"))
+pasteURL(..., protocol = c("none", "https", "http", "ftp", "s3"))
 }
 \arguments{
 \item{...}{one or more \R objects, to be converted to character vectors.}
 
 \item{protocol}{\code{character(1)}.
-Desired protocol to use. Defaults to HTTPS but HTTP and FTP are also
-supported. Use \code{"none"} if you want to prepare a URL that already contains
-a protocol in the first element of the dots.}
+Desired protocol to use. Defaults to "https" but "http", "ftp", and "s3"
+(AWS S3) are also supported. Use \code{"none"} if you want to prepare a URL that
+already contains a protocol in the first element of the dots.}
 }
 \value{
 \code{character}.
@@ -22,7 +22,7 @@ URL path, containing forward slashes (\code{/}).
 Concatenate strings to form a URL
 }
 \note{
-Updated 2020-12-10.
+Updated 2021-01-15.
 }
 \examples{
 ## HTTPS
