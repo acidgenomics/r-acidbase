@@ -1,13 +1,13 @@
 #' Concatenate strings to form a URL
 #'
 #' @export
-#' @note Updated 2020-12-10.
+#' @note Updated 2021-01-15.
 #'
 #' @inheritParams base::paste
 #' @param protocol `character(1)`.
-#'   Desired protocol to use. Defaults to HTTPS but HTTP and FTP are also
-#'   supported. Use `"none"` if you want to prepare a URL that already contains
-#'   a protocol in the first element of the dots.
+#'   Desired protocol to use. Defaults to "https" but "http", "ftp", and "s3"
+#'   (AWS S3) are also supported. Use `"none"` if you want to prepare a URL that
+#'   already contains a protocol in the first element of the dots.
 #'
 #' @return `character`.
 #' URL path, containing forward slashes (`/`).
@@ -35,7 +35,7 @@
 #' print(x)
 pasteURL <- function(
     ...,
-    protocol = c("none", "https", "http", "ftp")
+    protocol = c("none", "https", "http", "ftp", "s3")
 ) {
     dots <- unlist(list(...))
     assert(isCharacter(dots))

@@ -1,3 +1,10 @@
+## AcidBase 0.3.2 (2021-01-15)
+
+### Minor changes
+
+- Removed `sampleId` from `metadataBlacklist` global.
+- `pasteURL` now supports "s3" as a protocol value.
+
 ## AcidBase 0.3.1 (2021-01-06)
 
 ### Minor changes

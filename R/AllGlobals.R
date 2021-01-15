@@ -176,21 +176,23 @@ lanePattern <- "_L([[:digit:]]{3})"
 #' Sample metadata blacklist
 #'
 #' @export
-#' @note `sampleID` is set automatically for multiplexed/cell-level data.
-#' @note Updated 2019-09-05.
+#' @note `sampleId` (`sampleID` for older datasets) is set automatically for
+#'   multiplexed/cell-level data.
+#' @note Updated 2021-01-14.
 #'
 #' @examples
 #' metadataBlacklist
 metadataBlacklist <- sort(c(
     ## Automatic / used internally:
+    ## > "sampleID",
+    ## > "sampleId",
     "interestingGroups",
     "revcomp",
     "rowname",
-    ## > "sampleID",
     ## interestingGroups variants:
     "interestinggroups",
     "intgroup",
-    ## sampleID, sampleName variants:
+    ## sampleId, sampleName variants:
     "ID",
     "Id",
     "id",
@@ -198,7 +200,6 @@ metadataBlacklist <- sort(c(
     "names",
     "sample",
     "samples",
-    "sampleId",
     "sampleid",
     "sampleNames",
     "samplename",
