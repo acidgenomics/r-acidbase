@@ -1,7 +1,7 @@
 #' Concatenate strings to form a URL
 #'
 #' @export
-#' @note Updated 2021-01-15.
+#' @note Updated 2021-01-21.
 #'
 #' @inheritParams base::paste
 #' @param protocol `character(1)`.
@@ -35,7 +35,7 @@
 #' print(x)
 pasteURL <- function(
     ...,
-    protocol = c("none", "https", "http", "ftp", "s3")
+    protocol = c("none", "https", "http", "ftp", "rsync", "s3")
 ) {
     dots <- unlist(list(...))
     assert(isCharacter(dots))
