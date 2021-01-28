@@ -17,6 +17,10 @@
 #' @seealso
 #' - [methods::getClass()].
 #' - help("classRepresentation-class", "methods")
+#'
+#' @examples
+#' x <- classContains(class = "data.frame", package = "methods")
+#' print(x)
 classContains <- function(class, package) {
     assert(
         isString(class),

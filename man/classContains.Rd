@@ -24,6 +24,10 @@ definition.
 \note{
 Updated 2021-01-28.
 }
+\examples{
+x <- classContains(class = "data.frame", package = "methods")
+print(x)
+}
 \seealso{
 \itemize{
 \item \code{\link[methods:getClass]{methods::getClass()}}.
