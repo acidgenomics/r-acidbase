@@ -1,3 +1,16 @@
+## Acidbase 0.3.5 (2021-02-01)
+
+### Minor changes
+
+- Made `matchArgsToDoCall` function defunct. Doesn't always evaluate arguments
+  correctly when called inside nested functions or complex S4 stacks.
+
+## AcidBase 0.3.4 (2021-01-28)
+
+### New functions
+
+- Added `classContains` utility function.
+
 ## AcidBase 0.3.3 (2021-01-21)
 
 ### Minor changes
