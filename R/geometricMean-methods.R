@@ -1,8 +1,3 @@
-## FIXME NEED TO RENAME PRIMARY ARGUMENT TO X HERE, FOR CONSISTENCY.
-## FIXME NEED AsIs method here.
-
-
-
 #' @name geometricMean
 #' @inherit AcidGenerics::geometricMean
 #'
