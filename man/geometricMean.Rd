@@ -2,18 +2,21 @@
 % Please edit documentation in R/AllGenerics.R, R/geometricMean-methods.R
 \name{geometricMean}
 \alias{geometricMean}
+\alias{geometricMean,AsIs-method}
 \alias{geometricMean,numeric-method}
 \alias{geometricMean,matrix-method}
 \title{Geometric mean}
 \usage{
 geometricMean(object, ...)
 
-\S4method{geometricMean}{numeric}(object, removeNA = TRUE, zeroPropagate = FALSE)
+\S4method{geometricMean}{AsIs}(x)
 
-\S4method{geometricMean}{matrix}(object, MARGIN = 2L)
+\S4method{geometricMean}{numeric}(x, removeNA = TRUE, zeroPropagate = FALSE)
+
+\S4method{geometricMean}{matrix}(x, MARGIN = 2L)
 }
 \arguments{
-\item{object}{Object.}
+\item{x}{Object.}
 
 \item{removeNA}{\code{logical(1)}.
 Remove \code{NA} values from calculations.}
@@ -43,7 +46,7 @@ This function should be fully zero- and \code{NA}-tolerant. This calculation
 is not particularly useful if there are elements that are <= 0 and will
 return \code{NaN}.
 
-Updated 2021-01-02.
+Updated 2021-02-02.
 }
 \examples{
 ## numeric ====
@@ -63,11 +66,6 @@ matrix <- matrix(
 )
 print(matrix)
 geometricMean(matrix)
-
-## Matrix ====
-sparse <- as(matrix, "sparseMatrix")
-print(sparse)
-geometricMean(sparse)
 }
 \seealso{
 \itemize{
