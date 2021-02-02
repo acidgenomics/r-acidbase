@@ -1,3 +1,12 @@
+#' @rdname geometricMean
+#' @name geometricMean
+#' @importFrom AcidGenerics sem
+#' @usage geometricMean(object, ...)
+#' @export
+NULL
+
+
+
 #' @rdname headtail
 #' @name headtail
 #' @importFrom AcidGenerics headtail
