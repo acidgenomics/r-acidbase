@@ -49,10 +49,12 @@ download <-
             options("timeout" = 99999L)
         }
         if (isFALSE(quiet)) {
+            ## nocov start
             alert(sprintf(
                 "Downloading {.url %s} to {.file %s}.",
                 url, destfile
             ))
+            ## nocov end
         }
         status <- tryCatch(
             expr = download.file(
