@@ -1,6 +1,6 @@
 #' @name sem
 #' @inherit AcidGenerics::sem
-#' @note Updated 2020-11-24.
+#' @note Updated 2021-02-02.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -19,6 +19,25 @@ NULL
 
 
 
+## Necessary for dplyr mutate calls.
+## Updated 2021-02-02.
+`sem,AsIs` <-  # nolint
+    function(x) {
+        sem(as.numeric(x))
+    }
+
+
+
+#' @rdname sem
+#' @export
+setMethod(
+    f = "sem",
+    signature = signature("AsIs"),
+    definition = `sem,AsIs`
+)
+
+
+
 `sem,numeric` <-  # nolint
     function(x) {
         sqrt(var(x) / length(x))
@@ -32,19 +51,4 @@ setMethod(
     f = "sem",
     signature = signature("numeric"),
     definition = `sem,numeric`
-)
-
-
-
-`sem,AsIs` <-  # nolint
-    `sem,numeric`
-
-
-
-#' @rdname sem
-#' @export
-setMethod(
-    f = "sem",
-    signature = signature("AsIs"),
-    definition = `sem,AsIs`
 )
