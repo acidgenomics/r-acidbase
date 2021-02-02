@@ -2,15 +2,15 @@
 % Please edit documentation in R/AllGenerics.R, R/sem-methods.R
 \name{sem}
 \alias{sem}
-\alias{sem,numeric-method}
 \alias{sem,AsIs-method}
+\alias{sem,numeric-method}
 \title{Standard error of the mean}
 \usage{
 sem(x, ...)
 
-\S4method{sem}{numeric}(x)
-
 \S4method{sem}{AsIs}(x)
+
+\S4method{sem}{numeric}(x)
 }
 \arguments{
 \item{x}{Object.}
@@ -27,7 +27,7 @@ Standard error of the mean
 Alternatively, can use: \code{sd(x) / sqrt(length(x))}.
 }
 \note{
-Updated 2020-11-24.
+Updated 2021-02-02.
 }
 \examples{
 x <- seq(from = 1L, to = 10L, by = 1L)
