@@ -121,7 +121,7 @@ standardizeCall <- function(
             formals[["..."]] <- NULL
         }
         for (i in setdiff(names(formals), names(call))) {
-            call[i] <- list(formals[[i]])
+            call[i] <- list(formals[[i]])  # nocov
         }
         call <- match.call(
             definition = definition,
@@ -135,7 +135,7 @@ standardizeCall <- function(
         print(list(match.call = call))  # nocov
     }
     assert(is.call(call))
-    switch(EXPR = return, call = call, list = list)
+    switch(EXPR = return, call = call, list = list)  # nocov
 }
 
 

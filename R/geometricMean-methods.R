@@ -42,7 +42,7 @@ NULL
 ## Updated 2021-02-02.
 `geometricMean,AsIs` <-  # nolint
     function(x) {
-        geometricMean(as.numeric(x))
+        geometricMean(as.numeric(x))  # nocov
     }
 
 
