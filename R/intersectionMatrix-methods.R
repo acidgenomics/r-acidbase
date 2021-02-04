@@ -1,7 +1,3 @@
-## FIXME MOVE TO ACIDBASE.
-
-
-
 #' @name intersectionMatrix
 #' @inherit AcidGenerics::intersectionMatrix
 #' @note Updated 2021-01-15.
