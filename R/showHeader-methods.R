@@ -1,14 +1,9 @@
-#' Header for object show method
-#'
 #' @name showHeader
+#' @inherit AcidGenerics::showHeader
 #' @note Updated 2021-02-04.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
-#'
-#' @return Console output, via [`cat()`][base::cat].
-#'
-#' @seealso [show()].
 #'
 #' @examples
 #' data(DFrame, matrix, package = "AcidTest")
