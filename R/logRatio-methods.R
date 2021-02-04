@@ -1,7 +1,3 @@
-## FIXME MOVE TO ACIDBASE.
-
-
-
 #' Interconvert log ratio and fold change values
 #'
 #' @name logRatio

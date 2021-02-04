@@ -93,7 +93,7 @@ NULL
 
 
 ## Updated 2021-02-04.
-`rankedMatrix,matrix` <-
+`rankedMatrix,matrix` <-  # nolint
     function(
         object,
         MARGIN = 2L,  # nolint
