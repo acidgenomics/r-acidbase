@@ -10,7 +10,8 @@ showHeader(rankedMatrix, ...)
 \S4method{rankedMatrix}{matrix}(
   object,
   MARGIN = 2L,
-  method = c("increasing", "decreasing", "bidirectional")
+  method = c("increasing", "decreasing", "bidirectional"),
+  tiesMethod = c("average", "first", "last", "random", "max", "min")
 )
 }
 \arguments{
@@ -36,16 +37,16 @@ Updated 2021-02-04.
 }
 \examples{
 data(matrix_lfc, package = "AcidTest")
-lfc <- matrix_lfc
+object <- matrix_lfc
 
 ## Increasing (negative to positive).
-rankedMatrix(lfc, method = "increasing")
+rankedMatrix(object, method = "increasing")
 
 ## Decreasing (positive to negative).
-rankedMatrix(lfc, method = "decreasing")
+rankedMatrix(object, method = "decreasing")
 
 ## Bidirectional.
-rankedMatrix(lfc, method = "bidirectional")
+rankedMatrix(object, method = "bidirectional")
 }
 \seealso{
 \itemize{
