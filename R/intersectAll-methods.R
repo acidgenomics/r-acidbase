@@ -1,7 +1,3 @@
-## FIXME MOVE TO ACIDBASE.
-
-
-
 #' @name intersectAll
 #' @inherit AcidGenerics::intersectAll
 #' @note Updated 2020-08-18.

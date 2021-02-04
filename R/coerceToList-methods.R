@@ -1,6 +1,5 @@
 #' Coerce to list
 #'
-#' @rdname coerce-list
 #' @name coerceToList
 #' @note Don't attempt to defined methods for `as.list`.
 #' @note Updated 2021-02-04.
@@ -47,7 +46,7 @@ NULL
 
 
 
-#' @rdname coerce-list
+#' @rdname coerceToList
 #' @export
 setMethod(
     f = "coerceToList",

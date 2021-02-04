@@ -1,4 +1,4 @@
-#' @rdname coerce-list
+#' @rdname coerceToList
 #' @name coerceToList
 #' @importFrom AcidGenerics coerceToList
 #' @usage coerceToList(object, ...)
