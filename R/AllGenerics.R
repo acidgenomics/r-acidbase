@@ -62,7 +62,7 @@ NULL
 #' @rdname rankedMatrix
 #' @name rankedMatrix
 #' @importFrom AcidGenerics rankedMatrix
-#' @usage showHeader(rankedMatrix, ...)
+#' @usage rankedMatrix(object, ...)
 #' @export
 NULL
 
