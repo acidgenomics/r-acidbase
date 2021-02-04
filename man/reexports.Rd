@@ -3,6 +3,8 @@
 \docType{import}
 \name{reexports}
 \alias{reexports}
+\alias{metadata}
+\alias{metadata<-}
 \alias{bapply}
 \alias{compressExtPattern}
 \alias{extPattern}
@@ -15,6 +17,8 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
+  \item{AcidGenerics}{\code{\link[AcidGenerics:reexports]{metadata}}, \code{\link[AcidGenerics:reexports]{metadata<-}}}
+
   \item{goalie}{\code{\link[goalie:engine-bapply]{bapply}}, \code{\link[goalie:extPattern]{compressExtPattern}}, \code{\link[goalie]{extPattern}}, \code{\link[goalie:engine-getNameInParent]{getNameInParent}}, \code{\link[goalie:engine-printString]{printString}}}
 }}
 

@@ -11,11 +11,18 @@
 #' @seealso [show()].
 #'
 #' @examples
-#' data(matrix, package = "AcidTest")
+#' data(DFrame, matrix, package = "AcidTest")
 #'
-#' ## matrix ====
+#' ## ANY (matrix) ====
 #' object <- matrix
-#' showHeader(matrix)
+#' showHeader(object)
+#'
+#' ## Annotated (DataFrame) ====
+#' ## Annotated virtual class supports `metadata()` slot.
+#' object <- DFrame
+#' showHeader(object)
+#' metadata(object)[["version"]] <- package_version("0.0.1")
+#' showHeader(object)
 NULL
 
 
