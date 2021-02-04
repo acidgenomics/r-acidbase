@@ -1,3 +1,13 @@
+#' @importFrom AcidGenerics metadata
+#' @export
+AcidGenerics::metadata
+
+#' @importFrom AcidGenerics metadata<-
+#' @export
+AcidGenerics::`metadata<-`
+
+
+
 #' @importFrom goalie bapply
 #' @export
 goalie::bapply
