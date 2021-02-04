@@ -3,11 +3,14 @@
 \name{showHeader}
 \alias{showHeader}
 \alias{showHeader,ANY-method}
+\alias{showHeader,Annotated-method}
 \title{Header for object show method}
 \usage{
 showHeader(object, ...)
 
 \S4method{showHeader}{ANY}(object)
+
+\S4method{showHeader}{Annotated}(object)
 }
 \arguments{
 \item{object}{Object.}
@@ -25,6 +28,8 @@ Updated 2021-02-04.
 }
 \examples{
 data(matrix, package = "AcidTest")
+
+## matrix ====
 object <- matrix
 showHeader(matrix)
 }
