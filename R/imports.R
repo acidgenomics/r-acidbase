@@ -1,7 +1,4 @@
-## FIXME DEFINE ANNOTATED IN AcidGenerics?
-
-#' @importClassesFrom AcidGenerics AsIs
-#' @importClassesFrom S4Vectors Annotated
+#' @importClassesFrom AcidGenerics Annotated AsIs
 #'
 #' @importFrom AcidGenerics metadata
 #' @importFrom AcidCLI alert alertWarning
