@@ -3,7 +3,7 @@
 #' @rdname coerce-list
 #' @name coerceToList
 #' @note Don't attempt to defined methods for `as.list`.
-#' @note Updated 2020-01-18.
+#' @note Updated 2021-02-04.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
