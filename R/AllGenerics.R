@@ -1,7 +1,7 @@
 #' @rdname geometricMean
 #' @name geometricMean
 #' @importFrom AcidGenerics geometricMean
-#' @usage geometricMean(object, ...)
+#' @usage geometricMean(x, ...)
 #' @export
 NULL
 
