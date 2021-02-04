@@ -5,7 +5,7 @@
 \alias{rankedMatrix,matrix-method}
 \title{Calculate a ranked matrix}
 \usage{
-showHeader(rankedMatrix, ...)
+rankedMatrix(object, ...)
 
 \S4method{rankedMatrix}{matrix}(
   object,
@@ -17,8 +17,16 @@ showHeader(rankedMatrix, ...)
 \arguments{
 \item{object}{Object.}
 
+\item{MARGIN}{\code{integer(1)}.
+Direction to apply the function.
+1 indicates rows, 2 indicates columns.}
+
 \item{method}{\code{character(1)}.
 Rank the values in \code{increasing}, \code{decreasing}, or \code{bidirectional} order.}
+
+\item{tiesMethod}{\code{character(1)}.
+How ties should be treated.
+See \code{\link[=rank]{rank()}} for details.}
 
 \item{...}{Additional arguments.}
 }
