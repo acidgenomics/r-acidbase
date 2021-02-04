@@ -1,5 +1,9 @@
+## FIXME DEFINE ANNOTATED IN AcidGenerics?
+
 #' @importClassesFrom AcidGenerics AsIs
+#' @importClassesFrom S4Vectors Annotated
 #'
+#' @importFrom AcidGenerics metadata
 #' @importFrom AcidCLI alert alertWarning
 #' @importFrom goalie assert bapply compressExtPattern extPattern hasLength
 #'   hasNames hasNoDuplicates isADir isAFile isCharacter isFlag isInt isScalar
