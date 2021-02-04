@@ -3,8 +3,14 @@
 #' @note Updated 2021-02-04.
 #'
 #' @inheritParams AcidRoxygen::params
+#' @param MARGIN `integer(1)`.
+#'   Direction to apply the function.
+#'   1 indicates rows, 2 indicates columns.
 #' @param method `character(1)`.
 #'   Rank the values in `increasing`, `decreasing`, or `bidirectional` order.
+#' @param tiesMethod `character(1)`.
+#'   How ties should be treated.
+#'   See [rank()] for details.
 #' @param ... Additional arguments.
 #'
 #' @examples
