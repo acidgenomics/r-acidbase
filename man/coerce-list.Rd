@@ -23,7 +23,7 @@ Coerce to list
 \note{
 Don't attempt to defined methods for \code{as.list}.
 
-Updated 2020-01-18.
+Updated 2021-02-04.
 }
 \examples{
 data(DFrame, package = "AcidTest")
