@@ -9,16 +9,16 @@
 #'
 #' @examples
 #' data(matrix_lfc, package = "AcidTest")
-#' lfc <- matrix_lfc
+#' object <- matrix_lfc
 #'
 #' ## Increasing (negative to positive).
-#' rankedMatrix(lfc, method = "increasing")
+#' rankedMatrix(object, method = "increasing")
 #'
 #' ## Decreasing (positive to negative).
-#' rankedMatrix(lfc, method = "decreasing")
+#' rankedMatrix(object, method = "decreasing")
 #'
 #' ## Bidirectional.
-#' rankedMatrix(lfc, method = "bidirectional")
+#' rankedMatrix(object, method = "bidirectional")
 NULL
 
 
@@ -28,15 +28,29 @@ NULL
 ## the moment.
 ## Updated 2021-02-04.
 .rank <-
-    function(x, decreasing = FALSE) {
-        assert(
-            is.numeric(x),
-            isFlag(decreasing),
-            isFlag(decreasing)
-        )
+    function(x, decreasing, tiesMethod) {
         r <- x
         if (isTRUE(decreasing)) r <- -r
-        rank(r, na.last = TRUE, ties.method = "average")
+        rank(r, na.last = TRUE, ties.method = tiesMethod)
+    }
+
+
+
+## Updated 2021-02-04.
+.rankMatrix <-  # nolint
+    function(
+        x,
+        MARGIN,  # nolint
+        decreasing,
+        tiesMethod
+    ) {
+        apply(
+            X = x,
+            MARGIN = MARGIN,
+            FUN = .rank,
+            decreasing = decreasing,
+            tiesMethod = tiesMethod
+        )
     }
 
 
@@ -44,18 +58,13 @@ NULL
 ## Note that use of `which()` here will omit `NA` intentionally.
 ## Updated 2021-02-04.
 .bidirRank <-  # nolint
-    function(x, removeZeros = FALSE) {
-        assert(
-            is.numeric(x),
-            isFlag(removeZeros)
-        )
-        ties <- "average"
+    function(x, tiesMethod, removeZeros) {
         ## Set any zero values to NA.
         if (isTRUE(removeZeros)) {
             x[x == 0L] <- NA
         }
-        up <- rank(x = x[which(x > 0L)], ties.method = ties)
-        down <- -rank(x = -x[which(x < 0L)], ties.method = ties)
+        up <- rank(x = x[which(x > 0L)], ties.method = tiesMethod)
+        down <- -rank(x = -x[which(x < 0L)], ties.method = tiesMethod)
         y <- x
         y[names(up)] <- up
         y[names(down)] <- down
@@ -65,43 +74,18 @@ NULL
 
 
 ## Updated 2021-02-04.
-.rankMatrix <-  # nolint
-    function(
-        x,
-        MARGIN = 2L,  # nolint
-        decreasing = FALSE
-    ) {
-        assert(
-            is.matrix(x),
-            isFlag(decreasing),
-            isInt(MARGIN)
-        )
-        apply(
-            X = x,
-            MARGIN = MARGIN,
-            FUN = .rank,
-            decreasing = decreasing
-        )
-    }
-
-
-
-## Updated 2021-02-04.
 .bidirRankMatrix <-  # nolint
     function(
         x,
-        MARGIN = 2L,  # nolint
+        MARGIN,  # nolint
+        tiesMethod,
         removeZeros = FALSE
     ) {
-        assert(
-            is.matrix(x),
-            isInt(MARGIN),
-            isFlag(removeZeros)
-        )
         apply(
             X = x,
             MARGIN = MARGIN,
             FUN = .bidirRank,
+            tiesMethod = tiesMethod,
             removeZeros = removeZeros
         )
     }
@@ -113,13 +97,15 @@ NULL
     function(
         object,
         MARGIN = 2L,  # nolint
-        method = c("increasing", "decreasing", "bidirectional")
+        method = c("increasing", "decreasing", "bidirectional"),
+        tiesMethod
     ) {
         assert(
             hasLength(object),
             isInt(MARGIN)
         )
         method <- match.arg(method)
+        tiesMethod <- match.arg(tiesMethod)
         if (method %in% c("decreasing", "increasing")) {
             mat <- .rankMatrix(
                 x = object,
@@ -128,17 +114,21 @@ NULL
                     EXPR = method,
                     "decreasing" = TRUE,
                     "increasing" = FALSE
-                )
+                ),
+                tiesMethod = tiesMethod
             )
         } else if (method == "bidirectional") {
             mat <- .bidirRankMatrix(
                 x = object,
                 MARGIN = MARGIN,
-                removeZeros = FALSE
+                tiesMethod = tiesMethod
             )
         }
         mat
     }
+
+formals(`rankedMatrix,matrix`)[["tiesMethod"]] <-
+    formals(rank)[["ties.method"]]
 
 
 
