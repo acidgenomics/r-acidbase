@@ -28,7 +28,7 @@ NULL
 
 
 ## Updated 2021-02-04.
-`showHeader,ANY` <-
+`showHeader,ANY` <-  # nolint
     function(object) {
         class <- class(object)[[1L]]
         x <- class
@@ -52,7 +52,7 @@ setMethod(
 
 
 ## Updated 2021-02-04.
-`showHeader,Annotated` <-
+`showHeader,Annotated` <-  # nolint
     function(object) {
         class <- class(object)[[1L]]
         x <- class
