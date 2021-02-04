@@ -16,6 +16,15 @@ NULL
 
 
 
+#' @rdname rankedMatrix
+#' @name rankedMatrix
+#' @importFrom AcidGenerics rankedMatrix
+#' @usage showHeader(rankedMatrix, ...)
+#' @export
+NULL
+
+
+
 #' @rdname sem
 #' @name sem
 #' @importFrom AcidGenerics sem
