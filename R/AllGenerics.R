@@ -22,3 +22,12 @@ NULL
 #' @usage sem(x, ...)
 #' @export
 NULL
+
+
+
+#' @rdname showHeader
+#' @name showHeader
+#' @importFrom AcidGenerics showHeader
+#' @usage showHeader(object, ...)
+#' @export
+NULL

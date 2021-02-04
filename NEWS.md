@@ -1,10 +1,11 @@
-## Acidbase 0.3.5 (2021-02-02)
+## Acidbase 0.3.5 (2021-02-04)
 
 ### Minor changes
 
 - Made `matchArgsToDoCall` function defunct. Doesn't always evaluate arguments
   correctly when called inside nested functions or complex S4 stacks.
 - Migrated `geometricMean` and `sem` methods from basejump.
+- Migrated `showHeader` here from basejump.
 
 ## AcidBase 0.3.4 (2021-01-28)
 
