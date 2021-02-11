@@ -1,4 +1,12 @@
-## Acidbase 0.3.5 (2021-02-04)
+## AcidBase 0.3.6 (2021-02-11)
+
+### Minor changes
+
+- Now reexporting all functions used in other Acid Genomics packages defined in
+  base/recommended R packages here, including: grDevices, grid, methods,
+  and stats, utils.
+
+## AcidBase 0.3.5 (2021-02-04)
 
 ### Major changes
 
