@@ -1,8 +1,3 @@
-## FIXME REEXPORT ALL BASE PACKAGE FUNCTIONS HERE.
-## MIGRATE THESE FROM BASEJUMP.
-
-
-
 #' AcidBase
 #'
 #' Low-level base functions imported by Acid Genomics packages.
