@@ -3,13 +3,44 @@
 \docType{import}
 \name{reexports}
 \alias{reexports}
+\alias{arrow}
+\alias{as}
+\alias{as.formula}
+\alias{axisTicks}
+\alias{bapply}
+\alias{capture.output}
+\alias{colorRampPalette}
+\alias{compressExtPattern}
+\alias{dist}
+\alias{ecdf}
+\alias{extPattern}
+\alias{formalArgs}
+\alias{getNameInParent}
+\alias{getS3method}
+\alias{hclust}
+\alias{is}
 \alias{metadata}
 \alias{metadata<-}
-\alias{bapply}
-\alias{compressExtPattern}
-\alias{extPattern}
-\alias{getNameInParent}
+\alias{model.matrix}
+\alias{new}
+\alias{packageName}
+\alias{packageVersion}
+\alias{prcomp}
 \alias{printString}
+\alias{quantile}
+\alias{relevel}
+\alias{reorder}
+\alias{rgb}
+\alias{sessionInfo}
+\alias{setClass}
+\alias{setClassUnion}
+\alias{setGeneric}
+\alias{setMethod}
+\alias{setReplaceMethod}
+\alias{setValidity}
+\alias{signature}
+\alias{unit}
+\alias{validObject}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -20,5 +51,15 @@ below to see their documentation.
   \item{AcidGenerics}{\code{\link[AcidGenerics:reexports]{metadata}}, \code{\link[AcidGenerics:reexports]{metadata<-}}}
 
   \item{goalie}{\code{\link[goalie:engine-bapply]{bapply}}, \code{\link[goalie:extPattern]{compressExtPattern}}, \code{\link[goalie]{extPattern}}, \code{\link[goalie:engine-getNameInParent]{getNameInParent}}, \code{\link[goalie:engine-printString]{printString}}}
+
+  \item{grDevices}{\code{\link[grDevices]{axisTicks}}, \code{\link[grDevices:colorRamp]{colorRampPalette}}, \code{\link[grDevices]{rgb}}}
+
+  \item{grid}{\code{\link[grid]{arrow}}, \code{\link[grid]{unit}}}
+
+  \item{methods}{\code{\link[methods]{as}}, \code{\link[methods:methodUtilities]{formalArgs}}, \code{\link[methods]{is}}, \code{\link[methods]{new}}, \code{\link[methods]{setClass}}, \code{\link[methods]{setClassUnion}}, \code{\link[methods]{setGeneric}}, \code{\link[methods]{setMethod}}, \code{\link[methods:GenericFunctions]{setReplaceMethod}}, \code{\link[methods:validObject]{setValidity}}, \code{\link[methods:GenericFunctions]{signature}}, \code{\link[methods]{validObject}}}
+
+  \item{stats}{\code{\link[stats:formula]{as.formula}}, \code{\link[stats]{dist}}, \code{\link[stats]{ecdf}}, \code{\link[stats]{hclust}}, \code{\link[stats]{model.matrix}}, \code{\link[stats]{prcomp}}, \code{\link[stats]{quantile}}, \code{\link[stats]{relevel}}, \code{\link[stats:reorder.factor]{reorder}}}
+
+  \item{utils}{\code{\link[utils]{capture.output}}, \code{\link[utils]{getS3method}}, \code{\link[utils]{packageName}}, \code{\link[utils:packageDescription]{packageVersion}}, \code{\link[utils]{sessionInfo}}}
 }}
 
