@@ -26,6 +26,10 @@ grDevices::colorRampPalette
 #' @export
 goalie::compressExtPattern
 
+#' @importFrom utils download.file
+#' @export
+utils::download.file
+
 #' @importFrom stats dist
 #' @export
 stats::dist

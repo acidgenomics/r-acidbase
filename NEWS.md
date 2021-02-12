@@ -1,3 +1,9 @@
+## AcidBase 0.3.7 (2021-02-12)
+
+### Minor changes
+
+- Including `download.file` as a reexport from utils.
+
 ## AcidBase 0.3.6 (2021-02-11)
 
 ### Minor changes
