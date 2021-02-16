@@ -49,6 +49,7 @@ docker run -it \
 ```
 
 [acid genomics]: https://acidgenomics.com/
+[bioconda]: https://bioconda.github.io/
 [conda]: https://conda.io/
 [docker]: https://www.docker.com/
 [r]: https://www.r-project.org/
