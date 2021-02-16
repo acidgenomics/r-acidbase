@@ -11,11 +11,14 @@ This is an [R][] package.
 ### [R][] method
 
 ```r
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+    install.packages("BiocManager")
+}
 install.packages(
     pkgs = "AcidBase",
     repos = c(
         "https://r.acidgenomics.com",
-        getOption("repos")
+        BiocManager::repositories()
     )
 )
 ```
