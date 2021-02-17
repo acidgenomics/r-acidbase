@@ -1,3 +1,10 @@
+## AcidBase 0.3.8 (2021-02-17)
+
+### Minor changes
+
+- Including `formula` and `untar` as reexports, which are used in the
+  WormBase package.
+
 ## AcidBase 0.3.7 (2021-02-12)
 
 ### Minor changes
