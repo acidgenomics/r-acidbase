@@ -14,6 +14,7 @@
 \alias{dist}
 \alias{ecdf}
 \alias{extPattern}
+\alias{formula}
 \alias{getNameInParent}
 \alias{getS3method}
 \alias{hclust}
@@ -30,6 +31,7 @@
 \alias{rgb}
 \alias{sessionInfo}
 \alias{unit}
+\alias{untar}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -45,8 +47,8 @@ below to see their documentation.
 
   \item{grid}{\code{\link[grid]{arrow}}, \code{\link[grid]{unit}}}
 
-  \item{stats}{\code{\link[stats:formula]{as.formula}}, \code{\link[stats]{dist}}, \code{\link[stats]{ecdf}}, \code{\link[stats]{hclust}}, \code{\link[stats]{model.matrix}}, \code{\link[stats]{prcomp}}, \code{\link[stats]{quantile}}, \code{\link[stats]{relevel}}, \code{\link[stats:reorder.factor]{reorder}}}
+  \item{stats}{\code{\link[stats:formula]{as.formula}}, \code{\link[stats]{dist}}, \code{\link[stats]{ecdf}}, \code{\link[stats]{formula}}, \code{\link[stats]{hclust}}, \code{\link[stats]{model.matrix}}, \code{\link[stats]{prcomp}}, \code{\link[stats]{quantile}}, \code{\link[stats]{relevel}}, \code{\link[stats:reorder.factor]{reorder}}}
 
-  \item{utils}{\code{\link[utils]{capture.output}}, \code{\link[utils]{download.file}}, \code{\link[utils]{getS3method}}, \code{\link[utils]{packageName}}, \code{\link[utils:packageDescription]{packageVersion}}, \code{\link[utils]{sessionInfo}}}
+  \item{utils}{\code{\link[utils]{capture.output}}, \code{\link[utils]{download.file}}, \code{\link[utils]{getS3method}}, \code{\link[utils]{packageName}}, \code{\link[utils:packageDescription]{packageVersion}}, \code{\link[utils]{sessionInfo}}, \code{\link[utils]{untar}}}
 }}
 
