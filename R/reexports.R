@@ -42,6 +42,10 @@ stats::ecdf
 #' @export
 goalie::extPattern
 
+#' @importFrom stats formula
+#' @export
+stats::formula
+
 #' @importFrom goalie getNameInParent
 #' @export
 goalie::getNameInParent
@@ -105,3 +109,7 @@ utils::sessionInfo
 #' @importFrom grid unit
 #' @export
 grid::unit
+
+#' @importFrom utils untar
+#' @export
+utils::untar
