@@ -18,7 +18,7 @@ URL:
     https://r.acidgenomics.com/packages/acidbase/,
     https://github.com/acidgenomics/r-acidbase/
 BugReports: https://github.com/acidgenomics/r-acidbase/issues/
-License: GPL-3
+License: AGPL-3
 Encoding: UTF-8
 Depends: R (>= 4.0)
 Imports:
