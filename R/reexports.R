@@ -1,3 +1,7 @@
+#' @importFrom utils URLencode
+#' @export
+utils::URLencode
+
 #' @importFrom grid arrow
 #' @export
 grid::arrow

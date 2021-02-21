@@ -1,3 +1,10 @@
+## AcidBase 0.3.9 (2021-02-21)
+
+### Minor changes
+
+- Reexporting `URLencode` from utils, which is used downstream in Cellosaurus
+  package.
+
 ## AcidBase 0.3.8 (2021-02-17)
 
 ### Minor changes
