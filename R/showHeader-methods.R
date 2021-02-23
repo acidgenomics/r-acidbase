@@ -1,12 +1,6 @@
-## FIXME These changes are for EggNOG package.
-## FIXME Also support "packageVersion" here...
-## FIXME Also include "release" if defined...
-
-
-
 #' @name showHeader
 #' @inherit AcidGenerics::showHeader
-#' @note Updated 2021-02-04.
+#' @note Updated 2021-02-23.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -22,7 +16,7 @@
 #' ## Annotated virtual class supports `metadata()` slot.
 #' object <- DFrame
 #' showHeader(object)
-#' metadata(object)[["version"]] <- package_version("0.0.1")
+#' metadata(object)[["packageVersion"]] <- package_version("0.0.1")
 #' showHeader(object)
 NULL
 
@@ -52,12 +46,18 @@ setMethod(
 
 
 
-## Updated 2021-02-04.
+## Updated 2021-02-23.
 `showHeader,Annotated` <-  # nolint
     function(object) {
         class <- class(object)[[1L]]
         x <- class
-        version <- as.character(metadata(object)[["version"]])
+        versionKey <- "packageVersion"
+        ## Provide support for legacy objects with "version" metadata instead
+        ## of the now preferred "packageVersion" approach.
+        if (isSubset("version", names(metadata(object)))) {
+            versionKey <- "version"
+        }
+        version <- as.character(metadata(object)[[versionKey]])
         if (hasLength(version)) {
             x <- paste(x, version)
         }

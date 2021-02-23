@@ -37,7 +37,7 @@ showHeader(object)
 ## Annotated virtual class supports `metadata()` slot.
 object <- DFrame
 showHeader(object)
-metadata(object)[["version"]] <- package_version("0.0.1")
+metadata(object)[["packageVersion"]] <- package_version("0.0.1")
 showHeader(object)
 }
 \seealso{
