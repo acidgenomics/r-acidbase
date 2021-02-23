@@ -1,3 +1,9 @@
+## AcidBase 0.3.10 (2021-02-23)
+
+### Minor changes
+
+- Migrated `printString` back here from goalie package.
+
 ## AcidBase 0.3.9 (2021-02-21)
 
 ### Minor changes
