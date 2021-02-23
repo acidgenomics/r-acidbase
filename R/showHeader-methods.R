@@ -1,3 +1,9 @@
+## FIXME These changes are for EggNOG package.
+## FIXME Also support "packageVersion" here...
+## FIXME Also include "release" if defined...
+
+
+
 #' @name showHeader
 #' @inherit AcidGenerics::showHeader
 #' @note Updated 2021-02-04.

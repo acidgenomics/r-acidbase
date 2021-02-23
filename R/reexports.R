@@ -86,10 +86,6 @@ utils::packageVersion
 #' @export
 stats::prcomp
 
-#' @importFrom goalie printString
-#' @export
-goalie::printString
-
 #' @importFrom stats quantile
 #' @export
 stats::quantile

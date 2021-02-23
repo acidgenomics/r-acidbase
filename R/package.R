@@ -6,7 +6,7 @@
 #'
 #' @importClassesFrom AcidGenerics Annotated AsIs
 #'
-#' @importFrom AcidGenerics metadata
+#' @importFrom AcidGenerics gsub head metadata paste tail
 #' @importFrom AcidCLI alert alertWarning
 #' @importFrom goalie assert bapply compressExtPattern extPattern hasLength
 #'   hasNames hasNoDuplicates isADir isAFile isCharacter isFlag isInt isPositive
@@ -14,7 +14,7 @@
 #' @importFrom methods .hasSlot getClassDef is isGeneric selectMethod setMethod
 #'   setOldClass signature slot slotNames
 #' @importFrom stats var
-#' @importFrom utils capture.output download.file head tail unzip zip
+#' @importFrom utils capture.output download.file unzip zip
 "_PACKAGE"
 
 
