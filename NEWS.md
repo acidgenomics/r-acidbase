@@ -3,6 +3,8 @@
 ### Minor changes
 
 - Migrated `printString` back here from goalie package.
+- `showHeader` now checks for `packageVersion` inside of metadata as default
+  instead of `version`.
 
 ## AcidBase 0.3.9 (2021-02-21)
 
