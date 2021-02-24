@@ -24,7 +24,7 @@ Console output, via \code{\link[base:cat]{cat()}}.
 Header for object show method
 }
 \note{
-Updated 2021-02-04.
+Updated 2021-02-23.
 }
 \examples{
 data(DFrame, matrix, package = "AcidTest")
