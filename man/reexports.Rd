@@ -41,7 +41,7 @@ below to see their documentation.
 \describe{
   \item{AcidGenerics}{\code{\link[AcidGenerics:reexports]{metadata}}, \code{\link[AcidGenerics:reexports]{metadata<-}}}
 
-  \item{goalie}{\code{\link[goalie:engine-bapply]{bapply}}, \code{\link[goalie:extPattern]{compressExtPattern}}, \code{\link[goalie]{extPattern}}, \code{\link[goalie:engine-getNameInParent]{getNameInParent}}}
+  \item{goalie}{\code{\link[goalie]{bapply}}, \code{\link[goalie:extPattern]{compressExtPattern}}, \code{\link[goalie]{extPattern}}, \code{\link[goalie]{getNameInParent}}}
 
   \item{grDevices}{\code{\link[grDevices]{axisTicks}}, \code{\link[grDevices:colorRamp]{colorRampPalette}}, \code{\link[grDevices]{rgb}}}
 
