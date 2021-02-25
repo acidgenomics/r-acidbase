@@ -172,17 +172,17 @@ lanePattern <- "_L([[:digit:]]{3})"
 
 
 
-## metadataBlacklist ===========================================================
-#' Sample metadata blacklist
+## metadataDenylist ============================================================
+#' Sample metadata denylist
 #'
 #' @export
 #' @note `sampleId` (`sampleID` for older datasets) is set automatically for
 #'   multiplexed/cell-level data.
-#' @note Updated 2021-01-14.
+#' @note Updated 2021-02-25.
 #'
 #' @examples
-#' metadataBlacklist
-metadataBlacklist <- sort(c(
+#' metadataDenylist
+metadataDenylist <- sort(c(
     ## Automatic / used internally:
     ## > "sampleID",
     ## > "sampleId",
@@ -205,6 +205,13 @@ metadataBlacklist <- sort(c(
     "samplename",
     "samplenames"
 ))
+
+## NOTE This is deprecated in favor of "denylist" wording.
+#' @rdname metadataDenylist
+#' @usage NULL
+#' @format NULL
+#' @export
+metadataBlacklist <- metadataDenylist
 
 
 
