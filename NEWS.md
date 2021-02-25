@@ -1,3 +1,9 @@
+## AcidBase 0.3.11 (2021-02-25)
+
+### Minor changes
+
+- Deprecating `metadataBlacklist` in favor of `metadataDenylist`.
+
 ## AcidBase 0.3.10 (2021-02-23)
 
 ### Minor changes
