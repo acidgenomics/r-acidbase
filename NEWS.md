@@ -1,3 +1,9 @@
+## AcidBase 0.3.12 (2021-03-01)
+
+### Minor changes
+
+- Added `install.packages` as a reexport, which is used by r-koopa.
+
 ## AcidBase 0.3.11 (2021-02-25)
 
 ### Minor changes
