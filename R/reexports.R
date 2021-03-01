@@ -62,6 +62,10 @@ utils::getS3method
 #' @export
 stats::hclust
 
+#' @importFrom utils install.packages
+#' @export
+utils::install.packages
+
 #' @importFrom AcidGenerics metadata
 #' @export
 AcidGenerics::metadata
