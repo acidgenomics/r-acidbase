@@ -19,6 +19,7 @@
 \alias{getNameInParent}
 \alias{getS3method}
 \alias{hclust}
+\alias{install.packages}
 \alias{metadata}
 \alias{metadata<-}
 \alias{model.matrix}
@@ -49,6 +50,6 @@ below to see their documentation.
 
   \item{stats}{\code{\link[stats:formula]{as.formula}}, \code{\link[stats]{dist}}, \code{\link[stats]{ecdf}}, \code{\link[stats]{formula}}, \code{\link[stats]{hclust}}, \code{\link[stats]{model.matrix}}, \code{\link[stats]{prcomp}}, \code{\link[stats]{quantile}}, \code{\link[stats]{relevel}}, \code{\link[stats:reorder.factor]{reorder}}}
 
-  \item{utils}{\code{\link[utils]{URLencode}}, \code{\link[utils]{capture.output}}, \code{\link[utils]{download.file}}, \code{\link[utils]{getS3method}}, \code{\link[utils]{packageName}}, \code{\link[utils:packageDescription]{packageVersion}}, \code{\link[utils]{sessionInfo}}, \code{\link[utils]{untar}}}
+  \item{utils}{\code{\link[utils]{URLencode}}, \code{\link[utils]{capture.output}}, \code{\link[utils]{download.file}}, \code{\link[utils]{getS3method}}, \code{\link[utils]{install.packages}}, \code{\link[utils]{packageName}}, \code{\link[utils:packageDescription]{packageVersion}}, \code{\link[utils]{sessionInfo}}, \code{\link[utils]{untar}}}
 }}
 
