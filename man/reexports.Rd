@@ -3,6 +3,8 @@
 \docType{import}
 \name{reexports}
 \alias{reexports}
+\alias{head}
+\alias{tail}
 \alias{URLencode}
 \alias{arrow}
 \alias{as.formula}
@@ -40,7 +42,7 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{AcidGenerics}{\code{\link[AcidGenerics:reexports]{metadata}}, \code{\link[AcidGenerics:reexports]{metadata<-}}}
+  \item{AcidGenerics}{\code{\link[AcidGenerics]{head}}, \code{\link[AcidGenerics:reexports]{metadata}}, \code{\link[AcidGenerics:reexports]{metadata<-}}, \code{\link[AcidGenerics]{tail}}}
 
   \item{goalie}{\code{\link[goalie]{bapply}}, \code{\link[goalie:extPattern]{compressExtPattern}}, \code{\link[goalie]{extPattern}}, \code{\link[goalie]{getNameInParent}}}
 

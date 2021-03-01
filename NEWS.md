@@ -3,6 +3,7 @@
 ### Minor changes
 
 - Added `install.packages` as a reexport, which is used by r-koopa.
+- Also including `head` and `tail` as reexports.
 
 ## AcidBase 0.3.11 (2021-02-25)
 
