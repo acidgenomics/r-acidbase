@@ -1,3 +1,13 @@
+#' @importFrom AcidGenerics head
+#' @export
+AcidGenerics::head
+
+#' @importFrom AcidGenerics tail
+#' @export
+AcidGenerics::tail
+
+
+
 #' @importFrom utils URLencode
 #' @export
 utils::URLencode
