@@ -1,13 +1,3 @@
-#' @importFrom AcidGenerics head
-#' @export
-AcidGenerics::head
-
-#' @importFrom AcidGenerics tail
-#' @export
-AcidGenerics::tail
-
-
-
 #' @importFrom utils URLencode
 #' @export
 utils::URLencode
@@ -39,6 +29,10 @@ grDevices::colorRampPalette
 #' @importFrom goalie compressExtPattern
 #' @export
 goalie::compressExtPattern
+
+#' @importFrom utils data
+#' @export
+utils::data
 
 #' @importFrom utils download.file
 #' @export
@@ -72,9 +66,17 @@ utils::getS3method
 #' @export
 stats::hclust
 
+#' @importFrom AcidGenerics head
+#' @export
+AcidGenerics::head
+
 #' @importFrom utils install.packages
 #' @export
 utils::install.packages
+
+#' @importFrom stats median
+#' @export
+stats::median
 
 #' @importFrom AcidGenerics metadata
 #' @export
@@ -119,6 +121,10 @@ grDevices::rgb
 #' @importFrom utils sessionInfo
 #' @export
 utils::sessionInfo
+
+#' @importFrom AcidGenerics tail
+#' @export
+AcidGenerics::tail
 
 #' @importFrom grid unit
 #' @export
