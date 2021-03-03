@@ -1,3 +1,9 @@
+## AcidBase 0.3.13 (2021-03-02)
+
+### Minor changes
+
+- Including `data` and `median` as reexports.
+
 ## AcidBase 0.3.12 (2021-03-01)
 
 ### Minor changes
