@@ -1,3 +1,9 @@
+## AcidBase 0.3.14 (UNRELEASED)
+
+### Minor changes
+
+- `standardizeCall`: Updated handling of dots handoff to `match.call` in R 4.1.
+
 ## AcidBase 0.3.13 (2021-03-02)
 
 ### Minor changes
