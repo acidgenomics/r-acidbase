@@ -1,8 +1,10 @@
-## AcidBase 0.3.14 (UNRELEASED)
+## AcidBase 0.3.14 (2021-06-20)
 
 ### Minor changes
 
 - `standardizeCall`: Updated handling of dots handoff to `match.call` in R 4.1.
+- Now importing `median` function from AcidGenerics, which uses S4 defined
+  in IRanges, rather than the base version defined in stats.
 
 ## AcidBase 0.3.13 (2021-03-02)
 
