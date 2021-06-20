@@ -44,7 +44,7 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{AcidGenerics}{\code{\link[AcidGenerics]{head}}, \code{\link[AcidGenerics:reexports]{metadata}}, \code{\link[AcidGenerics:reexports]{metadata<-}}, \code{\link[AcidGenerics]{tail}}}
+  \item{AcidGenerics}{\code{\link[AcidGenerics]{head}}, \code{\link[AcidGenerics:reexports]{median}}, \code{\link[AcidGenerics:reexports]{metadata}}, \code{\link[AcidGenerics:reexports]{metadata<-}}, \code{\link[AcidGenerics]{tail}}}
 
   \item{goalie}{\code{\link[goalie]{bapply}}, \code{\link[goalie:extPattern]{compressExtPattern}}, \code{\link[goalie]{extPattern}}, \code{\link[goalie]{getNameInParent}}}
 
@@ -52,7 +52,7 @@ below to see their documentation.
 
   \item{grid}{\code{\link[grid]{arrow}}, \code{\link[grid]{unit}}}
 
-  \item{stats}{\code{\link[stats:formula]{as.formula}}, \code{\link[stats]{dist}}, \code{\link[stats]{ecdf}}, \code{\link[stats]{formula}}, \code{\link[stats]{hclust}}, \code{\link[stats]{median}}, \code{\link[stats]{model.matrix}}, \code{\link[stats]{prcomp}}, \code{\link[stats]{quantile}}, \code{\link[stats]{relevel}}, \code{\link[stats:reorder.factor]{reorder}}}
+  \item{stats}{\code{\link[stats:formula]{as.formula}}, \code{\link[stats]{dist}}, \code{\link[stats]{ecdf}}, \code{\link[stats]{formula}}, \code{\link[stats]{hclust}}, \code{\link[stats]{model.matrix}}, \code{\link[stats]{prcomp}}, \code{\link[stats]{quantile}}, \code{\link[stats]{relevel}}, \code{\link[stats:reorder.factor]{reorder}}}
 
   \item{utils}{\code{\link[utils]{URLencode}}, \code{\link[utils]{capture.output}}, \code{\link[utils]{data}}, \code{\link[utils]{download.file}}, \code{\link[utils]{getS3method}}, \code{\link[utils]{install.packages}}, \code{\link[utils]{packageName}}, \code{\link[utils:packageDescription]{packageVersion}}, \code{\link[utils]{sessionInfo}}, \code{\link[utils]{untar}}}
 }}
