@@ -102,9 +102,9 @@ utils::packageVersion
 #' @export
 stats::prcomp
 
-#' @importFrom stats quantile
+#' @importFrom AcidGenerics quantile
 #' @export
-stats::quantile
+AcidGenerics::quantile
 
 #' @importFrom stats relevel
 #' @export
