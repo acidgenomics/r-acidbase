@@ -74,9 +74,9 @@ AcidGenerics::head
 #' @export
 utils::install.packages
 
-#' @importFrom stats median
+#' @importFrom AcidGenerics median
 #' @export
-stats::median
+AcidGenerics::median
 
 #' @importFrom AcidGenerics metadata
 #' @export
