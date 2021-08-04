@@ -1,3 +1,10 @@
+## AcidBase 0.3.15 (2021-08-04)
+
+### New functions
+
+- `simpleClass`: Added utility function for simple class checks, primarily
+  intended for unit testing with testthat package.
+
 ## AcidBase 0.3.14 (2021-06-20)
 
 ### Minor changes
