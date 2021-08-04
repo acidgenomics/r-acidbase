@@ -9,7 +9,10 @@
 #' @export
 #' @note Updated 2021-08-04.
 #'
+#' @inheritParams AcidRoxygen::params
+#'
 #' @return `character(1)`.
+#'   Primary class of object, as a simple string.
 #'
 #' @examples
 #' df <- data.frame()
