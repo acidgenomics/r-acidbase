@@ -6,8 +6,12 @@
 \usage{
 simpleClass(x)
 }
+\arguments{
+\item{x}{Object.}
+}
 \value{
 \code{character(1)}.
+Primary class of object, as a simple string.
 }
 \description{
 Simple class of object
