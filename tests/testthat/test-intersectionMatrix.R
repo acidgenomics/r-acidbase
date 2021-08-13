@@ -95,3 +95,33 @@ test_that("two-dimensional arrays", {
         )
     }
 })
+
+test_that("data frame of factors", {
+    expect_identical(
+        object = intersectionMatrix(
+            object = data.frame(
+                "a" = as.factor(c(1L, 2L, 3L)),
+                "b" = as.factor(c(2L, 3L, 4L)),
+                "c" = as.factor(c(5L, 6L, 7L))
+            )
+        ),
+        expected = matrix(
+            data = c(
+                 TRUE, FALSE, FALSE,
+                 TRUE,  TRUE, FALSE,
+                 TRUE,  TRUE, FALSE,
+                FALSE,  TRUE, FALSE,
+                FALSE, FALSE,  TRUE,
+                FALSE, FALSE,  TRUE,
+                FALSE, FALSE,  TRUE
+            ),
+            nrow = 7L,
+            ncol = 3L,
+            byrow = TRUE,
+            dimnames = list(
+                as.character(seq_len(7L)),
+                letters[seq_len(3L)]
+            )
+        )
+    )
+})
