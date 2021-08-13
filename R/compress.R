@@ -86,7 +86,7 @@ compress <- function(
             alertWarning(sprintf("Overwriting file: {.file %s}.", destfile))
             file.remove(destfile)
         } else {
-            stop(sprintf("File exists: '%s'.", destfile))
+            abort(sprintf("File exists: {.file %s}.", destfile))
         }
         ## nocov end
     }
@@ -207,7 +207,7 @@ decompress <- function(
             file.remove(destfile)
         }
         else {
-            stop(sprintf("File exists: '%s'.", destfile))
+            abort(sprintf("File exists: {.file %s}.", destfile))
         }
         ## nocov end
     }
