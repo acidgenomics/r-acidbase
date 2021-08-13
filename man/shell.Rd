@@ -40,7 +40,7 @@ issued and the exit status is \code{124}.
 Invoke a command in the system command-line shell
 }
 \note{
-Updated 2021-02-11.
+Updated 2021-08-13.
 }
 \examples{
 shell(command = "echo", args = c("hello", "world"))

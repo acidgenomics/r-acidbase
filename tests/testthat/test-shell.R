@@ -1,5 +1,16 @@
 context("shell")
 
+test_that("Error on invalid command", {
+    expect_error(
+        object = shell(
+            command = "XXX",
+            stdout = FALSE,
+            stderr = FALSE
+        ),
+        regexp = "error in running command"
+    )
+})
+
 test_that("Output to R console", {
     x <- shell(
         command = "echo",
