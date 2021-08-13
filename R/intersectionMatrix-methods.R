@@ -1,6 +1,6 @@
 #' @name intersectionMatrix
 #' @inherit AcidGenerics::intersectionMatrix
-#' @note Updated 2021-01-15.
+#' @note Updated 2021-08-13.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -43,7 +43,7 @@ NULL
             recursive = FALSE,
             use.names = FALSE
         )))
-        mat <- vapply(
+        out <- vapply(
             X = object,
             FUN = function(x, elements) {
                 elements %in% x
@@ -52,19 +52,21 @@ NULL
             FUN.VALUE = logical(length(elements)),
             USE.NAMES = TRUE
         )
-        rownames(mat) <- as.character(elements)
-        mat
+        rownames(out) <- as.character(elements)
+        out
     }
 
 
 
-## FIXME Should use array definition here instead?
-
-
+## Recommended method for handling matrix to list column coercion:
+## https://stackoverflow.com/questions/6819804/
+## Can't use `as.list()` directly here.
 ## Updated 2021-08-13.
 `intersectionMatrix,matrix` <-  # nolint
     function(object) {
-        stop("FIXME Need to support this.")
+        assert(is.character(object) || is.numeric(object))
+        object <- as.data.frame(object)
+        intersectionMatrix(object)
     }
 
 
@@ -72,18 +74,51 @@ NULL
 ## Updated 2021-08-13.
 `intersectionMatrix,data.frame` <-  # nolint
     function(object) {
-        stop("FIXME Need to ensure that all columns are same class")
+        assert(allAreAtomic(object))
+        object <- as.list(object)
+        intersectionMatrix(object)
     }
 
-## FIXME Harden against matrix
-## FIXME Harden against data.frame
-## FIXME Add DataFrame and Matrix methods.
+
+
+## Updated 2021-08-13.
+`intersectionMatrix,DataFrame` <-  # nolint
+    function(object) {
+        assert(allAreAtomic(object))
+        object <- as.data.frame(object)
+        intersectionMatrix(object)
+    }
 
 
 
 #' @rdname intersectionMatrix
+#' @export
+setMethod(
+    f = "intersectionMatrix",
+    signature = signature("DataFrame"),
+    definition = `intersectionMatrix,DataFrame`
+)
+
+#' @rdname intersectionMatrix
+#' @export
+setMethod(
+    f = "intersectionMatrix",
+    signature = signature("data.frame"),
+    definition = `intersectionMatrix,data.frame`
+)
+
+#' @rdname intersectionMatrix
+#' @export
 setMethod(
     f = "intersectionMatrix",
     signature = signature("list"),
     definition = `intersectionMatrix,list`
+)
+
+#' @rdname intersectionMatrix
+#' @export
+setMethod(
+    f = "intersectionMatrix",
+    signature = signature("matrix"),
+    definition = `intersectionMatrix,matrix`
 )

@@ -1,6 +1,13 @@
 ## FIXME Need to improve code coverage for other classes:
 ## matrix, data.frame, Matrix, DataFrame.
 ## FIXME Need to provide edge cases to test code.
+## FIXME Need to import array class here?
+
+## This is a good data.frame example.
+## > object <- as.data.frame(mtcars)[seq_len(4L), c("carb", "cyl", "gear")]
+##
+## This is a good matrix example.
+## > object <- as.matrix(mtcars)[seq_len(4L), c("carb", "cyl", "gear")]
 
 
 

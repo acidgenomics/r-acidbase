@@ -2,12 +2,21 @@
 % Please edit documentation in R/AllGenerics.R, R/intersectionMatrix-methods.R
 \name{intersectionMatrix}
 \alias{intersectionMatrix}
+\alias{intersectionMatrix,DataFrame-method}
+\alias{intersectionMatrix,data.frame-method}
 \alias{intersectionMatrix,list-method}
+\alias{intersectionMatrix,matrix-method}
 \title{Intersection matrix}
 \usage{
 intersectionMatrix(object, ...)
 
+\S4method{intersectionMatrix}{DataFrame}(object)
+
+\S4method{intersectionMatrix}{data.frame}(object)
+
 \S4method{intersectionMatrix}{list}(object)
+
+\S4method{intersectionMatrix}{matrix}(object)
 }
 \arguments{
 \item{object}{Object.}
@@ -21,7 +30,7 @@ intersectionMatrix(object, ...)
 Intersection matrix
 }
 \note{
-Updated 2021-01-15.
+Updated 2021-08-13.
 }
 \examples{
 object <- list(
