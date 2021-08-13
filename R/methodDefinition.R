@@ -1,7 +1,7 @@
 #' Access the data inside an S4 method definition
 #'
 #' @name methodDefinition
-#' @note Updated 2019-10-21.
+#' @note Updated 2021-08-13.
 #'
 #' @inheritParams methods::selectMethod
 #' @inheritParams methods::setMethod
@@ -42,7 +42,7 @@ NULL
 
 #' @rdname methodDefinition
 #' @export
-## Updated 2019-10-21.
+## Updated 2021-08-13.
 methodFunction <- function(f, signature, package) {
     assert(isString(package))
     envir <- asNamespace(package)
@@ -61,7 +61,10 @@ methodFunction <- function(f, signature, package) {
     generic <- tryCatch(
         expr = do.call(what = get, args = args),
         error = function(e) {
-            stop(sprintf("Failed to locate '%s' generic.", f))
+            abort(sprintf(
+                "Failed to locate {.fun %s} generic in {.pkg %s} package.",
+                f, package
+            ))
         }
     )
     ## Assert that we're getting an S4 generic.
