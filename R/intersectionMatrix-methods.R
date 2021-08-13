@@ -1,3 +1,7 @@
+## FIXME matrix of factors should be allow here too.
+
+
+
 #' @name intersectionMatrix
 #' @inherit AcidGenerics::intersectionMatrix
 #' @note Updated 2021-08-13.
