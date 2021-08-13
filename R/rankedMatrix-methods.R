@@ -62,13 +62,11 @@ NULL
 
 
 ## Note that use of `which()` here will omit `NA` intentionally.
-## Updated 2021-02-04.
+## Updated 2021-08-13.
 .bidirRank <-  # nolint
-    function(x, tiesMethod, removeZeros) {
+    function(x, tiesMethod) {
         ## Set any zero values to NA.
-        if (isTRUE(removeZeros)) {
-            x[x == 0L] <- NA
-        }
+        ## > x[x == 0L] <- NA
         up <- rank(x = x[which(x > 0L)], ties.method = tiesMethod)
         down <- -rank(x = -x[which(x < 0L)], ties.method = tiesMethod)
         y <- x
@@ -79,20 +77,18 @@ NULL
 
 
 
-## Updated 2021-02-04.
+## Updated 2021-08-13.
 .bidirRankMatrix <-  # nolint
     function(
         x,
         MARGIN,  # nolint
-        tiesMethod,
-        removeZeros = FALSE
+        tiesMethod
     ) {
         apply(
             X = x,
             MARGIN = MARGIN,
             FUN = .bidirRank,
-            tiesMethod = tiesMethod,
-            removeZeros = removeZeros
+            tiesMethod = tiesMethod
         )
     }
 
