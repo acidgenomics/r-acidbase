@@ -21,20 +21,14 @@
 #' @examples
 #' realpath(".")
 realpath <- function(path) {
+    assert(
+        isCharacter(path),
+        allHaveAccess(path)
+    )
     path <- normalizePath(
         path = path,
         winslash = .Platform$file.sep,  # nolint
         mustWork = TRUE
     )
-    ## nocov start
-    hasAccess <- file.access(names = path, mode = 0L) == 0L
-    if (!all(hasAccess)) {
-        fail <- path[which(!hasAccess)]
-        stop(sprintf(
-            "Access failure: %s.",
-            toString(fail, width = 200L)
-        ))
-    }
-    ## nocov end
     path
 }
