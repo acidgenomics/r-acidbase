@@ -29,7 +29,7 @@ Package name.}
 Access the data inside an S4 method definition
 }
 \note{
-Updated 2019-10-21.
+Updated 2021-08-13.
 }
 \examples{
 ## Function ====
