@@ -1,7 +1,7 @@
 #' Download a file from the Internet
 #'
 #' @export
-#' @note Updated 2021-01-06.
+#' @note Updated 2021-08-13.
 #'
 #' @details
 #' Unlike [utils::download.file()], intentionally errors on any download
@@ -56,6 +56,7 @@ download <-
             ))
             ## nocov end
         }
+        ## Ensure that warnings are converted to errors here.
         status <- tryCatch(
             expr = download.file(
                 url = url,
@@ -64,13 +65,13 @@ download <-
                 ...
             ),
             warning = function(w) {
-                stop(w)  # nocov
+                abort(w)  # nocov
             }
         )
         if (!identical(status, 0L)) {
             ## nocov start
-            stop(sprintf(
-                "Failed to download '%s' to '%s' successfully.",
+            abort(sprintf(
+                "Failed to download {.url %s} to {.file %s} successfully.",
                 url, destfile
             ))
             ## nocov end
