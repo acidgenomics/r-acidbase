@@ -10,7 +10,7 @@
 #'
 #' Unlike `requireNamespace`, this variant always errors on namespace failure.
 #'
-#' @note Updated 2020-04-08.
+#' @note Updated 2021-08-13.
 #' @export
 #'
 #' @param packages `character`.
@@ -32,9 +32,9 @@ requireNamespaces <- function(packages) {
         quietly = TRUE
     )
     if (!isTRUE(all(ok))) {
-        stop(sprintf(
-            fmt = "Namespace failure: %s",
-            toString(names(ok)[!ok])
+        abort(sprintf(
+            fmt = "Namespace failure: %s.",
+            toInlineString(x = names(ok)[!ok], class = "pkg")
         ))
     }
     ## Returning boolean flag here, for use inside `assert()` / `assert()`.
