@@ -7,7 +7,7 @@
 #' @importClassesFrom AcidGenerics Annotated AsIs
 #'
 #' @importFrom AcidGenerics gsub head metadata paste tail
-#' @importFrom AcidCLI alert alertWarning
+#' @importFrom AcidCLI abort alert alertWarning
 #' @importFrom goalie allAreAtomic assert bapply compressExtPattern extPattern
 #'   hasLength hasNames hasNoDuplicates isADir isAFile isAny isCharacter isFlag
 #'   isInt isPositive isScalar isString isSubset isWindows
