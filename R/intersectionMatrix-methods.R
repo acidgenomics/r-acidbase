@@ -30,7 +30,7 @@ NULL
             all(bapply(
                 X = object,
                 FUN = isAny,
-                classes = c("character", "numeric")
+                classes = c("character", "factor", "numeric")
             )),
             isString(unique(vapply(
                 X = object,
@@ -39,7 +39,7 @@ NULL
             ))),
             msg = paste(
                 "Invalid input.",
-                "Must contain list of all 'character' or 'numeric' values."
+                "Must contain list of 'character', 'numeric', or 'factor'."
             )
         )
         elements <- sort(unique(unlist(
