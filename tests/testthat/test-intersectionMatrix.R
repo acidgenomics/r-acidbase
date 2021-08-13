@@ -59,7 +59,7 @@ test_that("unnamed list", {
 
 test_that("two-dimensional arrays", {
     ## Create a minimal test data.frame (subset from `datasets::mtcars`).
-    cars <- data.frame(
+    object <- data.frame(
         "carb" = c(4L, 4L, 1L, 1L),
         "cyl" = c(6L, 6L, 4L, 6L),
         "gear" = c(4L, 4L, 4L, 3L),

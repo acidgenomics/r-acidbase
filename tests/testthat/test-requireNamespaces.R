@@ -10,6 +10,6 @@ test_that("Missing packages", {
     packages <- c("AAA", "BBB")
     expect_error(
         object = requireNamespaces(packages),
-        regexp = toString(packages)
+        regexp = packages[[1L]]
     )
 })
