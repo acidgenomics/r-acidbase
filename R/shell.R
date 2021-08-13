@@ -1,7 +1,7 @@
 #' Invoke a command in the system command-line shell
 #'
 #' @export
-#' @note Updated 2021-02-11.
+#' @note Updated 2021-08-13.
 #'
 #' @param command `character(1)`.
 #' @param args `character`.
@@ -52,7 +52,7 @@ shell <- function(
             )
         },
         warning = function(w) {
-            stop(w)  # nocov
+            abort(w)
         }
     )
     if (all(!isTRUE(stdout), !isTRUE(stderr))) {
