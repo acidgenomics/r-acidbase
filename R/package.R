@@ -8,9 +8,10 @@
 #'
 #' @importFrom AcidGenerics gsub head metadata paste tail
 #' @importFrom AcidCLI abort alert alertWarning toInlineString
-#' @importFrom goalie allAreAtomic assert bapply compressExtPattern extPattern
-#'   hasLength hasNames hasNoDuplicates isADir isAFile isAny isCharacter isFlag
-#'   isInt isPositive isScalar isString isSubset isWindows
+#' @importFrom goalie allAreAtomic allHaveAccess assert bapply
+#'   compressExtPattern extPattern hasLength hasNames hasNoDuplicates isADir
+#'   isAFile isAny isCharacter isFlag isInt isPositive isScalar isString
+#'   isSubset isWindows
 #' @importFrom methods .hasSlot getClassDef is isGeneric selectMethod setMethod
 #'   setOldClass signature slot slotNames
 #' @importFrom stats var
