@@ -11,6 +11,9 @@
 #'   Whether to print (echo) the commands to the console.
 #' @param wd `character(1)`.
 #'   Working directory path inside shell session.
+#' @param stdoutFile,stderrFile `character(1)` or `NULL`.
+#'   File path to log stdout and/or stderr.
+#'   Disabled when set `NULL`.
 #'
 #' @seealso
 #' - `processx::run()`.
@@ -31,14 +34,18 @@ shell <- function(
     command,
     args = character(),
     print = interactive(),
-    wd = getwd()
+    wd = getwd(),
+    stdoutFile = NULL,
+    stderrFile = NULL
 ) {
     assert(
         isString(command),
         isSystemCommand(command),
         is.character(args),
         isFlag(print),
-        isADir(wd)
+        isADir(wd),
+        isAFile(stdoutFile, nullOK = TRUE),
+        isAFile(stderrFile, nullOK = TRUE)
     )
     ## Ensure arguments are passed in unquoted, if necessary.
     args <- gsub(pattern = "^['\"](.+)['\"]$", replacement = "\\1", x = args)
@@ -51,8 +58,16 @@ shell <- function(
         echo = print,
         spinner = print,
         timeout = Inf,
-        stdout = "|",
-        stderr = "|"
+        stdout = ifelse(
+            test = isAFile(stdoutFile),
+            yes = stdoutFile,
+            no = "|"
+        ),
+        stderr = ifelse(
+            test = isAFile(stderrFile),
+            yes = stderrFile,
+            no = "|"
+        )
     )
     assert(
         is.list(x),

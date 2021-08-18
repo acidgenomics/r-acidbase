@@ -4,7 +4,14 @@
 \alias{shell}
 \title{Invoke a command in the system command-line shell}
 \usage{
-shell(command, args = character(), print = interactive(), wd = getwd())
+shell(
+  command,
+  args = character(),
+  print = interactive(),
+  wd = getwd(),
+  stdoutFile = NULL,
+  stderrFile = NULL
+)
 }
 \arguments{
 \item{command}{\code{character(1)}.
@@ -18,6 +25,10 @@ Whether to print (echo) the commands to the console.}
 
 \item{wd}{\code{character(1)}.
 Working directory path inside shell session.}
+
+\item{stdoutFile, stderrFile}{\code{character(1)} or \code{NULL}.
+File path to log stdout and/or stderr.
+Disabled when set \code{NULL}.}
 }
 \value{
 Invisible \code{list}.
