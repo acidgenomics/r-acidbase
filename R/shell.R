@@ -1,66 +1,66 @@
-## FIXME Switch this to `processx::run()` instead of `system2()`?
-
-
-
 #' Invoke a command in the system command-line shell
 #'
 #' @export
-#' @note Updated 2021-08-13.
+#' @note Updated 2021-08-18.
 #'
 #' @param command `character(1)`.
+#'   Name of program to run.
 #' @param args `character`.
-#' @param stdout,stderr `character(1)`, `logical(1)`, or `NULL`.
-#'   Where output to `stdout` or `stderr` should be sent.
-#'
-#'   Possible values:
-#'   - `""`: Output to the R console.
-#'   - `FALSE` or `NULL`: Discard the output.
-#'   - `TRUE`: Capture the output in a character vector.
-#'   - `character(1)`: Capture the output in a defined file name.
-#' @param ... Passthrough arguments to [`system2()`][base::system2].
+#'   Arguments passed to `command`.
+#' @param print `logical(1)`.
+#'   Whether to print (echo) the commands to the console.
 #'
 #' @seealso
-#' - [`system2()`][base::system2].
+#' - `processx::run()`.
+#' - `base::system2()` (legacy approach).
 #'
-#' @return
-#' If `stdout = TRUE` or `stderr = TRUE`, a character vector giving the output
-#' of the command, one line per character string. If the command could not be
-#' run, an R error is generated. If command runs but gives a non-zero exit
-#' status this will be reported with a warning and in the attribute "status" of
-#' the result.
-#'
-#' In other cases, the return value is an invisible error code
-#' (`0` for success). If the command could not be run for any reason, the value
-#' is `127` and a warning is issued. If the command times out, a warning is
-#' issued and the exit status is `124`.
+#' @return Invisible `list`.
+#'   Contains named elements:
+#'   `"status"`, `"stdout"`, `"stderr"`, `"timeout"`.
 #'
 #' @examples
-#' shell(command = "echo", args = c("hello", "world"))
+#' x <- shell(
+#'     command = "echo",
+#'     args = c("hello", "world"),
+#'     print = TRUE
+#' )
+#' print(x)
 shell <- function(
     command,
-    args = "",
-    stdout = "",
-    stderr = "",
-    ...
+    args = character(),
+    print = interactive()
 ) {
-    assert(!isWindows())
-    if (isTRUE(stderr)) stdout <- TRUE  # nocov
-    out <- tryCatch(
-        expr = {
-            system2(
-                command = command,
-                args = args,
-                stdout = stdout,
-                stderr = stderr,
-                ...
-            )
-        },
-        warning = function(w) {
-            abort(w)
-        }
+    assert(
+        isString(command),
+        isSystemCommand(command),
+        is.character(args),
+        isFlag(print)
     )
-    if (all(!isTRUE(stdout), !isTRUE(stderr))) {
-        assert(out == 0L)
+    x <- run(
+        command = command,
+        args = args,
+        error_on_status = FALSE,
+        wd = getwd(),
+        echo_cmd = print,
+        echo = print,
+        spinner = print,
+        timeout = Inf,
+        stdout = "|",
+        stderr = "|"
+    )
+    assert(
+        is.list(x),
+        isSubset(
+            x = c("status", "stdout", "stderr", "timeout"),
+            y = names(x)
+        )
+    )
+    if (!identical(x[["status"]], 0L)) {
+        abort(c(
+            "Shell command failure.",
+            paste("$", command, args, sep = " ", collapse = " "),
+            x[["stderr"]]
+        ))
     }
-    invisible(out)
+    invisible(x)
 }

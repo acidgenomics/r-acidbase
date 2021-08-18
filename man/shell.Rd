@@ -4,49 +4,40 @@
 \alias{shell}
 \title{Invoke a command in the system command-line shell}
 \usage{
-shell(command, args = "", stdout = "", stderr = "", ...)
+shell(command, args = character(), print = interactive())
 }
 \arguments{
-\item{command}{\code{character(1)}.}
+\item{command}{\code{character(1)}.
+Name of program to run.}
 
-\item{args}{\code{character}.}
+\item{args}{\code{character}.
+Arguments passed to \code{command}.}
 
-\item{stdout, stderr}{\code{character(1)}, \code{logical(1)}, or \code{NULL}.
-Where output to \code{stdout} or \code{stderr} should be sent.
-
-Possible values:
-\itemize{
-\item \code{""}: Output to the R console.
-\item \code{FALSE} or \code{NULL}: Discard the output.
-\item \code{TRUE}: Capture the output in a character vector.
-\item \code{character(1)}: Capture the output in a defined file name.
-}}
-
-\item{...}{Passthrough arguments to \code{\link[base:system2]{system2()}}.}
+\item{print}{\code{logical(1)}.
+Whether to print (echo) the commands to the console.}
 }
 \value{
-If \code{stdout = TRUE} or \code{stderr = TRUE}, a character vector giving the output
-of the command, one line per character string. If the command could not be
-run, an R error is generated. If command runs but gives a non-zero exit
-status this will be reported with a warning and in the attribute "status" of
-the result.
-
-In other cases, the return value is an invisible error code
-(\code{0} for success). If the command could not be run for any reason, the value
-is \code{127} and a warning is issued. If the command times out, a warning is
-issued and the exit status is \code{124}.
+Invisible \code{list}.
+Contains named elements:
+\code{"status"}, \code{"stdout"}, \code{"stderr"}, \code{"timeout"}.
 }
 \description{
 Invoke a command in the system command-line shell
 }
 \note{
-Updated 2021-08-13.
+Updated 2021-08-18.
 }
 \examples{
-shell(command = "echo", args = c("hello", "world"))
+x <- shell(
+    command = "echo",
+    args = c("hello", "world"),
+    print = TRUE
+)
+print(x)
 }
 \seealso{
 \itemize{
-\item \code{\link[base:system2]{system2()}}.
+\item \code{processx::run()}.
+\item \code{base::system2()} (legacy approach).
 }
 }
