@@ -4,7 +4,7 @@
 \alias{shell}
 \title{Invoke a command in the system command-line shell}
 \usage{
-shell(command, args = character(), print = interactive())
+shell(command, args = character(), print = interactive(), wd = getwd())
 }
 \arguments{
 \item{command}{\code{character(1)}.
@@ -15,6 +15,9 @@ Arguments passed to \code{command}.}
 
 \item{print}{\code{logical(1)}.
 Whether to print (echo) the commands to the console.}
+
+\item{wd}{\code{character(1)}.
+Working directory path inside shell session.}
 }
 \value{
 Invisible \code{list}.
