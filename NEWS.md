@@ -2,8 +2,10 @@
 
 ### New functions
 
-- Added new system path handlers, based on code previously defined in koopa
-  shell package.
+- Added new system path modifier functions, based on code previously defined in
+  koopa shell package: `addToPathStart`, `addToPathEnd`, `removeFromPath`.
+- Also added some useful path string parsing functions: `splitPathString` and
+  `uniquePathString`.
 
 ### Major changes
 
