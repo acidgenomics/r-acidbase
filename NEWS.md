@@ -1,3 +1,20 @@
+## AcidBase 0.4.0
+
+### New functions
+
+- Added new system path handlers, based on code previously defined in koopa
+  shell package.
+
+### Major changes
+
+- `shell`: Reworked internal code to handoff to `processx::run` instead of using
+  `base::system2`. Simplified console output handling using a single `print`
+  argument.
+
+## AcidBase 0.3.16 (2021-08-13)
+
+FIXME
+
 ## AcidBase 0.3.15 (2021-08-04)
 
 ### New functions

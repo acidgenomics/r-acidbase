@@ -42,4 +42,12 @@ test_that("Error on invalid command", {
         ),
         regexp = "isSystemCommand"
     )
+    expect_error(
+        object = shell(
+            command = "ls",
+            args = "--XXX",
+            print = FALSE
+        ),
+        regexp = "XXX"
+    )
 })
