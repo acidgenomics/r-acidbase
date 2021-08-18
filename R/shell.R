@@ -9,6 +9,8 @@
 #'   Arguments passed to `command`.
 #' @param print `logical(1)`.
 #'   Whether to print (echo) the commands to the console.
+#' @param wd `character(1)`.
+#'   Working directory path inside shell session.
 #'
 #' @seealso
 #' - `processx::run()`.
@@ -28,13 +30,15 @@
 shell <- function(
     command,
     args = character(),
-    print = interactive()
+    print = interactive(),
+    wd = getwd()
 ) {
     assert(
         isString(command),
         isSystemCommand(command),
         is.character(args),
-        isFlag(print)
+        isFlag(print),
+        isADir(wd)
     )
     ## Ensure arguments are passed in unquoted, if necessary.
     args <- gsub(pattern = "^['\"](.+)['\"]$", replacement = "\\1", x = args)
@@ -42,7 +46,7 @@ shell <- function(
         command = command,
         args = args,
         error_on_status = FALSE,
-        wd = getwd(),
+        wd = wd,
         echo_cmd = print,
         echo = print,
         spinner = print,
