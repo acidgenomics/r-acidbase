@@ -10,7 +10,8 @@ shell(
   print = interactive(),
   wd = getwd(),
   stdoutFile = NULL,
-  stderrFile = NULL
+  stderrFile = NULL,
+  stderrToStdout = FALSE
 )
 }
 \arguments{
@@ -29,6 +30,10 @@ Working directory path inside shell session.}
 \item{stdoutFile, stderrFile}{\code{character(1)} or \code{NULL}.
 File path to log stdout and/or stderr.
 Disabled when set \code{NULL}.}
+
+\item{stderrToStdout}{\code{logical(1)}.
+Whether to redirect standard error (stderr) to standard output (stdout).
+Similar to \verb{2>&1} in POSIX or \verb{&>} in Bash.}
 }
 \value{
 Invisible \code{list}.
