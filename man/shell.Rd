@@ -38,6 +38,6 @@ print(x)
 \seealso{
 \itemize{
 \item \code{processx::run()}.
-\item \code{base::system2()} (legacy approach).
+\item \code{base::system2()}, our previously used legacy approach.
 }
 }
