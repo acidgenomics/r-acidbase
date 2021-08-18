@@ -15,7 +15,10 @@
 
 ## AcidBase 0.3.16 (2021-08-13)
 
-FIXME
+### Minor changes
+
+- Reworked package to use AcidCLI for improved error messages, which are now
+  called via `abort` instead of `stop` internally.
 
 ## AcidBase 0.3.15 (2021-08-04)
 
