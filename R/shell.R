@@ -36,6 +36,8 @@ shell <- function(
         is.character(args),
         isFlag(print)
     )
+    ## Ensure arguments are passed in unquoted, if necessary.
+    args <- gsub(pattern = "^['\"](.+)['\"]$", replacement = "\\1", x = args)
     x <- run(
         command = command,
         args = args,
@@ -50,17 +52,13 @@ shell <- function(
     )
     assert(
         is.list(x),
-        isSubset(
-            x = c("status", "stdout", "stderr", "timeout"),
-            y = names(x)
-        )
+        isSubset(c("status", "stdout", "stderr", "timeout"), names(x))
     )
     if (!identical(x[["status"]], 0L)) {
         msg <- c(
             "Shell command failure.",
             paste(
-                "$",
-                command,
+                "$", command,
                 paste(args, collapse = " "),
                 sep = " "
             )
