@@ -6,14 +6,15 @@
 #'
 #' @importClassesFrom AcidGenerics Annotated AsIs
 #'
-#' @importFrom AcidGenerics gsub head metadata paste tail
+#' @importFrom AcidGenerics grepl gsub head metadata paste tail
 #' @importFrom AcidCLI abort alert alertWarning toInlineString
 #' @importFrom goalie allAreAtomic allHaveAccess assert bapply
 #'   compressExtPattern extPattern hasLength hasNames hasNoDuplicates isADir
 #'   isAFile isAny isCharacter isFlag isInt isPositive isScalar isString
-#'   isSubset isWindows
+#'   isSubset isSystemCommand
 #' @importFrom methods .hasSlot getClassDef is isGeneric selectMethod setMethod
 #'   setOldClass signature slot slotNames
+#' @importFrom processx run
 #' @importFrom stats var
 #' @importFrom utils capture.output download.file unzip zip
 "_PACKAGE"
