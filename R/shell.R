@@ -14,6 +14,9 @@
 #' @param stdoutFile,stderrFile `character(1)` or `NULL`.
 #'   File path to log stdout and/or stderr.
 #'   Disabled when set `NULL`.
+#' @param stderrToStdout `logical(1)`.
+#'   Whether to redirect standard error (stderr) to standard output (stdout).
+#'   Similar to `2>&1` in POSIX or `&>` in Bash.
 #'
 #' @seealso
 #' - `processx::run()`.
@@ -36,7 +39,8 @@ shell <- function(
     print = interactive(),
     wd = getwd(),
     stdoutFile = NULL,
-    stderrFile = NULL
+    stderrFile = NULL,
+    stderrToStdout = FALSE
 ) {
     assert(
         isString(command),
@@ -44,8 +48,9 @@ shell <- function(
         is.character(args),
         isFlag(print),
         isADir(wd),
-        isAFile(stdoutFile, nullOK = TRUE),
-        isAFile(stderrFile, nullOK = TRUE)
+        isString(stdoutFile, nullOK = TRUE),
+        isString(stderrFile, nullOK = TRUE),
+        isFlag(stderrToStdout)
     )
     ## Ensure arguments are passed in unquoted, if necessary.
     args <- gsub(pattern = "^['\"](.+)['\"]$", replacement = "\\1", x = args)
@@ -59,15 +64,16 @@ shell <- function(
         spinner = print,
         timeout = Inf,
         stdout = ifelse(
-            test = isAFile(stdoutFile),
-            yes = stdoutFile,
+            test = isString(stdoutFile),
+            yes = normalizePath(stdoutFile, mustWork = FALSE),
             no = "|"
         ),
         stderr = ifelse(
-            test = isAFile(stderrFile),
-            yes = stderrFile,
+            test = isString(stderrFile),
+            yes = normalizePath(stderrFile, mustWork = FALSE),
             no = "|"
-        )
+        ),
+        stderr_to_stdout = stderrToStdout
     )
     assert(
         is.list(x),
