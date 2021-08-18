@@ -56,11 +56,20 @@ shell <- function(
         )
     )
     if (!identical(x[["status"]], 0L)) {
-        abort(c(
+        msg <- c(
             "Shell command failure.",
-            paste("$", command, args, sep = " ", collapse = " "),
-            x[["stderr"]]
-        ))
+            paste(
+                "$",
+                command,
+                paste(args, collapse = " "),
+                sep = " "
+            )
+        )
+        stderr <- x[["stderr"]]
+        if (isString(stderr)) {
+            msg <- append(x = msg, values = stderr)
+        }
+        abort(msg)
     }
     invisible(x)
 }
