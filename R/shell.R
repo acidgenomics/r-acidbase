@@ -12,7 +12,7 @@
 #'
 #' @seealso
 #' - `processx::run()`.
-#' - `base::system2()` (legacy approach).
+#' - `base::system2()`, our previously used legacy approach.
 #'
 #' @return Invisible `list`.
 #'   Contains named elements:
