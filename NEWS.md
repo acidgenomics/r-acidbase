@@ -1,4 +1,11 @@
-## AcidBase 0.4.0
+## AcidBase 0.4.1 (2021-08-18)
+
+### Minor changes
+
+- `shell` Added some more useful options for subprocess handling and logging:
+  `wd`, `stdoutFile`, `stderrFile`, as well as `stderrToStdout`.
+
+## AcidBase 0.4.0 (2021-08-18)
 
 ### New functions
 
