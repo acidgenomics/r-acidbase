@@ -21,10 +21,7 @@
 #' @examples
 #' realpath(".")
 realpath <- function(path) {
-    assert(
-        isCharacter(path),
-        allHaveAccess(path)
-    )
+    assert(isCharacter(path))
     out <- normalizePath(
         path = path,
         winslash = .Platform$file.sep,  # nolint

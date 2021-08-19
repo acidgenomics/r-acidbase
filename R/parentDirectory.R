@@ -24,6 +24,7 @@ parentDirectory <- function(path, n = 1L) {
         isTRUE(is.finite(n))
     )
     names <- names(path)
+    x <- realpath(path)
     x <- dirname(path)
     n <- n - 1L
     if (isPositive(n)) {
