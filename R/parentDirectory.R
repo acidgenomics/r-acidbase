@@ -20,7 +20,8 @@ parentDirectory <- function(path, n = 1L) {
     assert(
         allHaveAccess(path),
         isInt(n),
-        isPositive(n)
+        isPositive(n),
+        isTRUE(is.finite(n))
     )
     names <- names(path)
     x <- dirname(path)
