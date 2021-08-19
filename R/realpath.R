@@ -1,7 +1,7 @@
 #' Express file paths in canonical form
 #'
 #' @export
-#' @note Updated 2020-08-11.
+#' @note Updated 2020-08-19.
 #' @note Use `normalizePath()` instead for non-existing file paths.
 #'
 #' @param path `character`.
@@ -25,10 +25,11 @@ realpath <- function(path) {
         isCharacter(path),
         allHaveAccess(path)
     )
-    path <- normalizePath(
+    out <- normalizePath(
         path = path,
         winslash = .Platform$file.sep,  # nolint
         mustWork = TRUE
     )
-    path
+    names(out) <- names(path)
+    out
 }
