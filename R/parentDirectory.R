@@ -24,12 +24,13 @@ parentDirectory <- function(path, n = 1L) {
         isTRUE(is.finite(n))
     )
     names <- names(path)
-    x <- realpath(path)
-    x <- dirname(path)
+    x <- path
+    x <- realpath(x)
+    x <- dirname(x)
     n <- n - 1L
     if (isPositive(n)) {
         x <- vapply(
-            X = path,
+            X = x,
             n = n,
             FUN = function(x, n) {
                 do.call(
