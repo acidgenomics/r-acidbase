@@ -1,3 +1,14 @@
+## AcidBase 0.4.2 (2021-08-19)
+
+### New functions
+
+- `parentDirectory` (`parentDir`): Allows for each return of nested parent
+  directories, similar to approach used in koopa shell package (`parent_dir`).
+
+### Minor changes
+
+- `realpath`: Now keeps track of names,  if defined.
+
 ## AcidBase 0.4.1 (2021-08-18)
 
 ### Minor changes
