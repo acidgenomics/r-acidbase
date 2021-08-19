@@ -8,7 +8,7 @@
 #'
 #' @importFrom AcidGenerics grepl gsub head metadata paste tail
 #' @importFrom AcidCLI abort alert alertWarning toInlineString
-#' @importFrom goalie allAreAtomic allHaveAccess assert bapply
+#' @importFrom goalie allAreAtomic allAreDirs allHaveAccess assert bapply
 #'   compressExtPattern extPattern hasLength hasNames hasNoDuplicates isADir
 #'   isAFile isAny isCharacter isFlag isInt isPositive isScalar isString
 #'   isSubset isSystemCommand
