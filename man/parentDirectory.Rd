@@ -23,6 +23,9 @@ Defaults to the immediate parent, similar to \code{dirname}.}
 \description{
 Parent directory recursion
 }
+\details{
+Function always resolves directory path internally, using \code{realpath}.
+}
 \note{
 Updated 2021-08-19.
 }
