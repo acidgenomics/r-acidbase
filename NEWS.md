@@ -1,3 +1,10 @@
+## AcidBase 0.4.3 (2021-08-23)
+
+### New functions
+
+- `collapseToPathString`: Previously used internally, now exporting so we can
+  use in koopa dependency package.
+
 ## AcidBase 0.4.2 (2021-08-19)
 
 ### New functions

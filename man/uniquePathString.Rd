@@ -18,7 +18,7 @@ Defaults to system path string.}
 Unique path string
 }
 \note{
-Updated 2021-08-17.
+Updated 2021-08-23.
 }
 \examples{
 uniquePathString()

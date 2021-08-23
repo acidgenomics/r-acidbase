@@ -2,7 +2,7 @@
 #' System path string handlers
 #'
 #' @name modifyPathString
-#' @note Updated 2021-08-18.
+#' @note Updated 2021-08-23.
 #'
 #' @param x `character`.
 #'   Elements to add to the system path string defined in `var`.
@@ -43,7 +43,7 @@ addToPathEnd <- function(x, var = "PATH") {
     removeFromPath(x = x, var = var)
     y <- splitPathString(x = Sys.getenv(x = var))
     y <- append(x = y, values = rev(x))
-    y <- .collapseToPathString(y)
+    y <- collapseToPathString(y)
     y <- list(y)
     names(y) <- var
     do.call(what = Sys.setenv, args = y)
@@ -62,7 +62,7 @@ addToPathStart <- function(x, var = "PATH") {
     removeFromPath(x = x, var = var)
     y <- splitPathString(x = Sys.getenv(x = var))
     y <- append(x = x, values = y)
-    y <- .collapseToPathString(y)
+    y <- collapseToPathString(y)
     y <- list(y)
     names(y) <- var
     do.call(what = Sys.setenv, args = y)
@@ -83,7 +83,7 @@ removeFromPath <- function(x, var = "PATH") {
     keep <- !y %in% x
     y <- y[keep]
     if (hasLength(y)) {
-        y <- .collapseToPathString(y)
+        y <- collapseToPathString(y)
         y <- list(y)
         names(y) <- var
         do.call(what = Sys.setenv, args = y)
@@ -96,6 +96,25 @@ removeFromPath <- function(x, var = "PATH") {
 
 
 ## Return functions ============================================================
+#' Collapse the input to a `PATH` string.
+#'
+#' @export
+#' @note Updated 2021-08-23.
+#'
+#' @param x `character`.
+#'   Elements to combine into a path string.
+#'
+#' @return `character(1)`.
+#'
+#' @examples
+#' collapseToPathString(c("/usr/local/bin", "/usr/bin"))
+collapseToPathString <- function(x) {
+    assert(isCharacter(x))
+    paste(x, sep = ":", collapse = ":")
+}
+
+
+
 #' Split path string environment variable
 #'
 #' @export
@@ -128,7 +147,7 @@ splitPathString <- function(x = Sys.getenv("PATH")) {
 #' Unique path string
 #'
 #' @export
-#' @note Updated 2021-08-17.
+#' @note Updated 2021-08-23.
 #'
 #' @param x `character(1)`.
 #'   Path string, containing elements separated with a colon (`":"`).
@@ -144,26 +163,6 @@ splitPathString <- function(x = Sys.getenv("PATH")) {
 uniquePathString <- function(x = Sys.getenv("PATH")) {
     x <- splitPathString(x)
     x <- unique(x)
-    x <- .collapseToPathString(x)
+    x <- collapseToPathString(x)
     x
-}
-
-
-
-#' Collapse the input to a `PATH` string.
-#'
-#' @note Updated 2021-08-17.
-#' @noRd
-#'
-#' @param x `character`.
-#'   Elements to combine into a path string.
-#'
-#' @return `character(1)`.
-#'
-#' @examples
-#' .collapseToPathString(c("/usr/local/bin", "/usr/bin"))
-#' ## [1] "/usr/local/bin:/usr/bin"
-.collapseToPathString <- function(x) {
-    assert(isCharacter(x))
-    paste(x, sep = ":", collapse = ":")
 }
