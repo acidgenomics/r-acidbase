@@ -36,7 +36,7 @@ in the vector is added to the end of the path string.
 }}
 
 \note{
-Updated 2021-08-18.
+Updated 2021-08-23.
 }
 \examples{
 x <- c("/usr/local/bin", "/usr/bin")
