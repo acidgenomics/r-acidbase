@@ -1,8 +1,8 @@
 Package: AcidBase
 Title: Acid Genomics Base Functions
 Description: Low-level base functions imported by Acid Genomics packages.
-Version: 0.4.3
-Date: 2021-08-23
+Version: 0.4.3.9000
+Date: 2021-08-24
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -23,7 +23,7 @@ Encoding: UTF-8
 Depends: R (>= 4.0)
 Imports:
     AcidCLI (>= 0.1.5),
-    AcidGenerics (>= 0.5.18),
+    AcidGenerics (>= 0.5.19),
     goalie (>= 0.5.2),
     grDevices,
     grid,
@@ -32,7 +32,7 @@ Imports:
     stats,
     utils
 Suggests:
-    AcidTest,
+    AcidTest (>= 0.4.3),
     testthat
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
