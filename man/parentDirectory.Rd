@@ -5,9 +5,9 @@
 \alias{parentDir}
 \title{Parent directory recursion}
 \usage{
-parentDirectory(path, n = 1L, fsep = .Platform$file.sep)
+parentDirectory(path, n = 1L)
 
-parentDir(path, n = 1L, fsep = .Platform$file.sep)
+parentDir(path, n = 1L)
 }
 \arguments{
 \item{path}{\code{character}.
@@ -17,9 +17,6 @@ Also supports URLs.}
 \item{n}{\code{logical(1)}.
 Number of levels to recursive.
 Defaults to the immediate parent, similar to \code{dirname}.}
-
-\item{fsep}{\code{character(1)}.
-Path separator to use (e.g. \code{"/"}).}
 }
 \value{
 \code{character}.
