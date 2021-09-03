@@ -20,3 +20,23 @@ test_that("Names handling", {
     expect_is(x, "character")
     expect_identical(names(path), names(x))
 })
+
+test_that("URL", {
+    url <- pasteURL(
+        "r.acidgenomics.com",
+        "packages",
+        "acidbase",
+        "reference",
+        "parentDirectory.html",
+        protocol = "https"
+    )
+    expect_identical(
+        object = parentDir(url, n = 2L),
+        expected = url <- pasteURL(
+            "r.acidgenomics.com",
+            "packages",
+            "acidbase",
+            protocol = "https"
+        )
+    )
+})
