@@ -1,8 +1,3 @@
-## FIXME This won't work for URLs.
-## Need to rethink this approach.
-
-
-
 #' Parent directory recursion
 #'
 #' @export
@@ -17,6 +12,8 @@
 #' @param n `logical(1)`.
 #'   Number of levels to recursive.
 #'   Defaults to the immediate parent, similar to `dirname`.
+#' @param fsep `character(1)`.
+#'   Path separator to use (e.g. `"/"`).
 #'
 #' @return `character`.
 #'
