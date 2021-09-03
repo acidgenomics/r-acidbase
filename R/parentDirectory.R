@@ -1,13 +1,19 @@
+## FIXME This won't work for URLs.
+## Need to rethink this approach.
+
+
+
 #' Parent directory recursion
 #'
 #' @export
-#' @note Updated 2021-08-19.
+#' @note Updated 2021-09-03.
 #'
 #' @details
 #' Function always resolves directory path internally, using `realpath`.
 #'
 #' @param path `character`.
-#'   Directory path(s).
+#'   Local file and/or directory paths.
+#'   Also supports URLs.
 #' @param n `logical(1)`.
 #'   Number of levels to recursive.
 #'   Defaults to the immediate parent, similar to `dirname`.
@@ -16,41 +22,40 @@
 #'
 #' @examples
 #' parentDir(path = getwd())
-parentDirectory <- function(path, n = 1L) {
+parentDirectory <- function(
+    path,
+    n = 1L,
+    fsep
+) {
     assert(
-        allHaveAccess(path),
+        isCharacter(path),
         isInt(n),
         isPositive(n),
-        isTRUE(is.finite(n))
+        isTRUE(is.finite(n)),
+        isString(fsep)
     )
     names <- names(path)
-    x <- path
-    x <- realpath(x)
-    x <- dirname(x)
-    n <- n - 1L
-    if (isPositive(n)) {
-        x <- vapply(
-            X = x,
-            n = n,
-            FUN = function(x, n) {
-                do.call(
-                    what = file.path,
-                    args = as.list(
-                        append(
-                            x = x,
-                            values = rep("..", times = n)
-                        )
-                    )
-                )
-            },
-            FUN.VALUE = character(1L),
-            USE.NAMES = FALSE
-        )
-    }
-    x <- realpath(x)
+    x <- strsplit(x = path, split = fsep, fixed = TRUE)
+    x <- vapply(
+        X = x,
+        n = n,
+        fsep = fsep,
+        FUN = function(x, n, fsep) {
+            x <- x[1L:(length(x) - n)]
+            x <- do.call(
+                what = file.path,
+                args = append(x = x, values = list("fsep" = fsep))
+            )
+            x
+        },
+        FUN.VALUE = character(1L),
+        USE.NAMES = FALSE
+    )
     names(x) <- names
     x
 }
+
+formals(parentDirectory)[["fsep"]] <- formals(file.path)[["fsep"]]
 
 
 
