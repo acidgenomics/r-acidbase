@@ -1,3 +1,7 @@
+## AcidBase 0.4.4 (2021-09-03)
+
+- `parentDirectory`: Added support for handling URLs.
+
 ## AcidBase 0.4.3 (2021-08-23)
 
 ### New functions
