@@ -206,13 +206,6 @@ metadataDenylist <- sort(c(
     "samplenames"
 ))
 
-## NOTE This is deprecated in favor of "denylist" wording.
-#' @rdname metadataDenylist
-#' @usage NULL
-#' @format NULL
-#' @export
-metadataBlacklist <- metadataDenylist
-
 
 
 ## metricsCols =================================================================

@@ -3,7 +3,6 @@
 \docType{data}
 \name{metadataDenylist}
 \alias{metadataDenylist}
-\alias{metadataBlacklist}
 \title{Sample metadata denylist}
 \format{
 An object of class \code{character} of length 16.
