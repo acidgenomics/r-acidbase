@@ -122,6 +122,10 @@ utils::sessionInfo
 #' @export
 AcidGenerics::tail
 
+#' @importFrom utils tar
+#' @export
+utils::tar
+
 #' @importFrom grid unit
 #' @export
 grid::unit
