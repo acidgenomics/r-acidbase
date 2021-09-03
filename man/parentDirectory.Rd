@@ -5,13 +5,14 @@
 \alias{parentDir}
 \title{Parent directory recursion}
 \usage{
-parentDirectory(path, n = 1L)
+parentDirectory(path, n = 1L, fsep = .Platform$file.sep)
 
-parentDir(path, n = 1L)
+parentDir(path, n = 1L, fsep = .Platform$file.sep)
 }
 \arguments{
 \item{path}{\code{character}.
-Directory path(s).}
+Local file and/or directory paths.
+Also supports URLs.}
 
 \item{n}{\code{logical(1)}.
 Number of levels to recursive.
@@ -27,7 +28,7 @@ Parent directory recursion
 Function always resolves directory path internally, using \code{realpath}.
 }
 \note{
-Updated 2021-08-19.
+Updated 2021-09-03.
 }
 \examples{
 parentDir(path = getwd())
