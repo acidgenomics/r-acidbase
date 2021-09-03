@@ -6,7 +6,7 @@ Low-level base functions imported by [Acid Genomics][] packages.
 
 ## Installation
 
-This is an [R][] package.
+Requirements: [R][] >= 4.0, [Bioconductor][] >= 3.13.
 
 ### [R][] method
 
