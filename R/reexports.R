@@ -14,10 +14,6 @@ stats::as.formula
 #' @export
 grDevices::axisTicks
 
-#' @importFrom goalie bapply
-#' @export
-goalie::bapply
-
 #' @importFrom utils capture.output
 #' @export
 utils::capture.output
