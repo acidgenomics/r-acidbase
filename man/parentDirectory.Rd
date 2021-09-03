@@ -34,5 +34,15 @@ Function always resolves directory path internally, using \code{realpath}.
 Updated 2021-09-03.
 }
 \examples{
-parentDir(path = getwd())
+dir <- getwd()
+url <- pasteURL(
+    "r.acidgenomics.com",
+    "packages",
+    "acidbase",
+    "reference",
+    "parentDirectory.html",
+    protocol = "https"
+)
+path <- c(dir, url)
+parentDir(path = path)
 }

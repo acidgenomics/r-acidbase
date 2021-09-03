@@ -10,7 +10,7 @@
 #' @importFrom AcidCLI abort alert alertWarning toInlineString
 #' @importFrom goalie allAreAtomic allAreDirs allHaveAccess assert bapply
 #'   compressExtPattern extPattern hasLength hasNames hasNoDuplicates isADir
-#'   isAFile isAny isCharacter isFlag isInt isPositive isScalar isString
+#'   isAFile isAURL isAny isCharacter isFlag isInt isPositive isScalar isString
 #'   isSubset isSystemCommand
 #' @importFrom methods .hasSlot getClassDef is isGeneric selectMethod setMethod
 #'   setOldClass signature slot slotNames
