@@ -17,6 +17,9 @@ Also supports URLs.}
 \item{n}{\code{logical(1)}.
 Number of levels to recursive.
 Defaults to the immediate parent, similar to \code{dirname}.}
+
+\item{fsep}{\code{character(1)}.
+Path separator to use (e.g. \code{"/"}).}
 }
 \value{
 \code{character}.
