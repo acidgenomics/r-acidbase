@@ -1,4 +1,15 @@
+## AcidBase 0.4.5 (2021-09-08)
+
+### Minor changes
+
+- Cleaned up the NAMESPACE a bit, removing some deprecated functions:
+  `metadataBlacklist` (in favor of `metadataDenylist`) and `bapply`, which
+  should only be defined in goalie package.
+- Reexporting `tar` from untils package alongside `untar`, for consistency.
+
 ## AcidBase 0.4.4 (2021-09-03)
+
+### Minor changes
 
 - `parentDirectory`: Added support for handling URLs.
 
