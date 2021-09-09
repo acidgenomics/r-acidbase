@@ -18,7 +18,7 @@ barcodePattern <- ")_([ACGT_]{6,})(_[0-9]+)?$"
 #' These can be overwritten using the `options` function.
 #'
 #' @export
-#' @note Updated 2020-08-25.
+#' @note Updated 2021-09-09.
 #'
 #' @seealso
 #' - https://ggplot2.tidyverse.org/reference/scale_colour_continuous.html
@@ -27,7 +27,9 @@ barcodePattern <- ")_([ACGT_]{6,})(_[0-9]+)?$"
 #' @examples
 #' head(formalsList)
 formalsList <- list(
-    color.continuous = quote(
+    ## FIXME Consider taking this out in future release.
+    ## FIXME Default should contain the actual function.
+    "color.continuous" = quote(
         getOption(
             x = "acid.color.continuous",
             default = getOption(
@@ -36,7 +38,9 @@ formalsList <- list(
             )
         )
     ),
-    color.discrete = quote(
+    ## FIXME Consider taking this out in future release.
+    ## FIXME Default should contain the actual function.
+    "color.discrete" = quote(
         getOption(
             x = "acid.color.discrete",
             default = getOption(
@@ -45,28 +49,30 @@ formalsList <- list(
             )
         )
     ),
-    compress.remove = quote(
+    "compress.remove" = quote(
         getOption("acid.compress.remove", default = TRUE)
     ),
-    decompress.remove = quote(
+    "decompress.remove" = quote(
         getOption("acid.compress.remove", default = TRUE)
     ),
-    export.compress = quote(
+    "export.compress" = quote(
         getOption("acid.export.compress", default = FALSE)
     ),
-    export.dir = quote(
+    "export.dir" = quote(
         getOption("acid.export.dir", default = ".")
     ),
-    export.ext = quote(
+    "export.ext" = quote(
         getOption("acid.export.ext", default = "csv")
     ),
-    export.sparse.ext = quote(
+    "export.sparse.ext" = quote(
         getOption("acid.export.sparse.ext", default = "mtx")
     ),
-    export.quiet = quote(
+    "export.quiet" = quote(
         getOption("acid.export.quiet", default = FALSE)
     ),
-    fill.continuous = quote(
+    ## FIXME Consider taking this out in future release.
+    ## FIXME Default should contain the actual function.
+    "fill.continuous" = quote(
         getOption(
             x = "acid.fill.continuous",
             default = getOption(
@@ -75,7 +81,9 @@ formalsList <- list(
             )
         )
     ),
-    fill.discrete = quote(
+    ## FIXME Consider taking this out in future release.
+    ## FIXME Default should contain the actual function.
+    "fill.discrete" = quote(
         getOption(
             x = "acid.fill.discrete",
             default = getOption(
@@ -84,64 +92,64 @@ formalsList <- list(
             )
         )
     ),
-    flip = quote(
+    "flip" = quote(
         getOption(x = "acid.flip", default = TRUE)
     ),
-    heatmap.color = quote(
+    "heatmap.color" = quote(
         getOption(
             x = "acid.heatmap.color",
             default = AcidPlots::blueYellow
         )
     ),
-    heatmap.correlation.color = quote(
+    "heatmap.correlation.color" = quote(
         getOption(
             x = "acid.heatmap.correlation.color",
             default = viridis::viridis
         )
     ),
-    heatmap.legend.color = quote(
+    "heatmap.legend.color" = quote(
         getOption(
             x = "acid.heatmap.legend.color",
             default = AcidPlots::synesthesia
         )
     ),
-    heatmap.quantile.color = quote(
+    "heatmap.quantile.color" = quote(
         getOption(
             x = "acid.heatmap.quantile.color",
             default = viridis::viridis
         )
     ),
-    import.make.names = quote(
+    "import.make.names" = quote(
         getOption("acid.import.make.names", default = syntactic::makeNames)
     ),
-    import.metadata = quote(
+    "import.metadata" = quote(
         getOption("acid.import.metadata", default = FALSE)
     ),
-    label = quote(
+    "label" = quote(
         getOption(x = "acid.label", default = FALSE)
     ),
-    legend = quote(
+    "legend" = quote(
         getOption(x = "acid.legend", default = TRUE)
     ),
-    load.dir = quote(
+    "load.dir" = quote(
         getOption("acid.load.dir", default = ".")
     ),
-    overwrite = quote(
+    "overwrite" = quote(
         getOption("acid.overwrite", default = TRUE)
     ),
-    point.size = quote(
+    "point.size" = quote(
         getOption(x = "acid.point.size", default = 3L)
     ),
-    quiet = quote(
+    "quiet" = quote(
         getOption("acid.quiet", default = FALSE)
     ),
-    save.compress = quote(
+    "save.compress" = quote(
         getOption("acid.save.compress", default = TRUE)
     ),
-    save.dir = quote(
+    "save.dir" = quote(
         getOption("acid.save.dir", default = ".")
     ),
-    save.ext = quote(
+    "save.ext" = quote(
         getOption("acid.save.ext", default = "rds")
     )
 )
