@@ -13,9 +13,7 @@
 \alias{download.file}
 \alias{dist}
 \alias{ecdf}
-\alias{extPattern}
 \alias{formula}
-\alias{getNameInParent}
 \alias{getS3method}
 \alias{hclust}
 \alias{head}
@@ -44,8 +42,6 @@ below to see their documentation.
 
 \describe{
   \item{AcidGenerics}{\code{\link[AcidGenerics]{head}}, \code{\link[AcidGenerics:reexports]{median}}, \code{\link[AcidGenerics:reexports]{metadata}}, \code{\link[AcidGenerics:reexports]{metadata<-}}, \code{\link[AcidGenerics:reexports]{quantile}}, \code{\link[AcidGenerics]{tail}}}
-
-  \item{goalie}{\code{\link[goalie]{extPattern}}, \code{\link[goalie]{getNameInParent}}}
 
   \item{grDevices}{\code{\link[grDevices]{axisTicks}}, \code{\link[grDevices:colorRamp]{colorRampPalette}}, \code{\link[grDevices]{rgb}}}
 
