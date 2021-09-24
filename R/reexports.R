@@ -22,10 +22,6 @@ utils::capture.output
 #' @export
 grDevices::colorRampPalette
 
-#' @importFrom goalie compressExtPattern
-#' @export
-goalie::compressExtPattern
-
 #' @importFrom utils data
 #' @export
 utils::data

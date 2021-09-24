@@ -9,7 +9,6 @@
 \alias{axisTicks}
 \alias{capture.output}
 \alias{colorRampPalette}
-\alias{compressExtPattern}
 \alias{data}
 \alias{download.file}
 \alias{dist}
@@ -46,7 +45,7 @@ below to see their documentation.
 \describe{
   \item{AcidGenerics}{\code{\link[AcidGenerics]{head}}, \code{\link[AcidGenerics:reexports]{median}}, \code{\link[AcidGenerics:reexports]{metadata}}, \code{\link[AcidGenerics:reexports]{metadata<-}}, \code{\link[AcidGenerics:reexports]{quantile}}, \code{\link[AcidGenerics]{tail}}}
 
-  \item{goalie}{\code{\link[goalie:extPattern]{compressExtPattern}}, \code{\link[goalie]{extPattern}}, \code{\link[goalie]{getNameInParent}}}
+  \item{goalie}{\code{\link[goalie]{extPattern}}, \code{\link[goalie]{getNameInParent}}}
 
   \item{grDevices}{\code{\link[grDevices]{axisTicks}}, \code{\link[grDevices:colorRamp]{colorRampPalette}}, \code{\link[grDevices]{rgb}}}
 

@@ -13,6 +13,8 @@ barcodePattern <- ")_([ACGT_]{6,})(_[0-9]+)?$"
 
 
 ## formalsList =================================================================
+## FIXME Consider moving this to AcidPlots, removing, or reworking.
+
 #' Shared list of optional default formals
 #'
 #' These can be overwritten using the `options` function.
@@ -48,27 +50,6 @@ formalsList <- list(
                 default = AcidPlots::scale_color_synesthesia_d()
             )
         )
-    ),
-    "compress.remove" = quote(
-        getOption("acid.compress.remove", default = TRUE)
-    ),
-    "decompress.remove" = quote(
-        getOption("acid.compress.remove", default = TRUE)
-    ),
-    "export.compress" = quote(
-        getOption("acid.export.compress", default = FALSE)
-    ),
-    "export.dir" = quote(
-        getOption("acid.export.dir", default = ".")
-    ),
-    "export.ext" = quote(
-        getOption("acid.export.ext", default = "csv")
-    ),
-    "export.sparse.ext" = quote(
-        getOption("acid.export.sparse.ext", default = "mtx")
-    ),
-    "export.quiet" = quote(
-        getOption("acid.export.quiet", default = FALSE)
     ),
     ## FIXME Consider taking this out in future release.
     ## FIXME Default should contain the actual function.
@@ -119,21 +100,13 @@ formalsList <- list(
             default = viridis::viridis
         )
     ),
-    "import.make.names" = quote(
-        getOption("acid.import.make.names", default = syntactic::makeNames)
-    ),
-    "import.metadata" = quote(
-        getOption("acid.import.metadata", default = FALSE)
-    ),
     "label" = quote(
         getOption(x = "acid.label", default = FALSE)
     ),
     "legend" = quote(
         getOption(x = "acid.legend", default = TRUE)
     ),
-    "load.dir" = quote(
-        getOption("acid.load.dir", default = ".")
-    ),
+    ## FIXME Remove, move to pipette?
     "overwrite" = quote(
         getOption("acid.overwrite", default = TRUE)
     ),
@@ -142,15 +115,6 @@ formalsList <- list(
     ),
     "quiet" = quote(
         getOption("acid.quiet", default = FALSE)
-    ),
-    "save.compress" = quote(
-        getOption("acid.save.compress", default = TRUE)
-    ),
-    "save.dir" = quote(
-        getOption("acid.save.dir", default = ".")
-    ),
-    "save.ext" = quote(
-        getOption("acid.save.ext", default = "rds")
     )
 )
 
