@@ -1,3 +1,8 @@
+## FIXME Our decompress defined here conflicts with BiocIO / rtracklayer.
+## FIXME Move this to pipette?
+
+
+
 #' Compress or decompress a file
 #'
 #' Compress or decompress using gzip, bzip2, or xz compression.
