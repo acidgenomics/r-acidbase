@@ -1,6 +1,4 @@
 ## FIXME Add an option to automatially strsplit the console output.
-## FIXME dockerBuildAllTags isn't showing interactive console output using
-## `processx::run()`, but DOES work with `system2()`. What's up with this?
 
 
 
