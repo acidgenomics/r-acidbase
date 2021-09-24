@@ -38,17 +38,9 @@ stats::dist
 #' @export
 stats::ecdf
 
-#' @importFrom goalie extPattern
-#' @export
-goalie::extPattern
-
 #' @importFrom stats formula
 #' @export
 stats::formula
-
-#' @importFrom goalie getNameInParent
-#' @export
-goalie::getNameInParent
 
 #' @importFrom utils getS3method
 #' @export
