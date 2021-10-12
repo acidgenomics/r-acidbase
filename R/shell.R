@@ -1,7 +1,3 @@
-## FIXME Add an option to automatially strsplit the console output.
-
-
-
 #' Invoke a command in the system command-line shell
 #'
 #' @export
