@@ -144,8 +144,12 @@ standardizeCall <- function(
 ## Updated 2019-10-21.
 .isLocalCall <- function(x) {
     ok <- is.call(x)
-    if (!isTRUE(ok)) return(FALSE)  # nocov
+    if (!isTRUE(ok)) {
+        return(FALSE)  # nocov
+    }
     ok <- identical(x[[1L]], as.symbol(".local"))
-    if (!isTRUE(ok)) return(FALSE)
+    if (!isTRUE(ok)) {
+        return(FALSE)
+    }
     TRUE
 }
