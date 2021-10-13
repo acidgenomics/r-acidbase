@@ -51,7 +51,7 @@ NULL
 #' @export
 setMethod(
     f = "geometricMean",
-    signature = signature("AsIs"),
+    signature = signature(x = "AsIs"),
     definition = `geometricMean,AsIs`
 )
 
@@ -91,7 +91,7 @@ setMethod(
 #' @export
 setMethod(
     f = "geometricMean",
-    signature = signature("numeric"),
+    signature = signature(x = "numeric"),
     definition = `geometricMean,numeric`
 )
 
@@ -113,6 +113,6 @@ setMethod(
 #' @export
 setMethod(
     f = "geometricMean",
-    signature = signature("matrix"),
+    signature = signature(x = "matrix"),
     definition = `geometricMean,matrix`
 )

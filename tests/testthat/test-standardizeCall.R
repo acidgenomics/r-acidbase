@@ -13,6 +13,7 @@ test_that("Standard function", {
     )
 })
 
+## FIXME Make the signature call here more verbose.
 test_that("Inside S4 method", {
     setGeneric(
         name = "testing",
@@ -22,7 +23,10 @@ test_that("Inside S4 method", {
     )
     setMethod(
         f = "testing",
-        signature = signature("character"),
+        signature = signature(
+            a = "character",
+            b = "character"
+        ),
         definition = function(a, b, ...) {
             standardizeCall()
         }
@@ -43,7 +47,10 @@ test_that("Inside S4 method with .local", {
     )
     setMethod(
         f = "testing",
-        signature = signature("character"),
+        signature = signature(
+            a = "character",
+            b = "character"
+        ),
         definition = function(a, b, ...) {
             standardizeCall()
         }

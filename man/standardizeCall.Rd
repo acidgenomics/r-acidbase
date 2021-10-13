@@ -9,7 +9,7 @@ standardizeCall(
   defaults = TRUE,
   expandDots = TRUE,
   return = c("call", "list"),
-  verbose = getOption("verbose", default = FALSE)
+  verbose = getOption(x = "verbose", default = FALSE)
 )
 }
 \arguments{
@@ -64,7 +64,10 @@ setGeneric(
 
 setMethod(
     f = "testing",
-    signature = signature("character"),
+    signature = signature(
+        a = "character",
+        b = "character"
+    ),
     definition = function(a, b, ...) {
         standardizeCall()
     }

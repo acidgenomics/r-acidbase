@@ -1,3 +1,7 @@
+## FIXME Reorganize the setMethod calls here.
+
+
+
 #' @name headtail
 #' @inherit AcidGenerics::headtail
 #' @note Updated 2020-10-07.
@@ -47,7 +51,7 @@ NULL
 #' @export
 setMethod(
     f = "headtail",
-    signature = signature("list"),
+    signature = signature(x = "list"),
     definition = `headtail,list`
 )
 
@@ -63,7 +67,7 @@ setMethod(
 #' @export
 setMethod(
     f = "headtail",
-    signature = signature("vector"),
+    signature = signature(x = "vector"),
     definition = `headtail,vector`
 )
 
@@ -168,7 +172,7 @@ setMethod(
 #' @export
 setMethod(
     f = "headtail",
-    signature = signature("matrix"),
+    signature = signature(x = "matrix"),
     definition = `headtail,matrix`
 )
 
@@ -184,6 +188,6 @@ setMethod(
 #' @export
 setMethod(
     f = "headtail",
-    signature = signature("data.frame"),
+    signature = signature(x = "data.frame"),
     definition = `headtail,data.frame`
 )

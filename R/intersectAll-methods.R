@@ -27,6 +27,6 @@ NULL
 #' @rdname intersectAll
 setMethod(
     f = "intersectAll",
-    signature = signature("list"),
+    signature = signature(object = "list"),
     definition = `intersectAll,list`
 )
