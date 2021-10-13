@@ -138,6 +138,6 @@ formals(`rankedMatrix,matrix`)[["tiesMethod"]] <-
 #' @export
 setMethod(
     f = "rankedMatrix",
-    signature = signature("matrix"),
+    signature = signature(object = "matrix"),
     definition = `rankedMatrix,matrix`
 )

@@ -4,7 +4,7 @@
 \alias{printString}
 \title{Print string}
 \usage{
-printString(x, ..., max = getOption("max.print", 100L))
+printString(x, ..., max = getOption(x = "max.print", default = 100L))
 }
 \arguments{
 \item{x}{An object used to select a \code{\link[base:print]{print()}} method.}
@@ -12,10 +12,9 @@ printString(x, ..., max = getOption("max.print", 100L))
 \item{...}{Passthrough arguments to \code{\link[base:print]{print()}}.}
 
 \item{max}{\code{integer(1)}.
-Maximum length of vector. Works internally by calling
-\code{\link[utils:head]{head()}} on the print capture, prior to collapse using
-\code{\link[base:paste]{paste()}}. Supports \code{getOption("max.print")} global
-variable.}
+Maximum length of vector.
+Works internally by calling \code{head()} on the print capture, prior to
+collapse using \code{paste()}.}
 }
 \value{
 \code{character(1)}.

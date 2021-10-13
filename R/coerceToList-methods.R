@@ -50,6 +50,6 @@ NULL
 #' @export
 setMethod(
     f = "coerceToList",
-    signature = signature("Annotated"),
+    signature = signature(object = "Annotated"),
     definition = `coerceToList,Annotated`
 )

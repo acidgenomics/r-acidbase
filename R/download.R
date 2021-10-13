@@ -44,7 +44,7 @@ download <-
         if (!isADir(dirname(destfile))) {
             dir.create(path = dirname(destfile), recursive = TRUE)  # nocov
         }
-        timeout <- getOption("timeout")
+        timeout <- getOption(x = "timeout")
         if (is.numeric(timeout)) {
             options("timeout" = 99999L)
         }

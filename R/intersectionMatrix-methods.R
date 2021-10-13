@@ -95,7 +95,7 @@ NULL
 #' @export
 setMethod(
     f = "intersectionMatrix",
-    signature = signature("DataFrame"),
+    signature = signature(object = "DataFrame"),
     definition = `intersectionMatrix,DataFrame`
 )
 
@@ -103,7 +103,7 @@ setMethod(
 #' @export
 setMethod(
     f = "intersectionMatrix",
-    signature = signature("data.frame"),
+    signature = signature(object = "data.frame"),
     definition = `intersectionMatrix,data.frame`
 )
 
@@ -111,7 +111,7 @@ setMethod(
 #' @export
 setMethod(
     f = "intersectionMatrix",
-    signature = signature("list"),
+    signature = signature(object = "list"),
     definition = `intersectionMatrix,list`
 )
 
@@ -119,6 +119,6 @@ setMethod(
 #' @export
 setMethod(
     f = "intersectionMatrix",
-    signature = signature("matrix"),
+    signature = signature(object = "matrix"),
     definition = `intersectionMatrix,matrix`
 )

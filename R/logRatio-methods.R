@@ -1,3 +1,7 @@
+## FIXME Reorganize setMethods here.
+
+
+
 #' Interconvert log ratio and fold change values
 #'
 #' @name logRatio
@@ -38,7 +42,7 @@ NULL
 #' @export
 setMethod(
     f = "foldChangeToLogRatio",
-    signature = signature("numeric"),
+    signature = signature(object = "numeric"),
     definition = `foldChangeToLogRatio,numeric`
 )
 
@@ -60,6 +64,6 @@ setMethod(
 #' @export
 setMethod(
     f = "logRatioToFoldChange",
-    signature = signature("numeric"),
+    signature = signature(object = "numeric"),
     definition = `logRatioToFoldChange,numeric`
 )
