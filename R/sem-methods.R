@@ -1,6 +1,6 @@
 #' @name sem
 #' @inherit AcidGenerics::sem
-#' @note Updated 2021-02-02.
+#' @note Updated 2021-10-12.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -28,16 +28,7 @@ NULL
 
 
 
-#' @rdname sem
-#' @export
-setMethod(
-    f = "sem",
-    signature = signature("AsIs"),
-    definition = `sem,AsIs`
-)
-
-
-
+## Updated 2021-10-12.
 `sem,numeric` <-  # nolint
     function(x) {
         sqrt(var(x) / length(x))
@@ -49,6 +40,14 @@ setMethod(
 #' @export
 setMethod(
     f = "sem",
-    signature = signature("numeric"),
+    signature = signature(x = "AsIs"),
+    definition = `sem,AsIs`
+)
+
+#' @rdname sem
+#' @export
+setMethod(
+    f = "sem",
+    signature = signature(x = "numeric"),
     definition = `sem,numeric`
 )

@@ -36,16 +36,6 @@ NULL
 
 
 
-#' @rdname showHeader
-#' @export
-setMethod(
-    f = "showHeader",
-    signature = signature("ANY"),
-    definition = `showHeader,ANY`
-)
-
-
-
 ## Updated 2021-02-23.
 `showHeader,Annotated` <-  # nolint
     function(object) {
@@ -74,6 +64,14 @@ setMethod(
 #' @export
 setMethod(
     f = "showHeader",
-    signature = signature("Annotated"),
+    signature = signature(object = "ANY"),
+    definition = `showHeader,ANY`
+)
+
+#' @rdname showHeader
+#' @export
+setMethod(
+    f = "showHeader",
+    signature = signature(object = "Annotated"),
     definition = `showHeader,Annotated`
 )
