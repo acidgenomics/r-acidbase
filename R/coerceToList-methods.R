@@ -18,10 +18,10 @@
 #' @return `list`.
 #'
 #' @examples
-#' data(DFrame, package = "AcidTest")
+#' data(DataFrame, package = "AcidTest")
 #'
 #' ## Annotated ====
-#' object <- DFrame
+#' object <- DataFrame
 #' is(object, "Annotated")
 #' object <- coerceToList(object)
 #' class(object)

@@ -1,9 +1,13 @@
 context("coerceToList")
 
-data(DFrame, package = "AcidTest", envir = environment())
+data(
+    DataFrame,
+    package = "AcidTest",
+    envir = environment()
+)
 
 test_that("coerceToList", {
-    object <- DFrame
+    object <- DataFrame
     object <- coerceToList(object)
     expect_is(object, "list")
     expect_identical(
