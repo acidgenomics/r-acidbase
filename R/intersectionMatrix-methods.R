@@ -18,7 +18,7 @@ NULL
 
 
 ## Updated 2021-10-13.
-`intersectionMatrix,DFrame` <-  # nolint
+`intersectionMatrix,DataFrame` <-  # nolint
     function(object) {
         assert(allAreAtomic(object))
         object <- as.data.frame(object)
@@ -95,8 +95,8 @@ NULL
 #' @export
 setMethod(
     f = "intersectionMatrix",
-    signature = signature(object = "DFrame"),
-    definition = `intersectionMatrix,DFrame`
+    signature = signature(object = "DataFrame"),
+    definition = `intersectionMatrix,DataFrame`
 )
 
 #' @rdname intersectionMatrix

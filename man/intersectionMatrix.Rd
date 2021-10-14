@@ -2,7 +2,7 @@
 % Please edit documentation in R/AllGenerics.R, R/intersectionMatrix-methods.R
 \name{intersectionMatrix}
 \alias{intersectionMatrix}
-\alias{intersectionMatrix,DFrame-method}
+\alias{intersectionMatrix,DataFrame-method}
 \alias{intersectionMatrix,data.frame-method}
 \alias{intersectionMatrix,list-method}
 \alias{intersectionMatrix,matrix-method}
@@ -10,7 +10,7 @@
 \usage{
 intersectionMatrix(object, ...)
 
-\S4method{intersectionMatrix}{DFrame}(object)
+\S4method{intersectionMatrix}{DataFrame}(object)
 
 \S4method{intersectionMatrix}{data.frame}(object)
 

@@ -1,8 +1,8 @@
 #' Coerce to list
 #'
 #' @name coerceToList
-#' @note Don't attempt to defined methods for `as.list`.
-#' @note Updated 2021-02-04.
+#' @note Don't attempt to defined methods for `as.list()`.
+#' @note Updated 2021-10-14.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -20,7 +20,7 @@
 #' @examples
 #' data(DFrame, package = "AcidTest")
 #'
-#' ## Annotated (DFrame) ====
+#' ## Annotated ====
 #' object <- DFrame
 #' is(object, "Annotated")
 #' object <- coerceToList(object)

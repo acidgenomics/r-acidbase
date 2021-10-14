@@ -71,7 +71,7 @@ test_that("two-dimensional arrays", {
         )
     )
     for (object in list(
-        "DFrame" = as(object, "DFrame"),
+        "DataFrame" = as(object, "DataFrame"),
         "data.frame" = as.data.frame(object),
         "matrix" = as.matrix(object)
     )) {

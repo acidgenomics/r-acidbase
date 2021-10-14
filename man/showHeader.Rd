@@ -33,8 +33,8 @@ data(DFrame, matrix, package = "AcidTest")
 object <- matrix
 showHeader(object)
 
-## Annotated (DFrame) ====
-## Annotated virtual class supports `metadata()` slot.
+## Annotated ====
+## This virtual class supports `metadata()` slot.
 object <- DFrame
 showHeader(object)
 metadata(object)[["packageVersion"]] <- package_version("0.0.1")
