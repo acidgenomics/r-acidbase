@@ -23,7 +23,7 @@ Encoding: UTF-8
 Depends: R (>= 4.0)
 Imports:
     AcidCLI (>= 0.1.7),
-    AcidGenerics (>= 0.5.21),
+    AcidGenerics (>= 0.6.0),
     goalie (>= 0.6.0),
     grDevices,
     grid,
