@@ -31,7 +31,7 @@ Logarithm base.}
 Interconvert log ratio and fold change values
 }
 \note{
-Updated 2019-07-28.
+Updated 2021-10-14.
 }
 \examples{
 ## Convert fold change to log ratio.

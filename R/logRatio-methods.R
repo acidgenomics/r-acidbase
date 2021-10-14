@@ -1,11 +1,7 @@
-## FIXME Reorganize setMethods here.
-
-
-
 #' Interconvert log ratio and fold change values
 #'
 #' @name logRatio
-#' @note Updated 2019-07-28.
+#' @note Updated 2021-10-14.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -38,16 +34,6 @@ NULL
 
 
 
-#' @rdname logRatio
-#' @export
-setMethod(
-    f = "foldChangeToLogRatio",
-    signature = signature(object = "numeric"),
-    definition = `foldChangeToLogRatio,numeric`
-)
-
-
-
 ## Updated 2019-07-22.
 `logRatioToFoldChange,numeric` <-  # nolint
     function(object, base = 2L) {
@@ -57,6 +43,16 @@ setMethod(
         object <- ifelse(object < 1L, -1L / object, object)
         object
     }
+
+
+
+#' @rdname logRatio
+#' @export
+setMethod(
+    f = "foldChangeToLogRatio",
+    signature = signature(object = "numeric"),
+    definition = `foldChangeToLogRatio,numeric`
+)
 
 
 

@@ -2,21 +2,21 @@
 % Please edit documentation in R/AllGenerics.R, R/headtail-methods.R
 \name{headtail}
 \alias{headtail}
-\alias{headtail,list-method}
-\alias{headtail,vector-method}
-\alias{headtail,matrix-method}
 \alias{headtail,data.frame-method}
+\alias{headtail,list-method}
+\alias{headtail,matrix-method}
+\alias{headtail,vector-method}
 \title{Return the first and last parts of an object}
 \usage{
 headtail(x, ...)
 
-\S4method{headtail}{list}(x, n = 2L)
+\S4method{headtail}{data.frame}(x, n = 2L)
 
-\S4method{headtail}{vector}(x, n = 2L)
+\S4method{headtail}{list}(x, n = 2L)
 
 \S4method{headtail}{matrix}(x, n = 2L)
 
-\S4method{headtail}{data.frame}(x, n = 2L)
+\S4method{headtail}{vector}(x, n = 2L)
 }
 \arguments{
 \item{x}{Object.}
@@ -39,15 +39,15 @@ objects.
 }
 \section{Functions}{
 \itemize{
+\item \code{headtail,data.frame-method}: Same method as \code{matrix}.
+
 \item \code{headtail,list-method}: Paste collapse to a \code{character(1)}.
 
 \item \code{headtail,matrix-method}: Show first and last rows.
-
-\item \code{headtail,data.frame-method}: Same method as \code{matrix}.
 }}
 
 \note{
-Updated 2020-10-07.
+Updated 2021-10-14.
 }
 \examples{
 data(mtcars, package = "datasets")
