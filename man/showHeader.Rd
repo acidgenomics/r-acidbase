@@ -24,10 +24,14 @@ Console output, via \code{\link[base:cat]{cat()}}.
 Header for object show method
 }
 \note{
-Updated 2021-02-23.
+Updated 2021-10-14.
 }
 \examples{
-data(DFrame, matrix, package = "AcidTest")
+data(
+    DataFrame,
+    matrix,
+    package = "AcidTest"
+)
 
 ## ANY (matrix) ====
 object <- matrix
@@ -35,7 +39,7 @@ showHeader(object)
 
 ## Annotated ====
 ## This virtual class supports `metadata()` slot.
-object <- DFrame
+object <- DataFrame
 showHeader(object)
 metadata(object)[["packageVersion"]] <- package_version("0.0.1")
 showHeader(object)
