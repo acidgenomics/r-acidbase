@@ -17,6 +17,26 @@ NULL
 
 
 
+## Updated 2021-10-13.
+`intersectionMatrix,DFrame` <-  # nolint
+    function(object) {
+        assert(allAreAtomic(object))
+        object <- as.data.frame(object)
+        intersectionMatrix(object)
+    }
+
+
+
+## Updated 2021-08-13.
+`intersectionMatrix,data.frame` <-  # nolint
+    function(object) {
+        assert(allAreAtomic(object))
+        object <- as.list(object)
+        intersectionMatrix(object)
+    }
+
+
+
 ## Updated 2020-08-18.
 `intersectionMatrix,list` <-  # nolint
     function(object) {
@@ -71,32 +91,12 @@ NULL
 
 
 
-## Updated 2021-08-13.
-`intersectionMatrix,data.frame` <-  # nolint
-    function(object) {
-        assert(allAreAtomic(object))
-        object <- as.list(object)
-        intersectionMatrix(object)
-    }
-
-
-
-## Updated 2021-08-13.
-`intersectionMatrix,DataFrame` <-  # nolint
-    function(object) {
-        assert(allAreAtomic(object))
-        object <- as.data.frame(object)
-        intersectionMatrix(object)
-    }
-
-
-
 #' @rdname intersectionMatrix
 #' @export
 setMethod(
     f = "intersectionMatrix",
-    signature = signature(object = "DataFrame"),
-    definition = `intersectionMatrix,DataFrame`
+    signature = signature(object = "DFrame"),
+    definition = `intersectionMatrix,DFrame`
 )
 
 #' @rdname intersectionMatrix

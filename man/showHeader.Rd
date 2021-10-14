@@ -33,7 +33,7 @@ data(DFrame, matrix, package = "AcidTest")
 object <- matrix
 showHeader(object)
 
-## Annotated (DataFrame) ====
+## Annotated (DFrame) ====
 ## Annotated virtual class supports `metadata()` slot.
 object <- DFrame
 showHeader(object)

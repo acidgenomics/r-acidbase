@@ -71,9 +71,9 @@ test_that("two-dimensional arrays", {
         )
     )
     for (object in list(
-        "matrix" = as.matrix(object),
+        "DFrame" = as(object, "DFrame"),
         "data.frame" = as.data.frame(object),
-        "DataFrame" = as(object, "DataFrame")
+        "matrix" = as.matrix(object)
     )) {
         expect_identical(
             object = intersectionMatrix(object),
