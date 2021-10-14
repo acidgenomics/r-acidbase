@@ -46,10 +46,7 @@ test_that("Inside S4 method with .local", {
     )
     setMethod(
         f = "testing",
-        signature = signature(
-            a = "character",
-            b = "character"
-        ),
+        signature = signature(a = "character"),
         definition = function(a, b, ...) {
             standardizeCall()
         }

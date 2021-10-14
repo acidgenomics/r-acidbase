@@ -39,17 +39,13 @@
 #' ## Inside S4 method.
 #' setGeneric(
 #'     name = "testing",
-#'     def = function(a, b, ...) {
+#'     def = function(a, ...) {
 #'         standardGeneric("testing")
 #'     }
 #' )
-#'
 #' setMethod(
 #'     f = "testing",
-#'     signature = signature(
-#'         a = "character",
-#'         b = "character"
-#'     ),
+#'     signature = signature(a = "character"),
 #'     definition = function(a, b, ...) {
 #'         standardizeCall()
 #'     }
