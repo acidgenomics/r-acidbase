@@ -21,14 +21,14 @@ coerceToList(object, ...)
 Coerce to list
 }
 \note{
-Don't attempt to defined methods for \code{as.list}.
+Don't attempt to defined methods for \code{as.list()}.
 
-Updated 2021-02-04.
+Updated 2021-10-14.
 }
 \examples{
 data(DFrame, package = "AcidTest")
 
-## Annotated (DFrame) ====
+## Annotated ====
 object <- DFrame
 is(object, "Annotated")
 object <- coerceToList(object)
