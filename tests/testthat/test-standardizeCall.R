@@ -13,7 +13,6 @@ test_that("Standard function", {
     )
 })
 
-## FIXME Make the signature call here more verbose.
 test_that("Inside S4 method", {
     setGeneric(
         name = "testing",
