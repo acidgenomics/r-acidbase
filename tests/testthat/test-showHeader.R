@@ -1,7 +1,7 @@
 context("showHeader")
 
 data(
-    DFrame,
+    DataFrame,
     matrix,
     package = "AcidTest",
     envir = environment()
@@ -16,7 +16,7 @@ test_that("ANY", {
 })
 
 test_that("Annotated", {
-    object <- DFrame
+    object <- DataFrame
     expect_output(
         object = showHeader(object),
         regexp = "length"
