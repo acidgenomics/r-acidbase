@@ -1,7 +1,3 @@
-## FIXME Reorganize the setMethod calls here.
-
-
-
 #' @name headtail
 #' @inherit AcidGenerics::headtail
 #' @note Updated 2021-10-14.
