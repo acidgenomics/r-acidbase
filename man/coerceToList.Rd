@@ -28,7 +28,7 @@ Updated 2021-02-04.
 \examples{
 data(DFrame, package = "AcidTest")
 
-## Annotated (DataFrame) ====
+## Annotated (DFrame) ====
 object <- DFrame
 is(object, "Annotated")
 object <- coerceToList(object)

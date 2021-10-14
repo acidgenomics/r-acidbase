@@ -4,7 +4,7 @@
 
 #' @name headtail
 #' @inherit AcidGenerics::headtail
-#' @note Updated 2020-10-07.
+#' @note Updated 2021-10-14.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param n `integer(1)`.
@@ -38,38 +38,6 @@ NULL
         cat(out, sep = "\n")
         invisible(NULL)
     }
-
-
-
-## Updated 2020-10-07.
-`headtail,list` <-  # nolint
-    `headtail,atomic`
-
-
-
-#' @describeIn headtail Paste collapse to a `character(1)`.
-#' @export
-setMethod(
-    f = "headtail",
-    signature = signature(x = "list"),
-    definition = `headtail,list`
-)
-
-
-
-## Updated 2020-10-07.
-`headtail,vector` <-  # nolint
-    `headtail,atomic`
-
-
-
-#' @rdname headtail
-#' @export
-setMethod(
-    f = "headtail",
-    signature = signature(x = "vector"),
-    definition = `headtail,vector`
-)
 
 
 
@@ -168,19 +136,17 @@ setMethod(
 
 
 
-#' @describeIn headtail Show first and last rows.
-#' @export
-setMethod(
-    f = "headtail",
-    signature = signature(x = "matrix"),
-    definition = `headtail,matrix`
-)
-
-
-
 ## Updated 2019-07-22.
 `headtail,data.frame` <-  # nolint
     `headtail,matrix`
+
+## Updated 2020-10-07.
+`headtail,list` <-  # nolint
+    `headtail,atomic`
+
+## Updated 2020-10-07.
+`headtail,vector` <-  # nolint
+    `headtail,atomic`
 
 
 
@@ -190,4 +156,28 @@ setMethod(
     f = "headtail",
     signature = signature(x = "data.frame"),
     definition = `headtail,data.frame`
+)
+
+#' @describeIn headtail Paste collapse to a `character(1)`.
+#' @export
+setMethod(
+    f = "headtail",
+    signature = signature(x = "list"),
+    definition = `headtail,list`
+)
+
+#' @describeIn headtail Show first and last rows.
+#' @export
+setMethod(
+    f = "headtail",
+    signature = signature(x = "matrix"),
+    definition = `headtail,matrix`
+)
+
+#' @rdname headtail
+#' @export
+setMethod(
+    f = "headtail",
+    signature = signature(x = "vector"),
+    definition = `headtail,vector`
 )

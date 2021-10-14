@@ -4,7 +4,7 @@
 #' @note This function should be fully zero- and `NA`-tolerant. This calculation
 #'   is not particularly useful if there are elements that are <= 0 and will
 #'   return `NaN`.
-#' @note Updated 2021-02-02.
+#' @note Updated 2021-10-14.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @inheritParams base::apply
@@ -47,13 +47,15 @@ NULL
 
 
 
-#' @rdname geometricMean
-#' @export
-setMethod(
-    f = "geometricMean",
-    signature = signature(x = "AsIs"),
-    definition = `geometricMean,AsIs`
-)
+## Updated 2020-02-02.
+`geometricMean,matrix` <-  # nolint
+    function(x, MARGIN = 2L) {  # nolint
+        apply(
+            X = x,
+            MARGIN = MARGIN,
+            FUN = geometricMean
+        )
+    }
 
 
 
@@ -91,23 +93,9 @@ setMethod(
 #' @export
 setMethod(
     f = "geometricMean",
-    signature = signature(x = "numeric"),
-    definition = `geometricMean,numeric`
+    signature = signature(x = "AsIs"),
+    definition = `geometricMean,AsIs`
 )
-
-
-
-## Updated 2020-02-02.
-`geometricMean,matrix` <-  # nolint
-    function(x, MARGIN = 2L) {  # nolint
-        apply(
-            X = x,
-            MARGIN = MARGIN,
-            FUN = geometricMean
-        )
-    }
-
-
 
 #' @rdname geometricMean
 #' @export
@@ -115,4 +103,12 @@ setMethod(
     f = "geometricMean",
     signature = signature(x = "matrix"),
     definition = `geometricMean,matrix`
+)
+
+#' @rdname geometricMean
+#' @export
+setMethod(
+    f = "geometricMean",
+    signature = signature(x = "numeric"),
+    definition = `geometricMean,numeric`
 )

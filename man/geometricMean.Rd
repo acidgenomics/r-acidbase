@@ -3,26 +3,20 @@
 \name{geometricMean}
 \alias{geometricMean}
 \alias{geometricMean,AsIs-method}
-\alias{geometricMean,numeric-method}
 \alias{geometricMean,matrix-method}
+\alias{geometricMean,numeric-method}
 \title{Geometric mean}
 \usage{
 geometricMean(x, ...)
 
 \S4method{geometricMean}{AsIs}(x)
 
-\S4method{geometricMean}{numeric}(x, removeNA = TRUE, zeroPropagate = FALSE)
-
 \S4method{geometricMean}{matrix}(x, MARGIN = 2L)
+
+\S4method{geometricMean}{numeric}(x, removeNA = TRUE, zeroPropagate = FALSE)
 }
 \arguments{
 \item{x}{Object.}
-
-\item{removeNA}{\code{logical(1)}.
-Remove \code{NA} values from calculations.}
-
-\item{zeroPropagate}{\code{logical(1)}.
-Allow propagation of zeroes.}
 
 \item{MARGIN}{\code{integer(1-2)}.
 Dimension where the function will be applied.
@@ -30,6 +24,12 @@ For a two-dimensional matrix:
 \code{1} indicates rows;
 \code{2} indicates columns;
 \code{c(1, 2)} indicates rows and columns.}
+
+\item{removeNA}{\code{logical(1)}.
+Remove \code{NA} values from calculations.}
+
+\item{zeroPropagate}{\code{logical(1)}.
+Allow propagation of zeroes.}
 
 \item{...}{Additional arguments.}
 }
@@ -47,7 +47,7 @@ This function should be fully zero- and \code{NA}-tolerant. This calculation
 is not particularly useful if there are elements that are <= 0 and will
 return \code{NaN}.
 
-Updated 2021-02-02.
+Updated 2021-10-14.
 }
 \examples{
 ## numeric ====

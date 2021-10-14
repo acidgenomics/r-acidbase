@@ -20,7 +20,7 @@
 #' @examples
 #' data(DFrame, package = "AcidTest")
 #'
-#' ## Annotated (DataFrame) ====
+#' ## Annotated (DFrame) ====
 #' object <- DFrame
 #' is(object, "Annotated")
 #' object <- coerceToList(object)
