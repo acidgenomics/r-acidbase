@@ -1,0 +1,2 @@
+** TODO `requireNamespaces` should support version string cutoff e.g.
+    "AcidBase >= 0.1"
