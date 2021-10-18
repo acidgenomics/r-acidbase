@@ -1,3 +1,17 @@
+## AcidBase 0.4.6 (UNRELEASED)
+
+### Minor changes
+
+- Ordered S4 method exports alphabetically by class, where applicable.
+- `compress` / `decompress`: Simplified default formals and documentation.
+  User can no longer set `remove` or `overwrite` globally with
+  `"acid.compress.remove"` or `"acid.overwrite"`, respectively.
+- Removed `formalsList` from NAMESPACE, in favor of a reworked approach
+  across packages that previously inherited these values (in development).
+- `printString`: Improved and cleaned up documentation.
+- Updated working examples to use `DataFrame` object instead of `DFrame`,
+  where applicable. This requires an update to AcidTest package.
+
 ## AcidBase 0.4.5 (2021-09-08)
 
 ### Minor changes
