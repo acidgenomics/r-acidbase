@@ -5,16 +5,12 @@
 #' @export
 NULL
 
-
-
 #' @rdname geometricMean
 #' @name geometricMean
 #' @importFrom AcidGenerics geometricMean
 #' @usage geometricMean(x, ...)
 #' @export
 NULL
-
-
 
 #' @rdname headtail
 #' @name headtail
@@ -23,8 +19,6 @@ NULL
 #' @export
 NULL
 
-
-
 #' @rdname intersectAll
 #' @name intersectAll
 #' @importFrom AcidGenerics intersectAll
@@ -32,16 +26,12 @@ NULL
 #' @export
 NULL
 
-
-
 #' @rdname intersectionMatrix
 #' @name intersectionMatrix
 #' @importFrom AcidGenerics intersectionMatrix
 #' @usage intersectionMatrix(object, ...)
 #' @export
 NULL
-
-
 
 #' @rdname logRatio
 #' @name foldChangeToLogRatio
@@ -57,8 +47,6 @@ NULL
 #' @export
 NULL
 
-
-
 #' @rdname rankedMatrix
 #' @name rankedMatrix
 #' @importFrom AcidGenerics rankedMatrix
@@ -66,16 +54,12 @@ NULL
 #' @export
 NULL
 
-
-
 #' @rdname sem
 #' @name sem
 #' @importFrom AcidGenerics sem
 #' @usage sem(x, ...)
 #' @export
 NULL
-
-
 
 #' @rdname showHeader
 #' @name showHeader
