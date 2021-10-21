@@ -106,7 +106,10 @@ compress <- function(
     )
     ## For ZIP files, hand off to `utils::zip()` and early return.
     if (identical(ext, "zip")) {
-        zip(zipfile = destfile, files = file)
+        wd <- getwd()
+        setwd(dirname(file))
+        zip(zipfile = destfile, files = basename(file))
+        setwd(wd)
         if (isTRUE(remove)) {
             file.remove(file)
         }
