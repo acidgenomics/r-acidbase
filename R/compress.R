@@ -224,7 +224,7 @@ decompress <- function(
             list = FALSE,
             overwrite = overwrite,
             junkpaths = FALSE,
-            exdir = getwd(),
+            exdir = dirname(file),
             unzip = "internal",
             setTimes = FALSE
         )
