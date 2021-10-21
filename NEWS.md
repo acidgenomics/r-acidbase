@@ -11,6 +11,8 @@
 - `printString`: Improved and cleaned up documentation.
 - Updated working examples to use `DataFrame` object instead of `DFrame`,
   where applicable. This requires an update to AcidTest package.
+- `compress`: Bug fix for ZIP file compression handling outside of working
+  directory. Incorrectly used `basename` argument internally.
 
 ## AcidBase 0.4.5 (2021-09-08)
 
