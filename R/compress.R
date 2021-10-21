@@ -5,7 +5,7 @@
 #' @name compress
 #' @export
 #' @note For ZIP files, refer to `zip` and `unzip` in the utils package.
-#' @note Updated 2021-09-24.
+#' @note Updated 2021-10-21.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ext `character(1)`.
@@ -106,7 +106,7 @@ compress <- function(
     )
     ## For ZIP files, hand off to `utils::zip()` and early return.
     if (identical(ext, "zip")) {
-        zip(zipfile = destfile, files = basename(file))
+        zip(zipfile = destfile, files = file)
         if (isTRUE(remove)) {
             file.remove(file)
         }
@@ -221,7 +221,7 @@ decompress <- function(
             list = FALSE,
             overwrite = overwrite,
             junkpaths = FALSE,
-            exdir = ".",
+            exdir = getwd(),
             unzip = "internal",
             setTimes = FALSE
         )
