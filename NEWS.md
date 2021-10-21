@@ -12,7 +12,8 @@
 - Updated working examples to use `DataFrame` object instead of `DFrame`,
   where applicable. This requires an update to AcidTest package.
 - `compress`: Bug fix for ZIP file compression handling outside of working
-  directory. Incorrectly used `basename` argument internally.
+  directory. Incorrectly used `basename` argument internally. Unfortunately
+  need to change the working directory internally to get this working correctly.
 
 ## AcidBase 0.4.5 (2021-09-08)
 
