@@ -2,7 +2,7 @@ Package: AcidBase
 Title: Acid Genomics Base Functions
 Description: Low-level base functions imported by Acid Genomics packages.
 Version: 0.4.6.9000
-Date: 2021-10-21
+Date: 2021-10-28
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -20,7 +20,7 @@ URL:
 BugReports: https://github.com/acidgenomics/r-acidbase/issues/
 License: AGPL-3
 Encoding: UTF-8
-Depends: R (>= 4.0)
+Depends: R (>= 4.1)
 Imports:
     AcidCLI (>= 0.1.8),
     AcidGenerics (>= 0.6.0),
