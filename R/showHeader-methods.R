@@ -1,6 +1,6 @@
 #' @name showHeader
 #' @inherit AcidGenerics::showHeader
-#' @note Updated 2021-10-14.
+#' @note Updated 2022-02-04.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -20,7 +20,7 @@
 #' ## This virtual class supports `metadata()` slot.
 #' object <- DataFrame
 #' showHeader(object)
-#' metadata(object)[["packageVersion"]] <- package_version("0.0.1")
+#' S4Vectors::metadata(object)[["packageVersion"]] <- package_version("0.0.1")
 #' showHeader(object)
 NULL
 

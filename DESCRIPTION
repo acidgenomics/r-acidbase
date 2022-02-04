@@ -27,8 +27,6 @@ Imports:
     BiocGenerics,
     S4Vectors,
     goalie (>= 0.6.0),
-    grDevices,
-    grid,
     methods,
     processx (>= 3.5.2),
     stats,

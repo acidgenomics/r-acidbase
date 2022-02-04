@@ -24,7 +24,7 @@ Console output, via \code{\link[base:cat]{cat()}}.
 Header for object show method
 }
 \note{
-Updated 2021-10-14.
+Updated 2022-02-04.
 }
 \examples{
 data(
@@ -41,7 +41,7 @@ showHeader(object)
 ## This virtual class supports `metadata()` slot.
 object <- DataFrame
 showHeader(object)
-metadata(object)[["packageVersion"]] <- package_version("0.0.1")
+S4Vectors::metadata(object)[["packageVersion"]] <- package_version("0.0.1")
 showHeader(object)
 }
 \seealso{
