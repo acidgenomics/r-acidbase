@@ -45,5 +45,5 @@ metadata(object)[["packageVersion"]] <- package_version("0.0.1")
 showHeader(object)
 }
 \seealso{
-\code{\link[AcidGenerics:show]{show()}}.
+\code{\link[=show]{show()}}.
 }
