@@ -8,7 +8,7 @@
 #' @importClassesFrom S4Vectors Annotated
 #'
 #' @importFrom AcidCLI abort alert alertWarning toInlineString
-#' @importFrom S4Vectors metadata metadata<-
+#' @importFrom S4Vectors as.data.frame head metadata metadata<- tail
 #' @importFrom goalie allAreAtomic allAreDirs allHaveAccess assert bapply
 #'   compressExtPattern extPattern hasLength hasNames hasNoDuplicates isADir
 #'   isAFile isAURL isAny isCharacter isFlag isInt isPositive isScalar isString
