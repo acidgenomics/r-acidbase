@@ -47,7 +47,7 @@ Compress or decompress using gzip, bzip2, or xz compression.
 \note{
 For ZIP files, refer to \code{zip} and \code{unzip} in the utils package.
 
-Updated 2021-09-24.
+Updated 2021-10-21.
 }
 \examples{
 ## Create an example text file.
