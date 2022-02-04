@@ -24,6 +24,8 @@ Depends: R (>= 4.1)
 Imports:
     AcidCLI (>= 0.1.8),
     AcidGenerics (>= 0.6.0),
+    BiocGenerics,
+    S4Vectors,
     goalie (>= 0.6.0),
     grDevices,
     grid,
