@@ -1,69 +1,59 @@
 #' @rdname coerceToList
 #' @name coerceToList
-#' @importFrom AcidGenerics coerceToList
-#' @usage coerceToList(object, ...)
 #' @export
+#' @usage coerceToList(object, ...)
 NULL
 
 #' @rdname geometricMean
 #' @name geometricMean
-#' @importFrom AcidGenerics geometricMean
-#' @usage geometricMean(x, ...)
 #' @export
+#' @usage geometricMean(x, ...)
 NULL
 
 #' @rdname headtail
 #' @name headtail
-#' @importFrom AcidGenerics headtail
-#' @usage headtail(x, ...)
 #' @export
+#' @usage headtail(x, ...)
 NULL
 
 #' @rdname intersectAll
 #' @name intersectAll
-#' @importFrom AcidGenerics intersectAll
-#' @usage intersectAll(object, ...)
 #' @export
+#' @usage intersectAll(object, ...)
 NULL
 
 #' @rdname intersectionMatrix
 #' @name intersectionMatrix
-#' @importFrom AcidGenerics intersectionMatrix
-#' @usage intersectionMatrix(object, ...)
 #' @export
+#' @usage intersectionMatrix(object, ...)
 NULL
 
 #' @rdname logRatio
 #' @name foldChangeToLogRatio
-#' @importFrom AcidGenerics foldChangeToLogRatio
-#' @usage foldChangeToLogRatio(object, ...)
 #' @export
+#' @usage foldChangeToLogRatio(object, ...)
 NULL
 
 #' @rdname logRatio
 #' @name logRatioToFoldChange
-#' @importFrom AcidGenerics logRatioToFoldChange
-#' @usage logRatioToFoldChange(object, ...)
 #' @export
+#' @usage logRatioToFoldChange(object, ...)
 NULL
 
 #' @rdname rankedMatrix
 #' @name rankedMatrix
-#' @importFrom AcidGenerics rankedMatrix
-#' @usage rankedMatrix(object, ...)
 #' @export
+#' @usage rankedMatrix(object, ...)
 NULL
 
 #' @rdname sem
 #' @name sem
-#' @importFrom AcidGenerics sem
-#' @usage sem(x, ...)
 #' @export
+#' @usage sem(x, ...)
 NULL
 
 #' @rdname showHeader
 #' @name showHeader
-#' @importFrom AcidGenerics showHeader
-#' @usage showHeader(object, ...)
 #' @export
+#' @usage showHeader(object, ...)
 NULL
