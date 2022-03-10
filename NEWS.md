@@ -1,4 +1,4 @@
-# AcidBase 0.4.6 (UNRELEASED)
+# AcidBase 0.5.0 (2022-03-10)
 
 ## Minor changes
 
