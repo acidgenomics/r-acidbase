@@ -22,7 +22,7 @@ License: AGPL-3
 Encoding: UTF-8
 Depends: R (>= 4.1)
 Imports:
-    AcidCLI (>= 0.1.8),
+    AcidCLI (>= 0.2.0),
     AcidGenerics (>= 0.6.0),
     BiocGenerics,
     S4Vectors,
