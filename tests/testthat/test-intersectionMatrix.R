@@ -12,13 +12,13 @@ test_that("named list", {
         expected = matrix(
             data = c(
                 TRUE, FALSE, FALSE,
-                TRUE,  TRUE, FALSE,
-                TRUE,  TRUE,  TRUE,
-                TRUE,  TRUE,  TRUE,
-                TRUE,  TRUE,  TRUE,
-                TRUE,  TRUE,  TRUE,
-                FALSE,  TRUE,  TRUE,
-                FALSE, FALSE,  TRUE
+                TRUE, TRUE, FALSE,
+                TRUE, TRUE, TRUE,
+                TRUE, TRUE, TRUE,
+                TRUE, TRUE, TRUE,
+                TRUE, TRUE, TRUE,
+                FALSE, TRUE, TRUE,
+                FALSE, FALSE, TRUE
             ),
             nrow = 8L,
             ncol = 3L,
@@ -79,10 +79,10 @@ test_that("two-dimensional arrays", {
             object = intersectionMatrix(object),
             expected = matrix(
                 data = c(
-                     TRUE, FALSE, FALSE,
-                    FALSE, FALSE,  TRUE,
-                     TRUE,  TRUE,  TRUE,
-                    FALSE,  TRUE, FALSE
+                    TRUE, FALSE, FALSE,
+                    FALSE, FALSE, TRUE,
+                    TRUE, TRUE, TRUE,
+                    FALSE, TRUE, FALSE
                 ),
                 nrow = 4L,
                 ncol = 3L,
@@ -107,13 +107,13 @@ test_that("data frame of factors", {
         ),
         expected = matrix(
             data = c(
-                 TRUE, FALSE, FALSE,
-                 TRUE,  TRUE, FALSE,
-                 TRUE,  TRUE, FALSE,
-                FALSE,  TRUE, FALSE,
-                FALSE, FALSE,  TRUE,
-                FALSE, FALSE,  TRUE,
-                FALSE, FALSE,  TRUE
+                TRUE, FALSE, FALSE,
+                TRUE, TRUE, FALSE,
+                TRUE, TRUE, FALSE,
+                FALSE, TRUE, FALSE,
+                FALSE, FALSE, TRUE,
+                FALSE, FALSE, TRUE,
+                FALSE, FALSE, TRUE
             ),
             nrow = 7L,
             ncol = 3L,

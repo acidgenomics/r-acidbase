@@ -14,7 +14,7 @@
 #' @export
 #'
 #' @param packages `character`.
-#'   Package names to load.
+#' Package names to load.
 #'
 #' @seealso
 #' - `requireNamespace`

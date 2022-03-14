@@ -2,8 +2,8 @@
 #' @inherit AcidGenerics::geometricMean
 #'
 #' @note This function should be fully zero- and `NA`-tolerant. This calculation
-#'   is not particularly useful if there are elements that are <= 0 and will
-#'   return `NaN`.
+#' is not particularly useful if there are elements that are <= 0 and will
+#' return `NaN`.
 #' @note Updated 2021-10-14.
 #'
 #' @inheritParams AcidRoxygen::params
@@ -22,7 +22,7 @@
 #' print(vec1)
 #' geometricMean(vec1)
 #'
-#' vec2 <- vec1 ^ 2L
+#' vec2 <- vec1^2L
 #' print(vec2)
 #' geometricMean(vec2)
 #'
@@ -40,16 +40,16 @@ NULL
 
 ## Necessary for dplyr mutate calls.
 ## Updated 2021-02-02.
-`geometricMean,AsIs` <-  # nolint
+`geometricMean,AsIs` <- # nolint
     function(x) {
-        geometricMean(as.numeric(x))  # nocov
+        geometricMean(as.numeric(x)) # nocov
     }
 
 
 
 ## Updated 2020-02-02.
-`geometricMean,matrix` <-  # nolint
-    function(x, MARGIN = 2L) {  # nolint
+`geometricMean,matrix` <- # nolint
+    function(x, MARGIN = 2L) { # nolint
         apply(
             X = x,
             MARGIN = MARGIN,
@@ -60,12 +60,10 @@ NULL
 
 
 ## Updated 2020-02-02.
-`geometricMean,numeric` <-  # nolint
-    function(
-        x,
-        removeNA = TRUE,
-        zeroPropagate = FALSE
-    ) {
+`geometricMean,numeric` <- # nolint
+    function(x,
+             removeNA = TRUE,
+             zeroPropagate = FALSE) {
         assert(
             isFlag(removeNA),
             isFlag(zeroPropagate)

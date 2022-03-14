@@ -41,7 +41,7 @@ lanePattern <- "_L([[:digit:]]{3})"
 #'
 #' @export
 #' @note `sampleId` (`sampleID` for older datasets) is set automatically for
-#'   multiplexed/cell-level data.
+#' multiplexed/cell-level data.
 #' @note Updated 2021-02-25.
 #'
 #' @examples

@@ -8,22 +8,20 @@
 #' @note Updated 2021-10-21.
 #'
 #' @inheritParams AcidRoxygen::params
-#' @param ext `character(1)`.
-#'   Compression file format extension. Uses `match.arg()` internally and
-#'   defaults to the first argument in the `character` vector.
 #'
-#'   Supported formats:
-#'   - `gz`: gzip compression;
-#'     calls `gzfile()` internally.
-#'   - `bz`: bzip2 (lzma) compression;
-#'     calls `bzfile()` internally.
-#'   - `xz`: xz compression;
-#'     calls `xzfile()` internally.
-#'   - `zip`: zip compression;
-#'     calls `zip()` or `unzip()` internally.
+#' @param ext `character(1)`.
+#' Compression file format extension. Uses `match.arg()` internally and
+#' defaults to the first argument in the `character` vector.
+#'
+#' Supported formats:
+#' - `gz`: gzip compression; calls `gzfile()` internally.
+#' - `bz`: bzip2 (lzma) compression; calls `bzfile()` internally.
+#' - `xz`: xz compression; calls `xzfile()` internally.
+#' - `zip`: zip compression; calls `zip()` or `unzip()` internally.
+#'
 #' @param remove `logical(1)`.
-#'   Remove the input file once the output file is fully created and the
-#'   connection is closed.
+#' Remove the input file once the output file is fully created and the
+#' connection is closed.
 #'
 #' @seealso
 #' - `help("connections")`
@@ -73,12 +71,10 @@ NULL
 
 #' @rdname compress
 #' @export
-compress <- function(
-    file,
-    ext = c("gz", "bz2", "xz", "zip"),
-    remove = FALSE,
-    overwrite = FALSE
-) {
+compress <- function(file,
+                     ext = c("gz", "bz2", "xz", "zip"),
+                     remove = FALSE,
+                     overwrite = FALSE) {
     assert(
         isString(file),
         isFlag(remove),
@@ -126,12 +122,15 @@ compress <- function(
     on.exit(if (!is.null(inn)) close(inn))
     outComplete <- FALSE
     out <- fun(description = destfile, open = "wb")
-    on.exit({
-        ## nocov start
-        if (!is.null(out)) close(out)
-        if (!isTRUE(outComplete)) file.remove(destfile)
-        ## nocov end
-    }, add = TRUE)
+    on.exit(
+        {
+            ## nocov start
+            if (!is.null(out)) close(out)
+            if (!isTRUE(outComplete)) file.remove(destfile)
+            ## nocov end
+        },
+        add = TRUE
+    )
     ## Don't keep as integer here, otherwise can hit integer overflow
     ## on large files.
     nbytes <- as.numeric(0L)
@@ -179,11 +178,9 @@ compress <- function(
 
 #' @rdname compress
 #' @export
-decompress <- function(
-    file,
-    remove = FALSE,
-    overwrite = FALSE
-) {
+decompress <- function(file,
+                       remove = FALSE,
+                       overwrite = FALSE) {
     assert(
         isString(file),
         isFlag(remove),
@@ -210,8 +207,7 @@ decompress <- function(
         ## nocov start
         if (isTRUE(overwrite)) {
             file.remove(destfile)
-        }
-        else {
+        } else {
             abort(sprintf("File exists: {.file %s}.", destfile))
         }
         ## nocov end
@@ -259,12 +255,15 @@ decompress <- function(
     on.exit(if (!is.null(inn)) close(inn))
     outComplete <- FALSE
     out <- file(destfile, open = "wb")
-    on.exit({
-        ## nocov start
-        if (!is.null(out)) close(out)
-        if (!outComplete) file.remove(destfile)
-        ## nocov end
-    }, add = TRUE)
+    on.exit(
+        {
+            ## nocov start
+            if (!is.null(out)) close(out)
+            if (!outComplete) file.remove(destfile)
+            ## nocov end
+        },
+        add = TRUE
+    )
     ## Don't keep as integer here, otherwise can hit integer overflow
     ## on large files.
     nbytes <- as.numeric(0L)

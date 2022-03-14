@@ -4,27 +4,32 @@
 #' @note Updated 2021-09-22.
 #'
 #' @param command `character(1)`.
-#'   Name of program to run.
+#' Name of program to run.
+#'
 #' @param args `character`.
-#'   Arguments passed to `command`.
+#' Arguments passed to `command`.
+#'
 #' @param print `logical(1)`.
-#'   Whether to print (echo) the commands to the console.
+#' Whether to print (echo) the commands to the console.
+#'
 #' @param wd `character(1)`.
-#'   Working directory path inside shell session.
+#' Working directory path inside shell session.
+#'
 #' @param stdoutFile,stderrFile `character(1)` or `NULL`.
-#'   File path to log stdout and/or stderr.
-#'   Disabled when set `NULL`.
+#' File path to log stdout and/or stderr.
+#' Disabled when set `NULL`.
+#'
 #' @param stderrToStdout `logical(1)`.
-#'   Whether to redirect standard error (stderr) to standard output (stdout).
-#'   Similar to `2>&1` in POSIX or `&>` in Bash.
+#' Whether to redirect standard error (stderr) to standard output (stdout).
+#' Similar to `2>&1` in POSIX or `&>` in Bash.
 #'
 #' @seealso
 #' - `processx::run()`.
 #' - `base::system2()`, our previously used legacy approach.
 #'
 #' @return Invisible `list`.
-#'   Contains named elements:
-#'   `"status"`, `"stdout"`, `"stderr"`, `"timeout"`.
+#' Contains named elements:
+#' `"status"`, `"stdout"`, `"stderr"`, `"timeout"`.
 #'
 #' @examples
 #' x <- shell(
@@ -33,15 +38,13 @@
 #'     print = TRUE
 #' )
 #' print(x)
-shell <- function(
-    command,
-    args = character(),
-    print = interactive(),
-    wd = getwd(),
-    stdoutFile = NULL,
-    stderrFile = NULL,
-    stderrToStdout = FALSE
-) {
+shell <- function(command,
+                  args = character(),
+                  print = interactive(),
+                  wd = getwd(),
+                  stdoutFile = NULL,
+                  stderrFile = NULL,
+                  stderrToStdout = FALSE) {
     assert(
         isString(command),
         isSystemCommand(command),

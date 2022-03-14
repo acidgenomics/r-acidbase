@@ -5,14 +5,15 @@
 #' @note Updated 2021-08-23.
 #'
 #' @param x `character`.
-#'   Elements to add to the system path string defined in `var`.
+#' Elements to add to the system path string defined in `var`.
+#'
 #' @param var `character(1)`.
-#'   System environment variable name.
-#'   Hands off to `Sys.getenv` and `Sys.setenv` internally.
-#'   Intended for use with `"PATH"`, `"FPATH"`, `"MANPATH"`, etc.
+#' System environment variable name.
+#' Hands off to `Sys.getenv` and `Sys.setenv` internally.
+#' Intended for use with `"PATH"`, `"FPATH"`, `"MANPATH"`, etc.
 #'
 #' @return Invisible `character(1)`.
-#'   Path string.
+#' Path string.
 #'
 #' @examples
 #' x <- c("/usr/local/bin", "/usr/bin")
@@ -102,7 +103,7 @@ removeFromPath <- function(x, var = "PATH") {
 #' @note Updated 2021-08-23.
 #'
 #' @param x `character`.
-#'   Elements to combine into a path string.
+#' Elements to combine into a path string.
 #'
 #' @return `character(1)`.
 #'
@@ -121,12 +122,12 @@ collapseToPathString <- function(x) {
 #' @note Updated 2021-08-18.
 #'
 #' @param x `character(1)`.
-#'   PATH string, containing elements separated with a colon (`":"`).
-#'   Defaults to system path string.
+#' PATH string, containing elements separated with a colon (`":"`).
+#' Defaults to system path string.
 #'
 #' @return `character`.
-#'   Discrete path elements in a vector.
-#'   Intentionally does not make elements unique.
+#' Discrete path elements in a vector.
+#' Intentionally does not make elements unique.
 #'
 #' @seealso
 #' - `Sys.getenv("PATH")`
@@ -150,8 +151,8 @@ splitPathString <- function(x = Sys.getenv("PATH")) {
 #' @note Updated 2021-08-23.
 #'
 #' @param x `character(1)`.
-#'   Path string, containing elements separated with a colon (`":"`).
-#'   Defaults to system path string.
+#' Path string, containing elements separated with a colon (`":"`).
+#' Defaults to system path string.
 #'
 #' @return `character(1)`.
 #'

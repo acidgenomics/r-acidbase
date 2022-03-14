@@ -3,7 +3,7 @@ context("logRatio")
 fc <- c(-8L, -4L, -2L, 1L, 2L, 4L, 8L)
 lr <- seq(-3L, 3L, 1L)
 vec1 <- seq(from = 1L, to = 5L, by = 1L)
-vec2 <- vec1 ^ 2L
+vec2 <- vec1^2L
 means <- c(vec1 = 2.605171, vec2 = 6.786916)
 
 test_that("foldChangeToLogRatio", {

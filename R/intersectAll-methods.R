@@ -17,7 +17,7 @@ NULL
 
 
 ## Updated 2020-08-18.
-`intersectAll,list` <-  # nolint
+`intersectAll,list` <- # nolint
     function(object) {
         Reduce(f = intersect, x = object)
     }

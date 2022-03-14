@@ -7,12 +7,13 @@
 #' @note Updated 2021-01-28.
 #'
 #' @param class `character(1)`.
-#'   Class name.
+#' Class name.
+#'
 #' @param package `character(1)`.
-#'   Package name.
+#' Package name.
 #'
 #' @return `character(1)`.
-#'   Name of extended class.
+#' Name of extended class.
 #'
 #' @seealso
 #' - [methods::getClass()].
