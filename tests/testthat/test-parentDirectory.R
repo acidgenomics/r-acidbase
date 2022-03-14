@@ -8,7 +8,7 @@ test_that("Nested structure check", {
     for (n in seq(from = 1L, to = length(vec) - 1L)) {
         expect_identical(
             object = basename(parentDir(path, n = n)),
-            expected =  vec[length(vec) - n]
+            expected = vec[length(vec) - n]
         )
     }
     unlink(path, recursive = TRUE)

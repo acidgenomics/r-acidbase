@@ -5,10 +5,11 @@
 #' @note Updated 2019-09-05.
 #'
 #' @param path `character`.
-#'   File path(s).
-#'   This function is vectorized and supports multiple files.
+#' File path(s).
+#' This function is vectorized and supports multiple files.
+#'
 #' @param fsep `character(1)`.
-#'   Platform-specific file path separator (e.g. "/" on Unix).
+#' Platform-specific file path separator (e.g. "/" on Unix).
 #'
 #' @return `integer`.
 #' Unnamed vector denoting file path depth.

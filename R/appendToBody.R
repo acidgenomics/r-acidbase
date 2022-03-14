@@ -4,11 +4,13 @@
 #' @note Updated 2019-08-23.
 #'
 #' @inheritParams AcidRoxygen::params
+#'
 #' @param values `call`.
-#'   Quoted values (i.e. call) to slot in the function body.
+#' Quoted values (i.e. call) to slot in the function body.
+#'
 #' @param after `integer(1)`.
-#'   Where to append in the `body`.
-#'   The default of `1L` places directly after the opening curly bracket.
+#' Where to append in the `body`.
+#' The default of `1L` places directly after the opening curly bracket.
 #'
 #' @seealso [Stack Overflow](https://stackoverflow.com/questions/38732663)
 #'
@@ -16,7 +18,9 @@
 #'
 #' @examples
 #' ## Add a deprecation call into function body.
-#' fun <- function() { print("hello world") }
+#' fun <- function() {
+#'     print("hello world")
+#' }
 #' body(fun)
 #'
 #' ## values: call ====

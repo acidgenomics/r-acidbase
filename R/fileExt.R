@@ -5,16 +5,16 @@
 #' @note Updated 2020-01-18.
 #'
 #' @param path `character`.
-#'   File path(s).
-#'   This function is vectorized and supports multiple files.
+#' File path(s).
+#' This function is vectorized and supports multiple files.
 #'
 #' @return `character`.
 #' Character vector of same length as `path` input, with file extension removed.
 #' Returns `NA` if no extension is detected.
 #'
 #' @seealso
-#' - `tools::file_ext()`. Note that this returns `character()` instead of `NA`
-#'   on extension match failure.
+#' `tools::file_ext()`. Note that this returns `character()` instead of `NA`
+#' on extension match failure.
 #'
 #' @examples
 #' fileExt(c("dir/foo.txt", "dir/bar.tar.gz", "dir/"))

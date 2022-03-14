@@ -9,8 +9,8 @@ NULL
 ## S4 generics and methods =====================================================
 
 #' @importFrom AcidGenerics coerceToList foldChangeToLogRatio geometricMean
-#'   headtail intersectAll intersectionMatrix logRatioToFoldChange rankedMatrix
-#'   sem showHeader
+#' headtail intersectAll intersectionMatrix logRatioToFoldChange rankedMatrix
+#' sem showHeader
 #' @importFrom S4Vectors metadata metadata<-
 NULL
 
@@ -20,11 +20,11 @@ NULL
 
 #' @importFrom AcidCLI abort alert alertWarning toInlineString
 #' @importFrom goalie allAreAtomic allAreDirs allHaveAccess assert bapply
-#'   compressExtPattern extPattern hasLength hasNames hasNoDuplicates isADir
-#'   isAFile isAURL isAny isCharacter isFlag isInt isPositive isScalar isString
-#'   isSubset isSystemCommand
+#' compressExtPattern extPattern hasLength hasNames hasNoDuplicates isADir
+#' isAFile isAURL isAny isCharacter isFlag isInt isPositive isScalar isString
+#' isSubset isSystemCommand
 #' @importFrom methods .hasSlot getClassDef is isGeneric selectMethod
-#'   setClassUnion setMethod setOldClass signature slot slotNames
+#' setClassUnion setMethod setOldClass signature slot slotNames
 #' @importFrom processx run
 #' @importFrom stats var
 #' @importFrom utils capture.output download.file head unzip tail zip

@@ -9,10 +9,10 @@
 #' @note Updated 2020-01-06.
 #'
 #' @param dir `character(1)`.
-#'   Directory path.
+#' Directory path.
 #'
 #' @return `character(1)`.
-#'   Directory path.
+#' Directory path.
 #'
 #' @examples
 #' initDir("testdir")

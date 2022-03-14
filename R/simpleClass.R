@@ -12,7 +12,7 @@
 #' @inheritParams AcidRoxygen::params
 #'
 #' @return `character(1)`.
-#'   Primary class of object, as a simple string.
+#' Primary class of object, as a simple string.
 #'
 #' @examples
 #' df <- data.frame()

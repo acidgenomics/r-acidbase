@@ -8,7 +8,7 @@
 #' Refer to `SummarizedExperiment` method for example.
 #'
 #' @param list `list`.
-#'   Named list containing slot metadata.
+#' Named list containing slot metadata.
 #'
 #' @return Invisible `NULL`.
 #'

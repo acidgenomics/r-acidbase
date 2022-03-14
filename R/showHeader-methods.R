@@ -27,7 +27,7 @@ NULL
 
 
 ## Updated 2021-02-04.
-`showHeader,ANY` <-  # nolint
+`showHeader,ANY` <- # nolint
     function(object) {
         class <- class(object)[[1L]]
         x <- class
@@ -41,7 +41,7 @@ NULL
 
 
 ## Updated 2021-02-23.
-`showHeader,Annotated` <-  # nolint
+`showHeader,Annotated` <- # nolint
     function(object) {
         class <- class(object)[[1L]]
         x <- class

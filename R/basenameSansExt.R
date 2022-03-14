@@ -5,8 +5,8 @@
 #' @note Updated 2019-10-22.
 #'
 #' @param path `character`.
-#'   File path(s).
-#'   This function is vectorized and supports multiple files.
+#' File path(s).
+#' This function is vectorized and supports multiple files.
 #'
 #' @return `character`.
 #' Character vector of same length as `path` input, with file extension removed.

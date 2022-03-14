@@ -10,17 +10,20 @@
 #' configuration in `Rprofile`.
 #'
 #' @param url `character(1)`.
-#'   URL.
+#' URL.
+#'
 #' @param destfile `character(1)`.
-#'   Destination file.
+#' Destination file.
+#'
 #' @param quiet `logical(1)`.
-#'   Suppress status messages.
+#' Suppress status messages.
+#'
 #' @param ... Passthrough arguments to [utils::download.file()].
 #'
 #' @return `character(1)`.
-#'   Destination file path.
-#'   Note that this differs from `download.file`, which returns a status code
-#'   (e.g. `0` for success) instead.
+#' Destination file path.
+#' Note that this differs from `download.file`, which returns a status code
+#' (e.g. `0` for success) instead.
 #'
 #' @examples
 #' url <- "https://bioconductor.org/bioc-version"
@@ -29,12 +32,10 @@
 #' print(out)
 #' file.remove(out)
 download <-
-    function(
-        url,
-        destfile,
-        quiet = FALSE,
-        ...
-    ) {
+    function(url,
+             destfile,
+             quiet = FALSE,
+             ...) {
         assert(
             isString(url),
             isString(destfile),
@@ -42,7 +43,7 @@ download <-
         )
         destfile <- normalizePath(destfile, mustWork = FALSE)
         if (!isADir(dirname(destfile))) {
-            dir.create(path = dirname(destfile), recursive = TRUE)  # nocov
+            dir.create(path = dirname(destfile), recursive = TRUE) # nocov
         }
         timeout <- getOption(x = "timeout")
         if (is.numeric(timeout)) {
@@ -65,7 +66,7 @@ download <-
                 ...
             ),
             warning = function(w) {
-                abort(w)  # nocov
+                abort(w) # nocov
             }
         )
         if (!identical(status, 0L)) {

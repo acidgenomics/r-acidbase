@@ -23,7 +23,7 @@ NULL
 
 
 ## Updated 2019-07-22.
-`foldChangeToLogRatio,numeric` <-  # nolint
+`foldChangeToLogRatio,numeric` <- # nolint
     function(object, base = 2L) {
         assert(isInt(base), isPositive(base))
         base <- as.integer(base)
@@ -35,11 +35,11 @@ NULL
 
 
 ## Updated 2019-07-22.
-`logRatioToFoldChange,numeric` <-  # nolint
+`logRatioToFoldChange,numeric` <- # nolint
     function(object, base = 2L) {
         assert(isInt(base), isPositive(base))
         base <- as.integer(base)
-        object <- base ^ object
+        object <- base^object
         object <- ifelse(object < 1L, -1L / object, object)
         object
     }

@@ -18,7 +18,7 @@ NULL
 
 
 ## Updated 2021-10-13.
-`intersectionMatrix,DataFrame` <-  # nolint
+`intersectionMatrix,DataFrame` <- # nolint
     function(object) {
         assert(allAreAtomic(object))
         object <- as.data.frame(object)
@@ -28,7 +28,7 @@ NULL
 
 
 ## Updated 2021-08-13.
-`intersectionMatrix,data.frame` <-  # nolint
+`intersectionMatrix,data.frame` <- # nolint
     function(object) {
         assert(allAreAtomic(object))
         object <- as.list(object)
@@ -38,7 +38,7 @@ NULL
 
 
 ## Updated 2020-08-18.
-`intersectionMatrix,list` <-  # nolint
+`intersectionMatrix,list` <- # nolint
     function(object) {
         assert(
             hasLength(object),
@@ -82,7 +82,7 @@ NULL
 ## https://stackoverflow.com/questions/6819804/
 ## Can't use `as.list()` directly here.
 ## Updated 2021-08-13.
-`intersectionMatrix,matrix` <-  # nolint
+`intersectionMatrix,matrix` <- # nolint
     function(object) {
         assert(is.character(object) || is.numeric(object))
         object <- as.data.frame(object)

@@ -31,13 +31,13 @@ NULL
 
 
 ## Updated 2019-10-22.
-`coerceToList,Annotated` <-  # nolint
+`coerceToList,Annotated` <- # nolint
     function(object) {
         out <- lapply(slotNames(object), function(slot) {
             if (.hasSlot(object, slot)) {
                 slot(object, slot)
             } else {
-                NULL  # nocov
+                NULL # nocov
             }
         })
         names(out) <- slotNames(object)

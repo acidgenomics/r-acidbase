@@ -6,7 +6,7 @@
 #' @inheritParams methods::selectMethod
 #' @inheritParams methods::setMethod
 #' @param package `character(1)`.
-#'   Package name.
+#' Package name.
 #'
 #' @return
 #' - `methodFormals`: `list`. Extract the sealed formal arguments.
@@ -90,7 +90,7 @@ methodFunction <- function(f, signature, package) {
     ## the formals aren't identical to the generic. Otherwise it will be slotted
     ## in ".Data".
     if (isTRUE(.hasLocal(definition))) {
-        fun <- .extractLocal(definition)  # nocov
+        fun <- .extractLocal(definition) # nocov
     } else {
         fun <- slot(definition, ".Data")
     }
@@ -133,13 +133,13 @@ methodFormals <- function(f, signature, package) {
     )
     body <- body(definition)
     if (!is(body, "{")) {
-        return(FALSE)  # nocov
+        return(FALSE) # nocov
     }
     if (!is(body[[2L]], "<-")) {
         return(FALSE)
     }
     if (!identical(body[[2L]][[2L]], as.name(".local"))) {
-        return(FALSE)  # nocov
+        return(FALSE) # nocov
     }
     TRUE
 }

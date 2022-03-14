@@ -3,14 +3,18 @@
 #' @note Updated 2021-02-04.
 #'
 #' @inheritParams AcidRoxygen::params
+#'
 #' @param MARGIN `integer(1)`.
-#'   Direction to apply the function.
-#'   1 indicates rows, 2 indicates columns.
+#' Direction to apply the function.
+#' 1 indicates rows, 2 indicates columns.
+#'
 #' @param method `character(1)`.
-#'   Rank the values in `increasing`, `decreasing`, or `bidirectional` order.
+#' Rank the values in `increasing`, `decreasing`, or `bidirectional` order.
+#'
 #' @param tiesMethod `character(1)`.
-#'   How ties should be treated.
-#'   See [rank()] for details.
+#' How ties should be treated.
+#' See [rank()] for details.
+#'
 #' @param ... Additional arguments.
 #'
 #' @examples
@@ -43,13 +47,11 @@ NULL
 
 
 ## Updated 2021-02-04.
-.rankMatrix <-  # nolint
-    function(
-        x,
-        MARGIN,  # nolint
-        decreasing,
-        tiesMethod
-    ) {
+.rankMatrix <- # nolint
+    function(x,
+             MARGIN, # nolint
+             decreasing,
+             tiesMethod) {
         apply(
             X = x,
             MARGIN = MARGIN,
@@ -63,7 +65,7 @@ NULL
 
 ## Note that use of `which()` here will omit `NA` intentionally.
 ## Updated 2021-08-13.
-.bidirRank <-  # nolint
+.bidirRank <- # nolint
     function(x, tiesMethod) {
         ## Set any zero values to NA.
         ## > x[x == 0L] <- NA
@@ -78,12 +80,10 @@ NULL
 
 
 ## Updated 2021-08-13.
-.bidirRankMatrix <-  # nolint
-    function(
-        x,
-        MARGIN,  # nolint
-        tiesMethod
-    ) {
+.bidirRankMatrix <- # nolint
+    function(x,
+             MARGIN, # nolint
+             tiesMethod) {
         apply(
             X = x,
             MARGIN = MARGIN,
@@ -95,13 +95,11 @@ NULL
 
 
 ## Updated 2021-02-04.
-`rankedMatrix,matrix` <-  # nolint
-    function(
-        object,
-        MARGIN = 2L,  # nolint
-        method = c("increasing", "decreasing", "bidirectional"),
-        tiesMethod
-    ) {
+`rankedMatrix,matrix` <- # nolint
+    function(object,
+             MARGIN = 2L, # nolint
+             method = c("increasing", "decreasing", "bidirectional"),
+             tiesMethod) {
         assert(
             hasLength(object),
             isInt(MARGIN)

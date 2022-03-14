@@ -3,8 +3,10 @@
 #' @note Updated 2021-10-14.
 #'
 #' @inheritParams AcidRoxygen::params
+#'
 #' @param n `integer(1)`.
-#'   Positive integer denoting the number of first and last items to include.
+#' Positive integer denoting the number of first and last items to include.
+#'
 #' @param ... Additional arguments.
 #'
 #' @examples
@@ -17,7 +19,7 @@ NULL
 
 
 ## Updated 2020-10-07.
-`headtail,atomic` <-  # nolint
+`headtail,atomic` <- # nolint
     function(x, n = 2L) {
         assert(
             is.atomic(x),
@@ -38,7 +40,7 @@ NULL
 
 
 ## Updated 2020-10-07.
-`headtail,matrix` <-  # nolint
+`headtail,matrix` <- # nolint
     function(x, n = 2L) {
         assert(
             isTRUE(nrow(x) > 0L), isTRUE(ncol(x) > 0L),
@@ -49,7 +51,7 @@ NULL
                 head(rownames(x), n = n * 2L),
                 head(colnames(x), n = n * 2L),
                 drop = FALSE
-                ]
+            ]
             out <- as.data.frame(out)
         } else {
             ## Ensure that we're performing subset operation before coercion to
@@ -64,7 +66,7 @@ NULL
                     tail(colnames(x), n = n)
                 ),
                 drop = FALSE
-                ]
+            ]
             ## Coerce to data.frame, for consistency.
             square <- as.data.frame(square)
             ## Sanitize all non-atomic columns to placeholder symbol.
@@ -72,7 +74,7 @@ NULL
                 X = square,
                 FUN = function(x) {
                     if (is.factor(x)) {
-                        as.character(x)  # nocov
+                        as.character(x) # nocov
                     } else if (is.atomic(x)) {
                         x
                     } else {
@@ -133,15 +135,15 @@ NULL
 
 
 ## Updated 2019-07-22.
-`headtail,data.frame` <-  # nolint
+`headtail,data.frame` <- # nolint
     `headtail,matrix`
 
 ## Updated 2020-10-07.
-`headtail,list` <-  # nolint
+`headtail,list` <- # nolint
     `headtail,atomic`
 
 ## Updated 2020-10-07.
-`headtail,vector` <-  # nolint
+`headtail,vector` <- # nolint
     `headtail,atomic`
 
 
