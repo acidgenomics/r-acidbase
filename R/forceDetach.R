@@ -14,7 +14,7 @@
 #' @note Updated 2020-10-06.
 #'
 #' @param keep `character`.
-#'   Package names to keep attached in environment.
+#' Package names to keep attached in environment.
 #'
 #' @examples
 #' ## > forceDetach()

@@ -7,11 +7,12 @@
 #' Function always resolves directory path internally, using `realpath`.
 #'
 #' @param path `character`.
-#'   Local file and/or directory paths.
-#'   Also supports URLs.
+#' Local file and/or directory paths.
+#' Also supports URLs.
+#'
 #' @param n `logical(1)`.
-#'   Number of levels to recursive.
-#'   Defaults to the immediate parent, similar to `dirname`.
+#' Number of levels to recursive.
+#' Defaults to the immediate parent, similar to `dirname`.
 #'
 #' @return `character`.
 #'
@@ -27,10 +28,8 @@
 #' )
 #' path <- c(dir, url)
 #' parentDir(path = path)
-parentDirectory <- function(
-    path,
-    n = 1L
-) {
+parentDirectory <- function(path,
+                            n = 1L) {
     assert(
         isCharacter(path),
         isInt(n),

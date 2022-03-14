@@ -21,15 +21,15 @@ NULL
 
 ## Necessary for dplyr mutate calls.
 ## Updated 2021-02-02.
-`sem,AsIs` <-  # nolint
+`sem,AsIs` <- # nolint
     function(x) {
-        sem(as.numeric(x))  # nocov
+        sem(as.numeric(x)) # nocov
     }
 
 
 
 ## Updated 2021-10-12.
-`sem,numeric` <-  # nolint
+`sem,numeric` <- # nolint
     function(x) {
         sqrt(var(x) / length(x))
     }

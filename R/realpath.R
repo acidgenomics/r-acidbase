@@ -5,7 +5,7 @@
 #' @note Use `normalizePath()` instead for non-existing file paths.
 #'
 #' @param path `character`.
-#'   File paths, which must exist on disk.
+#' File paths, which must exist on disk.
 #'
 #' @seealso
 #' Standard path modifiers:
@@ -24,7 +24,7 @@ realpath <- function(path) {
     assert(isCharacter(path))
     out <- normalizePath(
         path = path,
-        winslash = .Platform$file.sep,  # nolint
+        winslash = .Platform$file.sep, # nolint
         mustWork = TRUE
     )
     names(out) <- names(path)

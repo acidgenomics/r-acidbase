@@ -8,12 +8,14 @@
 #' @note Updated 2021-02-23.
 #'
 #' @param x An object used to select a [`print()`][base::print] method.
+#'
 #' @param ... Passthrough arguments to [`print()`][base::print].
+#'
 #' @param max `integer(1)`.
-#'   Maximum length of vector.
-#'   Works internally by calling `head()` on the print capture, prior to
-#'   collapse using `paste()`.
-#"   Supports `getOption(x = "max.print")` global variable.
+#' Maximum length of vector.
+#' Works internally by calling `head()` on the print capture, prior to
+#' collapse using `paste()`.
+# "   Supports `getOption(x = "max.print")` global variable.
 #'
 #' @return `character(1)`.
 #'
@@ -22,10 +24,8 @@
 #' @examples
 #' printString(c("hello", "world"))
 #' printString(datasets::mtcars, max = 2L)
-printString <- function(
-    x, ...,
-    max = getOption(x = "max.print", default = 100L)
-) {
+printString <- function(x, ...,
+                        max = getOption(x = "max.print", default = 100L)) {
     assert(isInt(max))
     x <- capture.output(print(x, ...))
     x <- head(x, n = max)
