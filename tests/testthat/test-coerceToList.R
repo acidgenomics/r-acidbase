@@ -11,14 +11,14 @@ test_that("coerceToList", {
     object <- coerceToList(object)
     expect_is(object, "list")
     expect_identical(
-        object = names(object),
+        object = sort(names(object)),
         expected = c(
-            "rownames",
-            "nrows",
-            "listData",
-            "elementType",
             "elementMetadata",
-            "metadata"
+            "elementType",
+            "listData",
+            "metadata",
+            "nrows",
+            "rownames"
         )
     )
 })
