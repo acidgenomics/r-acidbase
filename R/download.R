@@ -37,6 +37,7 @@ download <-
              quiet = FALSE,
              ...) {
         assert(
+            requireNamespace("utils", quietly = TRUE),
             isString(url),
             isString(destfile),
             isFlag(quiet)
@@ -51,7 +52,7 @@ download <-
         }
         if (isFALSE(quiet)) {
             ## nocov start
-            alert(sprintf(
+            .alert(sprintf(
                 "Downloading {.url %s} to {.file %s}.",
                 url, destfile
             ))
@@ -59,19 +60,19 @@ download <-
         }
         ## Ensure that warnings are converted to errors here.
         status <- tryCatch(
-            expr = download.file(
+            expr = utils::download.file(
                 url = url,
                 destfile = destfile,
                 quiet = quiet,
                 ...
             ),
             warning = function(w) {
-                abort(w) # nocov
+                .abort(w) # nocov
             }
         )
         if (!identical(status, 0L)) {
             ## nocov start
-            abort(sprintf(
+            .abort(sprintf(
                 "Failed to download {.url %s} to {.file %s} successfully.",
                 url, destfile
             ))

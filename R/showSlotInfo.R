@@ -1,7 +1,7 @@
 #' Show slot information
 #'
 #' @export
-#' @note Updated 2020-10-07.
+#' @note Updated 2022-04-29.
 #'
 #' @details
 #' Standardized to Bioconductor `show()` method conventions.
@@ -19,7 +19,10 @@
 #'     filtered = TRUE
 #' ))
 showSlotInfo <- function(list) {
-    assert(is.list(list))
+    assert(
+        requireNamespace("utils", quietly = TRUE),
+        is.list(list)
+    )
     list <- Filter(f = Negate(is.null), x = list)
     list <- Filter(f = hasLength, x = list)
     out <- mapply(
@@ -33,7 +36,7 @@ showSlotInfo <- function(list) {
                     prefix <- paste0("[", names(x), "]")
                     info <- paste(prefix, x, sep = " ", collapse = "; ")
                 } else {
-                    info <- capture.output(headtail(x))
+                    info <- utils::capture.output(headtail(x))
                 }
                 paste0(name, "(", length(x), "): ", info)
             }

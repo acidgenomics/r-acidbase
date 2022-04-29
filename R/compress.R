@@ -87,10 +87,10 @@ compress <- function(file,
     if (isAFile(destfile)) {
         ## nocov start
         if (isTRUE(overwrite)) {
-            alertWarning(sprintf("Overwriting file: {.file %s}.", destfile))
+            .alertWarning(sprintf("Overwriting file: {.file %s}.", destfile))
             file.remove(destfile)
         } else {
-            abort(sprintf("File exists: {.file %s}.", destfile))
+            .abort(sprintf("File exists: {.file %s}.", destfile))
         }
         ## nocov end
     }
@@ -102,9 +102,10 @@ compress <- function(file,
     )
     ## For ZIP files, hand off to `utils::zip()` and early return.
     if (identical(ext, "zip")) {
+        assert(requireNamespace("utils", quietly = TRUE))
         wd <- getwd()
         setwd(dirname(file))
-        zip(zipfile = destfile, files = basename(file))
+        utils::zip(zipfile = destfile, files = basename(file))
         setwd(wd)
         if (isTRUE(remove)) {
             file.remove(file)
@@ -208,13 +209,14 @@ decompress <- function(file,
         if (isTRUE(overwrite)) {
             file.remove(destfile)
         } else {
-            abort(sprintf("File exists: {.file %s}.", destfile))
+            .abort(sprintf("File exists: {.file %s}.", destfile))
         }
         ## nocov end
     }
     ## For ZIP files, hand off to `utils::unzip()` and early return.
     if (identical(ext, "zip")) {
-        destfile <- unzip(
+        assert(requireNamespace("utils", quietly = TRUE))
+        destfile <- utils::unzip(
             zipfile = file,
             files = NULL,
             list = FALSE,
@@ -226,7 +228,7 @@ decompress <- function(file,
         )
         if (length(destfile) > 1L) {
             ## nocov start
-            alertWarning(sprintf(
+            .alertWarning(sprintf(
                 "{.var %s} contains multiple files.",
                 basename(file)
             ))
