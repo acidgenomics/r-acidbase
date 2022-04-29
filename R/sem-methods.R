@@ -28,10 +28,11 @@ NULL
 
 
 
-## Updated 2021-10-12.
+## Updated 2022-04-29.
 `sem,numeric` <- # nolint
     function(x) {
-        sqrt(var(x) / length(x))
+        assert(requireNamespace("stats", quietly = TRUE))
+        sqrt(stats::var(x) / length(x))
     }
 
 
