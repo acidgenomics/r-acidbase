@@ -44,7 +44,7 @@ Contains named elements:
 Invoke a command in the system command-line shell
 }
 \note{
-Updated 2021-09-22.
+Updated 2022-04-29.
 }
 \examples{
 x <- shell(

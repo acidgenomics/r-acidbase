@@ -24,14 +24,10 @@ defaults to the first argument in the \code{character} vector.
 
 Supported formats:
 \itemize{
-\item \code{gz}: gzip compression;
-calls \code{gzfile()} internally.
-\item \code{bz}: bzip2 (lzma) compression;
-calls \code{bzfile()} internally.
-\item \code{xz}: xz compression;
-calls \code{xzfile()} internally.
-\item \code{zip}: zip compression;
-calls \code{zip()} or \code{unzip()} internally.
+\item \code{gz}: gzip compression; calls \code{gzfile()} internally.
+\item \code{bz}: bzip2 (lzma) compression; calls \code{bzfile()} internally.
+\item \code{xz}: xz compression; calls \code{xzfile()} internally.
+\item \code{zip}: zip compression; calls \code{zip()} or \code{unzip()} internally.
 }}
 
 \item{remove}{\code{logical(1)}.

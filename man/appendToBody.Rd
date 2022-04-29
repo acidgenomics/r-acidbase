@@ -27,7 +27,9 @@ Updated 2019-08-23.
 }
 \examples{
 ## Add a deprecation call into function body.
-fun <- function() { print("hello world") }
+fun <- function() {
+    print("hello world")
+}
 body(fun)
 
 ## values: call ====
