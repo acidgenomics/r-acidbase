@@ -6,6 +6,10 @@
 - Reduced the number of strong dependencies, migrating AcidCLI, stats, and
   utils to `Suggests` from `Imports`.
 
+## Minor changes
+
+- Improved formatting consistency using styler package.
+
 # AcidBase 0.5.0 (2022-03-11)
 
 ## Minor changes
