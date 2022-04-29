@@ -24,12 +24,16 @@
 #' @examples
 #' printString(c("hello", "world"))
 #' printString(datasets::mtcars, max = 2L)
-printString <- function(x, ...,
-                        max = getOption(x = "max.print", default = 100L)) {
-    assert(isInt(max))
-    x <- capture.output(print(x, ...))
-    x <- head(x, n = max)
-    x <- paste(x, collapse = "\n")
-    x <- gsub("^[\n]+|[\n]+$", "", x)
-    x
-}
+printString <-
+    function(x, ...,
+             max = getOption(x = "max.print", default = 100L)) {
+        assert(
+            requireNamespace("utils", quietly = TRUE),
+            isInt(max)
+        )
+        x <- utils::capture.output(print(x, ...))
+        x <- head(x, n = max)
+        x <- paste(x, collapse = "\n")
+        x <- gsub("^[\n]+|[\n]+$", "", x)
+        x
+    }

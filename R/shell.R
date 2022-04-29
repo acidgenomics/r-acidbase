@@ -45,8 +45,8 @@ shell <- function(command,
                   stdoutFile = NULL,
                   stderrFile = NULL,
                   stderrToStdout = FALSE) {
-    requireNamespaces("processx")
     assert(
+        requireNamespace("processx", quietly = TRUE),
         isString(command),
         isSystemCommand(command),
         is.character(args),
@@ -96,7 +96,7 @@ shell <- function(command,
         if (isString(stderr)) {
             msg <- append(x = msg, values = stderr)
         }
-        abort(msg)
+        .abort(msg)
     }
     invisible(x)
 }

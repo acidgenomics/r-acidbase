@@ -61,7 +61,7 @@ methodFunction <- function(f, signature, package) {
     generic <- tryCatch(
         expr = do.call(what = get, args = args),
         error = function(e) {
-            abort(sprintf(
+            .abort(sprintf(
                 "Failed to locate {.fun %s} generic in {.pkg %s} package.",
                 f, package
             ))

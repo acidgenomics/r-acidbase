@@ -1,3 +1,11 @@
+# AcidBase 0.6.0 (2022-04-29)
+
+## Major changes
+
+- Updated minimum R dependency version to 4.2
+- Reduced the number of strong dependencies, migrating AcidCLI, stats, and
+  utils to `Suggests` from `Imports`.
+
 # AcidBase 0.5.0 (2022-03-11)
 
 ## Minor changes

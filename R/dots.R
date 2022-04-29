@@ -33,7 +33,7 @@ dots <- function(..., character = FALSE) {
     ## Provide an informative error message when a user attempts to accidentally
     ## use standard evaluation with quotation.
     if (!all(bapply(dots, is.symbol))) {
-        abort(paste(
+        .abort(paste(
             "This function uses non-standard evaluation (NSE).",
             "Dot arguments must be unquoted."
         ))

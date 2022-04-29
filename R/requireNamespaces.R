@@ -32,9 +32,9 @@ requireNamespaces <- function(packages) {
         quietly = TRUE
     )
     if (!isTRUE(all(ok))) {
-        abort(sprintf(
+        .abort(sprintf(
             fmt = "Namespace failure: %s.",
-            toInlineString(x = names(ok)[!ok], class = "pkg")
+            .toInlineString(x = names(ok)[!ok], class = "pkg")
         ))
     }
     ## Returning boolean flag here, for use inside `assert()` / `assert()`.
