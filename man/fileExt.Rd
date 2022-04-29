@@ -28,8 +28,6 @@ Updated 2020-01-18.
 fileExt(c("dir/foo.txt", "dir/bar.tar.gz", "dir/"))
 }
 \seealso{
-\itemize{
-\item \code{tools::file_ext()}. Note that this returns \code{character()} instead of \code{NA}
+\code{tools::file_ext()}. Note that this returns \code{character()} instead of \code{NA}
 on extension match failure.
-}
 }
