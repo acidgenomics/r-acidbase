@@ -2,7 +2,7 @@ Package: AcidBase
 Title: Acid Genomics Base Functions
 Description: Low-level base functions imported by Acid Genomics packages.
 Version: 0.5.1.9000
-Date: 2022-04-28
+Date: 2022-04-29
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -28,11 +28,11 @@ Imports:
     S4Vectors,
     goalie,
     methods,
-    processx,
     stats,
     utils
 Suggests:
     AcidTest,
+    processx,
     testthat
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2

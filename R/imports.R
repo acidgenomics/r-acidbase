@@ -25,7 +25,6 @@ NULL
 #' isSubset isSystemCommand
 #' @importFrom methods .hasSlot getClassDef is isGeneric selectMethod
 #' setClassUnion setMethod setOldClass signature slot slotNames
-#' @importFrom processx run
 #' @importFrom stats var
 #' @importFrom utils capture.output download.file head unzip tail zip
 NULL
