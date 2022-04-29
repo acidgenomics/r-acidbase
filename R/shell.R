@@ -1,7 +1,7 @@
 #' Invoke a command in the system command-line shell
 #'
 #' @export
-#' @note Updated 2021-09-22.
+#' @note Updated 2022-04-29.
 #'
 #' @param command `character(1)`.
 #' Name of program to run.
@@ -45,6 +45,7 @@ shell <- function(command,
                   stdoutFile = NULL,
                   stderrFile = NULL,
                   stderrToStdout = FALSE) {
+    requireNamespaces("processx")
     assert(
         isString(command),
         isSystemCommand(command),
@@ -57,7 +58,7 @@ shell <- function(command,
     )
     ## Ensure arguments are passed in unquoted, if necessary.
     args <- gsub(pattern = "^['\"](.+)['\"]$", replacement = "\\1", x = args)
-    x <- run(
+    x <- processx::run(
         command = command,
         args = args,
         error_on_status = FALSE,
