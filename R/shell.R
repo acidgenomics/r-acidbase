@@ -23,6 +23,9 @@
 #' Whether to redirect standard error (stderr) to standard output (stdout).
 #' Similar to `2>&1` in POSIX or `&>` in Bash.
 #'
+#' @param returnStdout `logical(1)`.
+#' Whether to return stdout as a character vector, split by `"\n"`.
+#'
 #' @seealso
 #' - `processx::run()`.
 #' - `base::system2()`, our previously used legacy approach.
@@ -33,8 +36,8 @@
 #'
 #' @examples
 #' x <- shell(
-#'     command = "echo",
-#'     args = c("hello", "world"),
+#'     command = "printf",
+#'     args = c("%s\n", "hello", "world"),
 #'     print = TRUE
 #' )
 #' print(x)
@@ -43,9 +46,10 @@ shell <-
              args = character(),
              print = interactive(),
              wd = getwd(),
-             stdoutFile = NULL,
              stderrFile = NULL,
-             stderrToStdout = FALSE) {
+             stdoutFile = NULL,
+             stderrToStdout = FALSE,
+             returnStdout = FALSE) {
         assert(
             requireNamespace("processx", quietly = TRUE),
             isString(command),
@@ -55,7 +59,8 @@ shell <-
             isADir(wd),
             isString(stdoutFile, nullOK = TRUE),
             isString(stderrFile, nullOK = TRUE),
-            isFlag(stderrToStdout)
+            isFlag(stderrToStdout),
+            isFlag(returnStdout)
         )
         ## Ensure arguments are passed in unquoted, if necessary.
         args <- gsub(
@@ -102,6 +107,13 @@ shell <-
                 msg <- append(x = msg, values = stderr)
             }
             .abort(msg)
+        }
+        if (isTRUE(returnStdout)) {
+            x <- strsplit(
+                x = x[["stdout"]],
+                split = "\n",
+                fixed = TRUE
+            )[[1L]]
         }
         invisible(x)
     }
