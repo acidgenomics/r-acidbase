@@ -3,6 +3,8 @@
 #' @export
 #' @note Updated 2022-05-02.
 #'
+#' @inheritParams AcidRoxygen::params
+#'
 #' @return `character`.
 #'
 #' @seealso [shell()].

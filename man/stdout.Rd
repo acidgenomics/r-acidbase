@@ -6,6 +6,9 @@
 \usage{
 stdout(x)
 }
+\arguments{
+\item{x}{Object.}
+}
 \value{
 \code{character}.
 }
