@@ -7,6 +7,7 @@
 ## Minor changes
 
 - `shell`: Added `returnStdout` argument, which helps parse stdout.
+- `fileExt`: Added option to override default `extPattern` match.
 
 # AcidBase 0.6.0 (2022-04-29)
 
