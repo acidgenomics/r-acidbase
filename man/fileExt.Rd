@@ -4,12 +4,15 @@
 \alias{fileExt}
 \title{File extension}
 \usage{
-fileExt(path)
+fileExt(path, pattern = goalie::extPattern)
 }
 \arguments{
 \item{path}{\code{character}.
 File path(s).
 This function is vectorized and supports multiple files.}
+
+\item{pattern}{\code{character(1)}.
+File extension pattern.}
 }
 \value{
 \code{character}.
@@ -22,7 +25,7 @@ File extension
 \note{
 This function intentionally doesn't check whether a file exists.
 
-Updated 2020-01-18.
+Updated 2022-05-02.
 }
 \examples{
 fileExt(c("dir/foo.txt", "dir/bar.tar.gz", "dir/"))
