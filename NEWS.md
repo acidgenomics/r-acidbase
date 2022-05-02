@@ -1,3 +1,9 @@
+# AcidBase 0.6.1 (2022-05-02)
+
+## New functions
+
+- Added `stdout` utility, which helps parse output from `shell` return.
+
 # AcidBase 0.6.0 (2022-04-29)
 
 ## Major changes
