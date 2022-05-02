@@ -9,9 +9,10 @@ shell(
   args = character(),
   print = interactive(),
   wd = getwd(),
-  stdoutFile = NULL,
   stderrFile = NULL,
-  stderrToStdout = FALSE
+  stdoutFile = NULL,
+  stderrToStdout = FALSE,
+  returnStdout = FALSE
 )
 }
 \arguments{
@@ -34,6 +35,9 @@ Disabled when set \code{NULL}.}
 \item{stderrToStdout}{\code{logical(1)}.
 Whether to redirect standard error (stderr) to standard output (stdout).
 Similar to \verb{2>&1} in POSIX or \verb{&>} in Bash.}
+
+\item{returnStdout}{\code{logical(1)}.
+Whether to return stdout as a character vector, split by \code{"\\n"}.}
 }
 \value{
 Invisible \code{list}.
@@ -48,8 +52,8 @@ Updated 2022-05-02.
 }
 \examples{
 x <- shell(
-    command = "echo",
-    args = c("hello", "world"),
+    command = "printf",
+    args = c("\%s\n", "hello", "world"),
     print = TRUE
 )
 print(x)
