@@ -3,6 +3,7 @@
 ## New functions
 
 - Added `stdout` utility, which helps parse output from `shell` return.
+- Migrated `gitCurrentBranch` and `gitDefaultBranch` from r-koopa here.
 
 # AcidBase 0.6.0 (2022-04-29)
 
