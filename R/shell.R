@@ -1,7 +1,7 @@
 #' Invoke a command in the system command-line shell
 #'
 #' @export
-#' @note Updated 2022-04-29.
+#' @note Updated 2022-05-02.
 #'
 #' @param command `character(1)`.
 #' Name of program to run.
@@ -38,65 +38,70 @@
 #'     print = TRUE
 #' )
 #' print(x)
-shell <- function(command,
-                  args = character(),
-                  print = interactive(),
-                  wd = getwd(),
-                  stdoutFile = NULL,
-                  stderrFile = NULL,
-                  stderrToStdout = FALSE) {
-    assert(
-        requireNamespace("processx", quietly = TRUE),
-        isString(command),
-        isSystemCommand(command),
-        is.character(args),
-        isFlag(print),
-        isADir(wd),
-        isString(stdoutFile, nullOK = TRUE),
-        isString(stderrFile, nullOK = TRUE),
-        isFlag(stderrToStdout)
-    )
-    ## Ensure arguments are passed in unquoted, if necessary.
-    args <- gsub(pattern = "^['\"](.+)['\"]$", replacement = "\\1", x = args)
-    x <- processx::run(
-        command = command,
-        args = args,
-        error_on_status = FALSE,
-        wd = wd,
-        echo_cmd = print,
-        echo = print,
-        spinner = print,
-        timeout = Inf,
-        stdout = ifelse(
-            test = isString(stdoutFile),
-            yes = normalizePath(stdoutFile, mustWork = FALSE),
-            no = "|"
-        ),
-        stderr = ifelse(
-            test = isString(stderrFile),
-            yes = normalizePath(stderrFile, mustWork = FALSE),
-            no = "|"
-        ),
-        stderr_to_stdout = stderrToStdout
-    )
-    assert(
-        is.list(x),
-        isSubset(c("status", "stdout", "stderr", "timeout"), names(x))
-    )
-    if (!identical(x[["status"]], 0L)) {
-        msg <- c(
-            "Shell command failure.",
-            paste(
-                "$", command,
-                paste(args, collapse = " "),
-                sep = " "
-            )
+shell <-
+    function(command,
+             args = character(),
+             print = interactive(),
+             wd = getwd(),
+             stdoutFile = NULL,
+             stderrFile = NULL,
+             stderrToStdout = FALSE) {
+        assert(
+            requireNamespace("processx", quietly = TRUE),
+            isString(command),
+            isSystemCommand(command),
+            is.character(args),
+            isFlag(print),
+            isADir(wd),
+            isString(stdoutFile, nullOK = TRUE),
+            isString(stderrFile, nullOK = TRUE),
+            isFlag(stderrToStdout)
         )
-        stderr <- x[["stderr"]]
-        if (isString(stderr)) {
-            msg <- append(x = msg, values = stderr)
+        ## Ensure arguments are passed in unquoted, if necessary.
+        args <- gsub(
+            pattern = "^['\"](.+)['\"]$",
+            replacement = "\\1",
+            x = args
+        )
+        x <- processx::run(
+            command = command,
+            args = args,
+            error_on_status = FALSE,
+            wd = wd,
+            echo_cmd = print,
+            echo = print,
+            spinner = print,
+            timeout = Inf,
+            stdout = ifelse(
+                test = isString(stdoutFile),
+                yes = normalizePath(stdoutFile, mustWork = FALSE),
+                no = "|"
+            ),
+            stderr = ifelse(
+                test = isString(stderrFile),
+                yes = normalizePath(stderrFile, mustWork = FALSE),
+                no = "|"
+            ),
+            stderr_to_stdout = stderrToStdout
+        )
+        assert(
+            is.list(x),
+            isSubset(c("status", "stdout", "stderr", "timeout"), names(x))
+        )
+        if (!identical(x[["status"]], 0L)) {
+            msg <- c(
+                "Shell command failure.",
+                paste(
+                    "$", command,
+                    paste(args, collapse = " "),
+                    sep = " "
+                )
+            )
+            stderr <- x[["stderr"]]
+            if (isString(stderr)) {
+                msg <- append(x = msg, values = stderr)
+            }
+            .abort(msg)
         }
-        .abort(msg)
+        invisible(x)
     }
-    invisible(x)
-}
