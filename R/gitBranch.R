@@ -38,9 +38,9 @@ gitCurrentBranch <- function(repo = getwd()) {
         command = "git",
         args = c("branch", "--show-current"),
         print = FALSE,
-        wd = repo
+        wd = repo,
+        returnStdout = TRUE
     )
-    x <- stdout(x)
     assert(isString(x))
     x
 }
@@ -61,9 +61,10 @@ gitDefaultBranch <-
             command = "git",
             args = c("remote", "show", remote),
             print = FALSE,
-            wd = repo
+            wd = repo,
+            returnStdout = TRUE
         )
-        x <- stdout(x)
+        assert(isCharacter(x))
         pattern <- "^[[:space:]]+HEAD branch: ([^[:space:]]+)$"
         x <- grep(pattern = pattern, x = x, value = TRUE)
         x <- sub(pattern = pattern, replacement = "\\1", x = x)

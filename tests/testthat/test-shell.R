@@ -51,3 +51,15 @@ test_that("Error on invalid command", {
         regexp = "XXX"
     )
 })
+
+test_that("Return stdout", {
+    expect_identical(
+        object = shell(
+            command = "printf",
+            args = c("%s\n", "aaa", "bbb"),
+            print = FALSE,
+            returnStdout = TRUE
+        ),
+        expected = c("aaa", "bbb")
+    )
+})
