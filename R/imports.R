@@ -20,8 +20,8 @@ NULL
 
 #' @importFrom goalie allAreAtomic allAreDirs allHaveAccess assert bapply
 #' compressExtPattern extPattern hasLength hasNames hasNoDuplicates isADir
-#' isAFile isAURL isAny isCharacter isFlag isInt isInstalled isPositive isScalar
-#' isString isSubset isSystemCommand
+#' isAFile isAGitRepo isASystemCommand isAURL isAny isCharacter isFlag isInt
+#' isInstalled isPositive isScalar isString isSubset isSystemCommand
 #' @importFrom methods .hasSlot getClassDef is isGeneric selectMethod
 #' setClassUnion setMethod setOldClass signature slot slotNames
 NULL
