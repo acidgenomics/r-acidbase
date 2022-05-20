@@ -22,6 +22,7 @@
 #' ## > forceDetach()
 forceDetach <- function(keep = .packages()) {
     for (pkg in setdiff(x = .packages(), y = keep)) {
+        ## nolint start
         suppressWarnings({
             detach(
                 name = paste0("package:", pkg),
@@ -30,6 +31,7 @@ forceDetach <- function(keep = .packages()) {
                 character.only = TRUE
             )
         })
+        ## nolint end
     }
     assert(identical(x = .packages(), y = keep))
     invisible(TRUE)
