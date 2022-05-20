@@ -1,5 +1,3 @@
-context("intersectAll")
-
 test_that("list", {
     object <- list(
         a = c("a", "b", "c", "d", "e", "f"),

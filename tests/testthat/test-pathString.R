@@ -1,5 +1,3 @@
-context("pathString")
-
 test_that("modifyPathString : unique", {
     x <- c("/usr/local/bin", "/usr/bin")
     var <- "TESTPATH"

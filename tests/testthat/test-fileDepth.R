@@ -1,5 +1,3 @@
-context("fileDepth")
-
 test_that("fileDepth", {
     expect_identical(
         fileDepth(path = "/"),

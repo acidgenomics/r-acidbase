@@ -1,5 +1,3 @@
-context("parentDirectory")
-
 test_that("Nested structure check", {
     vec <- c("aaa", "bbb", "ccc", "ddd", "eee")
     path <- do.call(what = file.path, args = as.list(vec))
@@ -17,7 +15,7 @@ test_that("Nested structure check", {
 test_that("Names handling", {
     path <- c("aaa" = getwd(), "bbb" = "~")
     x <- parentDir(path, n = 3L)
-    expect_is(x, "character")
+    expect_type(x, "character")
     expect_identical(names(path), names(x))
 })
 

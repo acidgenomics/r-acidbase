@@ -1,5 +1,3 @@
-context("intersectionMatrix")
-
 test_that("named list", {
     expect_identical(
         object = intersectionMatrix(

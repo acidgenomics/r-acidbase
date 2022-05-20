@@ -1,5 +1,3 @@
-context("appendToBody")
-
 test_that("appendToBody", {
     ## Add a deprecation call into function body.
     x <- function() {
@@ -12,7 +10,7 @@ test_that("appendToBody", {
             quote(b <- "bbb")
         )
     )
-    expect_is(x, "function")
+    expect_type(x, "closure")
     ## This check approach using `subsitute()` is recommended in `body()`
     ## working example documentation.
     expect_identical(

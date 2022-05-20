@@ -1,5 +1,3 @@
-context("shell")
-
 test_that("Printing output to R console", {
     expect_output(
         shell(

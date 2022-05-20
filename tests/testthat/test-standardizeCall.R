@@ -1,5 +1,3 @@
-context("standardizeCall")
-
 aaa <- "AAA"
 bbb <- "BBB"
 
@@ -52,8 +50,8 @@ test_that("Inside S4 method with .local", {
         }
     )
     expect_identical(
-        deparse(testing(aaa, bbb)),
-        "testing(a = aaa, b = bbb)"
+        object = deparse(testing(aaa, bbb)),
+        expected = "testing(a = aaa, b = bbb)"
     )
 })
 
@@ -62,5 +60,5 @@ test_that("Very simple, minimal function", {
         standardizeCall()
     }
     x <- fun()
-    expect_is(x, "call")
+    expect_type(x, "language")
 })
