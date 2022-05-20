@@ -22,10 +22,8 @@
 #' @examples
 #' fileExt(c("dir/foo.txt", "dir/bar.tar.gz", "dir/"))
 fileExt <-
-    function(
-        path,
-        pattern = goalie::extPattern
-    ) {
+    function(path,
+             pattern = goalie::extPattern) {
         assert(
             isCharacter(path),
             isString(pattern)
