@@ -131,21 +131,31 @@ compress <-
         )
         assert(is.function(fun))
         inn <- file(description = file, open = "rb")
-        on.exit(if (!is.null(inn)) close(inn))
+        on.exit(
+            expr = {
+                if (!is.null(inn)) {
+                    close(inn)
+                }
+            }
+        )
         outComplete <- FALSE
         out <- fun(description = destfile, open = "wb")
         on.exit(
-            {
+            expr = {
                 ## nocov start
-                if (!is.null(out)) close(out)
-                if (!isTRUE(outComplete)) file.remove(destfile)
+                if (!is.null(out)) {
+                    close(out)
+                }
+                if (!isTRUE(outComplete)) {
+                    file.remove(destfile)
+                }
                 ## nocov end
             },
             add = TRUE
         )
-        ## Don't keep as integer here, otherwise can hit integer overflow
-        ## on large files.
-        nbytes <- as.numeric(0L)
+        ## Don't keep as integer here. Otherwise, can hit integer overflow on
+        ## large files.
+        nbytes <- double(length = 1L)
         repeat {
             bfr <- readBin(
                 con = inn,
@@ -155,9 +165,11 @@ compress <-
                 n = 1e+07L
             )
             n <- length(bfr)
-            if (n == 0L) break
+            if (n == 0L) {
+                break
+            }
             nbytes <- nbytes + n
-            writeBin(bfr, con = out, size = 1L)
+            writeBin(object = bfr, con = out, size = 1L)
             bfr <- NULL
         }
         outComplete <- TRUE
@@ -266,21 +278,31 @@ decompress <-
         )
         assert(is.function(fun))
         inn <- fun(file, open = "rb")
-        on.exit(if (!is.null(inn)) close(inn))
+        on.exit(
+            expr = {
+                if (!is.null(inn)) {
+                    close(inn)
+                }
+            }
+        )
         outComplete <- FALSE
         out <- file(destfile, open = "wb")
         on.exit(
-            {
+            expr = {
                 ## nocov start
-                if (!is.null(out)) close(out)
-                if (!outComplete) file.remove(destfile)
+                if (!is.null(out)) {
+                    close(out)
+                }
+                if (!outComplete) {
+                    file.remove(destfile)
+                }
                 ## nocov end
             },
             add = TRUE
         )
         ## Don't keep as integer here, otherwise can hit integer overflow
         ## on large files.
-        nbytes <- as.numeric(0L)
+        nbytes <- double(length = 1L)
         repeat {
             bfr <- readBin(
                 con = inn,
@@ -290,7 +312,9 @@ decompress <-
                 n = 1e+07L
             )
             n <- length(bfr)
-            if (n == 0L) break
+            if (n == 0L) {
+                break
+            }
             nbytes <- nbytes + n
             writeBin(bfr, con = out, size = 1L)
             bfr <- NULL
