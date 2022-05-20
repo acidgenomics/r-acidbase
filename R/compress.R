@@ -316,7 +316,7 @@ decompress <-
                 break
             }
             nbytes <- nbytes + n
-            writeBin(bfr, con = out, size = 1L)
+            writeBin(object = bfr, con = out, size = 1L)
             bfr <- NULL
         }
         outComplete <- TRUE

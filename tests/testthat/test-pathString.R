@@ -38,7 +38,7 @@ test_that("modifyPathString : extra and duplicate elements", {
         file.path("", "usr", "sbin")
     )
     var <- "TESTPATH"
-    Sys.setenv(
+    Sys.setenv( # nolint
         "TESTPATH" = paste(
             file.path("", "usr", "local", "bin"),
             file.path("", "usr", "bin"),
