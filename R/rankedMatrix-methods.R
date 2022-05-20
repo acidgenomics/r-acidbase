@@ -127,7 +127,7 @@ NULL
         mat
     }
 
-formals(`rankedMatrix,matrix`)[["tiesMethod"]] <-
+formals(`rankedMatrix,matrix`)[["tiesMethod"]] <- # nolint
     formals(rank)[["ties.method"]]
 
 
