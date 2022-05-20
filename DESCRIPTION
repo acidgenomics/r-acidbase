@@ -33,7 +33,8 @@ Suggests:
     processx,
     stats,
     testthat (>= 3.0.0),
-    utils
+    utils,
+    withr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Additional_repositories: https://r.acidgenomics.com
