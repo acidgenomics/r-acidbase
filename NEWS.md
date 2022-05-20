@@ -1,3 +1,16 @@
+# AcidBase 0.6.2 (2022-05-20)
+
+## Minor changes
+
+- Updated package to use testthat 3e and updated lintr checks.
+- `fileExt`: Added `pattern` formal, which lets us override compressed file
+  handling in other packages.
+- `compress`: Improved handling of ZIP files, to no longer rely on internal
+  `setwd` call. Now using `withr::with_dir` temporary approach instead.
+- `compress` and `decompress`: Reformatted internal code to pass lintr checks.
+- `forceDetach`: Simplify internal code using a for loop.
+- Now using `Map` internally instead of `mapply`.
+
 # AcidBase 0.6.1 (2022-05-02)
 
 ## New functions
