@@ -11,33 +11,28 @@
 #' which can conflict with tidyverse packages (e.g. dplyr).
 #'
 #' @export
-#' @note Updated 2020-10-06.
+#' @note Updated 2022-05-20.
 #'
 #' @param keep `character`.
 #' Package names to keep attached in environment.
 #'
+#' @return Invisible `logical(1)`.
+#'
 #' @examples
 #' ## > forceDetach()
 forceDetach <- function(keep = .packages()) {
-    detach <- setdiff(.packages(), keep)
-    if (length(detach) > 0L) {
-        invisible(lapply(
-            X = detach,
-            FUN = function(name) {
-                if (name %in% .packages()) {
-                    suppressWarnings({
-                        detach(
-                            name = paste0("package:", name),
-                            unload = TRUE,
-                            force = TRUE,
-                            character.only = TRUE
-                        )
-                    })
-                }
-            }
-        ))
+    for (pkg in setdiff(x = .packages(), y = keep)) {
+        suppressWarnings({
+            detach(
+                name = paste0("package:", pkg),
+                unload = TRUE,
+                force = TRUE,
+                character.only = TRUE
+            )
+        })
     }
-    assert(identical(.packages(), keep))
+    assert(identical(x = .packages(), y = keep))
+    invisible(TRUE)
 }
 
 
