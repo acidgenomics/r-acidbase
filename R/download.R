@@ -1,7 +1,7 @@
 #' Download a file from the Internet
 #'
 #' @export
-#' @note Updated 2021-08-13.
+#' @note Updated 2022-05-20.
 #'
 #' @details
 #' Unlike [utils::download.file()], intentionally errors on any download
@@ -46,9 +46,10 @@ download <-
         if (!isADir(dirname(destfile))) {
             dir.create(path = dirname(destfile), recursive = TRUE) # nocov
         }
+        ## Alternatively, can use `withr::with_options()` approach.
         timeout <- getOption(x = "timeout")
         if (is.numeric(timeout)) {
-            options("timeout" = 99999L)
+            options("timeout" = 99999L) # nolint
         }
         if (isFALSE(quiet)) {
             ## nocov start
@@ -79,7 +80,7 @@ download <-
             ## nocov end
         }
         if (is.numeric(timeout)) {
-            options("timeout" = timeout)
+            options("timeout" = timeout) # nolint
         }
         invisible(destfile)
     }
