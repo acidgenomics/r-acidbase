@@ -28,7 +28,6 @@ test_that("modifyPathString : unique", {
             file.path("", "usr", "bin"),
             sep = ":"
         )
-
     )
 })
 
