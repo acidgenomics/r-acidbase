@@ -1,7 +1,7 @@
 #' Show slot information
 #'
 #' @export
-#' @note Updated 2022-04-29.
+#' @note Updated 2022-05-20.
 #'
 #' @details
 #' Standardized to Bioconductor `show()` method conventions.
@@ -25,10 +25,10 @@ showSlotInfo <- function(list) {
     )
     list <- Filter(f = Negate(is.null), x = list)
     list <- Filter(f = hasLength, x = list)
-    out <- mapply(
+    out <- Map(
         name = names(list),
         x = list,
-        FUN = function(name, x) {
+        f = function(name, x) {
             if (length(x) == 1L) {
                 paste0(name, ": ", x)
             } else {
@@ -40,9 +40,7 @@ showSlotInfo <- function(list) {
                 }
                 paste0(name, "(", length(x), "): ", info)
             }
-        },
-        SIMPLIFY = FALSE,
-        USE.NAMES = FALSE
+        }
     )
     cat(unlist(out), sep = "\n")
 }
