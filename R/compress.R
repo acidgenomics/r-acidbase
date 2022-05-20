@@ -2,10 +2,12 @@
 #'
 #' Compress or decompress using gzip, bzip2, or xz compression.
 #'
-#' @name compress
 #' @export
-#' @note For ZIP files, refer to `zip` and `unzip` in the utils package.
-#' @note Updated 2021-10-21.
+#' @name compress
+#' @note Updated 2022-05-20.
+#'
+#' @details
+#' For ZIP files, refer to `zip` and `unzip` in the utils package.
 #'
 #' @inheritParams AcidRoxygen::params
 #'
@@ -71,95 +73,104 @@ NULL
 
 #' @rdname compress
 #' @export
-compress <- function(file,
-                     ext = c("gz", "bz2", "xz", "zip"),
-                     remove = FALSE,
-                     overwrite = FALSE) {
-    assert(
-        isString(file),
-        isFlag(remove),
-        isFlag(overwrite)
-    )
-    file <- realpath(file)
-    ext <- match.arg(ext)
-    destfile <- sprintf("%s.%s", file, ext)
-    assert(!identical(file, destfile))
-    if (isAFile(destfile)) {
-        ## nocov start
-        if (isTRUE(overwrite)) {
-            .alertWarning(sprintf("Overwriting file: {.file %s}.", destfile))
-            file.remove(destfile)
-        } else {
-            .abort(sprintf("File exists: {.file %s}.", destfile))
+compress <-
+    function(file,
+             ext = c("gz", "bz2", "xz", "zip"),
+             remove = FALSE,
+             overwrite = FALSE) {
+        assert(
+            isString(file),
+            isFlag(remove),
+            isFlag(overwrite)
+        )
+        file <- realpath(file)
+        ext <- match.arg(ext)
+        destfile <- sprintf("%s.%s", file, ext)
+        assert(!identical(file, destfile))
+        if (isAFile(destfile)) {
+            ## nocov start
+            if (isTRUE(overwrite)) {
+                .alertWarning(sprintf(
+                    "Overwriting file: {.file %s}.",
+                    destfile
+                ))
+                file.remove(destfile)
+            } else {
+                .abort(sprintf("File exists: {.file %s}.", destfile))
+            }
+            ## nocov end
         }
-        ## nocov end
-    }
-    whatFun <- switch(
-        EXPR = ext,
-        bz2 = "bzfile",
-        gz = "gzfile",
-        xz = "xzfile"
-    )
-    ## For ZIP files, hand off to `utils::zip()` and early return.
-    if (identical(ext, "zip")) {
-        assert(requireNamespace("utils", quietly = TRUE))
-        wd <- getwd()
-        setwd(dirname(file))
-        utils::zip(zipfile = destfile, files = basename(file))
-        setwd(wd)
+        whatFun <- switch(
+            EXPR = ext,
+            bz2 = "bzfile",
+            gz = "gzfile",
+            xz = "xzfile"
+        )
+        ## For ZIP files, hand off to `utils::zip()` and early return.
+        if (identical(ext, "zip")) {
+            assert(
+                requireNamespace("utils", quietly = TRUE),
+                requireNamespace("withr", quietly = TRUE)
+            )
+            withr::with_dir(
+                new = dirname(file),
+                code = {
+                    utils::zip(zipfile = destfile, files = basename(file))
+                }
+            )
+            if (isTRUE(remove)) {
+                file.remove(file)
+            }
+            return(invisible(destfile))
+        }
+        fun <- get(
+            x = whatFun,
+            envir = asNamespace("base"),
+            mode = "function",
+            inherits = FALSE
+        )
+        assert(is.function(fun))
+        inn <- file(description = file, open = "rb")
+        on.exit(if (!is.null(inn)) close(inn))
+        outComplete <- FALSE
+        out <- fun(description = destfile, open = "wb")
+        on.exit(
+            {
+                ## nocov start
+                if (!is.null(out)) close(out)
+                if (!isTRUE(outComplete)) file.remove(destfile)
+                ## nocov end
+            },
+            add = TRUE
+        )
+        ## Don't keep as integer here, otherwise can hit integer overflow
+        ## on large files.
+        nbytes <- as.numeric(0L)
+        repeat {
+            bfr <- readBin(
+                con = inn,
+                what = raw(0L),
+                size = 1L,
+                ## See 'BFR.SIZE' in `R.utils::compressFile`.
+                n = 1e+07L
+            )
+            n <- length(bfr)
+            if (n == 0L) break
+            nbytes <- nbytes + n
+            writeBin(bfr, con = out, size = 1L)
+            bfr <- NULL
+        }
+        outComplete <- TRUE
+        close(out)
+        out <- NULL
+        attr(destfile, "bytes") <- nbytes
         if (isTRUE(remove)) {
+            close(inn)
+            inn <- NULL
             file.remove(file)
         }
-        return(invisible(destfile))
+        invisible(destfile)
     }
-    fun <- get(
-        x = whatFun,
-        envir = asNamespace("base"),
-        mode = "function",
-        inherits = FALSE
-    )
-    assert(is.function(fun))
-    inn <- file(description = file, open = "rb")
-    on.exit(if (!is.null(inn)) close(inn))
-    outComplete <- FALSE
-    out <- fun(description = destfile, open = "wb")
-    on.exit(
-        {
-            ## nocov start
-            if (!is.null(out)) close(out)
-            if (!isTRUE(outComplete)) file.remove(destfile)
-            ## nocov end
-        },
-        add = TRUE
-    )
-    ## Don't keep as integer here, otherwise can hit integer overflow
-    ## on large files.
-    nbytes <- as.numeric(0L)
-    repeat {
-        bfr <- readBin(
-            con = inn,
-            what = raw(0L),
-            size = 1L,
-            ## See 'BFR.SIZE' in `R.utils::compressFile`.
-            n = 1e+07L
-        )
-        n <- length(bfr)
-        if (n == 0L) break
-        nbytes <- nbytes + n
-        writeBin(bfr, con = out, size = 1L)
-        bfr <- NULL
-    }
-    outComplete <- TRUE
-    close(out)
-    out <- NULL
-    attr(destfile, "bytes") <- nbytes
-    if (isTRUE(remove)) {
-        close(inn)
-        inn <- NULL
-        file.remove(file)
-    }
-    invisible(destfile)
-}
 
 
 
@@ -179,118 +190,119 @@ compress <- function(file,
 
 #' @rdname compress
 #' @export
-decompress <- function(file,
-                       remove = FALSE,
-                       overwrite = FALSE) {
-    assert(
-        isString(file),
-        isFlag(remove),
-        isFlag(overwrite)
-    )
-    file <- realpath(file)
-    assert(isTRUE(grepl(pattern = compressExtPattern, x = file)))
-    ext <- substring(
-        text = file,
-        first = regexpr(
-            pattern = compressExtPattern,
-            text = file,
-            ignore.case = TRUE
-        ) + 1L
-    )
-    destfile <- gsub(
-        pattern = sprintf("[.]%s$", ext),
-        replacement = "",
-        x = file,
-        ignore.case = TRUE
-    )
-    assert(!identical(file, destfile))
-    if (isAFile(destfile)) {
-        ## nocov start
-        if (isTRUE(overwrite)) {
-            file.remove(destfile)
-        } else {
-            .abort(sprintf("File exists: {.file %s}.", destfile))
-        }
-        ## nocov end
-    }
-    ## For ZIP files, hand off to `utils::unzip()` and early return.
-    if (identical(ext, "zip")) {
-        assert(requireNamespace("utils", quietly = TRUE))
-        destfile <- utils::unzip(
-            zipfile = file,
-            files = NULL,
-            list = FALSE,
-            overwrite = overwrite,
-            junkpaths = FALSE,
-            exdir = dirname(file),
-            unzip = "internal",
-            setTimes = FALSE
+decompress <-
+    function(file,
+             remove = FALSE,
+             overwrite = FALSE) {
+        assert(
+            isString(file),
+            isFlag(remove),
+            isFlag(overwrite)
         )
-        if (length(destfile) > 1L) {
+        file <- realpath(file)
+        assert(isTRUE(grepl(pattern = compressExtPattern, x = file)))
+        ext <- substring(
+            text = file,
+            first = regexpr(
+                pattern = compressExtPattern,
+                text = file,
+                ignore.case = TRUE
+            ) + 1L
+        )
+        destfile <- gsub(
+            pattern = sprintf("[.]%s$", ext),
+            replacement = "",
+            x = file,
+            ignore.case = TRUE
+        )
+        assert(!identical(file, destfile))
+        if (isAFile(destfile)) {
             ## nocov start
-            .alertWarning(sprintf(
-                "{.var %s} contains multiple files.",
-                basename(file)
-            ))
+            if (isTRUE(overwrite)) {
+                file.remove(destfile)
+            } else {
+                .abort(sprintf("File exists: {.file %s}.", destfile))
+            }
             ## nocov end
         }
-        if (isTRUE(remove)) {
+        ## For ZIP files, hand off to `utils::unzip()` and early return.
+        if (identical(ext, "zip")) {
+            assert(requireNamespace("utils", quietly = TRUE))
+            destfile <- utils::unzip(
+                zipfile = file,
+                files = NULL,
+                list = FALSE,
+                overwrite = overwrite,
+                junkpaths = FALSE,
+                exdir = dirname(file),
+                unzip = "internal",
+                setTimes = FALSE
+            )
+            if (length(destfile) > 1L) {
+                ## nocov start
+                .alertWarning(sprintf(
+                    "{.var %s} contains multiple files.",
+                    basename(file)
+                ))
+                ## nocov end
+            }
+            if (isTRUE(remove)) {
+                file.remove(file)
+            }
+            destfile <- realpath(destfile)
+            return(invisible(destfile))
+        }
+        whatFun <- switch(
+            EXPR = ext,
+            bz2 = "bzfile",
+            gz = "gzfile",
+            xz = "xzfile"
+        )
+        fun <- get(
+            x = whatFun,
+            envir = asNamespace("base"),
+            mode = "function",
+            inherits = FALSE
+        )
+        assert(is.function(fun))
+        inn <- fun(file, open = "rb")
+        on.exit(if (!is.null(inn)) close(inn))
+        outComplete <- FALSE
+        out <- file(destfile, open = "wb")
+        on.exit(
+            {
+                ## nocov start
+                if (!is.null(out)) close(out)
+                if (!outComplete) file.remove(destfile)
+                ## nocov end
+            },
+            add = TRUE
+        )
+        ## Don't keep as integer here, otherwise can hit integer overflow
+        ## on large files.
+        nbytes <- as.numeric(0L)
+        repeat {
+            bfr <- readBin(
+                con = inn,
+                what = raw(0L),
+                size = 1L,
+                ## See 'BFR.SIZE' in `R.utils::decompressFile`.
+                n = 1e+07L
+            )
+            n <- length(bfr)
+            if (n == 0L) break
+            nbytes <- nbytes + n
+            writeBin(bfr, con = out, size = 1L)
+            bfr <- NULL
+        }
+        outComplete <- TRUE
+        close(out)
+        out <- NULL
+        attr(destfile, "bytes") <- nbytes
+        if (remove) {
+            close(inn)
+            inn <- NULL
             file.remove(file)
         }
-        destfile <- realpath(destfile)
-        return(invisible(destfile))
+        invisible(destfile)
     }
-    whatFun <- switch(
-        EXPR = ext,
-        bz2 = "bzfile",
-        gz = "gzfile",
-        xz = "xzfile"
-    )
-    fun <- get(
-        x = whatFun,
-        envir = asNamespace("base"),
-        mode = "function",
-        inherits = FALSE
-    )
-    assert(is.function(fun))
-    inn <- fun(file, open = "rb")
-    on.exit(if (!is.null(inn)) close(inn))
-    outComplete <- FALSE
-    out <- file(destfile, open = "wb")
-    on.exit(
-        {
-            ## nocov start
-            if (!is.null(out)) close(out)
-            if (!outComplete) file.remove(destfile)
-            ## nocov end
-        },
-        add = TRUE
-    )
-    ## Don't keep as integer here, otherwise can hit integer overflow
-    ## on large files.
-    nbytes <- as.numeric(0L)
-    repeat {
-        bfr <- readBin(
-            con = inn,
-            what = raw(0L),
-            size = 1L,
-            ## See 'BFR.SIZE' in `R.utils::decompressFile`.
-            n = 1e+07L
-        )
-        n <- length(bfr)
-        if (n == 0L) break
-        nbytes <- nbytes + n
-        writeBin(bfr, con = out, size = 1L)
-        bfr <- NULL
-    }
-    outComplete <- TRUE
-    close(out)
-    out <- NULL
-    attr(destfile, "bytes") <- nbytes
-    if (remove) {
-        close(inn)
-        inn <- NULL
-        file.remove(file)
-    }
-    invisible(destfile)
-}
