@@ -1,5 +1,3 @@
-context("minorVersion")
-
 test_that("minorVersion", {
     x <- c("1.0.0", "2.1")
     x <- package_version(x)

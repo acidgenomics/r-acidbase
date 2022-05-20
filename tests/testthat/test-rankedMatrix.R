@@ -1,5 +1,3 @@
-context("rankedMatrix")
-
 data(matrix_lfc, package = "AcidTest", envir = environment())
 object <- matrix_lfc
 dimnames <- dimnames(object)
@@ -18,7 +16,7 @@ test_that("Increasing (negative to positive)", {
         byrow = FALSE,
         dimnames = dimnames
     )
-    expect_is(object, "matrix")
+    expect_type(object, "double")
     expect_identical(object, expected)
 })
 
@@ -36,7 +34,7 @@ test_that("Decreasing (positive to negative)", {
         byrow = FALSE,
         dimnames = dimnames
     )
-    expect_is(object, "matrix")
+    expect_type(object, "double")
     expect_identical(object, expected)
 })
 
@@ -54,8 +52,6 @@ test_that("Bidirectional", {
         byrow = FALSE,
         dimnames = dimnames
     )
-    expect_is(object, "matrix")
+    expect_type(object, "double")
     expect_identical(object, expected)
 })
-
-rm(dimnames, object)

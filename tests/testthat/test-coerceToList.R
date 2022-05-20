@@ -1,5 +1,3 @@
-context("coerceToList")
-
 data(
     DataFrame,
     package = "AcidTest",
@@ -9,7 +7,7 @@ data(
 test_that("coerceToList", {
     object <- DataFrame
     object <- coerceToList(object)
-    expect_is(object, "list")
+    expect_type(object, "list")
     expect_identical(
         object = sort(names(object)),
         expected = c(

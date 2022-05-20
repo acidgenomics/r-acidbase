@@ -1,5 +1,3 @@
-context("fileExt")
-
 test_that("CSV file", {
     expect_identical(fileExt("XXX.csv"), "csv")
     expect_identical(fileExt("XXX.tsv.csv"), "csv")

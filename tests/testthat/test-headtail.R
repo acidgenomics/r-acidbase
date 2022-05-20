@@ -1,5 +1,3 @@
-context("headtail")
-
 test_that("atomic", {
     expect_output(
         object = headtail(c("A", "B")),

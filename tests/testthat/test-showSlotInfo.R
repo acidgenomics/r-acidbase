@@ -1,5 +1,3 @@
-context("showSlotInfo")
-
 test_that("showSlotInfo", {
     list <- list(
         "bool" = TRUE,
