@@ -47,7 +47,7 @@ addToPathEnd <- function(x, var = "PATH") {
     y <- collapseToPathString(y)
     y <- list(y)
     names(y) <- var
-    do.call(what = Sys.setenv, args = y)
+    do.call(what = Sys.setenv, args = y) # nolint
     invisible(Sys.getenv(x = var))
 }
 
@@ -66,7 +66,7 @@ addToPathStart <- function(x, var = "PATH") {
     y <- collapseToPathString(y)
     y <- list(y)
     names(y) <- var
-    do.call(what = Sys.setenv, args = y)
+    do.call(what = Sys.setenv, args = y) # nolint
     invisible(Sys.getenv(x = var))
 }
 
@@ -87,7 +87,7 @@ removeFromPath <- function(x, var = "PATH") {
         y <- collapseToPathString(y)
         y <- list(y)
         names(y) <- var
-        do.call(what = Sys.setenv, args = y)
+        do.call(what = Sys.setenv, args = y) # nolint
     } else {
         Sys.unsetenv(x = var)
     }

@@ -40,10 +40,11 @@ Overwrite existing file on disk.}
 \description{
 Compress or decompress using gzip, bzip2, or xz compression.
 }
-\note{
+\details{
 For ZIP files, refer to \code{zip} and \code{unzip} in the utils package.
-
-Updated 2021-10-21.
+}
+\note{
+Updated 2022-05-20.
 }
 \examples{
 ## Create an example text file.

@@ -10,6 +10,9 @@ forceDetach(keep = .packages())
 \item{keep}{\code{character}.
 Package names to keep attached in environment.}
 }
+\value{
+Invisible \code{logical(1)}.
+}
 \description{
 Force detach unwanted packages loaded into the current environment.
 }
@@ -18,7 +21,7 @@ Bioconductor ensembldb will attach unwanted packages into the NAMESPACE,
 which can conflict with tidyverse packages (e.g. dplyr).
 }
 \note{
-Updated 2020-10-06.
+Updated 2022-05-20.
 }
 \examples{
 ## > forceDetach()
