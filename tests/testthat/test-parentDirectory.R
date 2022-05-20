@@ -16,7 +16,7 @@ test_that("Names handling", {
     path <- c("aaa" = getwd(), "bbb" = "~")
     x <- parentDir(path, n = 3L)
     expect_type(x, "character")
-    expect_identical(names(path), names(x))
+    expect_named(x)
 })
 
 test_that("URL", {
