@@ -1,5 +1,3 @@
-context("requireNamespaces")
-
 test_that("Installed packages", {
     packages <- c("base", "utils")
     ok <- requireNamespaces(packages)

@@ -1,5 +1,3 @@
-context("engine : printString")
-
 test_that("vector concatenation to string", {
     expect_identical(
         printString(c("hello", "world")),

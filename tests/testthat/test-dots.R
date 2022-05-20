@@ -1,5 +1,3 @@
-context("dots")
-
 test_that("NSE input", {
     expect_identical(
         object = dots(a, b, c),

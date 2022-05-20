@@ -1,5 +1,3 @@
-context("pasteURL")
-
 test_that("HTTPS", {
     expect_identical(
         object = pasteURL(

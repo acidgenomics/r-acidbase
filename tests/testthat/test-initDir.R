@@ -1,5 +1,3 @@
-context("initDir")
-
 test_that("initDir", {
     dir <- "XXX"
     unlink(dir, recursive = TRUE)

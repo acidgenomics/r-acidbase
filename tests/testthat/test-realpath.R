@@ -1,5 +1,3 @@
-context("realpath")
-
 test_that("realpath", {
     unlink(c("AAA", "BBB"), recursive = TRUE)
     dir.create("AAA")

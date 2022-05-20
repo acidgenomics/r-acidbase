@@ -1,5 +1,3 @@
-context("sem")
-
 test_that("numeric", {
     x <- seq(from = 1L, to = 10L, by = 1L)
     x <- sem(x)

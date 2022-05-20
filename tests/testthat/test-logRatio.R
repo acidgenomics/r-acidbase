@@ -1,5 +1,3 @@
-context("logRatio")
-
 fc <- c(-8L, -4L, -2L, 1L, 2L, 4L, 8L)
 lr <- seq(-3L, 3L, 1L)
 vec1 <- seq(from = 1L, to = 5L, by = 1L)

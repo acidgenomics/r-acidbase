@@ -1,5 +1,3 @@
-context("methodDefinition")
-
 test_that("methods 'show()'", {
     skip_if_not_installed("methods")
     x <- methodFunction(
@@ -7,13 +5,13 @@ test_that("methods 'show()'", {
         signature = "ANY",
         package = "methods"
     )
-    expect_is(x, "function")
+    expect_type(x, "closure")
     x <- methodFormals(
         f = "show",
         signature = "ANY",
         package = "methods"
     )
-    expect_is(x, "pairlist")
+    expect_type(x, "pairlist")
 })
 
 test_that("Expected failure", {
@@ -39,7 +37,7 @@ test_that("S4Vectors 'as.data.frame()'", {
         signature = "ANY",
         package = "S4Vectors"
     )
-    expect_is(x, "function")
+    expect_type(x, "closure")
     expect_identical(formals(x), formals)
     ## Formals
     x <- methodFormals(
@@ -59,7 +57,7 @@ test_that(".local handling", {
         where = asNamespace("S4Vectors")
     )
     expect_true(.hasLocal(md))
-    expect_is(.extractLocal(md), "function")
+    expect_type(.extractLocal(md), "closure")
     md <- getMethod(
         f = "as.data.frame",
         signature = "ANY",

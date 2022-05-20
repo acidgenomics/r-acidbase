@@ -1,5 +1,3 @@
-context("download")
-
 test_that("Bioconductor release", {
     url <- "https://bioconductor.org/bioc-version"
     destfile <- "bioc-version.txt"
