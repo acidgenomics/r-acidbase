@@ -1,15 +1,14 @@
 #' File depth
 #'
 #' @export
-#' @note This function intentionally doesn't check whether a file exists.
-#' @note Updated 2019-09-05.
+#' @note Updated 2022-05-31.
+#'
+#' @details
+#' This function intentionally doesn't check whether a file exists.
 #'
 #' @param path `character`.
 #' File path(s).
 #' This function is vectorized and supports multiple files.
-#'
-#' @param fsep `character(1)`.
-#' Platform-specific file path separator (e.g. "/" on Unix).
 #'
 #' @return `integer`.
 #' Unnamed vector denoting file path depth.
@@ -19,8 +18,8 @@
 #' a <- tempdir()
 #' b <- tempfile()
 #' fileDepth(c(a, b))
-fileDepth <- function(path, fsep = .Platform[["file.sep"]]) {
-    path <- normalizePath(path, winslash = fsep, mustWork = FALSE)
+fileDepth <- function(path) {
+    path <- .normalizePath(path = path, mustWork = FALSE)
     vapply(
         X = path,
         FUN = function(x) {
