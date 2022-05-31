@@ -5,6 +5,7 @@
 - Improved internal consistency of `normalizePath` calls, using platform
   `fsep` for `winslash`, similar to conventions used in `realpath`. This helps
   improve consistency of messages and file path output on Windows.
+- Fixed unit test compatibility on Windows.
 
 # AcidBase 0.6.2 (2022-05-20)
 
