@@ -1,3 +1,5 @@
+skip_if_not(isSystemCommand("echo"))
+
 test_that("Printing output to R console", {
     expect_output(
         shell(
@@ -32,6 +34,18 @@ test_that("Return structure", {
     )
 })
 
+test_that("Return stdout", {
+    expect_identical(
+        object = shell(
+            command = "echo",
+            args = c("aaa", "bbb"),
+            print = FALSE,
+            returnStdout = TRUE
+        ),
+        expected = "aaa bbb"
+    )
+})
+
 test_that("Error on invalid command", {
     expect_error(
         object = shell(
@@ -40,6 +54,10 @@ test_that("Error on invalid command", {
         ),
         regexp = "isSystemCommand"
     )
+})
+
+test_that("Error on invalid command argument", {
+    skip_if_not(isSystemCommand("ls"))
     expect_error(
         object = shell(
             command = "ls",
@@ -47,17 +65,5 @@ test_that("Error on invalid command", {
             print = FALSE
         ),
         regexp = "XXX"
-    )
-})
-
-test_that("Return stdout", {
-    expect_identical(
-        object = shell(
-            command = "printf",
-            args = c("%s\n", "aaa", "bbb"),
-            print = FALSE,
-            returnStdout = TRUE
-        ),
-        expected = c("aaa", "bbb")
     )
 })
