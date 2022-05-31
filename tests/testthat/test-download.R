@@ -1,3 +1,4 @@
+## FIXME This test is failing on Windows.
 test_that("Bioconductor release", {
     url <- "https://bioconductor.org/bioc-version"
     destfile <- "bioc-version.txt"
