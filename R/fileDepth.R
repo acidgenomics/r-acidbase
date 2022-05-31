@@ -19,16 +19,16 @@
 #' b <- tempfile()
 #' fileDepth(c(a, b))
 fileDepth <- function(path) {
-    path <- .normalizePath(path = path, mustWork = FALSE)
     vapply(
-        X = path,
-        FUN = function(x) {
+        X = .normalizePath(path = path, mustWork = FALSE),
+        FUN = function(x, fsep) {
             x <- strsplit(x = x, split = fsep, fixed = TRUE)
             x <- unlist(x)
             x <- length(x)
             x <- x - 1L
             x
         },
+        fsep = .Platform[["fsep"]],
         FUN.VALUE = integer(1L),
         USE.NAMES = FALSE
     )
