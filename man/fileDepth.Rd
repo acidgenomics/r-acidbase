@@ -4,15 +4,12 @@
 \alias{fileDepth}
 \title{File depth}
 \usage{
-fileDepth(path, fsep = .Platform[["file.sep"]])
+fileDepth(path)
 }
 \arguments{
 \item{path}{\code{character}.
 File path(s).
 This function is vectorized and supports multiple files.}
-
-\item{fsep}{\code{character(1)}.
-Platform-specific file path separator (e.g. "/" on Unix).}
 }
 \value{
 \code{integer}.
@@ -22,10 +19,11 @@ Note that "/" will return 0 here (zero indexed).
 \description{
 File depth
 }
-\note{
+\details{
 This function intentionally doesn't check whether a file exists.
-
-Updated 2019-09-05.
+}
+\note{
+Updated 2022-05-31.
 }
 \examples{
 a <- tempdir()
