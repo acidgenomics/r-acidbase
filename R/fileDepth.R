@@ -28,7 +28,7 @@ fileDepth <- function(path) {
             x <- x - 1L
             x
         },
-        fsep = .Platform[["fsep"]],
+        fsep = .Platform[["file.sep"]],
         FUN.VALUE = integer(1L),
         USE.NAMES = FALSE
     )
