@@ -42,7 +42,7 @@ download <-
             isString(destfile),
             isFlag(quiet)
         )
-        destfile <- normalizePath(destfile, mustWork = FALSE)
+        destfile <- .normalizePath(path = destfile, mustWork = FALSE)
         if (!isADir(dirname(destfile))) {
             dir.create(path = dirname(destfile), recursive = TRUE) # nocov
         }

@@ -79,12 +79,12 @@ shell <-
             timeout = Inf,
             stdout = ifelse(
                 test = isString(stdoutFile),
-                yes = normalizePath(stdoutFile, mustWork = FALSE),
+                yes = .normalizePath(path = stdoutFile, mustWork = FALSE),
                 no = "|"
             ),
             stderr = ifelse(
                 test = isString(stderrFile),
-                yes = normalizePath(stderrFile, mustWork = FALSE),
+                yes = .normalizePath(path = stderrFile, mustWork = FALSE),
                 no = "|"
             ),
             stderr_to_stdout = stderrToStdout
