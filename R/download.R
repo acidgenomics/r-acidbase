@@ -1,7 +1,3 @@
-## FIXME This isn't returning full file path as expected on Windows.
-
-
-
 #' Download a file from the Internet
 #'
 #' @export
