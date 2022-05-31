@@ -1,7 +1,11 @@
+## FIXME This isn't returning full file path as expected on Windows.
+
+
+
 #' Download a file from the Internet
 #'
 #' @export
-#' @note Updated 2022-05-20.
+#' @note Updated 2022-05-31.
 #'
 #' @details
 #' Unlike [utils::download.file()], intentionally errors on any download
