@@ -14,7 +14,7 @@ File paths, which must exist on disk.}
 Express file paths in canonical form
 }
 \note{
-Updated 2020-08-19.
+Updated 2022-05-31.
 
 Use \code{normalizePath()} instead for non-existing file paths.
 }
