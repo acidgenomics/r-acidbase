@@ -22,12 +22,13 @@ Useful for setting up functions that require writes to a user-specified
 directory.
 }
 \note{
-Updated 2020-01-06.
+Updated 2022-06-02.
 }
 \examples{
-initDir("testdir")
-dir.exists("testdir")
-
-## Clean up.
-unlink("testdir", recursive = TRUE)
+dir <- file.path(tempdir(), "testdir")
+dir.exists(dir)
+dir <- initDir(dir)
+dir.exists(dir)
+print(dir)
+unlink2(dir)
 }
