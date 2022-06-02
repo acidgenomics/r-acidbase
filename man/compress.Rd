@@ -60,7 +60,7 @@ gzfile <- compress(
     remove = TRUE,
     overwrite = TRUE
 )
-gzfile
+print(gzfile)
 readLines(con = gzfile)
 ## When `remove = TRUE`, the original input file will be removed.
 file.exists(file)
@@ -71,9 +71,10 @@ file <- decompress(
     remove = TRUE,
     overwrite = TRUE
 )
-file
+print(file)
 
-unlink(file)
+## Clean up.
+unlink2(file)
 }
 \seealso{
 \itemize{
