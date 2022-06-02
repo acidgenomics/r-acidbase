@@ -1,10 +1,11 @@
 test_that("initDir", {
-    dir <- "XXX"
-    unlink(dir, recursive = TRUE)
-    x <- initDir(dir)
+    x <- file.path(tempdir2(), "XXX")
+    expect_false(dir.exists(x))
+    y <- initDir(x)
     ## Existing directory should not generate warning.
-    x <- initDir(dir)
-    expect_identical(basename(x), dir)
+    y <- initDir(y)
     expect_true(dir.exists(x))
-    unlink(dir, recursive = TRUE)
+    expect_true(dir.exists(y))
+    expect_identical(realpath(x), realpath(y))
+    unlink2(x)
 })
