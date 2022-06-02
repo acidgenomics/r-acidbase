@@ -1,11 +1,14 @@
 test_that("realpath", {
-    unlink(c("AAA", "BBB"), recursive = TRUE)
-    dir.create("AAA")
-    file.create("BBB")
-    path <- c("aaa" = "AAA", "bbb" = "BBB")
+    tempdir <- tempdir2()
+    dir.create(file.path(tempdir, "AAA"))
+    file.create(file.path(tempdir, "BBB"))
+    path <- c(
+        "aaa" = file.path(tempdir, "AAA"),
+        "bbb" = file.path(tempdir, "BBB")
+    )
     out <- realpath(path)
     expect_named(out)
-    expect_identical(basename(out), unname(path))
-    unlink(path, recursive = TRUE)
+    expect_identical(basename(out), basename(path))
+    unlink2(tempdir)
     expect_error(realpath(path))
 })
