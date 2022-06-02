@@ -1,5 +1,5 @@
 text <- c("hello", "world")
-file <- "test.txt"
+file <- file.path(tempdir2(), "test.txt")
 writeLines(text = text, con = file)
 
 exts <- eval(formals(compress)[["ext"]])
@@ -25,4 +25,4 @@ test_that(toString(exts), {
     }
 })
 
-unlink(file)
+unlink2(file)
