@@ -1,10 +1,8 @@
 test_that("Bioconductor release", {
     url <- "https://bioconductor.org/bioc-version"
-    destfile <- file.path(realpath(tempdir()), "download", "bioc-version.txt")
-    unlink(destfile)
-    expect_false(file.exists(destfile))
+    destfile <- file.path(tempdir2(), "bioc-version.txt")
     out <- download(url = url, destfile = destfile, quiet = TRUE)
     expect_identical(destfile, out)
     expect_true(file.exists(destfile))
-    unlink(destfile)
+    unlink2(destfile)
 })
