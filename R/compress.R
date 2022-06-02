@@ -46,7 +46,7 @@
 #'     remove = TRUE,
 #'     overwrite = TRUE
 #' )
-#' gzfile
+#' print(gzfile)
 #' readLines(con = gzfile)
 #' ## When `remove = TRUE`, the original input file will be removed.
 #' file.exists(file)
@@ -57,9 +57,10 @@
 #'     remove = TRUE,
 #'     overwrite = TRUE
 #' )
-#' file
+#' print(file)
 #'
-#' unlink(file)
+#' ## Clean up.
+#' unlink2(file)
 NULL
 
 
