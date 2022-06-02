@@ -1,7 +1,8 @@
 test_that("Nested structure check", {
+    tempdir <- tempdir2()
     vec <- c("aaa", "bbb", "ccc", "ddd", "eee")
     path <- do.call(what = file.path, args = as.list(vec))
-    unlink(path, recursive = TRUE)
+    path <- file.path(tempdir, path)
     path <- initDir(path)
     for (n in seq(from = 1L, to = length(vec) - 1L)) {
         expect_identical(
@@ -9,7 +10,7 @@ test_that("Nested structure check", {
             expected = vec[length(vec) - n]
         )
     }
-    unlink(path, recursive = TRUE)
+    unlink2(tempdir)
 })
 
 test_that("Names handling", {
