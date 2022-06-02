@@ -1,3 +1,14 @@
+# AcidBase 0.6.4 (2022-06-02)
+
+## New functions
+
+- `tempdir2`: Temporary directory generator that improves upon base R
+  `tempdir` conventions, ensuring that a new unique directory is created
+  per call.
+- `unlink2`: Hardened variant of `unlink` that provides better file system
+  compatibility with Windows. Function will intentionally error if file or
+  directory does not exist on disk.
+
 # AcidBase 0.6.3 (2022-05-31)
 
 ## Minor changes
