@@ -6,7 +6,7 @@
 #' directory.
 #'
 #' @export
-#' @note Updated 2020-01-06.
+#' @note Updated 2022-06-02.
 #'
 #' @param dir `character(1)`.
 #' Directory path.
@@ -15,11 +15,12 @@
 #' Directory path.
 #'
 #' @examples
-#' initDir("testdir")
-#' dir.exists("testdir")
-#'
-#' ## Clean up.
-#' unlink("testdir", recursive = TRUE)
+#' dir <- file.path(tempdir(), "testdir")
+#' dir.exists(dir)
+#' dir <- initDir(dir)
+#' dir.exists(dir)
+#' print(dir)
+#' unlink2(dir)
 initDir <- function(dir) {
     assert(isString(dir))
     if (!isADir(dir)) {
