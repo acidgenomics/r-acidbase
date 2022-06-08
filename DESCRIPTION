@@ -1,8 +1,8 @@
 Package: AcidBase
 Title: Acid Genomics Base Functions
 Description: Low-level base functions imported by Acid Genomics packages.
-Version: 0.6.4
-Date: 2022-06-02
+Version: 0.6.5
+Date: 2022-06-08
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -35,7 +35,7 @@ Suggests:
     testthat (>= 3.0.0),
     utils,
     withr
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.0
 Additional_repositories: https://r.acidgenomics.com
 Config/testthat/edition: 3
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0
