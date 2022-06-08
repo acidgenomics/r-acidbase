@@ -1,3 +1,11 @@
+# AcidBase 0.6.5 (2022-06-08)
+
+## Minor changes
+
+- `unlink2`: Added assert check to ensure files and/or directories are
+  successfully deleted. Calls `file.exists` internally, which checks both
+  files and directories.
+
 # AcidBase 0.6.4 (2022-06-02)
 
 ## New functions
