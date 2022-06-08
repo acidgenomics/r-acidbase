@@ -1,7 +1,7 @@
 #' Delete files and directories
 #'
 #' @export
-#' @note Updated 2022-06-01.
+#' @note Updated 2022-06-08.
 #'
 #' @details
 #' This variant hardens file path handling, for better Windows compatibility.
@@ -23,12 +23,12 @@
 #' out <- unlink2(c(x, y))
 #' print(out)
 unlink2 <- function(x) {
-    unlink(
-        x = normalizePath(
-            path = x,
-            winslash = "\\",
-            mustWork = TRUE
-        ),
-        recursive = TRUE
+    x <- normalizePath(
+        path = x,
+        winslash = "\\",
+        mustWork = TRUE
     )
+    out <- unlink(x, recursive = TRUE)
+    assert(!any(file.exists(x)))
+    invisible(out)
 }
