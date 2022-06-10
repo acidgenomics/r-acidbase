@@ -23,7 +23,7 @@ Delete files and directories
 This variant hardens file path handling, for better Windows compatibility.
 }
 \note{
-Updated 2022-06-01.
+Updated 2022-06-08.
 }
 \examples{
 tempdir <- tempdir2()
