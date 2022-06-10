@@ -13,7 +13,7 @@
 #' - `methodFunction`: `function`. Extract the sealed function.
 #'
 #' @seealso
-#' - Modified version of [John Chambers' code](https://goo.gl/ymX571).
+#' - Modified version of John Chambers' code.
 #' - `help(topic = "MethodDefinition-class", package = "methods")`.
 #' - `methods::selectMethod()`.
 #' - `methods::setMethod()`.
