@@ -39,13 +39,13 @@ objects.
 }
 \section{Functions}{
 \itemize{
-\item \code{headtail,data.frame-method}: Same method as \code{matrix}.
+\item \code{headtail(data.frame)}: Same method as \code{matrix}.
 
-\item \code{headtail,list-method}: Paste collapse to a \code{character(1)}.
+\item \code{headtail(list)}: Paste collapse to a \code{character(1)}.
 
-\item \code{headtail,matrix-method}: Show first and last rows.
+\item \code{headtail(matrix)}: Show first and last rows.
+
 }}
-
 \note{
 Updated 2021-10-14.
 }
