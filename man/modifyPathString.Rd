@@ -31,10 +31,10 @@ System path string handlers
 }
 \section{Functions}{
 \itemize{
-\item \code{addToPathEnd}: Note that input defined in \code{x} is reversed internally, so the first element
+\item \code{addToPathEnd()}: Note that input defined in \code{x} is reversed internally, so the first element
 in the vector is added to the end of the path string.
-}}
 
+}}
 \note{
 Updated 2021-08-23.
 }
