@@ -1,3 +1,10 @@
+# AcidBase 0.6.6 (2022-08-24)
+
+## Minor changes
+
+- `requireNamespaces`: Made error message regarding `NAMESPACE` more
+  informative. Now indicates that user needs to install a missing package.
+
 # AcidBase 0.6.5 (2022-06-08)
 
 ## Minor changes
