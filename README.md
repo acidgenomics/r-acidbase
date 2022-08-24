@@ -28,7 +28,7 @@ Configure [Conda][] to use the [Bioconda][] channels.
 
 ```sh
 # Don't install recipe into base environment.
-name="r-acidbase"
+name='r-acidbase'
 conda create --name="$name" "$name"
 conda activate "$name"
 R
@@ -37,14 +37,13 @@ R
 ### [Docker][] method
 
 ```sh
-image="acidgenomics/r-acidbase"
-workdir="/mnt/work"
+image='acidgenomics/r-packages:acidbase'
+workdir='/mnt/work'
 docker pull "$image"
 docker run -it \
     --volume="${PWD}:${workdir}" \
     --workdir="$workdir" \
-    "$image" \
-    R
+    "$image"
 ```
 
 [acid genomics]: https://acidgenomics.com/
