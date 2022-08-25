@@ -10,7 +10,7 @@
 #'
 #' Unlike `requireNamespace`, this variant always errors on namespace failure.
 #'
-#' @note Updated 2022-08-24.
+#' @note Updated 2022-08-25.
 #' @export
 #'
 #' @param packages `character`.
@@ -39,7 +39,7 @@ requireNamespaces <- function(packages) {
                 n = length(fail),
                 msg1 = "Package",
                 msg2 = "Packages"
-            )
+            ),
             .toInlineString(x = fail, class = "pkg")
         ))
     }

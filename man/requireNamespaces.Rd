@@ -24,7 +24,7 @@ dependencies defined via \code{Suggests} instead of \code{Imports} or \code{Depe
 Unlike \code{requireNamespace}, this variant always errors on namespace failure.
 }
 \note{
-Updated 2021-08-13.
+Updated 2022-08-25.
 }
 \examples{
 requireNamespaces(c("base", "utils"))
