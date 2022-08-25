@@ -6,6 +6,7 @@ Minor changes:
 
 - `requireNamespaces`: Made error message regarding `NAMESPACE` more
   informative. Now indicates that user needs to install a missing package.
+- Miscellaneous documentation updates, based on roxygen2 changes.
 
 ## AcidBase 0.6.5 (2022-06-08)
 
