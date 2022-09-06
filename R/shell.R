@@ -1,11 +1,7 @@
-## FIXME Need to add support for "env" argument here.
-
-
-
 #' Invoke a command in the system command-line shell
 #'
 #' @export
-#' @note Updated 2022-05-02.
+#' @note Updated 2022-09-06.
 #'
 #' @param command `character(1)`.
 #' Name of program to run.
@@ -13,11 +9,17 @@
 #' @param args `character`.
 #' Arguments passed to `command`.
 #'
-#' @param print `logical(1)`.
-#' Whether to print (echo) the commands to the console.
+#' @param env `character` or `NULL`.
+#' Environment variables of the child process. If `NULL`, the parent environment
+#' is inherited. To append new environment variables to the ones set in the
+#' current process, specify `"current"` in env, without a name, and the appended
+#' ones with names. The appended ones can overwrite the current ones.
 #'
 #' @param wd `character(1)`.
-#' Working directory path inside shell session.
+#' Working directory path inside process.
+#'
+#' @param print `logical(1)`.
+#' Whether to print (echo) the commands to the console.
 #'
 #' @param stdoutFile,stderrFile `character(1)` or `NULL`.
 #' File path to log stdout and/or stderr.
@@ -48,8 +50,9 @@
 shell <-
     function(command,
              args = character(),
-             print = interactive(),
+             env = NULL,
              wd = getwd(),
+             print = interactive(),
              stderrFile = NULL,
              stdoutFile = NULL,
              stderrToStdout = FALSE,
@@ -59,8 +62,9 @@ shell <-
             isString(command),
             isSystemCommand(command),
             is.character(args),
-            isFlag(print),
+            isCharacter(env, nullOK = TRUE),
             isADir(wd),
+            isFlag(print),
             isString(stdoutFile, nullOK = TRUE),
             isString(stderrFile, nullOK = TRUE),
             isFlag(stderrToStdout),
@@ -91,7 +95,8 @@ shell <-
                 yes = .normalizePath(path = stderrFile, mustWork = FALSE),
                 no = "|"
             ),
-            stderr_to_stdout = stderrToStdout
+            stderr_to_stdout = stderrToStdout,
+            env = env
         )
         assert(
             is.list(x),
