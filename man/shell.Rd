@@ -7,8 +7,9 @@
 shell(
   command,
   args = character(),
-  print = interactive(),
+  env = NULL,
   wd = getwd(),
+  print = interactive(),
   stderrFile = NULL,
   stdoutFile = NULL,
   stderrToStdout = FALSE,
@@ -22,11 +23,17 @@ Name of program to run.}
 \item{args}{\code{character}.
 Arguments passed to \code{command}.}
 
-\item{print}{\code{logical(1)}.
-Whether to print (echo) the commands to the console.}
+\item{env}{\code{character} or \code{NULL}.
+Environment variables of the child process. If \code{NULL}, the parent environment
+is inherited. To append new environment variables to the ones set in the
+current process, specify \code{"current"} in env, without a name, and the appended
+ones with names. The appended ones can overwrite the current ones.}
 
 \item{wd}{\code{character(1)}.
-Working directory path inside shell session.}
+Working directory path inside process.}
+
+\item{print}{\code{logical(1)}.
+Whether to print (echo) the commands to the console.}
 
 \item{stdoutFile, stderrFile}{\code{character(1)} or \code{NULL}.
 File path to log stdout and/or stderr.
@@ -48,7 +55,7 @@ Contains named elements:
 Invoke a command in the system command-line shell
 }
 \note{
-Updated 2022-05-02.
+Updated 2022-09-06.
 }
 \examples{
 x <- shell(
