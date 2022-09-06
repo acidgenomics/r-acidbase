@@ -1,5 +1,11 @@
 # Release notes
 
+## AcidBase 0.6.7 (2022-09-06)
+
+- `shell`: Added support for `env`, which allows for environment variable
+  definition inside the child process. Refer to `processx::run` and `system2`
+  for details.
+
 ## AcidBase 0.6.6 (2022-08-24)
 
 Minor changes:
