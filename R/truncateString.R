@@ -28,7 +28,8 @@ truncateString <- function(x, n = 200L) {
                 first = 1L,
                 last = n - 3L
             ),
-            "..."),
+            "..."
+        ),
         no = x
     )
 }
