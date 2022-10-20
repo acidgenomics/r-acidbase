@@ -1,7 +1,7 @@
 #' Invoke a command in the system command-line shell
 #'
 #' @export
-#' @note Updated 2022-09-06.
+#' @note Updated 2022-10-20.
 #'
 #' @param command `character(1)`.
 #' Name of program to run.
@@ -70,18 +70,34 @@ shell <-
             isFlag(stderrToStdout),
             isFlag(returnStdout)
         )
-        ## Ensure arguments are passed in unquoted, if necessary.
         args <- gsub(
             pattern = "^['\"](.+)['\"]$",
             replacement = "\\1",
             x = args
         )
+        ## Dynamically replace "~" with "HOME". This is a commonly used
+        ## character in the command line that doesn't evaluate correctly.
+        args <- gsub(
+            pattern = "^~",
+            replacement = realpath("~"),
+            x = args
+        )
+        if (isTRUE(print)) {
+            cmdString <- paste(
+                command,
+                paste(args, collapse = " "),
+                sep = " "
+            )
+            cmdString <- truncateString(cmdString, n = 200L)
+            cmdString <- deparse(cmdString)
+            .alert(sprintf("Shell subprocess: %s", cmdString))
+        }
         x <- processx::run(
             command = command,
             args = args,
             error_on_status = FALSE,
             wd = wd,
-            echo_cmd = print,
+            echo_cmd = FALSE,
             echo = print,
             spinner = print,
             timeout = Inf,
@@ -104,17 +120,21 @@ shell <-
         )
         if (!identical(x[["status"]], 0L)) {
             msg <- c(
-                "Shell command failure.",
-                paste(
-                    "$", command,
-                    paste(args, collapse = " "),
-                    sep = " "
-                )
+                "Shell subprocess command failure.",
+                paste("Command:", cmdString),
+                paste("Status:", x[["status"]])
             )
             stderr <- x[["stderr"]]
             if (isString(stderr)) {
-                msg <- append(x = msg, values = stderr)
+                msg <- append(
+                    x = msg,
+                    values = paste(
+                        "Error:",
+                        sub(pattern = "^\n", replacement = "", x = stderr)
+                    )
+                )
             }
+            msg <- paste0(msg, collapse = "\n")
             .abort(msg)
         }
         if (isTRUE(returnStdout)) {
