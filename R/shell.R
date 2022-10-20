@@ -82,14 +82,14 @@ shell <-
             replacement = realpath("~"),
             x = args
         )
+        cmdString <- paste(
+            command,
+            paste(args, collapse = " "),
+            sep = " "
+        )
+        cmdString <- truncateString(cmdString, n = 200L)
+        cmdString <- deparse(cmdString)
         if (isTRUE(print)) {
-            cmdString <- paste(
-                command,
-                paste(args, collapse = " "),
-                sep = " "
-            )
-            cmdString <- truncateString(cmdString, n = 200L)
-            cmdString <- deparse(cmdString)
             .alert(sprintf("Shell subprocess: %s", cmdString))
         }
         x <- processx::run(
