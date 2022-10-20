@@ -1,6 +1,22 @@
 # Release notes
 
+## AcidBase 0.6.8 (2022-10-20)
+
+New functions:
+
+- `truncateString`: Simple utility function that smartly adds ellipsis (`...`)
+  when necessary to a long character string. Don't want to export this as
+  `truncate`, which is defined in base R for connections.
+
+Minor changes:
+
+- `shell`: Improved interactive printing and error message handling. The
+  function now attempts to automatically handle `~` character, when defined
+  at the beginning of an argument.
+
 ## AcidBase 0.6.7 (2022-09-06)
+
+Minor changes:
 
 - `shell`: Added support for `env`, which allows for environment variable
   definition inside the child process. Refer to `processx::run` and `system2`
