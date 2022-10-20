@@ -1,6 +1,6 @@
 #+TITLE: AcidBase
 #+STARTUP: content
 * Development
-** TODO `requireNamespaces` should support version string cutoff e.g.
-    "AcidBase >= 0.1"
+** TODO `requireNamespaces` should support version string cutoff
+    e.g. "AcidBase >= 0.1"
 ** TODO `dots()`: Consider using `return` formal instead of `character` boolean.
