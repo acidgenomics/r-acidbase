@@ -82,11 +82,15 @@ shell <-
             replacement = realpath("~"),
             x = args
         )
-        cmdString <- paste(
-            command,
-            paste(args, collapse = " "),
-            sep = " "
-        )
+        ## Generate a deparsed, user-readable command string.
+        cmdString <- command
+        if (hasLength(args)) {
+            cmdString <- paste(
+                cmdString,
+                paste(args, collapse = " "),
+                sep = " "
+            )
+        }
         cmdString <- truncateString(cmdString, n = 200L)
         cmdString <- deparse(cmdString)
         if (isTRUE(print)) {
