@@ -25,8 +25,11 @@ NULL
 ## Updated 2022-11-17.
 `zscore,numeric` <- # nolint
     function(object) {
-        assert(isFALSE(anyNA(object)))
-        (object - mean(object)) / sd(object)
+        assert(
+            requireNamespace("stats", quietly = TRUE),
+            isFALSE(anyNA(object))
+        )
+        (object - mean(object)) / stats::sd(object)
     }
 
 
@@ -36,7 +39,11 @@ NULL
 ## Updated 2022-11-17.
 `zscore,matrix` <- # nolint
     function(object, MARGIN = 1L) { # nolint
-        assert(isFALSE(anyNA(object)))
+        assert(
+            isFALSE(anyNA(object)),
+            isInt(MARGIN),
+            isInRange(MARGIN, lower = 1L, upper = 2L)
+        )
         out <- apply(
             X = object,
             MARGIN = MARGIN,
