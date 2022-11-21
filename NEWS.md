@@ -1,5 +1,16 @@
 # Release notes
 
+## AcidBase 0.6.9 (2022-11-21)
+
+New functions:
+
+- `euclidean`: Calculate Euclidean distance of two numeric vectors.
+- `zscore`: Calculate Z score for an input numeric vector or matrix. Note that
+  matrix method defaults to row-wise scaling, defined by `MARGIN` argument.
+  This convention is intended to match recommended R defaults, and also to
+  work as expected with sample (columns) x gene (rows) matrix, commonly used
+  for gene expression in `SummarizedExperiment` class objects.
+
 ## AcidBase 0.6.8 (2022-10-20)
 
 New functions:
