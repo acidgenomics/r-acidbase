@@ -4,6 +4,12 @@
 #' @usage coerceToList(object, ...)
 NULL
 
+#' @rdname euclidean
+#' @name euclidean
+#' @export
+#' @usage euclidean(x, y, ...)
+NULL
+
 #' @rdname geometricMean
 #' @name geometricMean
 #' @export
@@ -56,4 +62,10 @@ NULL
 #' @name showHeader
 #' @export
 #' @usage showHeader(object, ...)
+NULL
+
+#' @rdname zscore
+#' @name zscore
+#' @export
+#' @usage zscore(object, ...)
 NULL
