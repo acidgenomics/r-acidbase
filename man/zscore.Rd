@@ -46,6 +46,7 @@ zscore(matrix, MARGIN = 1L)
 }
 \seealso{
 \itemize{
-\item \code{scale}.
+\item \code{scale()}.
+\item \code{limma::zscore()}.
 }
 }

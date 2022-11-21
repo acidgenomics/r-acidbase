@@ -6,9 +6,6 @@
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
 #'
-#' @seealso
-#' - `scale`.
-#'
 #' @examples
 #' data(matrix, package = "AcidTest")
 #'
