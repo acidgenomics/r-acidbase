@@ -25,7 +25,7 @@ NULL
             isFALSE(anyNA(x)),
             isFALSE(anyNA(y))
         )
-        sqrt(sum((x - y) ^ 2L))
+        sqrt(sum((x - y)^2L))
     }
 
 

@@ -60,7 +60,7 @@ setMethod(
 #' @rdname zscore
 #' @export
 setMethod(
-   f = "zscore",
+    f = "zscore",
     signature = signature(object = "numeric"),
     definition = `zscore,numeric`
 )
