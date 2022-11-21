@@ -8,9 +8,9 @@ NULL
 
 ## S4 generics and methods =====================================================
 
-#' @importFrom AcidGenerics coerceToList foldChangeToLogRatio geometricMean
-#' headtail intersectAll intersectionMatrix logRatioToFoldChange rankedMatrix
-#' sem showHeader
+#' @importFrom AcidGenerics coerceToList euclidean foldChangeToLogRatio
+#' geometricMean headtail intersectAll intersectionMatrix logRatioToFoldChange
+#' rankedMatrix sem showHeader zscore
 #' @importFrom S4Vectors head metadata metadata<- tail
 NULL
 
