@@ -51,7 +51,7 @@ Updated 2021-10-14.
 }
 \examples{
 ## numeric ====
-vec1 <- seq(1L, 5L, 1L)
+vec1 <- seq(from = 1L, to = 5L, by = 1L)
 print(vec1)
 geometricMean(vec1)
 
