@@ -55,15 +55,15 @@ NULL
 #' @rdname zscore
 #' @export
 setMethod(
-   f = "zscore",
-    signature = signature(object = "numeric"),
-    definition = `zscore,numeric`
+    f = "zscore",
+    signature = signature(object = "matrix"),
+    definition = `zscore,matrix`
 )
 
 #' @rdname zscore
 #' @export
 setMethod(
-    f = "zscore",
-    signature = signature(object = "matrix"),
-    definition = `zscore,matrix`
+   f = "zscore",
+    signature = signature(object = "numeric"),
+    definition = `zscore,numeric`
 )
