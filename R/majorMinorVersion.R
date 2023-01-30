@@ -33,7 +33,7 @@ majorMinorVersion <- function(x) {
 
 #' @rdname majorMinorVersion
 #' @export
-minorVersion <- function(...) {
+minorVersion <- function(x) {
     .Deprecated("majorMinorVersion")
-    majorMinorVersion(...)
+    majorMinorVersion(x)
 }
