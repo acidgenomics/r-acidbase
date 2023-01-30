@@ -2,9 +2,12 @@
 % Please edit documentation in R/majorMinorVersion.R
 \name{majorMinorVersion}
 \alias{majorMinorVersion}
+\alias{minorVersion}
 \title{Major and minor version}
 \usage{
 majorMinorVersion(x)
+
+minorVersion(...)
 }
 \arguments{
 \item{x}{Object.}
@@ -19,5 +22,5 @@ Major and minor version
 Updated 2023-01-30.
 }
 \examples{
-majorMinorVersion(c("1.0.0", "2.1.2a"))
+majorMinorVersion(c("1.0.0", "2.1"))
 }
