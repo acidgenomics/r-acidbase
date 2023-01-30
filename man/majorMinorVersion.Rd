@@ -7,7 +7,7 @@
 \usage{
 majorMinorVersion(x)
 
-minorVersion(...)
+minorVersion(x)
 }
 \arguments{
 \item{x}{Object.}
