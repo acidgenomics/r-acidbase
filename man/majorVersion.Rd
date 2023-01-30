@@ -16,7 +16,7 @@ majorVersion(x)
 Major version
 }
 \note{
-Updated 2020-04-09.
+Updated 2023-01-30.
 }
 \examples{
 majorVersion(c("1.0.0", "2.1"))
