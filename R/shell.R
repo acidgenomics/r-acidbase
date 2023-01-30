@@ -58,6 +58,7 @@ shell <-
              stderrToStdout = FALSE,
              returnStdout = FALSE) {
         assert(
+            ## FIXME Switch to `requireNamespaces` here.
             requireNamespace("processx", quietly = TRUE),
             isString(command),
             isSystemCommand(command),
