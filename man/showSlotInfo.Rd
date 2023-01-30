@@ -21,7 +21,7 @@ Standardized to Bioconductor \code{show()} method conventions.
 Refer to \code{SummarizedExperiment} method for example.
 }
 \note{
-Updated 2022-05-20.
+Updated 2023-01-30.
 }
 \examples{
 showSlotInfo(list(

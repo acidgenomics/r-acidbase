@@ -1,7 +1,7 @@
 #' Invoke a command in the system command-line shell
 #'
 #' @export
-#' @note Updated 2022-10-20.
+#' @note Updated 2023-01-30.
 #'
 #' @param command `character(1)`.
 #' Name of program to run.
@@ -58,8 +58,7 @@ shell <-
              stderrToStdout = FALSE,
              returnStdout = FALSE) {
         assert(
-            ## FIXME Switch to `requireNamespaces` here.
-            requireNamespace("processx", quietly = TRUE),
+            requireNamespaces("processx"),
             isString(command),
             isSystemCommand(command),
             is.character(args),
