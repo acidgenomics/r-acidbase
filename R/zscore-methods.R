@@ -1,7 +1,7 @@
 #' @name zscore
 #' @inherit AcidGenerics::zscore
 #'
-#' @note Updated 2022-11-17.
+#' @note Updated 2023-01-30.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -22,11 +22,11 @@ NULL
 
 ## Alternative approach:
 ## > scale(object, center = TRUE, scale = TRUE)
-## Updated 2022-11-17.
+## Updated 2023-01-30.
 `zscore,numeric` <- # nolint
     function(object) {
         assert(
-            requireNamespace("stats", quietly = TRUE),
+            requireNamespaces("stats"),
             isFALSE(anyNA(object))
         )
         (object - mean(object)) / stats::sd(object)

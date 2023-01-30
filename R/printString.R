@@ -5,7 +5,7 @@
 #' Useful for returning informative messages inside a function.
 #'
 #' @export
-#' @note Updated 2021-02-23.
+#' @note Updated 2023-01-30.
 #'
 #' @param x An object used to select a [`print()`][base::print] method.
 #'
@@ -28,7 +28,7 @@ printString <-
     function(x, ...,
              max = getOption(x = "max.print", default = 100L)) {
         assert(
-            requireNamespace("utils", quietly = TRUE),
+            requireNamespaces("utils"),
             isInt(max)
         )
         x <- utils::capture.output(print(x, ...))

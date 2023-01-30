@@ -26,7 +26,7 @@ Capture \code{\link[base:print]{print()}} output as a \code{character} string.
 Useful for returning informative messages inside a function.
 }
 \note{
-Updated 2021-02-23.
+Updated 2023-01-30.
 }
 \examples{
 printString(c("hello", "world"))

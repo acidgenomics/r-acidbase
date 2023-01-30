@@ -27,7 +27,7 @@ Standard error of the mean
 Alternatively, can use: \code{sd(x) / sqrt(length(x))}.
 }
 \note{
-Updated 2021-10-12.
+Updated 2023-01-30.
 }
 \examples{
 x <- seq(from = 1L, to = 10L, by = 1L)

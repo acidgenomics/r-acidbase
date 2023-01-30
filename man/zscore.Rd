@@ -31,7 +31,7 @@ Numeric vector or matrix.
 Calculate Z-score
 }
 \note{
-Updated 2022-11-17.
+Updated 2023-01-30.
 }
 \examples{
 data(matrix, package = "AcidTest")

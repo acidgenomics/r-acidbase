@@ -1,5 +1,16 @@
 # Release notes
 
+## AcidBase 0.6.10 (2023-01-30)
+
+Minor changes:
+
+- Deprecated `minorVersion` in favor of `majorMinorVersion`, which improves
+  legibility. Added asserts against `""` and `NA` input. Improved code coverage
+  and support for input of a major version alone here (e.g. `"1"` instead of
+  `"1.0"`).
+- Now using `requireNamespaces` instead of `requireNamespace` consistently
+  across the package, to improve error messages.
+
 ## AcidBase 0.6.9 (2022-11-21)
 
 New functions:
