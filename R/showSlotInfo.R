@@ -1,7 +1,7 @@
 #' Show slot information
 #'
 #' @export
-#' @note Updated 2022-05-20.
+#' @note Updated 2023-01-30.
 #'
 #' @details
 #' Standardized to Bioconductor `show()` method conventions.
@@ -20,7 +20,7 @@
 #' ))
 showSlotInfo <- function(list) {
     assert(
-        requireNamespace("utils", quietly = TRUE),
+        requireNamespaces("utils"),
         is.list(list)
     )
     list <- Filter(f = Negate(is.null), x = list)

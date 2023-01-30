@@ -4,7 +4,7 @@
 #'
 #' @export
 #' @name compress
-#' @note Updated 2022-05-20.
+#' @note Updated 2023-01-30.
 #'
 #' @details
 #' For ZIP files, refer to `zip` and `unzip` in the utils package.
@@ -109,10 +109,7 @@ compress <-
         )
         ## For ZIP files, hand off to `utils::zip()` and early return.
         if (identical(ext, "zip")) {
-            assert(
-                requireNamespace("utils", quietly = TRUE),
-                requireNamespace("withr", quietly = TRUE)
-            )
+            assert(requireNamespaces(c("utils", "withr")))
             withr::with_dir(
                 new = dirname(file),
                 code = {
@@ -240,7 +237,7 @@ decompress <-
         }
         ## For ZIP files, hand off to `utils::unzip()` and early return.
         if (identical(ext, "zip")) {
-            assert(requireNamespace("utils", quietly = TRUE))
+            assert(requireNamespaces("utils"))
             destfile <- utils::unzip(
                 zipfile = file,
                 files = NULL,

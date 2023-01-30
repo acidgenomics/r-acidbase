@@ -1,6 +1,6 @@
 #' @name sem
 #' @inherit AcidGenerics::sem
-#' @note Updated 2021-10-12.
+#' @note Updated 2023-01-30.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -31,7 +31,7 @@ NULL
 ## Updated 2022-04-29.
 `sem,numeric` <- # nolint
     function(x) {
-        assert(requireNamespace("stats", quietly = TRUE))
+        assert(requireNamespaces("stats"))
         sqrt(stats::var(x) / length(x))
     }
 

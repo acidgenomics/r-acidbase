@@ -1,7 +1,7 @@
 #' Download a file from the Internet
 #'
 #' @export
-#' @note Updated 2022-05-31.
+#' @note Updated 2023-01-30.
 #'
 #' @details
 #' Unlike [utils::download.file()], intentionally errors on any download
@@ -37,7 +37,7 @@ download <-
              quiet = FALSE,
              ...) {
         assert(
-            requireNamespace("utils", quietly = TRUE),
+            requireNamespaces("utils"),
             isString(url),
             isString(destfile),
             isFlag(quiet)
