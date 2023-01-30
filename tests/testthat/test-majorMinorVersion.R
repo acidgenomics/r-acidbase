@@ -1,9 +1,8 @@
-test_that("majorVersion", {
-    x <- c("1.0.0", "2.1", "3")
-    x <- numeric_version(x)
+test_that("majorMinorVersion", {
+    x <- numeric_version(c("1.0.0", "2.1", "3"))
     expect_identical(
-        object = majorVersion(x),
-        expected = numeric_version(c("1", "2", "3"))
+        object = majorMinorVersion(x),
+        expected = numeric_version(c("1.0", "2.1", "3"))
     )
     expect_error(
         object = majorMinorVersion(""),
