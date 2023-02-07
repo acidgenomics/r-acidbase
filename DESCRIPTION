@@ -1,8 +1,8 @@
 Package: AcidBase
 Title: Acid Genomics Base Functions
 Description: Low-level base functions imported by Acid Genomics packages.
-Version: 0.6.10
-Date: 2023-01-30
+Version: 0.6.11
+Date: 2023-02-07
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -25,7 +25,7 @@ Imports:
     AcidGenerics (>= 0.6.5),
     BiocGenerics (>= 0.44.0),
     S4Vectors (>= 0.36.0),
-    goalie (>= 0.6.7),
+    goalie (>= 0.6.8),
     methods
 Suggests:
     AcidCLI (>= 0.2.6),
