@@ -1,5 +1,12 @@
 # Release notes
 
+## AcidBase 0.6.11 (2023-02-07)
+
+Minor changes:
+
+- `requireNamespaces`: Migrated this function to goalie. Still reexporting this
+  function in the NAMESPACE, but that likely will change with a future update.
+
 ## AcidBase 0.6.10 (2023-01-30)
 
 Minor changes:
