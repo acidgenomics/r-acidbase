@@ -1,8 +1,8 @@
 .abort <- function(x) {
     if (isTRUE(requireNamespace("AcidCLI", quietly = TRUE))) {
-        AcidCLI::abort(x)
+        AcidCLI::abort(x, call = FALSE)
     } else {
-        stop(x)
+        stop(x, call. = FALSE)
     }
 }
 
