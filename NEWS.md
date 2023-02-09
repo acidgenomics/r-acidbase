@@ -1,5 +1,11 @@
 # Release notes
 
+## AcidBase 0.6.12 (2023-02-09)
+
+Minor changes:
+
+- Removed `requireNamespaces` as a reexport.
+
 ## AcidBase 0.6.11 (2023-02-07)
 
 Minor changes:
