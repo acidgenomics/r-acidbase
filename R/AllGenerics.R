@@ -46,6 +46,12 @@ NULL
 #' @usage logRatioToFoldChange(object, ...)
 NULL
 
+#' @rdname matchNested
+#' @name matchNested
+#' @export
+#' @usage matchNested(x, table, ...)
+NULL
+
 #' @rdname rankedMatrix
 #' @name rankedMatrix
 #' @export
