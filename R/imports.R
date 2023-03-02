@@ -1,7 +1,7 @@
 ## Classes =====================================================================
 
 #' @importClassesFrom BiocGenerics AsIs
-#' @importClassesFrom S4Vectors Annotated
+#' @importClassesFrom S4Vectors Annotated DataFrame
 NULL
 
 
