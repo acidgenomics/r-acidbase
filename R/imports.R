@@ -11,7 +11,8 @@ NULL
 #' @importFrom AcidGenerics coerceToList euclidean foldChangeToLogRatio
 #' geometricMean headtail intersectAll intersectionMatrix logRatioToFoldChange
 #' matchNested rankedMatrix sem showHeader zscore
-#' @importFrom S4Vectors head metadata metadata<- tail
+#' @importFrom BiocGenerics duplicated match unlist unique
+#' @importFrom S4Vectors head metadata metadata<- na.omit tail
 NULL
 
 
