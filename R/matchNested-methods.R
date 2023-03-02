@@ -1,7 +1,4 @@
-## FIXME Consider adding a decode step for DataFrame method.
-## FIXME Can we also define a matrix method here?
-
-## NOTE Consider allowing an override for not allowing duplicates.
+## NOTE Consider allowing an override for not allowing duplicates in the table.
 
 
 
@@ -15,13 +12,23 @@
 #'
 #' @examples
 #' ## list ====
-#' ## FIXME
-#'
-#' ## matrix ====
-#' ## FIXME?
+#' table <- list(
+#'     c("a", "aa", "aaa"),
+#'     list(c("b", "bb", "bbb")),
+#'     list(list(c("c", "cc", "ccc")))
+#' )
+#' matchNested(x = c("aaa", "bbb", "ccc"), table = table)
 #'
 #' ## data.frame ====
-#' ## FIXME
+#' table <- data.frame(
+#'     "V1" = c("a", "aa", "aaa"),
+#'     "V2" = I(list(
+#'         c("b", "bb", "bbb"),
+#'         c("c", "cc", "ccc"),
+#'         c("d", "dd", "ddd")
+#'     )
+#' )
+#' matchNested(x = c("aaa", "bbb", "ccc", "ddd"), table = table)
 #'
 #' ## DataFrame ====
 #' ## FIXME
@@ -29,7 +36,33 @@ NULL
 
 
 
-## FIXME Add a list method.
+## Updated 2023-03-02.
+`matchNested,list` <- # nolint
+    function(x, table) {
+        lst <- lapply(
+            X = table,
+            FUN = function(x) {
+                x <- unlist(x, recursive = TRUE, use.names = FALSE)
+                x <- na.omit(x)
+                x <- unique(x)
+                x
+            }
+        )
+        idx <- rep(
+            x = seq_along(lst),
+            times = vapply(
+                X = lst,
+                FUN = length,
+                FUN.VALUE = integer(1L)
+            )
+        )
+        value <- unlist(x = lst, recursive = FALSE, use.names = FALSE)
+        df <- data.frame("idx" = idx, "value" = value)
+        df <- df[!duplicated(df[["value"]]), , drop = FALSE]
+        idx <- match(x = x, table = df[["value"]])
+        out <- df[["idx"]][idx]
+        out
+    }
 
 
 
@@ -91,4 +124,15 @@ setMethod(
         table = "data.frame"
     ),
     definition = `matchNested,data.frame`
+)
+
+#' @rdname matchNested
+#' @export
+setMethod(
+    f = "matchNested",
+    signature = signature(
+        x = "character",
+        table = "list"
+    ),
+    definition = `matchNested,list`
 )

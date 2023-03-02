@@ -4,6 +4,7 @@
 \alias{matchNested}
 \alias{matchNested,character,DataFrame-method}
 \alias{matchNested,character,data.frame-method}
+\alias{matchNested,character,list-method}
 \title{Match inside nested elements}
 \usage{
 matchNested(x, table, ...)
@@ -11,6 +12,8 @@ matchNested(x, table, ...)
 \S4method{matchNested}{character,DataFrame}(x, table)
 
 \S4method{matchNested}{character,data.frame}(x, table)
+
+\S4method{matchNested}{character,list}(x, table)
 }
 \arguments{
 \item{x}{The values to be matched.}
@@ -33,13 +36,23 @@ Updated 2023-03-02.
 }
 \examples{
 ## list ====
-## FIXME
-
-## matrix ====
-## FIXME?
+table <- list(
+    c("a", "aa", "aaa"),
+    list(c("b", "bb", "bbb")),
+    list(list(c("c", "cc", "ccc")))
+)
+matchNested(x = "ccc", table = table)
 
 ## data.frame ====
-## FIXME
+table <- data.frame(
+    "V1" = c("a", "aa", "aaa"),
+    "V2" = I(list(
+        c("b", "bb", "bbb"),
+        c("c", "cc", "ccc"),
+        c("d", "dd", "ddd")
+    )
+)
+matchNested(x = "ddd", table = table)
 
 ## DataFrame ====
 ## FIXME
