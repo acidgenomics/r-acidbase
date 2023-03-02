@@ -36,14 +36,16 @@ Updated 2023-03-02.
 }
 \examples{
 ## list ====
+x <- c("aaa", "bbb", "ccc")
 table <- list(
     c("a", "aa", "aaa"),
     list(c("b", "bb", "bbb")),
     list(list(c("c", "cc", "ccc")))
 )
-matchNested(x = "ccc", table = table)
+matchNested(x = x, table = table)
 
 ## data.frame ====
+x <- c("aaa", "bbb", "ccc", "ddd")
 table <- data.frame(
     "V1" = c("a", "aa", "aaa"),
     "V2" = I(list(
@@ -52,8 +54,17 @@ table <- data.frame(
         c("d", "dd", "ddd")
     )
 )
-matchNested(x = "ddd", table = table)
+matchNested(x = x, table = table)
 
 ## DataFrame ====
-## FIXME
+x <- c("aaa", "bbb", "ccc", "ddd")
+table <- S4Vectors::DataFrame(
+    "V1" = c("a", "aa", "aaa"),
+    "V2" = I(list(
+        c("b", "bb", "bbb"),
+        c("c", "cc", "ccc"),
+        c("d", "dd", "ddd")
+    )
+)
+matchNested(x = x, table = table)
 }
