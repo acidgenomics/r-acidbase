@@ -29,6 +29,10 @@ NULL
 
 
 
+## FIXME Add a list method.
+
+
+
 ## Updated 2023-03-02.
 `matchNested,data.frame` <- # nolint
     function(x, table) {
