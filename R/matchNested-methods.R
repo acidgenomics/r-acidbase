@@ -28,7 +28,7 @@
 #'         c("b", "bb", "bbb"),
 #'         c("c", "cc", "ccc"),
 #'         c("d", "dd", "ddd")
-#'     )
+#'     ))
 #' )
 #' matchNested(x = x, table = table)
 #'
@@ -40,7 +40,7 @@
 #'         c("b", "bb", "bbb"),
 #'         c("c", "cc", "ccc"),
 #'         c("d", "dd", "ddd")
-#'     )
+#'     ))
 #' )
 #' matchNested(x = x, table = table)
 NULL
