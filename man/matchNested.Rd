@@ -52,7 +52,7 @@ table <- data.frame(
         c("b", "bb", "bbb"),
         c("c", "cc", "ccc"),
         c("d", "dd", "ddd")
-    )
+    ))
 )
 matchNested(x = x, table = table)
 
@@ -64,7 +64,7 @@ table <- S4Vectors::DataFrame(
         c("b", "bb", "bbb"),
         c("c", "cc", "ccc"),
         c("d", "dd", "ddd")
-    )
+    ))
 )
 matchNested(x = x, table = table)
 }
