@@ -1,5 +1,14 @@
 # Release notes
 
+## AcidBase 0.6.13 (UNRELEASED)
+
+New functions:
+
+- `matchNested`: Match recursively across columns for `DataFrame` method, and
+  per element for `list` method. This is very useful for quick matching of
+  cancer cell line name variants (Cellosaurus) and gene name aliases (HGNC,
+  NCBI in AcidGenomes).
+
 ## AcidBase 0.6.12 (2023-02-09)
 
 Minor changes:
