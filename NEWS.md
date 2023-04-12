@@ -1,6 +1,6 @@
 # Release notes
 
-## AcidBase 0.6.13 (UNRELEASED)
+## AcidBase 0.6.13 (2023-04-12)
 
 New functions:
 
@@ -8,6 +8,10 @@ New functions:
   per element for `list` method. This is very useful for quick matching of
   cancer cell line name variants (Cellosaurus) and gene name aliases (HGNC,
   NCBI in AcidGenomes).
+
+Minor changes:
+
+- Removed defunct `matchArgsToDoCall` from `NAMESPACE`.
 
 ## AcidBase 0.6.12 (2023-02-09)
 
