@@ -2,9 +2,16 @@
 #'
 #' Suppress all warnings, messages, and console output.
 #'
+#' @export
 #' @note Updated 2023-04-26.
-#' @noRd
-quietly <- function(expr) {
+#'
+#' @return Invisible `NULL`.
+#'
+#' @examples
+#' quiet({
+#'     message("hello world")
+#' })
+quiet <- function(expr) {
     invisible({
         capture.output({
             suppressWarnings({
@@ -13,5 +20,6 @@ quietly <- function(expr) {
                 })
             })
         })
+        NULL
     })
 }
