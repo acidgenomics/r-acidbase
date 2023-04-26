@@ -25,12 +25,12 @@ Imports:
     AcidGenerics (>= 0.6.7),
     BiocGenerics (>= 0.44.0),
     S4Vectors (>= 0.36.0),
-    goalie (>= 0.6.8),
+    goalie (>= 0.6.9),
     methods
 Suggests:
     AcidCLI (>= 0.2.7),
     AcidTest (>= 0.7.1),
-    processx (>= 3.8.0),
+    processx (>= 3.8.1),
     testthat (>= 3.1.7),
     withr (>= 2.5.0),
     stats,
