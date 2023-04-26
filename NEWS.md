@@ -1,5 +1,11 @@
 # Release notes
 
+## AcidBase 0.6.14 (2023-04-26)
+
+New functions:
+
+- Now re-exporting new `quietly` function from goalie.
+
 ## AcidBase 0.6.13 (2023-04-12)
 
 New functions:
