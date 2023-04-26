@@ -32,7 +32,7 @@
 #' )
 #' matchNested(x = x, table = table)
 #'
-#' ## DataFrame ====
+#' ## DFrame ====
 #' x <- c("aaa", "bbb", "ccc", "ddd")
 #' table <- S4Vectors::DataFrame(
 #'     "V1" = c("a", "aa", "aaa"),
@@ -109,8 +109,8 @@ NULL
 
 
 
-## Updated 2023-03-02.
-`matchNested,DataFrame` <- # nolint
+## Updated 2023-04-26.
+`matchNested,DFrame` <- # nolint
     `matchNested,data.frame`
 
 
@@ -121,9 +121,9 @@ setMethod(
     f = "matchNested",
     signature = signature(
         x = "character",
-        table = "DataFrame"
+        table = "DFrame"
     ),
-    definition = `matchNested,DataFrame`
+    definition = `matchNested,DFrame`
 )
 
 #' @rdname matchNested

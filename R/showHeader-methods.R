@@ -7,7 +7,7 @@
 #'
 #' @examples
 #' data(
-#'     DataFrame,
+#'     DFrame,
 #'     matrix,
 #'     package = "AcidTest"
 #' )
@@ -18,7 +18,7 @@
 #'
 #' ## Annotated ====
 #' ## This virtual class supports `metadata()` slot.
-#' object <- DataFrame
+#' object <- DFrame
 #' showHeader(object)
 #' S4Vectors::metadata(object)[["packageVersion"]] <- package_version("0.0.1")
 #' showHeader(object)
