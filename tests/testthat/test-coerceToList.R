@@ -1,11 +1,11 @@
 data(
-    DataFrame,
+    DFrame,
     package = "AcidTest",
     envir = environment()
 )
 
 test_that("coerceToList", {
-    object <- DataFrame
+    object <- DFrame
     object <- coerceToList(object)
     expect_type(object, "list")
     expect_identical(
