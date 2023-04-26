@@ -2,14 +2,14 @@
 % Please edit documentation in R/AllGenerics.R, R/matchNested-methods.R
 \name{matchNested}
 \alias{matchNested}
-\alias{matchNested,character,DataFrame-method}
+\alias{matchNested,character,DFrame-method}
 \alias{matchNested,character,data.frame-method}
 \alias{matchNested,character,list-method}
 \title{Match inside nested elements}
 \usage{
 matchNested(x, table, ...)
 
-\S4method{matchNested}{character,DataFrame}(x, table)
+\S4method{matchNested}{character,DFrame}(x, table)
 
 \S4method{matchNested}{character,data.frame}(x, table)
 
@@ -56,7 +56,7 @@ table <- data.frame(
 )
 matchNested(x = x, table = table)
 
-## DataFrame ====
+## DFrame ====
 x <- c("aaa", "bbb", "ccc", "ddd")
 table <- S4Vectors::DataFrame(
     "V1" = c("a", "aa", "aaa"),

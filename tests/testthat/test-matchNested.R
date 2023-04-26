@@ -27,7 +27,7 @@ test_that("data.frame", {
     )
 })
 
-test_that("DataFrame", {
+test_that("DFrame", {
     x <- c("bbb", "ddd", "ccc", "aaa", "aaa", NA_character_)
     table <- S4Vectors::DataFrame(
         "V1" = c("a", "aa", "aaa"),

@@ -26,10 +26,10 @@ Don't attempt to defined methods for \code{as.list()}.
 Updated 2021-10-14.
 }
 \examples{
-data(DataFrame, package = "AcidTest")
+data(DFrame, package = "AcidTest")
 
 ## Annotated ====
-object <- DataFrame
+object <- DFrame
 is(object, "Annotated")
 object <- coerceToList(object)
 class(object)
