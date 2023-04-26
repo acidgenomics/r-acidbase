@@ -1,5 +1,11 @@
 # Release notes
 
+## AcidBase 0.6.15 (2023-04-26)
+
+Minor changes:
+
+- Renamed all class definitions to `DFrame` from `DataFrame`.
+
 ## AcidBase 0.6.14 (2023-04-26)
 
 New functions:
