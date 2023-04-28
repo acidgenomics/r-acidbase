@@ -1,3 +1,7 @@
+# FIXME Add parameterization support here.
+
+
+
 #' Initialize directory
 #'
 #' Checks and creates a directory recursively automatically.
