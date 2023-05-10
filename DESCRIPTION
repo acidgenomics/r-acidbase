@@ -30,6 +30,7 @@ Imports:
 Suggests:
     AcidCLI (>= 0.2.7),
     AcidTest (>= 0.7.1),
+    memuse (>= 4.2),
     processx (>= 3.8.1),
     testthat (>= 3.1.7),
     withr (>= 2.5.0),
