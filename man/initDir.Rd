@@ -7,12 +7,12 @@
 initDir(dir)
 }
 \arguments{
-\item{dir}{\code{character(1)}.
-Directory path.}
+\item{dir}{\code{character}.
+Directory path(s).}
 }
 \value{
-\code{character(1)}.
-Directory path.
+\code{character}.
+Directory path(s).
 }
 \description{
 Checks and creates a directory recursively automatically.
@@ -22,10 +22,10 @@ Useful for setting up functions that require writes to a user-specified
 directory.
 }
 \note{
-Updated 2022-06-02.
+Updated 2023-05-16.
 }
 \examples{
-dir <- file.path(tempdir(), "testdir")
+dir <- file.path(tempdir2(), c("aaa", "bbb"))
 dir.exists(dir)
 dir <- initDir(dir)
 dir.exists(dir)

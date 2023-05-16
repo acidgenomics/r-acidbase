@@ -1,5 +1,16 @@
 # Release notes
 
+## AcidBase 0.6.16 (2023-05-16)
+
+New functions:
+
+- `cpus`: Return the number of total CPUs available.
+- `ram`: Return the amount of total or free ram, in GB by default.
+
+Minor changes:
+
+- `initDir` is now vectorized and supports multiple directories.
+
 ## AcidBase 0.6.15 (2023-04-26)
 
 Minor changes:
