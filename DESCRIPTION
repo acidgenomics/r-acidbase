@@ -31,10 +31,10 @@ Suggests:
     AcidCLI (>= 0.2.7),
     AcidTest (>= 0.7.2),
     memuse (>= 4.2.3),
-    parallel (>= 4.3.0),
     processx (>= 3.8.1),
     testthat (>= 3.1.8),
     withr (>= 2.5.0),
+    parallel,
     stats,
     utils
 Additional_repositories: https://r.acidgenomics.com
