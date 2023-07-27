@@ -1,7 +1,17 @@
+## FIXME This needs to convert spaces to "%20".
+##
+## FIXME Consider using URLencode for this.
+## https://stat.ethz.ch/R-manual/R-devel/library/utils/html/URLencode.html
+##
+## Check that these work:
+## https://www.w3schools.com/tags/ref_urlencode.ASP
+
+
+
 #' Concatenate strings to form a URL
 #'
 #' @export
-#' @note Updated 2021-01-21.
+#' @note Updated 2023-07-27.
 #'
 #' @inheritParams base::paste
 #' @param protocol `character(1)`.
@@ -37,12 +47,16 @@ pasteURL <-
     function(...,
              protocol = c("none", "https", "http", "ftp", "rsync", "s3")) {
         dots <- unlist(list(...))
-        assert(isCharacter(dots))
+        assert(
+            requireNamespaces("utils"),
+            isCharacter(dots)
+        )
         protocol <- match.arg(protocol)
         dots <- gsub(pattern = "/$", replacement = "", x = dots)
         url <- paste(dots, collapse = "/")
         if (!identical(protocol, "none")) {
             url <- paste0(protocol, "://", url)
         }
+        url <- utils::URLencode(url)
         url
     }
