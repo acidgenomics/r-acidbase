@@ -4,6 +4,7 @@
 #' @note Updated 2023-07-27.
 #'
 #' @inheritParams base::paste
+#'
 #' @param protocol `character(1)`.
 #' Desired protocol to use. Defaults to "https" but "http", "ftp", and "s3"
 #' (AWS S3) are also supported. Use `"none"` if you want to prepare a URL that
