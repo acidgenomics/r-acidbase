@@ -1,13 +1,3 @@
-## FIXME This needs to convert spaces to "%20".
-##
-## FIXME Consider using URLencode for this.
-## https://stat.ethz.ch/R-manual/R-devel/library/utils/html/URLencode.html
-##
-## Check that these work:
-## https://www.w3schools.com/tags/ref_urlencode.ASP
-
-
-
 #' Concatenate strings to form a URL
 #'
 #' @export
@@ -23,7 +13,7 @@
 #' URL path, containing forward slashes (`/`).
 #'
 #' @examples
-#' ## HTTPS
+#' ## HTTPS.
 #' x <- pasteURL(
 #'     "steinbaugh.com",
 #'     "basejump",
@@ -32,7 +22,7 @@
 #' )
 #' print(x)
 #'
-#' ## FTP
+#' ## FTP.
 #' x <- pasteURL(
 #'     "ftp.ensembl.org",
 #'     "pub",
@@ -41,6 +31,16 @@
 #'     "homo_sapiens",
 #'     "Homo_sapiens.GRCh38.94.gtf.gz",
 #'     protocol = "ftp"
+#' )
+#' print(x)
+#'
+#' ## Automatic encoding support.
+#' x <- pasteURL(
+#'     "rest.ensembl.org",
+#'     "info",
+#'     "assembly",
+#'     "Homo sapiens",
+#'     protocol = "https"
 #' )
 #' print(x)
 pasteURL <-
