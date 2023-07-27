@@ -28,3 +28,16 @@ test_that("FTP", {
         )
     )
 })
+
+test_that("Encoding support", {
+    expect_identical(
+        object = pasteURL(
+            "rest.ensembl.org",
+            "info",
+            "assembly",
+            "Homo sapiens",
+            protocol = "https"
+        ),
+        expected = "https://rest.ensembl.org/info/assembly/Homo%20sapiens"
+    )
+})
