@@ -22,10 +22,10 @@ URL path, containing forward slashes (\code{/}).
 Concatenate strings to form a URL
 }
 \note{
-Updated 2021-01-21.
+Updated 2023-07-27.
 }
 \examples{
-## HTTPS
+## HTTPS.
 x <- pasteURL(
     "steinbaugh.com",
     "basejump",
@@ -34,7 +34,7 @@ x <- pasteURL(
 )
 print(x)
 
-## FTP
+## FTP.
 x <- pasteURL(
     "ftp.ensembl.org",
     "pub",
@@ -43,6 +43,16 @@ x <- pasteURL(
     "homo_sapiens",
     "Homo_sapiens.GRCh38.94.gtf.gz",
     protocol = "ftp"
+)
+print(x)
+
+## Automatic encoding support.
+x <- pasteURL(
+    "rest.ensembl.org",
+    "info",
+    "assembly",
+    "Homo sapiens",
+    protocol = "https"
 )
 print(x)
 }
