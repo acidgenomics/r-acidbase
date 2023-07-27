@@ -10,7 +10,7 @@ cpus()
 Detect the number of CPU cores
 }
 \note{
-Updated 2023-05-11.
+Updated 2023-05-16.
 }
 \examples{
 cpus()
