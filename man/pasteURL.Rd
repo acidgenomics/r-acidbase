@@ -21,6 +21,9 @@ URL path, containing forward slashes (\code{/}).
 \description{
 Concatenate strings to form a URL
 }
+\details{
+Encoding is applied automatically via \code{utils::URLencode}.
+}
 \note{
 Updated 2023-07-27.
 }

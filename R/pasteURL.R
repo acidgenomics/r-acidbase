@@ -3,6 +3,9 @@
 #' @export
 #' @note Updated 2023-07-27.
 #'
+#' @details
+#' Encoding is applied automatically via `utils::URLencode`.
+#'
 #' @inheritParams base::paste
 #'
 #' @param protocol `character(1)`.
