@@ -1,5 +1,14 @@
 # Release notes
 
+## AcidBase 0.6.17 (2023-07-27)
+
+Minor changes:
+
+- `pasteURL` now automatically encodes URLs via `utils::URLencode`. This is
+  helpful for improving consistent handling of complex URLs. We ran into
+  differences in handling between httr and httr2 for URLs containing spaces.
+  Note that goalie `isURL` will now return `FALSE` for non-encoded URLs.
+
 ## AcidBase 0.6.16 (2023-05-16)
 
 New functions:
@@ -213,7 +222,7 @@ New functions:
 
 Minor changes:
 
-- `realpath`: Now keeps track of names,  if defined.
+- `realpath`: Now keeps track of names, if defined.
 
 ## AcidBase 0.4.1 (2021-08-18)
 
