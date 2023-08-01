@@ -14,7 +14,9 @@
 #' print(x)
 tempdir2 <- function() {
     rand <- randomString(n = 10L)
-    dir <- file.path(tempdir(), rand)
+    timestamp <- as.numeric(Sys.time())
+    bn <- paste(rand, timestamp, sep = "-")
+    dir <- file.path(tempdir(), bn)
     assert(
         isFALSE(dir.exists(dir)),
         msg = sprintf(
