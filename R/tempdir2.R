@@ -14,7 +14,13 @@
 #' print(x)
 tempdir2 <- function() {
     rand <- randomString(n = 10L)
-    timestamp <- as.numeric(Sys.time())
+    timestamp <- as.character(as.numeric(Sys.time()))
+    timestamp <- gsub(
+        pattern = ".",
+        replacement = "",
+        x = timestamp,
+        fixed = TRUE
+    )
     bn <- paste(rand, timestamp, sep = "-")
     dir <- file.path(tempdir(), bn)
     assert(
