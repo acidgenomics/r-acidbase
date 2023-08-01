@@ -14,9 +14,14 @@ Temporary directory path.
 Unique temporary directory
 }
 \note{
-Updated 2022-06-02.
+Updated 2023-08-01.
 }
 \examples{
 x <- tempdir2()
 print(x)
+}
+\seealso{
+\itemize{
+\item \code{randomString()}.
+}
 }
