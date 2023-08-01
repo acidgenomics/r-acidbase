@@ -1,3 +1,9 @@
+## FIXME Simplify to only include a random string here?
+## FIXME Usage of sys.info user may be problematic on some systems...
+
+## FIXME Export a randomString function that serves as the generator here.
+
+
 #' Unique temporary directory
 #'
 #' @export
