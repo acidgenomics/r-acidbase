@@ -1,5 +1,17 @@
 # Release notes
 
+## AcidBase 0.6.18 (2023-08-01)
+
+New functions:
+
+- `randomString`: Random string generator.
+
+Minor changes:
+
+- `tempdir2`: Now calls `randomString` internally to generate a unique
+  temporary directory that is simpler and performs more consistently across
+  platforms.
+
 ## AcidBase 0.6.17 (2023-07-27)
 
 Minor changes:
