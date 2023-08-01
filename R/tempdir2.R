@@ -15,7 +15,13 @@
 tempdir2 <- function() {
     rand <- randomString(n = 10L)
     dir <- file.path(tempdir(), rand)
-    assert(!dir.exists(dir))
+    assert(
+        isFALSE(dir.exists(dir)),
+        msg = sprintf(
+            "Temporary directory already exists at {.dir %s}.",
+            dir
+        )
+    )
     out <- initDir(dir)
     out
 }
