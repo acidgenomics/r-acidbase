@@ -1,5 +1,15 @@
 # Release notes
 
+## AcidBase 0.6.19 (2023-08-23)
+
+Minor changes:
+
+- `showHeader`: Improved header for S4 `DFrame`, which contains rows and
+  columns. For classes that extend `Annotated` but don't support `dim`, still
+  returns legacy length information.
+- Removed `forceDetach` function, as it is no longer used in any other
+  Acid Genomics packages.
+
 ## AcidBase 0.6.18 (2023-08-01)
 
 New functions:
