@@ -1,6 +1,6 @@
 #' @name showHeader
 #' @inherit AcidGenerics::showHeader
-#' @note Updated 2022-02-04.
+#' @note Updated 2023-08-23.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -40,7 +40,7 @@ NULL
 
 
 
-## Updated 2021-02-23.
+## Updated 2023-08-23.
 `showHeader,Annotated` <- # nolint
     function(object) {
         class <- class(object)[[1L]]
@@ -55,9 +55,25 @@ NULL
         if (hasLength(version)) {
             x <- paste(x, version)
         }
-        length <- length(object)
-        if (!is.null(length)) {
-            x <- paste(x, "of length", length)
+        if (hasDims(object)) {
+            ## e.g. DFrame.
+            d <- dim(object)
+            if (hasLength(d, n = 2L)) {
+                y <- sprintf(
+                    "with %d %s and %d %s",
+                    d[[1L]],
+                    ngettext(n = d[[1L]], msg1 = "row", msg2 = "rows"),
+                    d[[2L]],
+                    ngettext(n = d[[1L]], msg1 = "column", msg2 = "columns")
+                )
+                x <- paste(x, y)
+            }
+        } else {
+            ## e.g. List.
+            ln <- length(object)
+            if (!is.null(ln)) {
+                x <- paste(x, "of length", ln)
+            }
         }
         cat(x, "\n", sep = "")
     }
