@@ -2,18 +2,26 @@
 % Please edit documentation in R/AllGenerics.R, R/keepOnlyAtomicCols-methods.R
 \name{keepOnlyAtomicCols}
 \alias{keepOnlyAtomicCols}
-\title{Calculate Euclidean distance}
+\alias{keepOnlyAtomicCols,DFrame-method}
+\alias{keepOnlyAtomicCols,data.frame-method}
+\title{Keep only atomic columns}
 \usage{
 keepOnlyAtomicCols(object, ...)
+
+\S4method{keepOnlyAtomicCols}{DFrame}(object)
+
+\S4method{keepOnlyAtomicCols}{data.frame}(object)
 }
 \arguments{
+\item{object}{Object.}
+
 \item{...}{Additional arguments.}
 }
 \value{
-Numeric vector.
+Modified object, containing only atomic columns.
 }
 \description{
-Calculate Euclidean distance
+Keep only atomic columns
 }
 \note{
 Updated 2023-09-08.
