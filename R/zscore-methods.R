@@ -1,6 +1,5 @@
 #' @name zscore
 #' @inherit AcidGenerics::zscore
-#'
 #' @note Updated 2023-01-30.
 #'
 #' @inheritParams AcidRoxygen::params
