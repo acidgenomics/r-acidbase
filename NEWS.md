@@ -1,5 +1,12 @@
 # Release notes
 
+## AcidBase 0.6.20 (2023-09-08)
+
+New functions:
+
+- `keepOnlyAtomicCols`: New utility function that removes complex non-atomic
+  columns (e.g. `list`) from a `DFrame` or `data.frame` class object.
+
 ## AcidBase 0.6.19 (2023-08-23)
 
 Minor changes:
