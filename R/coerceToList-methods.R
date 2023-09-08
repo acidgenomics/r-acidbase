@@ -1,8 +1,9 @@
-#' Coerce to list
-#'
 #' @name coerceToList
-#' @note Don't attempt to defined methods for `as.list()`.
+#' @inherit AcidGenerics::coerceToList
 #' @note Updated 2021-10-14.
+#'
+#' @details
+#' Don't attempt to defined methods for `as.list()`.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.

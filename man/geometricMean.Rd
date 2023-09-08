@@ -40,13 +40,11 @@ Allow propagation of zeroes.}
 The geometric mean is the nth root of n products or e to the mean log of \code{x}.
 }
 \details{
-Useful for describing non-normal (i.e. geometric) distributions.
+This function should be fully zero- and \code{NA}-tolerant. This calculation is
+not particularly useful if there are elements that are <= 0 and will return
+\code{NaN}.
 }
 \note{
-This function should be fully zero- and \code{NA}-tolerant. This calculation
-is not particularly useful if there are elements that are <= 0 and will
-return \code{NaN}.
-
 Updated 2021-10-14.
 }
 \examples{

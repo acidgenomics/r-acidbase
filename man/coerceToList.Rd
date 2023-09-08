@@ -20,9 +20,10 @@ coerceToList(object, ...)
 \description{
 Coerce to list
 }
-\note{
+\details{
 Don't attempt to defined methods for \code{as.list()}.
-
+}
+\note{
 Updated 2021-10-14.
 }
 \examples{
