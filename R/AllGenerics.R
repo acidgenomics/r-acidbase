@@ -40,6 +40,12 @@ NULL
 #' @usage foldChangeToLogRatio(object, ...)
 NULL
 
+#' @rdname keepOnlyAtomicCols
+#' @name keepOnlyAtomicCols
+#' @export
+#' @usage keepOnlyAtomicCols(object, ...)
+NULL
+
 #' @rdname logRatio
 #' @name logRatioToFoldChange
 #' @export
