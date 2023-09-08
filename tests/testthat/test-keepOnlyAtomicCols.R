@@ -1,5 +1,5 @@
-test_that("keepOnlyAtomicCols", {
-    object <- S4Vectors::DataFrame(
+test_that("DFrame", {
+    object <- DataFrame(
         "a" = I(list(
             c(1L, 2L),
             c(3L, 4L),
