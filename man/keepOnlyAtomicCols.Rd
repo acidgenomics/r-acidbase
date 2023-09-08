@@ -27,5 +27,18 @@ Keep only atomic columns
 Updated 2023-09-08.
 }
 \examples{
-print("FIXME")
+## DFrame ====
+object <- S4Vectors::DataFrame(
+    "a" = I(list(
+        c(1L, 2L),
+        c(3L, 4L),
+        c(5L, 6L)
+    )),
+    "b" = c(TRUE, TRUE, FALSE),
+    "c" = c("a", "b", "c"),
+    row.names = c("x", "y", "z")
+)
+print(object)
+object <- keepOnlyAtomicCols(object)
+print(object)
 }
