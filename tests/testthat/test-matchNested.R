@@ -29,7 +29,7 @@ test_that("data.frame", {
 
 test_that("DFrame", {
     x <- c("bbb", "ddd", "ccc", "aaa", "aaa", NA_character_)
-    table <- S4Vectors::DataFrame(
+    table <- DataFrame(
         "V1" = c("a", "aa", "aaa"),
         "V2" = I(list(
             c("b", "bb", "bbb"),
