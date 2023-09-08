@@ -1,4 +1,4 @@
-## NOTE Consider allowing an override for not allowing duplicates in the table.
+## Consider allowing an override for not allowing duplicates in the table.
 
 
 
