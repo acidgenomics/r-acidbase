@@ -9,8 +9,8 @@ NULL
 ## S4 generics and methods =====================================================
 
 #' @importFrom AcidGenerics coerceToList euclidean foldChangeToLogRatio
-#' geometricMean headtail intersectAll intersectionMatrix logRatioToFoldChange
-#' matchNested rankedMatrix sem showHeader zscore
+#' geometricMean headtail intersectAll intersectionMatrix keepOnlyAtomicCols
+#' logRatioToFoldChange matchNested rankedMatrix sem showHeader zscore
 #' @importFrom BiocGenerics duplicated match unlist unique
 #' @importFrom S4Vectors head metadata metadata<- na.omit tail
 NULL
