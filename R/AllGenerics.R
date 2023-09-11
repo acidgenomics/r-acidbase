@@ -7,7 +7,7 @@ NULL
 #' @rdname euclidean
 #' @name euclidean
 #' @export
-#' @usage euclidean(x, y, ...)
+#' @usage euclidean(x, ...)
 NULL
 
 #' @rdname geometricMean
