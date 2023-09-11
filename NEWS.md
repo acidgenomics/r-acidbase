@@ -1,5 +1,12 @@
 # Release notes
 
+## AcidBase 0.6.21 (2023-09-11)
+
+Minor changes:
+
+- `euclidean`: Reworked so that generic no longer requires `y`. We have modified
+  this downstream in the pending DepMapAnalysis package update.
+
 ## AcidBase 0.6.20 (2023-09-08)
 
 New functions:
