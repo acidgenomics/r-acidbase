@@ -2,12 +2,12 @@
 % Please edit documentation in R/AllGenerics.R, R/euclidean-methods.R
 \name{euclidean}
 \alias{euclidean}
-\alias{euclidean,numeric,numeric-method}
+\alias{euclidean,numeric-method}
 \title{Calculate Euclidean distance}
 \usage{
-euclidean(x, y, ...)
+euclidean(x, ...)
 
-\S4method{euclidean}{numeric,numeric}(x, y)
+\S4method{euclidean}{numeric}(x, y)
 }
 \arguments{
 \item{x}{Object.}
@@ -23,7 +23,7 @@ Numeric vector.
 Calculate Euclidean distance
 }
 \note{
-Updated 2022-11-21.
+Updated 2023-09-11.
 }
 \examples{
 ## numeric ====
