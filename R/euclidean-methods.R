@@ -1,7 +1,7 @@
 #' @name euclidean
 #' @inherit AcidGenerics::euclidean
 #'
-#' @note Updated 2022-11-21.
+#' @note Updated 2023-09-11.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -18,10 +18,12 @@ NULL
 
 
 
-## Updated 2022-11-21.
+## Updated 2023-09-11.
 `euclidean,numeric` <- # nolint
     function(x, y) {
         assert(
+            is.numeric(x),
+            is.numeric(y),
             isFALSE(anyNA(x)),
             isFALSE(anyNA(y))
         )
@@ -34,9 +36,6 @@ NULL
 #' @export
 setMethod(
     f = "euclidean",
-    signature = signature(
-        x = "numeric",
-        y = "numeric"
-    ),
+    signature = signature(x = "numeric"),
     definition = `euclidean,numeric`
 )
