@@ -8,6 +8,7 @@ strsplit2(x, split)
 }
 \value{
 \code{matrix}.
+Character matrix split into columns.
 }
 \description{
 Split the elements of a character vector into a matrix
