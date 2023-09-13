@@ -3,12 +3,18 @@
 #' @export
 #' @note Updated 2023-09-13.
 #'
+#' @inheritParams AcidRoxygen::params
+#'
+#' @param split `character(1)`.
+#' Single fixed character that defines the split.
+#' Regular expressions are intentionally not supported to keep this simple.
+#'
 #' @return `matrix`.
 #' Character matrix split into columns.
 #'
 #' @seealso
-#' - stringi::stri_split_fixed
-#' - stringr::str_split_fixed
+#' - `stringi::stri_split_fixed`.
+#' - `stringr::str_split_fixed`.
 #'
 #' @examples
 #' x <- c(
