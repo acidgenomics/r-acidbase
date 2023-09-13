@@ -4,6 +4,7 @@
 #' @note Updated 2023-09-13.
 #'
 #' @return `matrix`.
+#' Character matrix split into columns.
 #'
 #' @seealso
 #' - stringi::stri_split_fixed
@@ -23,11 +24,12 @@ strsplit2 <- function(x, split) {
     assert(
         isCharacter(x),
         isString(split),
-        identical(nchar(split), 1L),
+        nchar(split) == 1L,
         allAreMatchingFixed(x = x, pattern = split)
     )
     x <- strsplit(x = x, split = split, fixed = TRUE)
     ncol <- length(x[[1L]])
-    x <- unlist(x, recursive = FALSE, use.names = FALSE)
+    x <- unlist(x = x, recursive = FALSE, use.names = FALSE)
     x <- matrix(data = x, ncol = ncol, byrow = TRUE)
+    x
 }
