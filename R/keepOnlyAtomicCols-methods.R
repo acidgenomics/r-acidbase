@@ -1,5 +1,5 @@
 #' @name keepOnlyAtomicCols
-#' @inherit AcidGenerics::keepOnlyAtomicCols
+#' @inherit AcidGenerics::keepOnlyAtomicCols description return title
 #' @note Updated 2023-09-08.
 #'
 #' @inheritParams AcidRoxygen::params
