@@ -28,8 +28,19 @@ strsplit2 <- function(x, split) {
         allAreMatchingFixed(x = x, pattern = split)
     )
     x <- strsplit(x = x, split = split, fixed = TRUE)
-    ncol <- length(x[[1L]])
+    n <- vapply(
+        X = x,
+        FUN = length,
+        FUN.VALUE = integer(1L)
+    )
+    assert(
+        length(unique(n)) == 1L,
+        msg = sprintf(
+            "Split mismatch detected: %s.",
+            toString(which(n != n[[1L]]))
+        )
+    )
     x <- unlist(x = x, recursive = FALSE, use.names = FALSE)
-    x <- matrix(data = x, ncol = ncol, byrow = TRUE)
+    x <- matrix(data = x, ncol = n[[1L]], byrow = TRUE)
     x
 }
