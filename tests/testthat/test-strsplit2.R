@@ -12,11 +12,11 @@ test_that("character", {
         ),
         expected = matrix(
             data = c(
-                "TSPAN6","ENST00000373020",
-                "TSPAN6","ENST00000494424",
-                "TSPAN6","ENST00000496771",
-                "TSPAN6","ENST00000612152",
-                "TSPAN6","ENST00000614008"
+                "TSPAN6", "ENST00000373020",
+                "TSPAN6", "ENST00000494424",
+                "TSPAN6", "ENST00000496771",
+                "TSPAN6", "ENST00000612152",
+                "TSPAN6", "ENST00000614008"
             ),
             ncol = 2L,
             byrow = TRUE
@@ -46,7 +46,7 @@ test_that("Invalid input", {
         regexp = "allAreMatchingFixed"
     )
     expect_error(
-        object = strsplit2("xxx", split="xx"),
+        object = strsplit2("xxx", split = "xx"),
         regexp = "nchar"
     )
     expect_error(
