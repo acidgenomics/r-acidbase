@@ -6,6 +6,13 @@
 \usage{
 strsplit2(x, split)
 }
+\arguments{
+\item{x}{Object.}
+
+\item{split}{\code{character(1)}.
+Single fixed character that defines the split.
+Regular expressions are intentionally not supported to keep this simple.}
+}
 \value{
 \code{matrix}.
 Character matrix split into columns.
@@ -29,7 +36,7 @@ print(x)
 }
 \seealso{
 \itemize{
-\item stringi::stri_split_fixed
-\item stringr::str_split_fixed
+\item \code{stringi::stri_split_fixed}.
+\item \code{stringr::str_split_fixed}.
 }
 }
