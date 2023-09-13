@@ -1,5 +1,14 @@
 # Release notes
 
+## AcidBase 0.6.22 (2023-09-13)
+
+New functions:
+
+- `strsplit2`: This function works like base `strsplit` but consistently splits
+  into a character matrix for easier extraction of values. Works like
+  stringi and stringr variants but designed to be as simple as possible without
+  requiring a non-base R dependency.
+
 ## AcidBase 0.6.21 (2023-09-11)
 
 Minor changes:
