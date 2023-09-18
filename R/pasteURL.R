@@ -1,3 +1,7 @@
+## FIXME Don't always remove trailing slash, which is useful for FTP.
+
+
+
 #' Concatenate strings to form a URL
 #'
 #' @export
