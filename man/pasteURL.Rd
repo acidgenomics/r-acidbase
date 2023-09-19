@@ -7,7 +7,8 @@
 pasteURL(..., protocol = c("none", "https", "http", "ftp", "rsync", "s3"))
 }
 \arguments{
-\item{...}{one or more \R objects, to be converted to character vectors.}
+\item{...}{Character strings.
+Intentionally does not support recycling here, unlike base \code{paste}.}
 
 \item{protocol}{\code{character(1)}.
 Desired protocol to use. Defaults to "https" but "http", "ftp", and "s3"
@@ -25,7 +26,7 @@ Concatenate strings to form a URL
 Encoding is applied automatically via \code{utils::URLencode}.
 }
 \note{
-Updated 2023-07-27.
+Updated 2023-09-19.
 }
 \examples{
 ## HTTPS.

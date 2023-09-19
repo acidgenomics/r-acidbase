@@ -6,7 +6,8 @@
 #' @details
 #' Encoding is applied automatically via `utils::URLencode`.
 #'
-#' @inheritParams base::paste
+#' @param ... Character strings.
+#' Intentionally does not support recycling here, unlike base `paste`.
 #'
 #' @param protocol `character(1)`.
 #' Desired protocol to use. Defaults to "https" but "http", "ftp", and "s3"
