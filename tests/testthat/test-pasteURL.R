@@ -1,12 +1,12 @@
 test_that("HTTPS", {
     expect_identical(
         object = pasteURL(
-            "steinbaugh.com",
-            "basejump",
-            "reference",
+            "r.acidgenomics.com",
+            "packages",
+            "acidbase",
             protocol = "https"
         ),
-        expected = "https://steinbaugh.com/basejump/reference"
+        expected = "https://r.acidgenomics.com/packages/acidbase"
     )
 })
 
