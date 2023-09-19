@@ -1,11 +1,7 @@
-## FIXME Don't always remove trailing slash, which is useful for FTP.
-
-
-
 #' Concatenate strings to form a URL
 #'
 #' @export
-#' @note Updated 2023-07-27.
+#' @note Updated 2023-09-19.
 #'
 #' @details
 #' Encoding is applied automatically via `utils::URLencode`.
@@ -54,13 +50,23 @@
 pasteURL <-
     function(...,
              protocol = c("none", "https", "http", "ftp", "rsync", "s3")) {
-        dots <- unlist(list(...))
+        dots <- list(...)
         assert(
-            requireNamespaces("utils"),
-            isCharacter(dots)
+            hasLength(dots),
+            all(bapply(X = dots, FUN = isString)),
+            msg = "Dots must only contain character strings."
         )
+        assert(requireNamespaces("utils"))
+        dots <- unlist(x = dots, recursive = FALSE, use.names = FALSE)
         protocol <- match.arg(protocol)
+        ## This is useful for FTP servers.
+        addTrailingSlash <-
+            !identical(dots[[length(dots)]], "/") &&
+            grepl(pattern = "/$", x = dots[[length(dots)]])
         dots <- gsub(pattern = "/$", replacement = "", x = dots)
+        if (isTRUE(addTrailingSlash)) {
+            dots <- append(x = dots, values = "")
+        }
         url <- paste(dots, collapse = "/")
         if (!identical(protocol, "none")) {
             url <- paste0(protocol, "://", url)
