@@ -8,7 +8,9 @@ pasteURL(..., protocol = c("none", "https", "http", "ftp", "rsync", "s3"))
 }
 \arguments{
 \item{...}{Character strings.
-Intentionally does not support recycling here, unlike base \code{paste}.}
+Intentionally does not support recycling here, unlike base \code{paste}.
+Input of character vector as first argument alone is supported.
+Errors if \code{NA} values are present.}
 
 \item{protocol}{\code{character(1)}.
 Desired protocol to use. Defaults to "https" but "http", "ftp", and "s3"
@@ -16,8 +18,8 @@ Desired protocol to use. Defaults to "https" but "http", "ftp", and "s3"
 already contains a protocol in the first element of the dots.}
 }
 \value{
-\code{character}.
-URL path, containing forward slashes (\code{/}).
+\code{character(1)}.
+URL path.
 }
 \description{
 Concatenate strings to form a URL
@@ -31,9 +33,9 @@ Updated 2023-09-19.
 \examples{
 ## HTTPS.
 x <- pasteURL(
-    "steinbaugh.com",
-    "basejump",
-    "reference",
+    "r.acidgenomics.com",
+    "packages",
+    "acidbase",
     protocol = "https"
 )
 print(x)
@@ -58,5 +60,10 @@ x <- pasteURL(
     "Homo sapiens",
     protocol = "https"
 )
+print(x)
+
+## Character vector support.
+vec <- c("r.acidgenomics.com", "packages", "acidbase")
+x <- pasteURL(vec, protocol = "https")
 print(x)
 }

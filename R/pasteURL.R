@@ -8,21 +8,23 @@
 #'
 #' @param ... Character strings.
 #' Intentionally does not support recycling here, unlike base `paste`.
+#' Input of character vector as first argument alone is supported.
+#' Errors if `NA` values are present.
 #'
 #' @param protocol `character(1)`.
 #' Desired protocol to use. Defaults to "https" but "http", "ftp", and "s3"
 #' (AWS S3) are also supported. Use `"none"` if you want to prepare a URL that
 #' already contains a protocol in the first element of the dots.
 #'
-#' @return `character`.
-#' URL path, containing forward slashes (`/`).
+#' @return `character(1)`.
+#' URL path.
 #'
 #' @examples
 #' ## HTTPS.
 #' x <- pasteURL(
-#'     "steinbaugh.com",
-#'     "basejump",
-#'     "reference",
+#'     "r.acidgenomics.com",
+#'     "packages",
+#'     "acidbase",
 #'     protocol = "https"
 #' )
 #' print(x)
@@ -48,17 +50,35 @@
 #'     protocol = "https"
 #' )
 #' print(x)
+#'
+#' ## Character vector support.
+#' vec <- c("r.acidgenomics.com", "packages", "acidbase")
+#' x <- pasteURL(vec, protocol = "https")
+#' print(x)
 pasteURL <-
     function(...,
              protocol = c("none", "https", "http", "ftp", "rsync", "s3")) {
         dots <- list(...)
         assert(
             hasLength(dots),
-            all(bapply(X = dots, FUN = isString)),
-            msg = "Dots must only contain character strings."
+            msg = "Nothing to paste."
         )
-        assert(requireNamespaces("utils"))
-        dots <- unlist(x = dots, recursive = FALSE, use.names = FALSE)
+        if (hasLength(dots, n = 1L) && is.character(dots[[1L]])) {
+            dots <- dots[[1L]]
+        } else {
+            assert(
+                all(bapply(X = dots, FUN = isString)),
+                msg = paste(
+                    "Dots must only contain character strings.",
+                    "Recycling is intentionally not supported."
+                )
+            )
+            dots <- unlist(x = dots, recursive = FALSE, use.names = FALSE)
+        }
+        assert(
+            isCharacter(dots),
+            requireNamespaces("utils")
+        )
         protocol <- match.arg(protocol)
         ## This is useful for FTP servers.
         addTrailingSlash <-
@@ -73,5 +93,6 @@ pasteURL <-
             url <- paste0(protocol, "://", url)
         }
         url <- utils::URLencode(url)
+        assert(isAURL(url))
         url
     }
