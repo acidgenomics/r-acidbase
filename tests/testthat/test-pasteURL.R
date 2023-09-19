@@ -41,3 +41,37 @@ test_that("Encoding support", {
         expected = "https://rest.ensembl.org/info/assembly/Homo%20sapiens"
     )
 })
+
+test_that("Trailing slashes", {
+    expect_identical(
+        object = pasteURL(
+            "ftp.ncbi.nlm.nih.gov", "genomes/",
+            protocol = "ftp"
+        ),
+        expected = "ftp://ftp.ncbi.nlm.nih.gov/genomes/"
+    )
+    expect_identical(
+        object = pasteURL(
+            "ftp.ncbi.nlm.nih.gov", "genomes", "/",
+            protocol = "ftp"
+        ),
+        expected = "ftp://ftp.ncbi.nlm.nih.gov/genomes/"
+    )
+    expect_identical(
+        object = pasteURL(
+            "ftp.ncbi.nlm.nih.gov", "genomes//",
+            protocol = "ftp"
+        ),
+        expected = "ftp://ftp.ncbi.nlm.nih.gov/genomes//"
+    )
+})
+
+test_that("No recycling", {
+    expect_error(
+        object = pasteURL(
+            "bioconductor.org", c("aaa", "bbb"),
+            protocol = "https"
+        ),
+        regexp = "Recycling"
+    )
+})
