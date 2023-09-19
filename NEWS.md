@@ -1,5 +1,16 @@
 # Release notes
 
+## AcidBase 0.6.23 (2023-09-19)
+
+Minor changes:
+
+- `pasteURL`: Hardened against unwanted recycling, which is allowed in base
+  `paste` but undesirable here. Also added an assert check to ensure that URL
+  is always returning, containing `"://"`. This edge case can happen when
+  user uses function with `protocol` set to `"none"`. Also added support for
+  input of a character vector as the first argument alone, which can be useful
+  for passing in variables.
+
 ## AcidBase 0.6.22 (2023-09-13)
 
 New functions:
