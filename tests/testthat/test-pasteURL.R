@@ -29,6 +29,16 @@ test_that("FTP", {
     )
 })
 
+test_that("Character vector input", {
+    expect_identical(
+        object = pasteURL(
+            c("ftp.ncbi.nlm.nih.gov", "genomes"),
+            protocol = "ftp"
+        ),
+        expected = "ftp://ftp.ncbi.nlm.nih.gov/genomes"
+    )
+})
+
 test_that("Encoding support", {
     expect_identical(
         object = pasteURL(
@@ -66,12 +76,43 @@ test_that("Trailing slashes", {
     )
 })
 
-test_that("No recycling", {
+test_that("Error if empty", {
+    expect_error(
+        object = pasteURL(),
+        regexp = "Nothing to paste."
+    )
+})
+
+test_that("Error if not URL", {
+    expect_error(
+        object = pasteURL("bioconductor.org", protocol = "none"),
+        regexp = "isAURL"
+    )
+})
+
+test_that("Error on recycling", {
     expect_error(
         object = pasteURL(
             "bioconductor.org", c("aaa", "bbb"),
             protocol = "https"
         ),
         regexp = "Recycling"
+    )
+})
+
+test_that("Error on NA", {
+    expect_error(
+        pasteURL(
+            "ftp.ncbi.nlm.nih.gov", "genomes", NA_character_,
+            protocol = "ftp"
+        ),
+        regexp = "character strings"
+    )
+    expect_error(
+        pasteURL(
+            c("ftp.ncbi.nlm.nih.gov", "genomes", NA_character_),
+            protocol = "ftp"
+        ),
+        regexp = "isCharacter"
     )
 })
