@@ -83,7 +83,7 @@ pasteURL <-
         ## This is useful for FTP servers.
         addTrailingSlash <-
             !identical(dots[[length(dots)]], "/") &&
-            grepl(pattern = "/$", x = dots[[length(dots)]])
+                grepl(pattern = "/$", x = dots[[length(dots)]])
         dots <- gsub(pattern = "/$", replacement = "", x = dots)
         if (isTRUE(addTrailingSlash)) {
             dots <- append(x = dots, values = "")
