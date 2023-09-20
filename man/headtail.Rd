@@ -27,15 +27,14 @@ Positive integer denoting the number of first and last items to include.}
 \item{...}{Additional arguments.}
 }
 \value{
-Invisible \code{NULL}.
+\code{character}.
 }
 \description{
 Applies to both rows and columns, enabling quick inspection during
 interactive use.
 }
 \details{
-Inspired by the \code{\link[base:print]{print()}} method for \code{DataFrame} class
-objects.
+Inspired by the print method for \code{DataFrame} class.
 }
 \section{Functions}{
 \itemize{
@@ -47,10 +46,13 @@ objects.
 
 }}
 \note{
-Updated 2021-10-14.
+Updated 2023-09-20.
 }
 \examples{
 data(mtcars, package = "datasets")
+
+## atomic ====
+headtail(LETTERS)
 
 ## data.frame ====
 headtail(mtcars)
