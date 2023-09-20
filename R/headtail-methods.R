@@ -1,6 +1,6 @@
 #' @name headtail
 #' @inherit AcidGenerics::headtail
-#' @note Updated 2021-10-14.
+#' @note Updated 2023-09-20.
 #'
 #' @inheritParams AcidRoxygen::params
 #'
@@ -12,13 +12,16 @@
 #' @examples
 #' data(mtcars, package = "datasets")
 #'
+#' ## atomic ====
+#' headtail(LETTERS)
+#'
 #' ## data.frame ====
 #' headtail(mtcars)
 NULL
 
 
 
-## Updated 2020-10-07.
+## Updated 2023-09-20.
 `headtail,atomic` <- # nolint
     function(x, n = 2L) {
         assert(
@@ -33,17 +36,16 @@ NULL
                 collapse = " "
             )
         }
-        ## FIXME Rework to not use cat here.
-        cat(out, sep = "\n")
-        invisible(NULL)
+        out
     }
 
 
 
-## Updated 2020-10-07.
+## Updated 2023-09-20.
 `headtail,matrix` <- # nolint
     function(x, n = 2L) {
         assert(
+            requireNamespaces("utils"),
             isTRUE(nrow(x) > 0L), isTRUE(ncol(x) > 0L),
             is.integer(n), isTRUE(n > 0L)
         )
@@ -129,9 +131,8 @@ NULL
                 stringsAsFactors = FALSE
             )
         }
-        ## FIXME Don't use print here.
-        print(out)
-        invisible(NULL)
+        out <- utils::capture.output(print(out))
+        out
     }
 
 
