@@ -33,6 +33,7 @@ NULL
                 collapse = " "
             )
         }
+        ## FIXME Rework to not use cat here.
         cat(out, sep = "\n")
         invisible(NULL)
     }
@@ -128,6 +129,7 @@ NULL
                 stringsAsFactors = FALSE
             )
         }
+        ## FIXME Don't use print here.
         print(out)
         invisible(NULL)
     }
