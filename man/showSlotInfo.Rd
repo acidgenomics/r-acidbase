@@ -11,7 +11,7 @@ showSlotInfo(list)
 Named list containing slot metadata.}
 }
 \value{
-Invisible \code{NULL}.
+\code{character}, for use in \code{show} method.
 }
 \description{
 Show slot information

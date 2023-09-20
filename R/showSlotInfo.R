@@ -10,7 +10,7 @@
 #' @param list `list`.
 #' Named list containing slot metadata.
 #'
-#' @return Invisible `NULL`.
+#' @return `character`, for use in `show` method.
 #'
 #' @examples
 #' showSlotInfo(list(
@@ -22,9 +22,7 @@ showSlotInfo <- function(list) {
     assert(is.list(list))
     list <- Filter(f = Negate(is.null), x = list)
     list <- Filter(f = hasLength, x = list)
-    out <- Map(
-        name = names(list),
-        x = list,
+    out <- unlist(Map(
         f = function(name, x) {
             if (length(x) == 1L) {
                 paste0(name, ": ", x)
@@ -37,7 +35,10 @@ showSlotInfo <- function(list) {
                 }
                 paste0(name, "(", length(x), "): ", info)
             }
-        }
-    )
-    cat(unlist(out), sep = "\n")
+        },
+        name = names(list),
+        x = list,
+        USE.NAMES = FALSE
+    ))
+    out
 }
