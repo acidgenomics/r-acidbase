@@ -1,4 +1,4 @@
-context("strPad", {
+test_that("strPad", {
     x <- c("1", "10", "100")
     width <- max(nchar(x))
     expect_identical(
