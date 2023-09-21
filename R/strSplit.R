@@ -1,22 +1,22 @@
 #' Split the elements of a character vector into a matrix
 #'
 #' @export
-#' @note Updated 2023-09-13.
+#' @note Updated 2023-09-21.
 #'
 #' @param x `character`.
 #' Character vector that does not contain `NA` or empty strings.
 #'
 #' @param split `character(1)`.
-#' Single fixed character that defines the split.
+#' String that defines the split boundary.
 #' Regular expressions are intentionally not supported to keep this simple.
 #'
 #' @return `matrix`.
 #' Character matrix split into columns.
 #'
 #' @seealso
+#' - [strsplit()].
 #' - [stringi::stri_split_fixed()].
 #' - [stringr::str_split_fixed()].
-#' - [strsplit()].
 #'
 #' @examples
 #' x <- c(
@@ -32,7 +32,6 @@ strSplit <- function(x, split) {
     assert(
         isCharacter(x),
         isString(split),
-        nchar(split) == 1L,
         allAreMatchingFixed(x = x, pattern = split)
     )
     x <- strsplit(x = x, split = split, fixed = TRUE)
