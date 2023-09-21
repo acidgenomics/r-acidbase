@@ -19,7 +19,9 @@
 #' - [stringi::stri_match()].
 #' - [stringr::str_match()].
 #' - https://stringr.tidyverse.org/articles/from-base.html
+#' - https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html
 #' - https://stackoverflow.com/questions/19171715/
+#' - https://d-rug.github.io/blog/2015/regex.fick
 #'
 #' @examples
 #' x <- c("a-b", "c-d", "e_f", NA)
@@ -27,12 +29,10 @@
 #' mat <- strMatch(x = x, pattern = pattern)
 #' print(mat)
 strMatch <- function(x, pattern) {
-    assert(
-        is.character(x),
-        isString(pattern)
-    )
-    n <- length(regexpr(pattern = pattern, text = x))
+    assert(is.character(x), isString(pattern))
     m <- regexec(pattern = pattern, text = x)
+    ## FIXME This works for matches, but not for no matches.
+    n <- max(lengths(m))
     l <- regmatches(x = x, m = m)
     naIdx <- which(lengths(l) == 0L)
     l[naIdx] <- lapply(X = l[naIdx], FUN = rep, NA_character_, n)
