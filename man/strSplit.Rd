@@ -7,7 +7,7 @@
 strSplit(x, split)
 }
 \arguments{
-\item{x}{\code{character(1)}.
+\item{x}{\code{character}.
 Character vector that does not contain \code{NA} or empty strings.}
 
 \item{split}{\code{character(1)}.
