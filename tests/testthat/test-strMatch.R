@@ -65,4 +65,3 @@ test_that("No strings match capture groups", {
         )
     )
 })
-
