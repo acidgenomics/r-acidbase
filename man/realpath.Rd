@@ -10,13 +10,18 @@ realpath(path)
 \item{path}{\code{character}.
 File paths, which must exist on disk.}
 }
+\value{
+\code{character}.
+Absolute (real) file path.
+}
 \description{
 Express file paths in canonical form
 }
+\details{
+Use \code{normalizePath()} instead for non-existing file paths.
+}
 \note{
 Updated 2022-05-31.
-
-Use \code{normalizePath()} instead for non-existing file paths.
 }
 \examples{
 realpath(".")
