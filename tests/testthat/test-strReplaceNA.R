@@ -4,7 +4,7 @@ test_that("strReplaceNA", {
         expected = c("a", "b", "NA")
     )
     expect_identical(
-        object = strReplaceNA(c("a", "b", NA)),
+        object = strReplaceNA(character()),
         expected = character()
     )
     expect_identical(
