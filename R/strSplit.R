@@ -3,7 +3,7 @@
 #' @export
 #' @note Updated 2023-09-13.
 #'
-#' @param x `character(1)`.
+#' @param x `character`.
 #' Character vector that does not contain `NA` or empty strings.
 #'
 #' @param split `character(1)`.
