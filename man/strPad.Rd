@@ -4,16 +4,34 @@
 \alias{strPad}
 \title{Pad a string to minimum width}
 \usage{
-strPad(x, width, side, pad)
+strPad(x, width, side = c("left", "right"), pad = " ")
 }
 \arguments{
 \item{x}{\code{character}.}
+
+\item{width}{\code{integer(1)}.
+Padding width.}
+
+\item{side}{\code{character(1)}.
+Apply padding to the left or right side.}
+
+\item{pad}{\code{character(1)}.
+Single padding character.}
+}
+\value{
+\code{character}.
 }
 \description{
 Pad a string to minimum width
 }
 \note{
 Updated 2023-09-21.
+}
+\examples{
+x <- c("1", "10", "100")
+width <- max(nchar(x))
+strPad(x = x, width = width, side = "left", pad = "0")
+
 }
 \seealso{
 \itemize{
