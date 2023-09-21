@@ -79,6 +79,6 @@ strSplit <- function(x, split, n = Inf) {
         )
     }
     x <- unlist(x = x, recursive = FALSE, use.names = FALSE)
-    x <- matrix(data = x, ncol = n[[1L]], byrow = TRUE)
+    x <- matrix(data = x, ncol = ln[[1L]], byrow = TRUE)
     x
 }
