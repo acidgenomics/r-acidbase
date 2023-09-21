@@ -7,7 +7,8 @@
 strPad(x, width, side = c("left", "right"), pad = " ")
 }
 \arguments{
-\item{x}{\code{character}.}
+\item{x}{\code{character}.
+Character vector that does not contain \code{NA} or empty strings.}
 
 \item{width}{\code{integer(1)}.
 Padding width.}
