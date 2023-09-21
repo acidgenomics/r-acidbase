@@ -11,7 +11,7 @@ showSlotInfo(list)
 Named list containing slot metadata.}
 }
 \value{
-\code{character}, for use in \code{show} method.
+Console output, via \code{\link[=cat]{cat()}}.
 }
 \description{
 Show slot information
@@ -21,7 +21,7 @@ Standardized to Bioconductor \code{show()} method conventions.
 Refer to \code{SummarizedExperiment} method for example.
 }
 \note{
-Updated 2023-09-20.
+Updated 2023-09-21.
 }
 \examples{
 showSlotInfo(list(

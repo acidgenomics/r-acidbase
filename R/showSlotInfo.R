@@ -1,7 +1,7 @@
 #' Show slot information
 #'
 #' @export
-#' @note Updated 2023-09-20.
+#' @note Updated 2023-09-21.
 #'
 #' @details
 #' Standardized to Bioconductor `show()` method conventions.
@@ -10,7 +10,7 @@
 #' @param list `list`.
 #' Named list containing slot metadata.
 #'
-#' @return `character`, for use in `show` method.
+#' @return Console output, via [cat()].
 #'
 #' @examples
 #' showSlotInfo(list(
@@ -40,5 +40,6 @@ showSlotInfo <- function(list) {
         x = list,
         USE.NAMES = FALSE
     ))
-    out
+    cat(out, sep = "\n")
+    invisible(NULL)
 }

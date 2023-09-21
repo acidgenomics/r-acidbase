@@ -1,6 +1,6 @@
 #' @name showHeader
 #' @inherit AcidGenerics::showHeader
-#' @note Updated 2023-08-23.
+#' @note Updated 2023-09-21.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -26,7 +26,7 @@ NULL
 
 
 
-## Updated 2021-02-04.
+## Updated 2023-09-21.
 `showHeader,ANY` <- # nolint
     function(object) {
         class <- class(object)[[1L]]
@@ -36,11 +36,12 @@ NULL
             x <- paste(x, "of length", length)
         }
         cat(x, "\n", sep = "")
+        invisible(NULL)
     }
 
 
 
-## Updated 2023-08-23.
+## Updated 2023-09-21.
 `showHeader,Annotated` <- # nolint
     function(object) {
         class <- class(object)[[1L]]
@@ -76,6 +77,7 @@ NULL
             }
         }
         cat(x, "\n", sep = "")
+        invisible(NULL)
     }
 
 
