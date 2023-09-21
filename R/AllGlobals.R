@@ -1,10 +1,13 @@
 ## barcodePattern ==============================================================
+
 #' Single-sell barcode pattern
 #'
 #' Trailing number is to match cellranger output.
 #'
 #' @export
-#' @note Updated 2019-08-21.
+#' @note Updated 2023-09-21.
+#'
+#' @return `character(1)`.
 #'
 #' @examples
 #' barcodePattern
@@ -13,10 +16,13 @@ barcodePattern <- ")_([ACGT_]{6,})(_[0-9]+)?$"
 
 
 ## genomeMetadataNames =========================================================
+
 #' Slot names in metadata containing genome information
 #'
 #' @export
-#' @note Updated 2019-08-21.
+#' @note Updated 2023-09-21.
+#'
+#' @return `character`.
 #'
 #' @examples
 #' genomeMetadataNames
@@ -25,10 +31,13 @@ genomeMetadataNames <- c("organism", "genomeBuild", "ensemblRelease")
 
 
 ## lanePattern =================================================================
+
 #' Sequencing lane grep pattern
 #'
 #' @export
-#' @note Updated 2019-08-21.
+#' @note Updated 2023-09-21.
+#'
+#' @return `character(1)`.
 #'
 #' @examples
 #' lanePattern
@@ -37,12 +46,17 @@ lanePattern <- "_L([[:digit:]]{3})"
 
 
 ## metadataDenylist ============================================================
+
 #' Sample metadata denylist
 #'
 #' @export
-#' @note `sampleId` (`sampleID` for older datasets) is set automatically for
-#' multiplexed/cell-level data.
-#' @note Updated 2021-02-25.
+#' @note Updated 2023-09-21.
+#'
+#' @details
+#' `sampleId` (`sampleID` for older datasets) is set automatically for
+#' multiplexed / cell-level data.
+#'
+#' @return `character`.
 #'
 #' @examples
 #' metadataDenylist
@@ -73,13 +87,18 @@ metadataDenylist <- sort(c(
 
 
 ## metricsCols =================================================================
+
 #' Quality control metric columns
 #'
 #' Column names returned by `calculateMetrics()`.
 #'
 #' @export
-#' @note Previously: "nGene", "log10GenesPerUMI".
-#' @note Updated 2019-08-21.
+#' @note Updated 2023-09-21.
+#'
+#' @details
+#' Previously: `"nGene"`, `"log10GenesPerUMI"`.
+#'
+#' @return `character`.
 #'
 #' @examples
 #' metricsCols
@@ -95,10 +114,13 @@ metricsCols <- c(
 
 
 ## updateMessage ===============================================================
+
 #' Update message
 #'
 #' @export
-#' @note Updated 2019-08-21.
+#' @note Updated 2023-09-21.
+#'
+#' @return `character(1)`.
 #'
 #' @examples
 #' message(updateMessage)
