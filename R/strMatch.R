@@ -15,7 +15,8 @@
 #' Character matrix of match groups.
 #'
 #' @seealso
-#' - [regexec()], [regmatches()].
+#' - [regexec()], [regmatches()], [regexpr()].
+#' - [stringi::stri_match()].
 #' - [stringr::str_match()].
 #' - https://stringr.tidyverse.org/articles/from-base.html
 #' - https://stackoverflow.com/questions/19171715/
