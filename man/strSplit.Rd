@@ -4,7 +4,7 @@
 \alias{strSplit}
 \title{Split the elements of a character vector into a matrix}
 \usage{
-strSplit(x, split)
+strSplit(x, split, n = Inf)
 }
 \arguments{
 \item{x}{\code{character}.
@@ -14,6 +14,10 @@ Character vector that does not contain \code{NA} or empty strings.}
 String that defines the split boundary. The number of characters (\code{nchar})
 can be greater than 1 here. Regular expressions are intentionally not
 supported to keep this simple.}
+
+\item{n}{\code{Inf} or \code{integer(1)}.
+Maximum number of strings to return. If \code{Inf}, return all strings defined
+by split boundary. When set, function will split up to this number.}
 }
 \value{
 \code{matrix}.
