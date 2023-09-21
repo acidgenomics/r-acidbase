@@ -11,7 +11,7 @@ strSplit(x, split)
 Character vector that does not contain \code{NA} or empty strings.}
 
 \item{split}{\code{character(1)}.
-Single fixed character that defines the split.
+String that defines the split boundary.
 Regular expressions are intentionally not supported to keep this simple.}
 }
 \value{
@@ -22,7 +22,7 @@ Character matrix split into columns.
 Split the elements of a character vector into a matrix
 }
 \note{
-Updated 2023-09-13.
+Updated 2023-09-21.
 }
 \examples{
 x <- c(
@@ -37,8 +37,8 @@ print(x)
 }
 \seealso{
 \itemize{
+\item \code{\link[=strsplit]{strsplit()}}.
 \item \code{\link[stringi:stri_split]{stringi::stri_split_fixed()}}.
 \item \code{\link[stringr:str_split]{stringr::str_split_fixed()}}.
-\item \code{\link[=strsplit]{strsplit()}}.
 }
 }
