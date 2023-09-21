@@ -10,11 +10,14 @@ An object of class \code{character} of length 1.
 \usage{
 lanePattern
 }
+\value{
+\code{character(1)}.
+}
 \description{
 Sequencing lane grep pattern
 }
 \note{
-Updated 2019-08-21.
+Updated 2023-09-21.
 }
 \examples{
 lanePattern
