@@ -9,6 +9,7 @@
 #' @note Updated 2023-09-21.
 #'
 #' @param x `character`.
+#' Character vector. `NA` values are allowed.
 #'
 #' @param pattern `character(1)`.
 #' Regular expression pattern.

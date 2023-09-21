@@ -7,7 +7,8 @@
 strMatch(x, pattern)
 }
 \arguments{
-\item{x}{\code{character}.}
+\item{x}{\code{character}.
+Character vector. \code{NA} values are allowed.}
 
 \item{pattern}{\code{character(1)}.
 Regular expression pattern.
