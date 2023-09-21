@@ -2,6 +2,9 @@
 #'
 #' Uses [regexec()] and [regmatches()] from base R internally.
 #'
+#' @details
+#' Expands with `NA` values for match failures, like stringi and stringr.
+#'
 #' @export
 #' @note Updated 2023-09-21.
 #'
@@ -31,11 +34,20 @@
 strMatch <- function(x, pattern) {
     assert(is.character(x), isString(pattern))
     m <- regexec(pattern = pattern, text = x)
-    ## FIXME This works for matches, but not for no matches.
-    n <- max(lengths(m))
     l <- regmatches(x = x, m = m)
-    naIdx <- which(lengths(l) == 0L)
-    l[naIdx] <- lapply(X = l[naIdx], FUN = rep, NA_character_, n)
+    mul <- unlist(m)
+    if (anyNA(mul) || any(mul == -1L)) {
+        ## Capture length is only returned when Perl engine is enabled.
+        re <- regexpr(pattern = pattern, text = x, perl = TRUE)
+        capLen <- attr(re, "capture.length")
+        if (is.null(capLen)) {
+            naNum <- 1L
+        } else {
+            naNum <- ncol(capLen) + 1L
+        }
+        naIdx <- which(lengths(l) == 0L)
+        l[naIdx] <- lapply(X = l[naIdx], FUN = rep, NA_character_, naNum)
+    }
     mat <- do.call(what = rbind, args = l)
     mat
 }

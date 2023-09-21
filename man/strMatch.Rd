@@ -35,6 +35,7 @@ print(mat)
 \item \code{\link[stringi:stri_match]{stringi::stri_match()}}.
 \item \code{\link[stringr:str_match]{stringr::str_match()}}.
 \item https://stringr.tidyverse.org/articles/from-base.html
+\item https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html
 \item https://stackoverflow.com/questions/19171715/
 }
 }

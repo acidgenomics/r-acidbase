@@ -61,6 +61,7 @@ NULL
         )
         idx <- rep(
             x = seq_along(lst),
+            ## FIXME Replace with `lengths` here.
             times = vapply(
                 X = lst,
                 FUN = length,
@@ -93,6 +94,7 @@ NULL
         )
         idx <- rep(
             x = seq_along(lst),
+            ## FIXME Replace with `lengths` here.
             times = vapply(
                 X = lst,
                 FUN = length,
