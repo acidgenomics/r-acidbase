@@ -4,6 +4,9 @@
 \name{missingOrNULL-class}
 \alias{missingOrNULL-class}
 \title{Missing or NULL class union}
+\value{
+\code{missingOrNULL}.
+}
 \description{
 Missing or NULL class union
 }
