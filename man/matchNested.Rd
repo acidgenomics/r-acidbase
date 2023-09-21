@@ -32,7 +32,7 @@ size as \code{x}.
 Match inside nested elements
 }
 \note{
-Updated 2023-03-02.
+Updated 2023-09-21.
 }
 \examples{
 ## list ====
