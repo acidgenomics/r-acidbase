@@ -1,13 +1,9 @@
-## FIXME Need to fill with NA on match failure.
-## FIXME Need to fill failure with NA.
-
-
 #' Extract components from a match
 #'
 #' Uses [regexec()] and [regmatches()] from base R internally.
 #'
-#' @note Updated 2023-09-21
-#' @noRd
+#' @export
+#' @note Updated 2023-09-21.
 #'
 #' @param x `character`.
 #'
@@ -34,11 +30,8 @@ strMatch <- function(x, pattern) {
         is.character(x),
         isString(pattern)
     )
+    n <- length(regexpr(pattern = pattern, text = x))
     m <- regexec(pattern = pattern, text = x)
-
-    ## FIXME This doesn't detect the number of match groups correctly.
-    n <- max(vapply(X = m, FUN = length, FUN.VALUE = integer(1L)))
-
     l <- regmatches(x = x, m = m)
     naIdx <- which(lengths(l) == 0L)
     l[naIdx] <- lapply(X = l[naIdx], FUN = rep, NA_character_, n)
