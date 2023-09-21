@@ -5,3 +5,35 @@
 #' @keywords internal
 #'
 "_PACKAGE"
+
+
+
+## Classes =====================================================================
+
+#' @importClassesFrom BiocGenerics AsIs
+#' @importClassesFrom S4Vectors Annotated DFrame
+NULL
+
+
+
+## S4 generics and methods =====================================================
+
+#' @importFrom AcidGenerics coerceToList euclidean foldChangeToLogRatio
+#' geometricMean headtail intersectAll intersectionMatrix keepOnlyAtomicCols
+#' logRatioToFoldChange matchNested rankedMatrix sem showHeader zscore
+#' @importFrom BiocGenerics duplicated match unlist unique
+#' @importFrom S4Vectors head metadata metadata<- na.omit tail
+NULL
+
+
+
+## Standard functions ==========================================================
+
+#' @importFrom goalie allAreAtomic allAreDirs allHaveAccess allAreMatchingFixed
+#' assert bapply compressExtPattern extPattern hasDims hasLength hasNames
+#' hasNoDuplicates isADir isAFile isAGitRepo isASystemCommand isAURL isAny
+#' isCharacter isFlag isInRange isInt isPositive isScalar isString isSubset
+#' isSystemCommand requireNamespaces
+#' @importFrom methods .hasSlot getClassDef is isGeneric selectMethod
+#' setClassUnion setMethod setOldClass signature slot slotNames
+NULL
