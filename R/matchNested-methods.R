@@ -5,7 +5,7 @@
 #' @name matchNested
 #' @inherit AcidGenerics::matchNested
 #'
-#' @note Updated 2023-03-02.
+#' @note Updated 2023-09-21.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -47,7 +47,7 @@ NULL
 
 
 
-## Updated 2023-03-02.
+## Updated 2023-09-21.
 `matchNested,list` <- # nolint
     function(x, table) {
         lst <- lapply(
@@ -59,15 +59,7 @@ NULL
                 x
             }
         )
-        idx <- rep(
-            x = seq_along(lst),
-            ## FIXME Replace with `lengths` here.
-            times = vapply(
-                X = lst,
-                FUN = length,
-                FUN.VALUE = integer(1L)
-            )
-        )
+        idx <- rep(x = seq_along(lst), times = lengths(lst))
         value <- unlist(x = lst, recursive = FALSE, use.names = FALSE)
         df <- data.frame("idx" = idx, "value" = value)
         df <- df[!duplicated(df[["value"]]), , drop = FALSE]
@@ -78,7 +70,7 @@ NULL
 
 
 
-## Updated 2023-03-02.
+## Updated 2023-09-21.
 `matchNested,data.frame` <- # nolint
     function(x, table) {
         lst <- apply(
@@ -92,15 +84,7 @@ NULL
             },
             simplify = FALSE
         )
-        idx <- rep(
-            x = seq_along(lst),
-            ## FIXME Replace with `lengths` here.
-            times = vapply(
-                X = lst,
-                FUN = length,
-                FUN.VALUE = integer(1L)
-            )
-        )
+        idx <- rep(x = seq_along(lst), times = lengths(lst))
         value <- unlist(x = lst, recursive = FALSE, use.names = FALSE)
         df <- data.frame("idx" = idx, "value" = value)
         df <- df[!duplicated(df[["value"]]), , drop = FALSE]
