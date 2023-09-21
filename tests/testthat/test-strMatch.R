@@ -1,8 +1,4 @@
-## Compare with:
-## - `stringi::stri_match`.
-## - `stringr::str_match`.
-
-test_that("All strings match pattern", {
+test_that("All strings match capture groups", {
     expect_identical(
         object = strMatch(
             x = c("a-b", "c-d", "e-f"),
@@ -21,30 +17,52 @@ test_that("All strings match pattern", {
     )
 })
 
+test_that("Some strings match capture groups", {
+    expect_identical(
+        object = strMatch(
+            x = c("a-b", "c-d", "e_f", NA_character_),
+            pattern = "^(.+)-(.+)$"
+        ),
+        expected = matrix(
+            data = c(
+                "a-b", "a", "b",
+                "c-d", "c", "d",
+                rep(NA_character_, 6L)
+            ),
+            nrow = 4L,
+            ncol = 3L,
+            byrow = TRUE
+        )
+    )
+})
 
-## Some matches.
-x <- c("a-b", "c-d", "e_f", NA)
-pattern <- "^(.+)-(.+)$"
-mat <- stringi::stri_match(x, regex = pattern)
-assert(
-    identical(mat, stringr::str_match(x, pattern = pattern)),
-    identical(mat, strMatch(x, pattern = pattern))
-)
+test_that("Single regex with no capture groups", {
+    expect_identical(
+        object = strMatch(
+            x = c("a_b", "c_d", NA_character_),
+            pattern = "^.+$"
+        ),
+        expected = matrix(
+            data = c("a_b", "c_d", NA_character_),
+            nrow = 3L,
+            ncol = 1L,
+            byrow = TRUE
+        )
+    )
+})
 
-## Single match group.
-x <- c("a_b", "c_d", NA)
-pattern <- "^.+$"
-mat <- stringi::stri_match(x, regex = pattern)
-assert(
-    identical(mat, stringr::str_match(x, pattern = pattern)),
-    identical(mat, strMatch(x, pattern = pattern))
-)
+test_that("No strings match capture groups", {
+    expect_identical(
+        object = strMatch(
+            x = c("a_b", "c_d", NA_character_),
+            pattern = "^(.+)-(.+)$"
+        ),
+        expected = matrix(
+            data = rep(NA_character_, 9L),
+            nrow = 3L,
+            ncol = 3L,
+            byrow = TRUE
+        )
+    )
+})
 
-## No matches.
-x <- c("a_b", "c_d", NA)
-pattern <- "^(.+)-(.+)$"
-mat <- stringi::stri_match(x, regex = pattern)
-assert(
-    identical(mat, stringr::str_match(x, pattern = pattern)),
-    identical(mat, strMatch(x, pattern = pattern))
-)
