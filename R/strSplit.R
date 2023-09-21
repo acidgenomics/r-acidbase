@@ -35,12 +35,7 @@ strSplit <- function(x, split) {
         allAreMatchingFixed(x = x, pattern = split)
     )
     x <- strsplit(x = x, split = split, fixed = TRUE)
-    ## FIXME Replace with `lengths()` here.
-    n <- vapply(
-        X = x,
-        FUN = length,
-        FUN.VALUE = integer(1L)
-    )
+    n <- lengths(x)
     assert(
         length(unique(n)) == 1L,
         msg = sprintf(
