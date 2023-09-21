@@ -1,6 +1,6 @@
 test_that("character", {
     expect_identical(
-        object = strsplit2(
+        object = strSplit(
             x = c(
                 "TSPAN6_ENST00000373020",
                 "TSPAN6_ENST00000494424",
@@ -26,7 +26,7 @@ test_that("character", {
 
 test_that("Size mismatch", {
     expect_error(
-        object = strsplit2(
+        object = strSplit(
             x = c(
                 "TSPAN6_ENST00000373020",
                 "TSPAN6_AAA_ENST00000494424",
@@ -42,15 +42,15 @@ test_that("Size mismatch", {
 
 test_that("Invalid input", {
     expect_error(
-        object = strsplit2("xxx", split = "_"),
+        object = strSplit("xxx", split = "_"),
         regexp = "allAreMatchingFixed"
     )
     expect_error(
-        object = strsplit2("xxx", split = "xx"),
+        object = strSplit("xxx", split = "xx"),
         regexp = "nchar"
     )
     expect_error(
-        object = strsplit2(c("aaa_bbb", "aaa_ccc", NA), split = "_"),
+        object = strSplit(c("aaa_bbb", "aaa_ccc", NA), split = "_"),
         regexp = "NA"
     )
 })
