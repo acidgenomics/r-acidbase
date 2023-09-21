@@ -42,36 +42,37 @@ strSplit <- function(x, split, n = Inf) {
         isInRange(n, lower = 2L, upper = Inf)
     )
     x <- strsplit(x = x, split = split, fixed = TRUE)
-    ln <- lengths(x)
+    n2 <- lengths(x)
     assert(
-        length(unique(ln)) == 1L,
+        length(unique(n2)) == 1L,
         msg = sprintf(
             "Split mismatch detected: %s.",
-            toString(which(ln != ln[[1L]]))
+            toString(which(n2 != n2[[1L]]))
         )
     )
+    n2 <- n2[[1L]]
     if (is.finite(n)) {
         assert(
-            n <= ln,
+            n <= n2,
             msg = sprintf(
                 paste(
                     "Too many splits defined by {.var %s}:",
                     "{.val %d}; max {.val %d}."
                 ),
-                "n", n, ln
+                "n", n, n2
             )
         )
         ## Rejoin to "n" splits.
         x <- lapply(
             X = x,
             n = n,
-            ln = ln,
+            n2 = n2,
             split = split,
-            FUN = function(x, n, ln, split) {
+            FUN = function(x, n, n2, split) {
                 i <- x[seq(from = 1L, to = n - 1L, by = 1L)]
                 j <- paste0(
                     x[[n]], split,
-                    x[seq(from = n + 1L, to = ln, by = 1L)],
+                    x[seq(from = n + 1L, to = n2, by = 1L)],
                     collapse = ""
                 )
                 c(i, j)
@@ -79,6 +80,6 @@ strSplit <- function(x, split, n = Inf) {
         )
     }
     x <- unlist(x = x, recursive = FALSE, use.names = FALSE)
-    x <- matrix(data = x, ncol = ln[[1L]], byrow = TRUE)
+    x <- matrix(data = x, ncol = n2, byrow = TRUE)
     x
 }
