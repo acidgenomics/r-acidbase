@@ -16,8 +16,6 @@
 #' - `showClass("List")`.
 #' - `methods::coerce`.
 #'
-#' @return `list`.
-#'
 #' @examples
 #' data(DFrame, package = "AcidTest")
 #'

@@ -15,8 +15,6 @@
 #' - [Paul McMurdie's code](https://stackoverflow.com/a/25555105).
 #' - `psych::geometric.mean()`.
 #'
-#' @return `numeric`.
-#'
 #' @examples
 #' ## numeric ====
 #' vec1 <- seq(from = 1L, to = 5L, by = 1L)

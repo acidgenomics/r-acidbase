@@ -20,6 +20,7 @@ Defaults to the immediate parent, similar to \code{dirname}.}
 }
 \value{
 \code{character}.
+Directory path(s).
 }
 \description{
 Parent directory recursion

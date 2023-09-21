@@ -15,6 +15,7 @@
 #' Defaults to the immediate parent, similar to `dirname`.
 #'
 #' @return `character`.
+#' Directory path(s).
 #'
 #' @examples
 #' dir <- getwd()

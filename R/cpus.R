@@ -3,6 +3,9 @@
 #' @export
 #' @note Updated 2023-05-16.
 #'
+#' @return `integer(1)`.
+#' Number of CPU cores.
+#'
 #' @seealso
 #' - parallel::detectCores
 #' - ps::ps_cpu_count
