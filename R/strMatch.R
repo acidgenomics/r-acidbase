@@ -36,6 +36,7 @@ strMatch <- function(x, pattern) {
     m <- regexec(pattern = pattern, text = x)
     l <- regmatches(x = x, m = m)
     mul <- unlist(m)
+    ## Fill match failures with NA, similar to stringi and stringr.
     if (anyNA(mul) || any(mul == -1L)) {
         ## Capture length is only returned when Perl engine is enabled.
         re <- regexpr(pattern = pattern, text = x, perl = TRUE)
@@ -43,6 +44,7 @@ strMatch <- function(x, pattern) {
         if (is.null(capLen)) {
             naNum <- 1L
         } else {
+            ## Need to add 1 here to include the input string.
             naNum <- ncol(capLen) + 1L
         }
         naIdx <- which(lengths(l) == 0L)
