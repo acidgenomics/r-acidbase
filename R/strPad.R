@@ -1,5 +1,3 @@
-## FIXME Don't use sprintf for this, too limited.
-
 #' Pad a string to minimum width
 #'
 #' @export
