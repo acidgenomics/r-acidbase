@@ -20,6 +20,9 @@ Character matrix of match groups.
 \description{
 Uses \code{\link[=regexec]{regexec()}} and \code{\link[=regmatches]{regmatches()}} from base R internally.
 }
+\details{
+Expands with \code{NA} values for match failures, like stringi and stringr.
+}
 \note{
 Updated 2023-09-21.
 }
@@ -37,5 +40,6 @@ print(mat)
 \item https://stringr.tidyverse.org/articles/from-base.html
 \item https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html
 \item https://stackoverflow.com/questions/19171715/
+\item https://d-rug.github.io/blog/2015/regex.fick
 }
 }
