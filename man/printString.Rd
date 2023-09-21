@@ -32,6 +32,3 @@ Updated 2023-01-30.
 printString(c("hello", "world"))
 printString(datasets::mtcars, max = 2L)
 }
-\seealso{
-\code{cat()}.
-}

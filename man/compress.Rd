@@ -37,6 +37,10 @@ connection is closed.}
 \item{overwrite}{\code{logical(1)}.
 Overwrite existing file on disk.}
 }
+\value{
+Invisible \code{character(1)}.
+File path.
+}
 \description{
 Compress or decompress using gzip, bzip2, or xz compression.
 }
@@ -44,7 +48,7 @@ Compress or decompress using gzip, bzip2, or xz compression.
 For ZIP files, refer to \code{zip} and \code{unzip} in the utils package.
 }
 \note{
-Updated 2023-01-30.
+Updated 2023-09-21.
 }
 \examples{
 ## Create an example text file.

@@ -19,8 +19,6 @@
 #'
 #' @return `character(1)`.
 #'
-#' @seealso `cat()`.
-#'
 #' @examples
 #' printString(c("hello", "world"))
 #' printString(datasets::mtcars, max = 2L)

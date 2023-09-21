@@ -6,6 +6,10 @@
 \usage{
 cpus()
 }
+\value{
+\code{integer(1)}.
+Number of CPU cores.
+}
 \description{
 Detect the number of CPU cores
 }
