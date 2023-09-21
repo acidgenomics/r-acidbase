@@ -15,6 +15,7 @@
 #' @seealso
 #' - [stringi::stri_split_fixed()].
 #' - [stringr::str_split_fixed()].
+#' - [strsplit()].
 #'
 #' @examples
 #' x <- c(
@@ -24,9 +25,9 @@
 #'     "TSPAN6_ENST00000612152",
 #'     "TSPAN6_ENST00000614008"
 #' )
-#' x <- strsplit2(x = x, split = "_")
+#' x <- strSplit(x = x, split = "_")
 #' print(x)
-strsplit2 <- function(x, split) {
+strSplit <- function(x, split) {
     assert(
         isCharacter(x),
         isString(split),
