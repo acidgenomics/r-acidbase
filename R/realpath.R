@@ -2,7 +2,9 @@
 #'
 #' @export
 #' @note Updated 2022-05-31.
-#' @note Use `normalizePath()` instead for non-existing file paths.
+#'
+#' @details
+#' Use `normalizePath()` instead for non-existing file paths.
 #'
 #' @param path `character`.
 #' File paths, which must exist on disk.
@@ -17,6 +19,9 @@
 #' - `file.exists()`.
 #' - `goalie::hasAccess()`.
 #' - `goalie::allHaveAccess()`.
+#'
+#' @return `character`.
+#' Absolute (real) file path.
 #'
 #' @examples
 #' realpath(".")
