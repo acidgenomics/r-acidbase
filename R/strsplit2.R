@@ -13,8 +13,8 @@
 #' Character matrix split into columns.
 #'
 #' @seealso
-#' - `stringi::stri_split_fixed`.
-#' - `stringr::str_split_fixed`.
+#' - [stringi::stri_split_fixed()].
+#' - [stringr::str_split_fixed()].
 #'
 #' @examples
 #' x <- c(
