@@ -17,7 +17,7 @@ euclidean(x, ...)
 \item{...}{Additional arguments.}
 }
 \value{
-Numeric vector.
+\code{numeric}.
 }
 \description{
 Calculate Euclidean distance

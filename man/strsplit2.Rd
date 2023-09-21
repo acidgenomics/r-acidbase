@@ -36,7 +36,7 @@ print(x)
 }
 \seealso{
 \itemize{
-\item \code{stringi::stri_split_fixed}.
-\item \code{stringr::str_split_fixed}.
+\item \code{\link[stringi:stri_split]{stringi::stri_split_fixed()}}.
+\item \code{\link[stringr:str_split]{stringr::str_split_fixed()}}.
 }
 }
