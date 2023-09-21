@@ -14,11 +14,14 @@ Character string.}
 Maximum number of characters.
 Function will truncate with \code{"..."}, when applicable.}
 }
+\value{
+\code{character(1)}.
+}
 \description{
 Truncate a string with ellipsis, if necessary
 }
 \note{
-Updated 2022-10-20.
+Updated 2023-09-21.
 }
 \examples{
 truncateString("abcdefgi", n = 6L)

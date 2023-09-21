@@ -4,7 +4,7 @@
 #'
 #' @export
 #' @name compress
-#' @note Updated 2023-01-30.
+#' @note Updated 2023-09-21.
 #'
 #' @details
 #' For ZIP files, refer to `zip` and `unzip` in the utils package.
@@ -24,6 +24,9 @@
 #' @param remove `logical(1)`.
 #' Remove the input file once the output file is fully created and the
 #' connection is closed.
+#'
+#' @return Invisible `character(1)`.
+#' File path.
 #'
 #' @seealso
 #' - `help("connections")`

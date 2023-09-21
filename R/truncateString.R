@@ -1,7 +1,7 @@
 #' Truncate a string with ellipsis, if necessary
 #'
 #' @export
-#' @note Updated 2022-10-20.
+#' @note Updated 2023-09-21.
 #'
 #' @param x `character(1)`.
 #' Character string.
@@ -9,6 +9,8 @@
 #' @param n `integer(1)`.
 #' Maximum number of characters.
 #' Function will truncate with `"..."`, when applicable.
+#'
+#' @return `character(1)`.
 #'
 #' @seealso
 #' - https://stackoverflow.com/questions/46759358/
