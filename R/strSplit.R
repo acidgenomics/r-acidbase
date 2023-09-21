@@ -3,7 +3,8 @@
 #' @export
 #' @note Updated 2023-09-13.
 #'
-#' @inheritParams AcidRoxygen::params
+#' @param x `character(1)`.
+#' Character vector that does not contain `NA` or empty strings.
 #'
 #' @param split `character(1)`.
 #' Single fixed character that defines the split.
