@@ -11,8 +11,9 @@ strSplit(x, split)
 Character vector that does not contain \code{NA} or empty strings.}
 
 \item{split}{\code{character(1)}.
-String that defines the split boundary.
-Regular expressions are intentionally not supported to keep this simple.}
+String that defines the split boundary. The number of characters (\code{nchar})
+can be greater than 1 here. Regular expressions are intentionally not
+supported to keep this simple.}
 }
 \value{
 \code{matrix}.

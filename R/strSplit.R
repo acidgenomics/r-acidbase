@@ -7,8 +7,9 @@
 #' Character vector that does not contain `NA` or empty strings.
 #'
 #' @param split `character(1)`.
-#' String that defines the split boundary.
-#' Regular expressions are intentionally not supported to keep this simple.
+#' String that defines the split boundary. The number of characters (`nchar`)
+#' can be greater than 1 here. Regular expressions are intentionally not
+#' supported to keep this simple.
 #'
 #' @return `matrix`.
 #' Character matrix split into columns.
