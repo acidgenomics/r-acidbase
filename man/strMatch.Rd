@@ -31,7 +31,8 @@ print(mat)
 }
 \seealso{
 \itemize{
-\item \code{\link[=regexec]{regexec()}}, \code{\link[=regmatches]{regmatches()}}.
+\item \code{\link[=regexec]{regexec()}}, \code{\link[=regmatches]{regmatches()}}, \code{\link[=regexpr]{regexpr()}}.
+\item \code{\link[stringi:stri_match]{stringi::stri_match()}}.
 \item \code{\link[stringr:str_match]{stringr::str_match()}}.
 \item https://stringr.tidyverse.org/articles/from-base.html
 \item https://stackoverflow.com/questions/19171715/
