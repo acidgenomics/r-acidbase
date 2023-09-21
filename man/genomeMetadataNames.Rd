@@ -10,11 +10,14 @@ An object of class \code{character} of length 3.
 \usage{
 genomeMetadataNames
 }
+\value{
+\code{character}.
+}
 \description{
 Slot names in metadata containing genome information
 }
 \note{
-Updated 2019-08-21.
+Updated 2023-09-21.
 }
 \examples{
 genomeMetadataNames

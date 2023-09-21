@@ -10,14 +10,18 @@ An object of class \code{character} of length 16.
 \usage{
 metadataDenylist
 }
+\value{
+\code{character}.
+}
 \description{
 Sample metadata denylist
 }
-\note{
+\details{
 \code{sampleId} (\code{sampleID} for older datasets) is set automatically for
-multiplexed/cell-level data.
-
-Updated 2021-02-25.
+multiplexed / cell-level data.
+}
+\note{
+Updated 2023-09-21.
 }
 \examples{
 metadataDenylist
