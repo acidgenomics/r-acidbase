@@ -4,6 +4,7 @@
 #' @note Updated 2023-09-21.
 #'
 #' @param x `character`.
+#' Character vector that does not contain `NA` or empty strings.
 #'
 #' @param width `integer(1)`.
 #' Padding width.
@@ -43,12 +44,8 @@ strPad <- function(x, width, side = c("left", "right"), pad = " ") {
     ))
     out <- switch(
         EXPR = side,
-        "left" = {
-            paste0(y, x)
-        },
-        "right" = {
-            paste0(x, y)
-        }
+        "left" = paste0(y, x),
+        "right" = paste0(x, y)
     )
     names(out) <- names(x)
     out
