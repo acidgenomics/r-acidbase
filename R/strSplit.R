@@ -23,7 +23,8 @@
 #' Character matrix split into columns.
 #'
 #' @seealso
-#' - [strsplit()].
+#' - Infinite splits: [strsplit()].
+#' - Finite splits: [gregexpr()], [substr()].
 #' - [stringi::stri_split_fixed()].
 #' - [stringr::str_split_fixed()].
 #'

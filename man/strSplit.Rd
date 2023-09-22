@@ -46,7 +46,8 @@ print(x)
 }
 \seealso{
 \itemize{
-\item \code{\link[=strsplit]{strsplit()}}.
+\item Infinite splits: \code{\link[=strsplit]{strsplit()}}.
+\item Finite splits: \code{\link[=gregexpr]{gregexpr()}}, \code{\link[=substr]{substr()}}.
 \item \code{\link[stringi:stri_split]{stringi::stri_split_fixed()}}.
 \item \code{\link[stringr:str_split]{stringr::str_split_fixed()}}.
 }
