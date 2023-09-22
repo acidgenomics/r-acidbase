@@ -1,7 +1,11 @@
+## FIXME Support splitting by regular expression.
+
+
+
 #' Split the elements of a character vector into a matrix
 #'
 #' @export
-#' @note Updated 2023-09-21.
+#' @note Updated 2023-09-22.
 #'
 #' @param x `character`.
 #' Character vector that does not contain `NA` or empty strings.
@@ -10,6 +14,10 @@
 #' String that defines the split boundary. The number of characters (`nchar`)
 #' can be greater than 1 here. Regular expressions are intentionally not
 #' supported to keep this simple.
+#'
+#' @param fixed `logical(1)`.
+#' If `TRUE`, `pattern` is a string to be matched as is.
+#' Otherwise, will match by regular expression.
 #'
 #' @param n `Inf` or `integer(1)`.
 #' Maximum number of strings to return. If `Inf`, return all strings defined
@@ -33,15 +41,22 @@
 #' )
 #' x <- strSplit(x = x, split = "_")
 #' print(x)
-strSplit <- function(x, split, n = Inf) {
+strSplit <- function(x, split, fixed = TRUE, n = Inf) {
     assert(
         isCharacter(x),
         isString(split),
-        allAreMatchingFixed(x = x, pattern = split),
+        isFlag(fixed),
+        ifelse(
+            test = fixed,
+            yes = allAreMatchingFixed,
+            no = allAreMatchingRegex
+        )(x = x, pattern = split),
         isInt(n),
         isInRange(n, lower = 2L, upper = Inf)
     )
-    x <- strsplit(x = x, split = split, fixed = TRUE)
+    ## FIXME Consider a different approach when n is finite.
+    ## FIXME Add support for regular expression here.
+    x <- strsplit(x = x, split = split, fixed = fixed)
     n2 <- lengths(x)
     assert(
         length(unique(n2)) == 1L,
@@ -82,4 +97,31 @@ strSplit <- function(x, split, n = Inf) {
     x <- unlist(x = x, recursive = FALSE, use.names = FALSE)
     x <- matrix(data = x, ncol = n2, byrow = TRUE)
     x
+}
+
+
+
+## FIXME Try using a regex here, for better handling.
+
+#' Split a string into a finite number of capture groups
+#'
+#' @note Updated 2023-09-22.
+#' @noRd
+#'
+#' @seealso
+#' - [gregexec()].
+#' - [gregexpr()].
+.strSplitFinite <- function(x, split, n, fixed) {
+    assert(
+        is.character(x),
+        isString(split),
+        isInt(n),
+        isInRange(n, lower = 2L, upper = Inf),
+        isFlag(fixed)
+    )
+    m1 <- gregexpr(pattern = split, text = x, fixed = fixed)
+    ln1 <- lengths(m1)
+
+    m2 <- gregexec(pattern = split, text = x, fixed = fixed)
+    ln2 <- lengths(m2)
 }
