@@ -103,8 +103,9 @@ strSplit <- function(x, split, fixed = TRUE, n = Inf) {
         n = n,
         f = function(x, m, n) {
             ml <- attr(m, "match.length")
-            m <- m[seq_along(n)]
-            ml <- ml[seq_along(n)]
+            nl <- seq_len(n)
+            m <- m[nl]
+            ml <- ml[nl]
             out <- substr(x = x, start = 1L, stop = m[[1L]] - 1L)
             i <- 1L
             while (i < length(m)) {
