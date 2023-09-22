@@ -76,6 +76,10 @@ test_that("Fixed, finite", {
     )
 })
 
+## FIXME Need to cover this:
+## strSplit(x = "a:b:c:d:e:f", split = ":", n = 3L, fixed = FALSE)
+## strSplit(x = "a:b:c:d:e:f", split = ":", n = 3L, fixed = TRUE)
+
 test_that("Regex, finite", {
     expect_identical(
         object = strSplit(
