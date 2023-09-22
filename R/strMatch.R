@@ -6,7 +6,7 @@
 #' Expands with `NA` values for match failures, like stringi and stringr.
 #'
 #' @export
-#' @note Updated 2023-09-21.
+#' @note Updated 2023-09-22.
 #'
 #' @param x `character`.
 #' Character vector. `NA` values are allowed.
@@ -14,6 +14,10 @@
 #' @param pattern `character(1)`.
 #' Regular expression pattern.
 #' Evalutes with [regexec()] internally.
+#'
+#' @param fixed `logical(1)`.
+#' If `TRUE`, `pattern` is a string to be matched as is.
+#' Otherwise, will match by regular expression.
 #'
 #' @return `matrix`.
 #' Character matrix of match groups.
@@ -32,9 +36,13 @@
 #' pattern <- "^(.+)-(.+)$"
 #' mat <- strMatch(x = x, pattern = pattern)
 #' print(mat)
-strMatch <- function(x, pattern) {
-    assert(is.character(x), isString(pattern))
-    m <- regexec(pattern = pattern, text = x)
+strMatch <- function(x, pattern, fixed = FALSE) {
+    assert(
+        is.character(x),
+        isString(pattern),
+        isFlag(fixed)
+    )
+    m <- regexec(pattern = pattern, text = x, fixed = fixed)
     l <- regmatches(x = x, m = m)
     mul <- unlist(m)
     ## Fill match failures with NA, similar to stringi and stringr.
