@@ -1,7 +1,3 @@
-## FIXME Support splitting by regular expression.
-
-
-
 #' Split the elements of a character vector into a matrix
 #'
 #' @export
@@ -68,42 +64,12 @@ strSplit <- function(x, split, fixed = TRUE, n = Inf) {
         )
     )
     n2 <- n2[[1L]]
-    if (is.finite(n)) {
-        assert(
-            n <= n2,
-            msg = sprintf(
-                paste(
-                    "Too many splits defined by {.var %s}:",
-                    "{.val %d}; max {.val %d}."
-                ),
-                "n", n, n2
-            )
-        )
-        ## Rejoin to "n" splits.
-        x <- lapply(
-            X = x,
-            n = n,
-            n2 = n2,
-            split = split,
-            FUN = function(x, n, n2, split) {
-                i <- x[seq(from = 1L, to = n - 1L, by = 1L)]
-                j <- paste0(
-                    x[[n]], split,
-                    x[seq(from = n + 1L, to = n2, by = 1L)],
-                    collapse = ""
-                )
-                c(i, j)
-            }
-        )
-    }
     x <- unlist(x = x, recursive = FALSE, use.names = FALSE)
     x <- matrix(data = x, ncol = n2, byrow = TRUE)
     x
 }
 
 
-
-## FIXME Try using a regex here, for better handling.
 
 #' Split a string into a finite number of capture groups
 #'
@@ -130,16 +96,16 @@ strSplit <- function(x, split, fixed = TRUE, n = Inf) {
             toString(which((ln + 1L) < n))
         )
     )
-    ## FIXME This will perform infinite splits, but not stop at n...how to
-    ## add that functionality?
-    lst <- Map(
+    Map(
         x = x,
         m = m,
         n = n,
-        FUN = function(x, m, n) {
-            i <- 1L
+        f = function(x, m, n) {
             ml <- attr(m, "match.length")
+            m <- m[seq_along(n)]
+            ml <- ml[seq_along(n)]
             out <- substr(x = x, start = 1L, stop = m[[1L]] - 1L)
+            i <- 1L
             while (i < length(m)) {
                 out <- append(
                     x = out,
@@ -155,15 +121,14 @@ strSplit <- function(x, split, fixed = TRUE, n = Inf) {
                 x = out,
                 values = substr(
                     x = x,
-                    start = m[[3L]] + ml[[3L]],
+                    start = m[[n - 1L]] + ml[[n - 1L]],
                     stop = nchar(x)
                 )
             )
             out
-        }
+        },
+        USE.NAMES = FALSE
     )
-
-    ## FIXME Error if not enough splits.
 }
 
 
