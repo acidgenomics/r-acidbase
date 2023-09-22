@@ -4,7 +4,7 @@
 \alias{strMatch}
 \title{Extract components from a match}
 \usage{
-strMatch(x, pattern)
+strMatch(x, pattern, fixed = FALSE)
 }
 \arguments{
 \item{x}{\code{character}.
@@ -13,6 +13,10 @@ Character vector. \code{NA} values are allowed.}
 \item{pattern}{\code{character(1)}.
 Regular expression pattern.
 Evalutes with \code{\link[=regexec]{regexec()}} internally.}
+
+\item{fixed}{\code{logical(1)}.
+If \code{TRUE}, \code{pattern} is a string to be matched as is.
+Otherwise, will match by regular expression.}
 }
 \value{
 \code{matrix}.
@@ -25,7 +29,7 @@ Uses \code{\link[=regexec]{regexec()}} and \code{\link[=regmatches]{regmatches()
 Expands with \code{NA} values for match failures, like stringi and stringr.
 }
 \note{
-Updated 2023-09-21.
+Updated 2023-09-22.
 }
 \examples{
 x <- c("a-b", "c-d", "e_f", NA)
