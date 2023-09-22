@@ -34,15 +34,25 @@ Split the elements of a character vector into a matrix
 Updated 2023-09-22.
 }
 \examples{
-x <- c(
-    "TSPAN6_ENST00000373020",
-    "TSPAN6_ENST00000494424",
-    "TSPAN6_ENST00000496771",
-    "TSPAN6_ENST00000612152",
-    "TSPAN6_ENST00000614008"
-)
-x <- strSplit(x = x, split = "_")
-print(x)
+## Infinite number of fixed splits.
+x <- c("a__b__c", "d__e__f", "g__h__i")
+mat <- strSplit(x = x, split = "__", fixed = TRUE, n = Inf)
+print(mat)
+
+## Infinite number of regex splits.
+x <- c("a_b_c_d", "e_f__g___h", "i__j__k__l")
+mat <- strSplit(x = x, split = "_+", fixed = FALSE, n = Inf)
+print(mat)
+
+## Finite number of fixed splits.
+x <- c("a__b__c", "d__e__f", "g__h__i")
+mat <- strSplit(x = x, split = "__", fixed = TRUE, n = 2L)
+print(mat)
+
+## Finite number of regex splits.
+x <- c("a_b_c_d", "e_f__g___h", "i__j__k__l")
+mat <- strSplit(x = x, split = "_+", fixed = FALSE, n = 2L)
+print(mat)
 }
 \seealso{
 \itemize{

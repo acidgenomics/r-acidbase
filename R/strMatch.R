@@ -32,9 +32,16 @@
 #' - https://d-rug.github.io/blog/2015/regex.fick
 #'
 #' @examples
+#' ## Regex match.
 #' x <- c("a-b", "c-d", "e_f", NA)
 #' pattern <- "^(.+)-(.+)$"
-#' mat <- strMatch(x = x, pattern = pattern)
+#' mat <- strMatch(x = x, pattern = pattern, fixed = FALSE)
+#' print(mat)
+#'
+#' ## Fixed match.
+#' x <- c("a", "aa", "b", "bb")
+#' pattern <- "a"
+#' mat <- strMatch(x = x, pattern = pattern, fixed = TRUE)
 #' print(mat)
 strMatch <- function(x, pattern, fixed = FALSE) {
     assert(

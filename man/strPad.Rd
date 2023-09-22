@@ -31,8 +31,8 @@ Updated 2023-09-21.
 \examples{
 x <- c("1", "10", "100")
 width <- max(nchar(x))
-strPad(x = x, width = width, side = "left", pad = "0")
-
+x <- strPad(x = x, width = width, side = "left", pad = "0")
+print(x)
 }
 \seealso{
 \itemize{
