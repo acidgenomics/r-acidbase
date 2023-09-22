@@ -17,15 +17,16 @@
 #'
 #' @return `character`.
 #'
-#' @examples
-#' x <- c("1", "10", "100")
-#' width <- max(nchar(x))
-#' strPad(x = x, width = width, side = "left", pad = "0")
-#'
 #' @seealso
 #' - [stringr::str_pad()].
 #' - [sprintf()].
 #' - https://stringr.tidyverse.org/articles/from-base.html
+#'
+#' @examples
+#' x <- c("1", "10", "100")
+#' width <- max(nchar(x))
+#' x <- strPad(x = x, width = width, side = "left", pad = "0")
+#' print(x)
 strPad <- function(x, width, side = c("left", "right"), pad = " ") {
     assert(
         isCharacter(x),

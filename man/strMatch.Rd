@@ -32,9 +32,16 @@ Expands with \code{NA} values for match failures, like stringi and stringr.
 Updated 2023-09-22.
 }
 \examples{
+## Regex match.
 x <- c("a-b", "c-d", "e_f", NA)
 pattern <- "^(.+)-(.+)$"
-mat <- strMatch(x = x, pattern = pattern)
+mat <- strMatch(x = x, pattern = pattern, fixed = FALSE)
+print(mat)
+
+## Fixed match.
+x <- c("a", "aa", "b", "bb")
+pattern <- "a"
+mat <- strMatch(x = x, pattern = pattern, fixed = TRUE)
 print(mat)
 }
 \seealso{
