@@ -108,7 +108,7 @@ strSplit <- function(x, split, fixed = TRUE, n = Inf) {
             ml <- ml[nl]
             out <- substr(x = x, start = 1L, stop = m[[1L]] - 1L)
             i <- 1L
-            while (i < length(m)) {
+            while (i < (length(m) - 1L)) {
                 out <- append(
                     x = out,
                     values = substr(
