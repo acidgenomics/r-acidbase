@@ -54,9 +54,11 @@ strSplit <- function(x, split, fixed = TRUE, n = Inf) {
         isInt(n),
         isInRange(n, lower = 2L, upper = Inf)
     )
-    ## FIXME Consider a different approach when n is finite.
-    ## FIXME Add support for regular expression here.
-    x <- strsplit(x = x, split = split, fixed = fixed)
+    if (is.finite(n)) {
+        x <- .strSplitFinite(x = x, split = split, n = n, fixed = fixed)
+    } else {
+        x <- .strSplitInfinite(x = x, split = split, fixed = fixed)
+    }
     n2 <- lengths(x)
     assert(
         length(unique(n2)) == 1L,
@@ -119,9 +121,65 @@ strSplit <- function(x, split, fixed = TRUE, n = Inf) {
         isInRange(n, lower = 2L, upper = Inf),
         isFlag(fixed)
     )
-    m1 <- gregexpr(pattern = split, text = x, fixed = fixed)
-    ln1 <- lengths(m1)
+    m <- gregexpr(pattern = split, text = x, fixed = fixed)
+    ln <- lengths(m)
+    assert(
+        all((ln + 1L) >= n),
+        msg = sprintf(
+            "Not enough to split: %s.",
+            toString(which((ln + 1L) < n))
+        )
+    )
+    ## FIXME This will perform infinite splits, but not stop at n...how to
+    ## add that functionality?
+    lst <- Map(
+        x = x,
+        m = m,
+        n = n,
+        FUN = function(x, m, n) {
+            i <- 1L
+            ml <- attr(m, "match.length")
+            out <- substr(x = x, start = 1L, stop = m[[1L]] - 1L)
+            while (i < length(m)) {
+                out <- append(
+                    x = out,
+                    values = substr(
+                        x = x,
+                        start = m[[i]] + ml[[i]],
+                        stop = m[[i + 1L]] - 1L
+                    )
+                )
+                i <- i + 1L
+            }
+            out <- append(
+                x = out,
+                values = substr(
+                    x = x,
+                    start = m[[3L]] + ml[[3L]],
+                    stop = nchar(x)
+                )
+            )
+            out
+        }
+    )
 
-    m2 <- gregexec(pattern = split, text = x, fixed = fixed)
-    ln2 <- lengths(m2)
+    ## FIXME Error if not enough splits.
+}
+
+
+
+#' Split a string into an finite number of capture groups
+#'
+#' @note Updated 2023-09-22.
+#' @noRd
+#'
+#' @seealso
+#' - [strsplit()].
+.strSplitInfinite <- function(x, split, fixed) {
+    assert(
+        is.character(x),
+        isString(split),
+        isFlag(fixed)
+    )
+    strsplit(x = x, split = split, fixed = fixed)
 }
