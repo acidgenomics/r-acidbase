@@ -19,6 +19,7 @@ test_that("Infinite, fixed", {
                 "TSPAN6", "ENST00000612152",
                 "TSPAN6", "ENST00000614008"
             ),
+            nrow = 5L,
             ncol = 2L,
             byrow = TRUE
         )
@@ -46,6 +47,7 @@ test_that("Infinite, regex", {
                 "TSPAN6", "ENST00000612152",
                 "TSPAN6", "ENST00000614008"
             ),
+            nrow = 5L,
             ncol = 2L,
             byrow = TRUE
         )
@@ -70,15 +72,35 @@ test_that("Fixed, finite", {
                 "ddddd", "e",
                 "ff", "gg : hh : ii"
             ),
+            nrow = 3L,
             ncol = 2L,
             byrow = TRUE
         )
     )
+    ## FIXME This doesn't work as expected, need to debug.
+    expect_identical(
+        object = strSplit(
+            x = c(
+                "a:b:c:d:e:f",
+                "g:h:i:j",
+                "k:l:m"
+            ),
+            split = ":",
+            n = 3L,
+            fixed = TRUE
+        ),
+        expected = matrix(
+            data = c(
+                "a", "b", "c:d:e:f",
+                "g", "h", "i:j",
+                "k", "l", "m"
+            ),
+            nrow = 3L,
+            ncol = 3L,
+            byrow = TRUE
+        )
+    )
 })
-
-## FIXME Need to cover this:
-## strSplit(x = "a:b:c:d:e:f", split = ":", n = 3L, fixed = FALSE)
-## strSplit(x = "a:b:c:d:e:f", split = ":", n = 3L, fixed = TRUE)
 
 test_that("Regex, finite", {
     expect_identical(
@@ -100,7 +122,31 @@ test_that("Regex, finite", {
                 "aaa", "bbbb::::ccc:ddddd",
                 "a", "b"
             ),
+            nrow = 4L,
             ncol = 2L,
+            byrow = TRUE
+        )
+    )
+    ## FIXME This doesn't work as expected, need to debug.
+    expect_identical(
+        object = strSplit(
+            x = c(
+                "a:b::c:::d::e:f",
+                "g::h:::i",
+                "j:k:l:m"
+            ),
+            split = ":+",
+            n = 3L,
+            fixed = FALSE
+        ),
+        expected = matrix(
+            data = c(
+                "a", "b", "c:::d::e:f",
+                "g", "h", "i",
+                "j", "k", "l:m"
+            ),
+            nrow = 3L,
+            ncol = 3L,
             byrow = TRUE
         )
     )
