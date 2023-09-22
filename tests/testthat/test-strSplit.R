@@ -77,7 +77,6 @@ test_that("Fixed, finite", {
             byrow = TRUE
         )
     )
-    ## FIXME This doesn't work as expected, need to debug.
     expect_identical(
         object = strSplit(
             x = c(
@@ -127,7 +126,6 @@ test_that("Regex, finite", {
             byrow = TRUE
         )
     )
-    ## FIXME This doesn't work as expected, need to debug.
     expect_identical(
         object = strSplit(
             x = c(
