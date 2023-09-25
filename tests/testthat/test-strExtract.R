@@ -6,7 +6,7 @@ test_that("First match", {
                 "bag of flour",
                 "bag of sugar",
                 "milk x200 300",
-                NA
+                NA_character_
             ),
             pattern = "\\d+"
         ),
@@ -18,19 +18,23 @@ test_that("First match", {
             NA_character_
         )
     )
+    expect_identical(
+        object = strExtract(
+            x = c(
+                "apples x4",
+                "bag of flour",
+                "bag of sugar",
+                "milk x2",
+                NA_character_
+            ),
+            pattern = "[a-z]+"
+        ),
+        expected = c(
+            "apples",
+            "bag",
+            "bag",
+            "milk",
+            NA_character_
+        )
+    )
 })
-
-
-stringr::str_extract(
-    c("apples x4", "bag of flour", "bag of sugar", "milk x2", NA),
-    "[a-z]+"
-)
-# [1] "apples" "bag"    "bag"    "milk"   NA
-stringr::str_extract(
-    c("apples x4", "bag of flour", "bag of sugar", "milk x200 300", NA),
-    "\\d+"
-)
-# "4" NA  NA  "2" NA
-
-
-
