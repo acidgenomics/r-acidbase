@@ -1,3 +1,47 @@
+test_that("Regex match", {
+    expect_identical(
+        object = strMatchAll(
+            x = c("a-b", "c-d", "e_f", NA),
+            pattern = "^(.+)-(.+)$",
+            fixed = FALSE
+        ),
+        expected = list(
+            matrix(
+                data = c("a-b", "a", "b"),
+                nrow = 1L,
+                ncol = 3L,
+                byrow = TRUE
+            ),
+            matrix(
+                data = c("c-d", "c", "d"),
+                nrow = 1L,
+                ncol = 3L,
+                byrow = TRUE
+            ),
+            matrix(
+                data = rep(NA_character_, 3L),
+                nrow = 1L,
+                ncol = 3L,
+                byrow = TRUE
+            ),
+            matrix(
+                data = rep(NA_character_, 3L),
+                nrow = 1L,
+                ncol = 3L,
+                byrow = TRUE
+            )
+        )
+    )
+}
+
+test_that("Fixed match", {
+    object <- strMatchAll(
+        x = c("a", "aa", "b", "bb"),
+        pattern = "a",
+        fixed = TRUE
+    )
+})
+
 test_that("WormBase peptides", {
     expect_identical(
         object = strMatchAll(
