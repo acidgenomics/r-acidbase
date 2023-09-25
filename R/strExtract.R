@@ -1,9 +1,12 @@
 #' Extract first pattern occurance
 #'
-#' Uses [regexpr()] internally.
+#' Uses [regexpr()] internally without [regmatches()].
 #'
 #' @export
 #' @note Updated 2023-09-25.
+#'
+#' @details
+#' Expands with `NA` values for match failures, like stringi and stringr.
 #'
 #' @param x `character`.
 #' Character vector. `NA` values are allowed.
@@ -20,8 +23,9 @@
 #' Character vector of matches. Failures return `NA`.
 #'
 #' @seealso
-#' - [stringi::stri_extract_first].
-#' - [stringr::str_extract].
+#' - [regexpr()], [regmatches()].
+#' - [stringi::stri_extract_first()].
+#' - [stringr::str_extract()].
 #' - https://stringr.tidyverse.org/articles/from-base.html
 #'
 #' @examples
