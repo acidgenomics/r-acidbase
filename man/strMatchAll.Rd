@@ -53,5 +53,6 @@ print(object)
 \item \code{\link[=gregexec]{gregexec()}}, \code{\link[=regmatches]{regmatches()}}, \code{\link[=gregexpr]{gregexpr()}}.
 \item \code{\link[stringi:stri_match]{stringi::stri_match_all()}}.
 \item \code{\link[stringr:str_match]{stringr::str_match_all()}}.
+\item https://stringr.tidyverse.org/articles/from-base.html
 }
 }
