@@ -37,4 +37,52 @@ test_that("First match", {
             NA_character_
         )
     )
+    expect_identical(
+        object = strExtract(
+            x = c(
+                "aaa aa a",
+                "aa a",
+                "a",
+                "b",
+                "b bb",
+                "b bb bbb",
+                "b aa"
+            ),
+            pattern = "a",
+            fixed = TRUE
+        ),
+        expected = c(
+            "a",
+            "a",
+            "a",
+            NA_character_,
+            NA_character_,
+            NA_character_,
+            "a"
+        )
+    )
+    expect_identical(
+        object = strExtract(
+            x = c(
+                "aaa aa a",
+                "aa a",
+                "a",
+                "b",
+                "b bb",
+                "b bb bbb",
+                "b aa"
+            ),
+            pattern = "a+",
+            fixed = FALSE
+        ),
+        expected = c(
+            "aaa",
+            "aa",
+            "a",
+            NA_character_,
+            NA_character_,
+            NA_character_,
+            "aa"
+        )
+    )
 })
