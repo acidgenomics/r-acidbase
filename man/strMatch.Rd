@@ -29,20 +29,24 @@ Uses \code{\link[=regexec]{regexec()}} and \code{\link[=regmatches]{regmatches()
 Expands with \code{NA} values for match failures, like stringi and stringr.
 }
 \note{
-Updated 2023-09-22.
+Updated 2023-09-25.
 }
 \examples{
 ## Regex match.
-x <- c("a-b", "c-d", "e_f", NA)
-pattern <- "^(.+)-(.+)$"
-mat <- strMatch(x = x, pattern = pattern, fixed = FALSE)
-print(mat)
+object <- strMatch(
+    x = c("a-b", "c-d", "e_f", NA),
+    pattern = "^(.+)-(.+)$",
+    fixed = FALSE
+)
+print(object)
 
 ## Fixed match.
-x <- c("a", "aa", "b", "bb")
-pattern <- "a"
-mat <- strMatch(x = x, pattern = pattern, fixed = TRUE)
-print(mat)
+object <- strMatch(
+    x = c("a", "aa", "b", "bb"),
+    pattern = "a",
+    fixed = TRUE
+)
+print(object)
 }
 \seealso{
 \itemize{

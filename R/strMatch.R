@@ -33,16 +33,20 @@
 #'
 #' @examples
 #' ## Regex match.
-#' x <- c("a-b", "c-d", "e_f", NA)
-#' pattern <- "^(.+)-(.+)$"
-#' mat <- strMatch(x = x, pattern = pattern, fixed = FALSE)
-#' print(mat)
+#' object <- strMatch(
+#'     x = c("a-b", "c-d", "e_f", NA),
+#'     pattern = "^(.+)-(.+)$",
+#'     fixed = FALSE
+#' )
+#' print(object)
 #'
 #' ## Fixed match.
-#' x <- c("a", "aa", "b", "bb")
-#' pattern <- "a"
-#' mat <- strMatch(x = x, pattern = pattern, fixed = TRUE)
-#' print(mat)
+#' object <- strMatch(
+#'     x = c("a", "aa", "b", "bb"),
+#'     pattern = "a",
+#'     fixed = TRUE
+#' )
+#' print(object)
 strMatch <- function(x, pattern, fixed = FALSE) {
     assert(
         is.character(x),
