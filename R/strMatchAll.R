@@ -1,58 +1,56 @@
+## FIXME How to recursively NA fill here?
+
+
+
 #' Extract components from a match
 #'
-#' Uses [regexec()] and [regmatches()] from base R internally.
+#' Uses [gregexec()] and [regmatches()] from base R internally.
 #'
 #' @details
 #' Expands with `NA` values for match failures, like stringi and stringr.
 #'
 #' @export
-#' @note Updated 2023-09-22.
+#' @note Updated 2023-09-25.
 #'
 #' @param x `character`.
 #' Character vector. `NA` values are allowed.
 #'
 #' @param pattern `character(1)`.
 #' Regular expression pattern.
-#' Evalutes with [regexec()] internally.
+#' Evalutes with [gregexec()] internally.
 #'
 #' @param fixed `logical(1)`.
 #' If `TRUE`, `pattern` is a string to be matched as is.
 #' Otherwise, will match by regular expression.
 #'
-#' @return `matrix`.
-#' Character matrix of match groups.
+#' @return `list`.
+#' List of character matrix of match groups.
 #'
 #' @seealso
-#' - [regexec()], [regmatches()], [regexpr()].
-#' - [stringi::stri_match()].
-#' - [stringr::str_match()].
-#' - https://stringr.tidyverse.org/articles/from-base.html
-#' - https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html
-#' - https://stackoverflow.com/questions/19171715/
-#' - https://d-rug.github.io/blog/2015/regex.fick
+#' - [gregexec()], [regmatches()], [gregexpr()].
+#' - [stringi::stri_match_all()].
+#' - [stringr::str_match_all()].
 #'
 #' @examples
 #' ## Regex match.
-#' x <- c("a-b", "c-d", "e_f", NA)
-#' pattern <- "^(.+)-(.+)$"
-#' mat <- strMatch(x = x, pattern = pattern, fixed = FALSE)
-#' print(mat)
+#' ## FIXME
 #'
 #' ## Fixed match.
-#' x <- c("a", "aa", "b", "bb")
-#' pattern <- "a"
-#' mat <- strMatch(x = x, pattern = pattern, fixed = TRUE)
-#' print(mat)
-strMatch <- function(x, pattern, fixed = FALSE) {
+#' ## FIXME
+strMatchAll <- function(x, pattern, fixed = FALSE) {
     assert(
         is.character(x),
         isString(pattern),
         isFlag(fixed)
     )
-    m <- regexec(pattern = pattern, text = x, fixed = fixed)
+    m <- gregexec(pattern = pattern, text = x, fixed = fixed)
     l <- regmatches(x = x, m = m)
     ## Fill match failures with NA, similar to stringi and stringr.
-    mul <- unlist(m)
+    re <- gregexpr(pattern = pattern, text = x, perl = TRUE)
+
+
+
+    ## Fill match failures with NA, similar to stringi and stringr.
     if (anyNA(mul) || any(mul == -1L)) {
         ## Capture length is only returned when Perl engine is enabled.
         re <- regexpr(pattern = pattern, text = x, perl = TRUE)
