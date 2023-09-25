@@ -35,10 +35,18 @@ test_that("Regex match", {
 }
 
 test_that("Fixed match", {
-    object <- strMatchAll(
-        x = c("a", "aa", "b", "bb"),
-        pattern = "a",
-        fixed = TRUE
+    expect_identical(
+        object = strMatchAll(
+            x = c("a", "aa", "b", "bb"),
+            pattern = "a",
+            fixed = TRUE
+        ),
+        expected = list(
+            matrix(data = "a", nrow = 1L, ncol = 1L),
+            matrix(data = rep("a", 2L), nrow = 2L, ncol = 1L),
+            matrix(data = NA_character_, nrow = 1L, ncol = 1L),
+            matrix(data = NA_character_, nrow = 1L, ncol = 1L)
+        ),
     )
 })
 
