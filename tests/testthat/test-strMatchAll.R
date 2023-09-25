@@ -20,7 +20,8 @@ test_that("WormBase peptides", {
                 ),
                 NA
             ),
-            pattern = "\\b([a-z]+)=(\"[^\"]+\"|[^ ]+\\b)"
+            pattern = "\\b([a-z]+)=(\"[^\"]+\"|[^ ]+\\b)",
+            fixed = FALSE
         ),
         expected = list(
             matrix(
@@ -81,4 +82,3 @@ test_that("WormBase peptides", {
         )
     )
 })
-
