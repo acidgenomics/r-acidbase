@@ -64,7 +64,7 @@ strMatchAll <- function(x, pattern, fixed = FALSE) {
         l <- Map(
             f = function(l, re, naMat) {
                 ml <- attr(re, "match.length")
-                if (all(is.na(ml))) {
+                if (all(is.na(ml) | ml == -1L)) {
                     out <- naMat
                 } else {
                     out <- l
