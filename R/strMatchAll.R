@@ -1,7 +1,3 @@
-## FIXME How to recursively NA fill here?
-
-
-
 #' Extract components from a match
 #'
 #' Uses [gregexec()] and [regmatches()] from base R internally.
@@ -45,25 +41,31 @@ strMatchAll <- function(x, pattern, fixed = FALSE) {
     )
     m <- gregexec(pattern = pattern, text = x, fixed = fixed)
     l <- regmatches(x = x, m = m)
-    ## Fill match failures with NA, similar to stringi and stringr.
-    re <- gregexpr(pattern = pattern, text = x, perl = TRUE)
-
-
-
-    ## Fill match failures with NA, similar to stringi and stringr.
+    l <- lapply(X = l, FUN = t)
+    mul <- unlist(m, recursive = TRUE, use.names = FALSE)
     if (anyNA(mul) || any(mul == -1L)) {
-        ## Capture length is only returned when Perl engine is enabled.
-        re <- regexpr(pattern = pattern, text = x, perl = TRUE)
-        capLen <- attr(re, "capture.length")
-        if (is.null(capLen)) {
-            naNum <- 1L
-        } else {
-            ## Need to add 1 here to include the input string.
-            naNum <- ncol(capLen) + 1L
-        }
-        naIdx <- which(lengths(l) == 0L)
-        l[naIdx] <- lapply(X = l[naIdx], FUN = rep, NA_character_, naNum)
+        re <- gregexpr(pattern = pattern, text = x, perl = TRUE)
+        naNum <- .captureGroups(pattern) + 1L
+        naMat <- matrix(
+            data = rep(NA_character_, naNum),
+            ncol = naNum,
+            nrow = 1L
+        )
+        l <- Map(
+            f = function(l, re, naMat) {
+                ml <- attr(re, "match.length")
+                if (all(is.na(ml))) {
+                    out <- naMat
+                } else {
+                    out <- l
+                }
+                out
+            },
+            l = l,
+            re = re,
+            MoreArgs = list("naMat" = naMat),
+            USE.NAMES = FALSE
+        )
     }
-    mat <- do.call(what = rbind, args = l)
-    mat
+    l
 }
