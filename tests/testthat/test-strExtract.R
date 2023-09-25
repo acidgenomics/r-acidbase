@@ -1,4 +1,4 @@
-test_that("First match", {
+test_that("Extract first match", {
     expect_identical(
         object = strExtract(
             x = c(
