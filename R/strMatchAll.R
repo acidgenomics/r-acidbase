@@ -44,13 +44,13 @@ strMatchAll <- function(x, pattern, fixed = FALSE) {
     l <- lapply(X = l, FUN = t)
     mul <- unlist(m, recursive = TRUE, use.names = FALSE)
     if (anyNA(mul) || any(mul == -1L)) {
-        re <- gregexpr(pattern = pattern, text = x, perl = TRUE)
         naNum <- .captureGroups(pattern) + 1L
         naMat <- matrix(
             data = rep(NA_character_, naNum),
-            ncol = naNum,
-            nrow = 1L
+            nrow = 1L,
+            ncol = naNum
         )
+        re <- gregexpr(pattern = pattern, text = x, perl = TRUE)
         l <- Map(
             f = function(l, re, naMat) {
                 ml <- attr(re, "match.length")
