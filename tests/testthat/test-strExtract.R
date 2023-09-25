@@ -8,3 +8,11 @@ stringr::str_extract(
     "\\d"
 )
 # "4" NA  NA  "2" NA
+
+
+
+object <- strExtract(
+    x = c("apples x10", "bag of flour", "bag of sugar", "milk x200", NA),
+    pattern = "\\d+"
+)
+print(object)
