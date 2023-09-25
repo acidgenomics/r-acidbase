@@ -32,7 +32,7 @@ test_that("Regex match", {
             )
         )
     )
-}
+})
 
 test_that("Fixed match", {
     expect_identical(
@@ -46,7 +46,7 @@ test_that("Fixed match", {
             matrix(data = rep("a", 2L), nrow = 2L, ncol = 1L),
             matrix(data = NA_character_, nrow = 1L, ncol = 1L),
             matrix(data = NA_character_, nrow = 1L, ncol = 1L)
-        ),
+        )
     )
 })
 
