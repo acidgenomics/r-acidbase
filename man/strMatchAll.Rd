@@ -33,10 +33,20 @@ Updated 2023-09-25.
 }
 \examples{
 ## Regex match.
-## FIXME
+object <- strMatchAll(
+    x = c("a-b", "c-d", "e_f", NA),
+    pattern = "^(.+)-(.+)$",
+    fixed = FALSE
+)
+print(object)
 
 ## Fixed match.
-## FIXME
+object <- strMatchAll(
+    x = c("a", "aa", "b", "bb"),
+    pattern = "a",
+    fixed = TRUE
+)
+print(object)
 }
 \seealso{
 \itemize{

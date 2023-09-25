@@ -29,10 +29,20 @@
 #'
 #' @examples
 #' ## Regex match.
-#' ## FIXME
+#' object <- strMatchAll(
+#'     x = c("a-b", "c-d", "e_f", NA),
+#'     pattern = "^(.+)-(.+)$",
+#'     fixed = FALSE
+#' )
+#' print(object)
 #'
 #' ## Fixed match.
-#' ## FIXME
+#' object <- strMatchAll(
+#'     x = c("a", "aa", "b", "bb"),
+#'     pattern = "a",
+#'     fixed = TRUE
+#' )
+#' print(object)
 strMatchAll <- function(x, pattern, fixed = FALSE) {
     assert(
         is.character(x),
