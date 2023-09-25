@@ -26,6 +26,7 @@
 #' - [gregexec()], [regmatches()], [gregexpr()].
 #' - [stringi::stri_match_all()].
 #' - [stringr::str_match_all()].
+#' - https://stringr.tidyverse.org/articles/from-base.html
 #'
 #' @examples
 #' ## Regex match.
