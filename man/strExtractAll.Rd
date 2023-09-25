@@ -21,6 +21,7 @@ Otherwise, will match by regular expression.}
 \value{
 \code{list}.
 List of character vector extractions.
+Returns \code{character(0L)} for match failure, \code{NA_character_} for \code{NA}.
 }
 \description{
 Uses \code{\link[=gregexpr]{gregexpr()}} and \code{\link[=regmatches]{regmatches()}} internally.
@@ -37,8 +38,9 @@ print(object)
 }
 \seealso{
 \itemize{
-\item \link[stringi:stri_extract]{stringi::stri_extract_all}.
-\item \link[stringr:str_extract]{stringr::str_extract_all}.
+\item \code{\link[=gregexpr]{gregexpr()}} , \code{\link[=regmatches]{regmatches()}}.
+\item \code{\link[stringi:stri_extract]{stringi::stri_extract_all()}}.
+\item \code{\link[stringr:str_extract]{stringr::str_extract_all()}}.
 \item https://stringr.tidyverse.org/articles/from-base.html
 }
 }

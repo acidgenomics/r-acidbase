@@ -23,7 +23,10 @@ Otherwise, will match by regular expression.}
 Character vector of matches. Failures return \code{NA}.
 }
 \description{
-Uses \code{\link[=regexpr]{regexpr()}} internally.
+Uses \code{\link[=regexpr]{regexpr()}} internally without \code{\link[=regmatches]{regmatches()}}.
+}
+\details{
+Expands with \code{NA} values for match failures, like stringi and stringr.
 }
 \note{
 Updated 2023-09-25.
@@ -37,8 +40,9 @@ print(object)
 }
 \seealso{
 \itemize{
-\item \link[stringi:stri_extract]{stringi::stri_extract_first}.
-\item \link[stringr:str_extract]{stringr::str_extract}.
+\item \code{\link[=regexpr]{regexpr()}}, \code{\link[=regmatches]{regmatches()}}.
+\item \code{\link[stringi:stri_extract]{stringi::stri_extract_first()}}.
+\item \code{\link[stringr:str_extract]{stringr::str_extract()}}.
 \item https://stringr.tidyverse.org/articles/from-base.html
 }
 }
