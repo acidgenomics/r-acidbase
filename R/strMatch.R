@@ -6,7 +6,7 @@
 #' Expands with `NA` values for match failures, like stringi and stringr.
 #'
 #' @export
-#' @note Updated 2023-09-22.
+#' @note Updated 2023-09-25.
 #'
 #' @param x `character`.
 #' Character vector. `NA` values are allowed.
@@ -52,20 +52,26 @@ strMatch <- function(x, pattern, fixed = FALSE) {
     m <- regexec(pattern = pattern, text = x, fixed = fixed)
     l <- regmatches(x = x, m = m)
     ## Fill match failures with NA, similar to stringi and stringr.
-    mul <- unlist(m)
+    mul <- unlist(m, recursive = FALSE, use.names = FALSE)
     if (anyNA(mul) || any(mul == -1L)) {
-        ## Capture length is only returned when Perl engine is enabled.
-        re <- regexpr(pattern = pattern, text = x, perl = TRUE)
-        capLen <- attr(re, "capture.length")
-        if (is.null(capLen)) {
-            naNum <- 1L
-        } else {
-            ## Need to add 1 here to include the input string.
-            naNum <- ncol(capLen) + 1L
-        }
+        naNum <- .captureGroups(pattern) + 1L
         naIdx <- which(lengths(l) == 0L)
         l[naIdx] <- lapply(X = l[naIdx], FUN = rep, NA_character_, naNum)
     }
     mat <- do.call(what = rbind, args = l)
     mat
+}
+
+
+
+#' Get the number of expected capture groups in a regular expression
+#'
+#' @note Updated 2023-09-25.
+#' @noRd
+.captureGroups <- function(pattern) {
+    assert(isString(pattern))
+    re <- regexpr(pattern = pattern, text = "", perl = TRUE)
+    cl <- attr(re, "capture.length")
+    n <- length(cl)
+    n
 }
