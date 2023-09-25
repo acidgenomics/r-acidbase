@@ -1,12 +1,12 @@
-#' Extract components from a match
+#' Extract components from first match
 #'
-#' Uses [regexec()] and [regmatches()] from base R internally.
-#'
-#' @details
-#' Expands with `NA` values for match failures, like stringi and stringr.
+#' Uses [regexec()] and [regmatches()] internally.
 #'
 #' @export
 #' @note Updated 2023-09-25.
+#'
+#' @details
+#' Expands with `NA` values for match failures, like stringi and stringr.
 #'
 #' @param x `character`.
 #' Character vector. `NA` values are allowed.
@@ -24,7 +24,7 @@
 #'
 #' @seealso
 #' - [regexec()], [regmatches()], [regexpr()].
-#' - [stringi::stri_match()].
+#' - [stringi::stri_match_first()].
 #' - [stringr::str_match()].
 #' - https://stringr.tidyverse.org/articles/from-base.html
 #' - https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html

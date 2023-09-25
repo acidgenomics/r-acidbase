@@ -2,7 +2,7 @@
 % Please edit documentation in R/strMatch.R
 \name{strMatch}
 \alias{strMatch}
-\title{Extract components from a match}
+\title{Extract components from first match}
 \usage{
 strMatch(x, pattern, fixed = FALSE)
 }
@@ -23,7 +23,7 @@ Otherwise, will match by regular expression.}
 Character matrix of match groups.
 }
 \description{
-Uses \code{\link[=regexec]{regexec()}} and \code{\link[=regmatches]{regmatches()}} from base R internally.
+Uses \code{\link[=regexec]{regexec()}} and \code{\link[=regmatches]{regmatches()}} internally.
 }
 \details{
 Expands with \code{NA} values for match failures, like stringi and stringr.
@@ -51,7 +51,7 @@ print(object)
 \seealso{
 \itemize{
 \item \code{\link[=regexec]{regexec()}}, \code{\link[=regmatches]{regmatches()}}, \code{\link[=regexpr]{regexpr()}}.
-\item \code{\link[stringi:stri_match]{stringi::stri_match()}}.
+\item \code{\link[stringi:stri_match]{stringi::stri_match_first()}}.
 \item \code{\link[stringr:str_match]{stringr::str_match()}}.
 \item https://stringr.tidyverse.org/articles/from-base.html
 \item https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html

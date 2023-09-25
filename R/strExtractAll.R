@@ -18,10 +18,12 @@
 #'
 #' @return `list`.
 #' List of character vector extractions.
+#' Returns `character(0L)` for match failure, `NA_character_` for `NA`.
 #'
 #' @seealso
-#' - [stringi::stri_extract_all].
-#' - [stringr::str_extract_all].
+#' - [gregexpr()] , [regmatches()].
+#' - [stringi::stri_extract_all()].
+#' - [stringr::str_extract_all()].
 #' - https://stringr.tidyverse.org/articles/from-base.html
 #'
 #' @examples

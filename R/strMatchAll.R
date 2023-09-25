@@ -1,12 +1,12 @@
-#' Extract components from a match
+#' Extract components from all matches
 #'
-#' Uses [gregexec()] and [regmatches()] from base R internally.
-#'
-#' @details
-#' Expands with `NA` values for match failures, like stringi and stringr.
+#' Uses [gregexec()] and [regmatches()] internally.
 #'
 #' @export
 #' @note Updated 2023-09-25.
+#'
+#' @details
+#' Expands with `NA` values for match failures, like stringi and stringr.
 #'
 #' @param x `character`.
 #' Character vector. `NA` values are allowed.

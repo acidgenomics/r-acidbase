@@ -2,7 +2,7 @@
 % Please edit documentation in R/strMatchAll.R
 \name{strMatchAll}
 \alias{strMatchAll}
-\title{Extract components from a match}
+\title{Extract components from all matches}
 \usage{
 strMatchAll(x, pattern, fixed = FALSE)
 }
@@ -23,7 +23,7 @@ Otherwise, will match by regular expression.}
 List of character matrix of match groups.
 }
 \description{
-Uses \code{\link[=gregexec]{gregexec()}} and \code{\link[=regmatches]{regmatches()}} from base R internally.
+Uses \code{\link[=gregexec]{gregexec()}} and \code{\link[=regmatches]{regmatches()}} internally.
 }
 \details{
 Expands with \code{NA} values for match failures, like stringi and stringr.
