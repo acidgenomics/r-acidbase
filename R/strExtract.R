@@ -47,7 +47,7 @@ strExtract <- function(x, pattern, fixed = FALSE) {
             if (is.na(m) || m == -1L) {
                 return(NA_character_)
             }
-            substr(x = x, start = m, stop = m + ml)
+            substr(x = x, start = m, stop = m + ml -1L)
         },
         x = x,
         m = m,
