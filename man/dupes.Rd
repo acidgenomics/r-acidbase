@@ -26,3 +26,9 @@ x <- c("ccc", "aaa", "bbb", "ccc", "bbb")
 x <- dupes(x)
 print(x)
 }
+\seealso{
+\itemize{
+\item \code{goalie::isDuplicate()}.
+\item \code{duplicated()}.
+}
+}
