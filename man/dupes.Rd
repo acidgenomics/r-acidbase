@@ -11,7 +11,7 @@ dupes(x)
 }
 \value{
 Modified object.
-Only duplicated values are returned, sorted and made unique.
+Only duplicated values are returned, made unique.
 Returns empty vector of length 0 when no duplicates are detected.
 }
 \description{
