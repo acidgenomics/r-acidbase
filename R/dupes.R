@@ -9,6 +9,10 @@
 #' Only duplicated values are returned, sorted and made unique.
 #' Returns empty vector of length 0 when no duplicates are detected.
 #'
+#' @seealso
+#' - `goalie::isDuplicate()`.
+#' - `duplicated()`.
+#'
 #' @examples
 #' ## character ====
 #' x <- c("ccc", "aaa", "bbb", "ccc", "bbb")
