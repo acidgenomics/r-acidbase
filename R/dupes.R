@@ -6,7 +6,7 @@
 #' @param x `vector`.
 #'
 #' @return Modified object.
-#' Only duplicated values are returned, sorted and made unique.
+#' Only duplicated values are returned, made unique.
 #' Returns empty vector of length 0 when no duplicates are detected.
 #'
 #' @seealso
@@ -19,11 +19,12 @@
 #' x <- dupes(x)
 #' print(x)
 dupes <- function(x) {
+    assert(is.atomic(x))
     if (hasNoDuplicates(x)) {
         return(x[0L])
     }
     idx <- isDuplicate(x)
     vals <- x[idx]
-    out <- sort(unique(vals))
+    out <- unique(vals)
     out
 }
