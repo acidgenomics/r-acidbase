@@ -61,10 +61,10 @@ NULL
 ## Updated 2020-02-02.
 `geometricMean,numeric` <- # nolint
     function(x,
-             removeNA = TRUE,
+             removeNa = TRUE,
              zeroPropagate = FALSE) {
         assert(
-            isFlag(removeNA),
+            isFlag(removeNa),
             isFlag(zeroPropagate)
         )
         ## Check for any negative numbers and return `NaN`.
@@ -75,10 +75,10 @@ NULL
             if (any(x == 0L, na.rm = TRUE)) {
                 return(0L)
             }
-            exp(mean(log(x), na.rm = removeNA))
+            exp(mean(log(x), na.rm = removeNa))
         } else {
             exp(
-                sum(log(x[x > 0L]), na.rm = removeNA) /
+                sum(log(x[x > 0L]), na.rm = removeNa) /
                     length(x)
             )
         }
