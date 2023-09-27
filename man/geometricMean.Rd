@@ -13,7 +13,7 @@ geometricMean(x, ...)
 
 \S4method{geometricMean}{matrix}(x, MARGIN = 2L)
 
-\S4method{geometricMean}{numeric}(x, removeNA = TRUE, zeroPropagate = FALSE)
+\S4method{geometricMean}{numeric}(x, removeNa = TRUE, zeroPropagate = FALSE)
 }
 \arguments{
 \item{x}{Object.}
@@ -25,7 +25,7 @@ For a two-dimensional matrix:
 \code{2} indicates columns;
 \code{c(1, 2)} indicates rows and columns.}
 
-\item{removeNA}{\code{logical(1)}.
+\item{removeNa}{\code{logical(1)}.
 Remove \code{NA} values from calculations.}
 
 \item{zeroPropagate}{\code{logical(1)}.
