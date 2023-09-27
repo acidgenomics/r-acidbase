@@ -21,7 +21,7 @@
 #'
 #' @examples
 #' ## HTTPS.
-#' x <- pasteURL(
+#' x <- pasteUrl(
 #'     "r.acidgenomics.com",
 #'     "packages",
 #'     "acidbase",
@@ -30,7 +30,7 @@
 #' print(x)
 #'
 #' ## FTP.
-#' x <- pasteURL(
+#' x <- pasteUrl(
 #'     "ftp.ensembl.org",
 #'     "pub",
 #'     "release-94",
@@ -42,7 +42,7 @@
 #' print(x)
 #'
 #' ## Automatic encoding support.
-#' x <- pasteURL(
+#' x <- pasteUrl(
 #'     "rest.ensembl.org",
 #'     "info",
 #'     "assembly",
@@ -53,9 +53,9 @@
 #'
 #' ## Character vector support.
 #' vec <- c("r.acidgenomics.com", "packages", "acidbase")
-#' x <- pasteURL(vec, protocol = "https")
+#' x <- pasteUrl(vec, protocol = "https")
 #' print(x)
-pasteURL <-
+pasteUrl <-
     function(...,
              protocol = c("none", "https", "http", "ftp", "rsync", "s3")) {
         dots <- list(...)
@@ -92,6 +92,6 @@ pasteURL <-
             url <- paste0(protocol, "://", url)
         }
         url <- utils::URLencode(url)
-        assert(isAURL(url))
+        assert(isAUrl(url))
         url
     }

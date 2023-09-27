@@ -1,6 +1,6 @@
 test_that("HTTPS", {
     expect_identical(
-        object = pasteURL(
+        object = pasteUrl(
             "r.acidgenomics.com",
             "packages",
             "acidbase",
@@ -12,7 +12,7 @@ test_that("HTTPS", {
 
 test_that("FTP", {
     expect_identical(
-        object = pasteURL(
+        object = pasteUrl(
             "ftp.ensembl.org",
             "pub",
             "release-94",
@@ -31,7 +31,7 @@ test_that("FTP", {
 
 test_that("Character vector input", {
     expect_identical(
-        object = pasteURL(
+        object = pasteUrl(
             c("ftp.ncbi.nlm.nih.gov", "genomes"),
             protocol = "ftp"
         ),
@@ -41,7 +41,7 @@ test_that("Character vector input", {
 
 test_that("Encoding support", {
     expect_identical(
-        object = pasteURL(
+        object = pasteUrl(
             "rest.ensembl.org",
             "info",
             "assembly",
@@ -54,21 +54,21 @@ test_that("Encoding support", {
 
 test_that("Trailing slashes", {
     expect_identical(
-        object = pasteURL(
+        object = pasteUrl(
             "ftp.ncbi.nlm.nih.gov", "genomes/",
             protocol = "ftp"
         ),
         expected = "ftp://ftp.ncbi.nlm.nih.gov/genomes/"
     )
     expect_identical(
-        object = pasteURL(
+        object = pasteUrl(
             "ftp.ncbi.nlm.nih.gov", "genomes", "/",
             protocol = "ftp"
         ),
         expected = "ftp://ftp.ncbi.nlm.nih.gov/genomes/"
     )
     expect_identical(
-        object = pasteURL(
+        object = pasteUrl(
             "ftp.ncbi.nlm.nih.gov", "genomes//",
             protocol = "ftp"
         ),
@@ -78,21 +78,21 @@ test_that("Trailing slashes", {
 
 test_that("Error if empty", {
     expect_error(
-        object = pasteURL(),
+        object = pasteUrl(),
         regexp = "Nothing to paste."
     )
 })
 
 test_that("Error if not URL", {
     expect_error(
-        object = pasteURL("bioconductor.org", protocol = "none"),
-        regexp = "isAURL"
+        object = pasteUrl("bioconductor.org", protocol = "none"),
+        regexp = "isAUrl"
     )
 })
 
 test_that("Error on recycling", {
     expect_error(
-        object = pasteURL(
+        object = pasteUrl(
             "bioconductor.org", c("aaa", "bbb"),
             protocol = "https"
         ),
@@ -102,14 +102,14 @@ test_that("Error on recycling", {
 
 test_that("Error on NA", {
     expect_error(
-        pasteURL(
+        pasteUrl(
             "ftp.ncbi.nlm.nih.gov", "genomes", NA_character_,
             protocol = "ftp"
         ),
         regexp = "character strings"
     )
     expect_error(
-        pasteURL(
+        pasteUrl(
             c("ftp.ncbi.nlm.nih.gov", "genomes", NA_character_),
             protocol = "ftp"
         ),
