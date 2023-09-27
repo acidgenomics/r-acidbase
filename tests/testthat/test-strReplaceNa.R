@@ -1,18 +1,18 @@
-test_that("strReplaceNA", {
+test_that("strReplaceNa", {
     expect_identical(
-        object = strReplaceNA(c("a", "b", NA)),
+        object = strReplaceNa(c("a", "b", NA)),
         expected = c("a", "b", "NA")
     )
     expect_identical(
-        object = strReplaceNA(character()),
+        object = strReplaceNa(character()),
         expected = character()
     )
     expect_identical(
-        object = strReplaceNA(NA_character_),
+        object = strReplaceNa(NA_character_),
         expected = "NA"
     )
     expect_error(
-        object = strReplaceNA(NA),
+        object = strReplaceNa(NA),
         regexp = "is.character"
     )
 })

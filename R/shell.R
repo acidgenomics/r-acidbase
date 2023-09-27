@@ -62,11 +62,11 @@ shell <-
             isString(command),
             isSystemCommand(command),
             is.character(args),
-            isCharacter(env, nullOK = TRUE),
+            isCharacter(env, nullOk = TRUE),
             isADir(wd),
             isFlag(print),
-            isString(stdoutFile, nullOK = TRUE),
-            isString(stderrFile, nullOK = TRUE),
+            isString(stdoutFile, nullOk = TRUE),
+            isString(stderrFile, nullOk = TRUE),
             isFlag(stderrToStdout),
             isFlag(returnStdout)
         )

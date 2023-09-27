@@ -19,7 +19,7 @@
 #'
 #' @examples
 #' dir <- getwd()
-#' url <- pasteURL(
+#' url <- pasteUrl(
 #'     "r.acidgenomics.com",
 #'     "packages",
 #'     "acidbase",
@@ -79,7 +79,7 @@ parentDirectory <- function(path,
         )
         x <- x[1L:(length(x) - n)]
         do.call(
-            what = pasteURL,
+            what = pasteUrl,
             args = append(
                 x = x,
                 values = list("protocol" = protocol)
@@ -91,7 +91,7 @@ parentDirectory <- function(path,
         n = n,
         FUN = function(path, n) {
             ifelse(
-                test = isAURL(path),
+                test = isAUrl(path),
                 yes = urlParent(path = path, n = n),
                 no = fileParent(path = path, n = n)
             )

@@ -33,7 +33,7 @@ Updated 2021-09-03.
 }
 \examples{
 dir <- getwd()
-url <- pasteURL(
+url <- pasteUrl(
     "r.acidgenomics.com",
     "packages",
     "acidbase",

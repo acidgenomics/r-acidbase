@@ -13,8 +13,8 @@
 #' - [stringr::str_replace_na].
 #'
 #' @examples
-#' strReplaceNA(c("a", "b", NA))
-strReplaceNA <- function(x) {
+#' strReplaceNa(c("a", "b", NA))
+strReplaceNa <- function(x) {
     assert(is.character(x))
     x[is.na(x)] <- "NA"
     x
