@@ -21,7 +21,7 @@ test_that("Names handling", {
 })
 
 test_that("URL", {
-    url <- pasteURL(
+    url <- pasteUrl(
         "r.acidgenomics.com",
         "packages",
         "acidbase",
@@ -31,7 +31,7 @@ test_that("URL", {
     )
     expect_identical(
         object = parentDir(url, n = 2L),
-        expected = url <- pasteURL(
+        expected = url <- pasteUrl(
             "r.acidgenomics.com",
             "packages",
             "acidbase",

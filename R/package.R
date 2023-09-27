@@ -32,7 +32,7 @@ NULL
 #' @importFrom goalie allAreAtomic allAreDirs allHaveAccess allAreMatchingFixed
 #' allAreMatchingRegex assert bapply compressExtPattern extPattern hasDims
 #' hasLength hasNames hasNoDuplicates isADir isAFile isAGitRepo isASystemCommand
-#' isAURL isAny isCharacter isDuplicate isFlag isInRange isInstalled isInt
+#' isAUrl isAny isCharacter isDuplicate isFlag isInRange isInstalled isInt
 #' isPositive isScalar isString isSubset isSystemCommand requireNamespaces
 #' @importFrom methods .hasSlot getClassDef is isGeneric selectMethod
 #' setClassUnion setMethod setOldClass signature slot slotNames
