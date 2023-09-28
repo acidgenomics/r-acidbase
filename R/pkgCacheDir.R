@@ -13,13 +13,16 @@
 #' Directory path.
 #'
 #' @seealso
-#' - [tools::R_user_dir()].
+#' - `tools::R_user_dir()`.
+#' - `rappdirs::user_cache_dir()`.
+#' - `Sys.getenv("R_USER_CACHE_DIR")`.
+#' - `Sys.getenv("XDG_CACHE_HOME")`.
 #' - BiocFileCache package.
 #'
 #' @examples
-#' dir <- cacheDir(pkg = "AcidBase")
+#' dir <- pkgCacheDir(pkg = "AcidBase")
 #' print(dir)
-cacheDir <- function(pkg) {
+pkgCacheDir <- function(pkg) {
     assert(
         requireNamespaces("tools"),
         isString(pkg)
