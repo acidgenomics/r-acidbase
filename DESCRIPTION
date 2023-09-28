@@ -25,7 +25,7 @@ Imports:
     AcidGenerics (>= 0.6.13),
     BiocGenerics (>= 0.46.0),
     S4Vectors (>= 0.38.0),
-    goalie (>= 0.6.19),
+    goalie (>= 0.7.0),
     methods
 Suggests:
     AcidCLI (>= 0.2.8),
@@ -33,7 +33,7 @@ Suggests:
     memuse (>= 4.2.3),
     processx (>= 3.8.2),
     testthat (>= 3.1.10),
-    withr (>= 2.5.0),
+    withr (>= 2.5.1),
     parallel,
     stats,
     utils
