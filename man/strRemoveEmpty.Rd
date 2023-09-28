@@ -4,7 +4,7 @@
 \alias{strRemoveEmpty}
 \title{Remove empty strings}
 \usage{
-strRemoveEmpty(x, naOk = TRUE)
+strRemoveEmpty(x, naOk = TRUE, spacesOk = TRUE)
 }
 \arguments{
 \item{x}{\code{character}.
@@ -12,6 +12,9 @@ Character vector.}
 
 \item{naOk}{\code{logical(1)}.
 Allow \code{NA} values to propagate.}
+
+\item{spacesOk}{\code{logical(1)}.
+Consider spaces to be non-empty.}
 }
 \value{
 \code{character}.
@@ -24,10 +27,10 @@ Remove empty strings
 Updated 2023-09-28.
 }
 \examples{
-x <- c("", "a", "b", NA)
-y <- strRemoveEmpty(x, naOk = TRUE)
+x <- c("", "a", "b", " ", NA)
+y <- strRemoveEmpty(x, naOk = TRUE, spacesOk = TRUE)
 print(y)
-y <- strRemoveEmpty(x, naOk = FALSE)
+y <- strRemoveEmpty(x, naOk = FALSE, spacesOk = FALSE)
 print(y)
 }
 \seealso{
