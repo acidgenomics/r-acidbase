@@ -20,7 +20,10 @@
 #' dir <- cacheDir(pkg = "AcidBase")
 #' print(dir)
 cacheDir <- function(pkg) {
-    assert(requireNamespaces("tools"))
+    assert(
+        requireNamespaces("tools"),
+        isString(pkg)
+    )
     dir <- tools::R_user_dir(package = pkg, which = "cache")
     dir <- initDir(dir)
     dir
