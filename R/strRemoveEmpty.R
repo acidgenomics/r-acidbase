@@ -9,6 +9,9 @@
 #' @param naOk `logical(1)`.
 #' Allow `NA` values to propagate.
 #'
+#' @param spacesOk `logical(1)`.
+#' Consider spaces to be non-empty.
+#'
 #' @return `character`.
 #' Modified vector, with empty strings removed.
 #'
@@ -16,18 +19,23 @@
 #' - [stringi::stri_remove_empty()].
 #'
 #' @examples
-#' x <- c("", "a", "b", NA)
-#' y <- strRemoveEmpty(x, naOk = TRUE)
+#' x <- c("", "a", "b", " ", NA)
+#' y <- strRemoveEmpty(x, naOk = TRUE, spacesOk = TRUE)
 #' print(y)
-#' y <- strRemoveEmpty(x, naOk = FALSE)
+#' y <- strRemoveEmpty(x, naOk = FALSE, spacesOk = FALSE)
 #' print(y)
-strRemoveEmpty <- function(x, naOk = TRUE) {
+strRemoveEmpty <- function(x, naOk = TRUE, spacesOk = TRUE) {
     assert(
         is.character(x),
-        isFlag(naOk)
+        isFlag(naOk),
+        isFlag(spacesOk)
     )
+    if (isFALSE(spacesOk)) {
+        ok <- !grepl(pattern = "^\\s+$", x = x)
+        x <- x[ok]
+    }
     ok <- nchar(x) != 0L
     ok[is.na(ok)] <- naOk
-    y <- x[ok]
-    y
+    x <- x[ok]
+    x
 }
