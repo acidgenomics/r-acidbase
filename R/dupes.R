@@ -21,7 +21,7 @@
 dupes <- function(x) {
     assert(is.atomic(x))
     if (hasNoDuplicates(x)) {
-        return(x[0L])
+        return(x[0L]) # nolint
     }
     idx <- isDuplicate(x)
     vals <- x[idx]
