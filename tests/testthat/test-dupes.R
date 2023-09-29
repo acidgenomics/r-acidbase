@@ -29,10 +29,7 @@ test_that("numeric", {
 })
 
 test_that("logical", {
-    expect_identical(
-        object = dupes(c(TRUE, FALSE, FALSE)),
-        expected = FALSE
-    )
+    expect_false(dupes(c(TRUE, FALSE, FALSE)))
     expect_identical(
         object = dupes(c(NA, NA)),
         expected = NA
@@ -40,8 +37,5 @@ test_that("logical", {
 })
 
 test_that("NULL", {
-    expect_identical(
-        object = dupes(NULL),
-        expected = NULL
-    )
+    expect_null(dupes(NULL))
 })
