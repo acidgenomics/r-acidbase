@@ -1,5 +1,24 @@
 # Release notes
 
+## AcidBase 0.7.0 (2023-09-29)
+
+New functions:
+
+- `dupes`.
+- `pkgCacheDir`.
+- `strExtract`.
+- `strExtractAll`.
+- `strMatch`.
+- `strMatchAll`.
+- `strPad`.
+- `strRemoveEmpty`.
+- `strReplaceNa`.
+- `strSplit`.
+
+Major changes:
+
+
+
 ## AcidBase 0.6.23 (2023-09-19)
 
 Minor changes:

@@ -37,7 +37,6 @@ test_that("logical", {
         object = dupes(c(NA, NA)),
         expected = NA
     )
-
 })
 
 test_that("NULL", {
