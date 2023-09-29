@@ -4,20 +4,29 @@
 
 New functions:
 
-- `dupes`.
-- `pkgCacheDir`.
-- `strExtract`.
-- `strExtractAll`.
-- `strMatch`.
-- `strMatchAll`.
-- `strPad`.
-- `strRemoveEmpty`.
-- `strReplaceNa`.
-- `strSplit`.
+- `dupes`: Return unique values that result in `TRUE` via base `duplicated`.
+  See also `goalie::isDuplicate` for details.
+- `pkgCacheDir`: Return the directory path for a package's file cache.
+- `strExtract`: Base R variant of `stringi::stri_extract_first`.
+- `strExtractAll`: Base R variant of `stringi::stri_extract_all`.
+- `strMatch`: Base R variant of `stringi::stri_match_first`.
+- `strMatchAll`: Base R variant of `stringi::stri_match_all`.
+- `strPad`: Base R variant of `stringr::str_pad`.
+- `strRemoveEmpty`: Base R variant of `stringi::stri_remove_empty`.
+- `strReplaceNa`: Base R variant of `stringi::stri_replace_na`.
+- `strSplit`: Base R variant of `stringi::str_split_fixed`.
 
 Major changes:
 
+- Now enforcing strict camel case naming of all functions.
+- Renamed `pasteURL` to `pasteUrl`.
+- Renamed `strsplit` to `strSplit` (note case).
 
+Minor changes:
+
+- `headtail`: Now returns character instead of printing to the console.
+- `matchNested`: Simplified internal code by using `lengths`.
+- `showSlotInfo`: Reworked internal code.
 
 ## AcidBase 0.6.23 (2023-09-19)
 
