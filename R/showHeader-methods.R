@@ -45,14 +45,12 @@ NULL
 
 
 
-## Updated 2023-09-21.
+## Updated 2023-10-06.
 `showHeader,Annotated` <- # nolint
     function(object) {
         class <- class(object)[[1L]]
         x <- class
         versionKey <- "packageVersion"
-        ## Provide support for legacy objects with "version" metadata instead
-        ## of the now preferred "packageVersion" approach.
         if (isSubset("version", names(metadata(object)))) {
             versionKey <- "version"
         }
@@ -60,25 +58,34 @@ NULL
         if (hasLength(version)) {
             x <- paste(x, version)
         }
-        ## FIXME The hasDims check is problematic for DataFrameList...need
-        ## to rework this.
-        ## FIXME Should we rework our generic to use hasDim instead?
         if (hasDims(object)) {
             if (is(object, "DFrameList")) {
-                ## FIXME Need to deal with the duplicates here.
-                d <- dims(object)
+                d <- apply(
+                    X = dims(object),
+                    MARGIN = 2L,
+                    FUN = paste0,
+                    collapse = ":",
+                    simplify = TRUE
+                )
+                if (hasLength(d, n = 2L)) {
+                    y <- sprintf(
+                        "with %s rows and %s columns",
+                        d[[1L]], d[[2L]]
+                    )
+                    x <- paste(x, y)
+                }
             } else {
                 d <- dim(object)
-            }
-            if (hasLength(d, n = 2L)) {
-                y <- sprintf(
-                    "with %d %s and %d %s",
-                    d[[1L]],
-                    ngettext(n = d[[1L]], msg1 = "row", msg2 = "rows"),
-                    d[[2L]],
-                    ngettext(n = d[[1L]], msg1 = "column", msg2 = "columns")
-                )
-                x <- paste(x, y)
+                if (hasLength(d, n = 2L)) {
+                    y <- sprintf(
+                        "with %d %s and %d %s",
+                        d[[1L]],
+                        ngettext(n = d[[1L]], msg1 = "row", msg2 = "rows"),
+                        d[[2L]],
+                        ngettext(n = d[[1L]], msg1 = "column", msg2 = "columns")
+                    )
+                    x <- paste(x, y)
+                }
             }
         } else {
             ## e.g. List.
