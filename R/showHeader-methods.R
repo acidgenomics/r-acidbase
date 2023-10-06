@@ -1,6 +1,10 @@
+## FIXME Need to improve DataFrameList support here.
+
+
+
 #' @name showHeader
 #' @inherit AcidGenerics::showHeader
-#' @note Updated 2023-09-21.
+#' @note Updated 2023-10-06.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -56,9 +60,16 @@ NULL
         if (hasLength(version)) {
             x <- paste(x, version)
         }
+        ## FIXME The hasDims check is problematic for DataFrameList...need
+        ## to rework this.
+        ## FIXME Should we rework our generic to use hasDim instead?
         if (hasDims(object)) {
-            ## e.g. DFrame.
-            d <- dim(object)
+            if (is(object, "DFrameList")) {
+                ## FIXME Need to deal with the duplicates here.
+                d <- dims(object)
+            } else {
+                d <- dim(object)
+            }
             if (hasLength(d, n = 2L)) {
                 y <- sprintf(
                     "with %d %s and %d %s",

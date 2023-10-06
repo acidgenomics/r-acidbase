@@ -21,7 +21,7 @@ NULL
 #' @importFrom AcidGenerics coerceToList euclidean foldChangeToLogRatio
 #' geometricMean headtail intersectAll intersectionMatrix keepOnlyAtomicCols
 #' logRatioToFoldChange matchNested rankedMatrix sem showHeader zscore
-#' @importFrom BiocGenerics duplicated match unlist unique
+#' @importFrom BiocGenerics dims duplicated match unlist unique
 #' @importFrom S4Vectors head metadata metadata<- na.omit tail
 NULL
 
