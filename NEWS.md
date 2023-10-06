@@ -1,5 +1,11 @@
 # Release notes
 
+## AcidBase 0.7.1 (2023-10-06)
+
+Minor changes:
+
+- `showHeader`: Improved edge case handling of `DFrameList` class.
+
 ## AcidBase 0.7.0 (2023-09-29)
 
 New functions:

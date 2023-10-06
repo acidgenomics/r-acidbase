@@ -1,7 +1,3 @@
-## FIXME Need to improve DataFrameList support here.
-
-
-
 #' @name showHeader
 #' @inherit AcidGenerics::showHeader
 #' @note Updated 2023-10-06.
