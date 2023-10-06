@@ -24,7 +24,7 @@ Console output, via \code{\link[base:cat]{cat()}}.
 Header for object show method
 }
 \note{
-Updated 2023-09-21.
+Updated 2023-10-06.
 }
 \examples{
 data(
