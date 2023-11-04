@@ -1,8 +1,8 @@
 Package: AcidBase
 Title: Acid Genomics Base Functions
 Description: Low-level base functions imported by Acid Genomics packages.
-Version: 0.7.1
-Date: 2023-10-06
+Version: 0.7.2.9000
+Date: 2023-11-04
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",

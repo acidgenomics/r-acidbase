@@ -1,7 +1,7 @@
 #' Invoke a command in the system command-line shell
 #'
 #' @export
-#' @note Updated 2023-01-30.
+#' @note Updated 2023-11-04.
 #'
 #' @param command `character(1)`.
 #' Name of program to run.
@@ -52,7 +52,7 @@ shell <-
              args = character(),
              env = NULL,
              wd = getwd(),
-             print = interactive(),
+             print = TRUE,
              stderrFile = NULL,
              stdoutFile = NULL,
              stderrToStdout = FALSE,
