@@ -1,5 +1,14 @@
 # Release notes
 
+## AcidBase 0.7.2 (2023-11-10)
+
+Minor changes:
+
+- `shell`: Set `print` argument to `TRUE` by default, rather than
+  `interactive()`, which improves console output during scripts invoked by
+  `Rscript` instead of running directly in an R session.
+- Updated lintr checks.
+
 ## AcidBase 0.7.1 (2023-10-06)
 
 Minor changes:
