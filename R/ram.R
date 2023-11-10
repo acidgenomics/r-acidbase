@@ -4,7 +4,7 @@
 #' Requires the memuse package to be installed.
 #'
 #' @export
-#' @note Updated 2023-05-10.
+#' @note Updated 2023-11-10.
 #'
 #' @param type `character(1)`.
 #' Type of RAM to return, either `"total"` or `"free"`.
@@ -45,7 +45,7 @@ ram <- function(type = c("total", "free"),
     assert(is(memuse, "memuse"))
     bytes <- memuse::mu.size(memuse, as.is = FALSE)
     assert(is.numeric(bytes))
-    bytes <- structure(bytes, class = "object_size")
+    bytes <- structure(bytes, class = "object_size") # nolint
     str <- format(
         x = bytes,
         units = units,
