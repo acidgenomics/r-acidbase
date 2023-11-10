@@ -26,7 +26,7 @@ Return system random access memory (RAM) information
 Requires the memuse package to be installed.
 }
 \note{
-Updated 2023-05-10.
+Updated 2023-11-10.
 }
 \examples{
 ram(type = "total", units = "GB")

@@ -9,7 +9,7 @@ shell(
   args = character(),
   env = NULL,
   wd = getwd(),
-  print = interactive(),
+  print = TRUE,
   stderrFile = NULL,
   stdoutFile = NULL,
   stderrToStdout = FALSE,
@@ -55,7 +55,7 @@ Contains named elements:
 Invoke a command in the system command-line shell
 }
 \note{
-Updated 2023-01-30.
+Updated 2023-11-04.
 }
 \examples{
 x <- shell(
