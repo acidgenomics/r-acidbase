@@ -21,11 +21,17 @@ test_that("FTP", {
             "Homo_sapiens.GRCh38.94.gtf.gz",
             protocol = "ftp"
         ),
+        ## nolint start
         expected = paste(
-            "ftp://ftp.ensembl.org/pub/release-94/gtf/homo_sapiens",
+            "ftp://ftp.ensembl.org",
+            "pub",
+            "release-94",
+            "gtf",
+            "homo_sapiens",
             "Homo_sapiens.GRCh38.94.gtf.gz",
             sep = "/"
         )
+        ## nolint end
     )
 })
 
