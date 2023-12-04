@@ -92,7 +92,6 @@ compress <-
         destfile <- sprintf("%s.%s", file, ext)
         assert(!identical(file, destfile))
         if (isAFile(destfile)) {
-            ## nocov start
             if (isTRUE(overwrite)) {
                 .alertWarning(sprintf(
                     "Overwriting file: {.file %s}.",
@@ -102,7 +101,6 @@ compress <-
             } else {
                 .abort(sprintf("File exists: {.file %s}.", destfile))
             }
-            ## nocov end
         }
         whatFun <- switch(
             EXPR = ext,
@@ -143,14 +141,12 @@ compress <-
         out <- fun(description = destfile, open = "wb")
         on.exit(
             expr = {
-                ## nocov start
                 if (!is.null(out)) {
                     close(out)
                 }
                 if (!isTRUE(outComplete)) {
                     file.remove(destfile)
                 }
-                ## nocov end
             },
             add = TRUE
         )
@@ -230,13 +226,11 @@ decompress <-
         )
         assert(!identical(file, destfile))
         if (isAFile(destfile)) {
-            ## nocov start
             if (isTRUE(overwrite)) {
                 file.remove(destfile)
             } else {
                 .abort(sprintf("File exists: {.file %s}.", destfile))
             }
-            ## nocov end
         }
         ## For ZIP files, hand off to `utils::unzip()` and early return.
         if (identical(ext, "zip")) {
@@ -252,12 +246,10 @@ decompress <-
                 setTimes = FALSE
             )
             if (length(destfile) > 1L) {
-                ## nocov start
                 .alertWarning(sprintf(
                     "{.var %s} contains multiple files.",
                     basename(file)
                 ))
-                ## nocov end
             }
             if (isTRUE(remove)) {
                 file.remove(file)
@@ -290,14 +282,12 @@ decompress <-
         out <- file(destfile, open = "wb")
         on.exit(
             expr = {
-                ## nocov start
                 if (!is.null(out)) {
                     close(out)
                 }
                 if (!outComplete) {
                     file.remove(destfile)
                 }
-                ## nocov end
             },
             add = TRUE
         )

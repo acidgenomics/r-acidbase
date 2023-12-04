@@ -70,7 +70,7 @@ standardizeCall <-
         return <- match.arg(return)
         ## Don't allow a `which` value less than 1.
         if (which < 1L) {
-            which <- 1L # nocov
+            which <- 1L
         }
         ## Determine where the call is in the stack that we want to standardize.
         ## Note that this differs for S4 methods containing a nested `.local`.
@@ -102,7 +102,7 @@ standardizeCall <-
             }
         }
         if (isTRUE(verbose)) {
-            print(list) # nocov
+            print(list)
         }
         ## Now ready to match the call.
         call <- match.call(
@@ -119,7 +119,7 @@ standardizeCall <-
                 formals[["..."]] <- NULL
             }
             for (i in setdiff(names(formals), names(call))) {
-                call[i] <- list(formals[[i]]) # nocov
+                call[i] <- list(formals[[i]])
             }
             call <- match.call(
                 definition = definition,
@@ -130,13 +130,13 @@ standardizeCall <-
         }
         list[["match.call"]] <- call
         if (isTRUE(verbose)) {
-            print(list(match.call = call)) # nocov
+            print(list(match.call = call))
         }
         assert(is.call(call))
         switch(EXPR = return,
             call = call,
             list = list
-        ) # nocov
+        )
     }
 
 
@@ -146,7 +146,7 @@ standardizeCall <-
 .isLocalCall <- function(x) {
     ok <- is.call(x)
     if (!isTRUE(ok)) {
-        return(FALSE) # nocov
+        return(FALSE)
     }
     ok <- identical(x[[1L]], as.symbol(".local"))
     if (!isTRUE(ok)) {

@@ -44,7 +44,7 @@ download <-
         )
         destfile <- .normalizePath(path = destfile, mustWork = FALSE)
         if (!isADir(dirname(destfile))) {
-            dir.create(path = dirname(destfile), recursive = TRUE) # nocov
+            dir.create(path = dirname(destfile), recursive = TRUE)
         }
         ## Alternatively, can use `withr::with_options()` approach.
         timeout <- getOption(x = "timeout")
@@ -52,12 +52,10 @@ download <-
             options("timeout" = 99999L) # nolint
         }
         if (isFALSE(quiet)) {
-            ## nocov start
             .alert(sprintf(
                 "Downloading {.url %s} to {.file %s}.",
                 url, destfile
             ))
-            ## nocov end
         }
         ## Ensure that warnings are converted to errors here.
         status <- tryCatch(
@@ -68,16 +66,14 @@ download <-
                 ...
             ),
             warning = function(w) {
-                .abort(w) # nocov
+                .abort(w)
             }
         )
         if (!identical(status, 0L)) {
-            ## nocov start
             .abort(sprintf(
                 "Failed to download {.url %s} to {.file %s} successfully.",
                 url, destfile
             ))
-            ## nocov end
         }
         if (is.numeric(timeout)) {
             options("timeout" = timeout) # nolint

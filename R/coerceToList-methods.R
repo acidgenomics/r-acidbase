@@ -36,7 +36,7 @@ NULL
             if (.hasSlot(object, slot)) {
                 slot(object, slot)
             } else {
-                NULL # nocov
+                NULL
             }
         })
         names(out) <- slotNames(object)

@@ -23,7 +23,7 @@ NULL
 ## Updated 2021-02-02.
 `sem,AsIs` <- # nolint
     function(x) {
-        sem(as.numeric(x)) # nocov
+        sem(as.numeric(x))
     }
 
 
