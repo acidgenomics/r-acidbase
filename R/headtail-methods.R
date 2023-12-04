@@ -77,7 +77,7 @@ NULL
                 X = square,
                 FUN = function(x) {
                     if (is.factor(x)) {
-                        as.character(x) # nocov
+                        as.character(x)
                     } else if (is.atomic(x)) {
                         x
                     } else {
