@@ -31,6 +31,10 @@ size as \code{x}.
 \description{
 Match inside nested elements
 }
+\details{
+Intentionally only performs exact matching. Refer to \code{filterNested} function
+for partial matching support with regular expressions.
+}
 \note{
 Updated 2023-09-21.
 }

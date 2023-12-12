@@ -21,7 +21,8 @@ NULL
 #' @importFrom AcidGenerics coerceToList euclidean foldChangeToLogRatio
 #' geometricMean headtail intersectAll intersectionMatrix keepOnlyAtomicCols
 #' logRatioToFoldChange matchNested rankedMatrix sem showHeader zscore
-#' @importFrom BiocGenerics dims duplicated grepl match unlist unique unlist
+#' @importFrom BiocGenerics dims do.call duplicated grep grepl match unlist
+#' unique unlist
 #' @importFrom S4Vectors head metadata metadata<- na.omit tail
 NULL
 
@@ -29,7 +30,6 @@ NULL
 
 ## Standard functions ==========================================================
 
-#' @importFrom IRanges CharacterList
 #' @importFrom goalie allAreAtomic allAreDirs allHaveAccess allAreMatchingFixed
 #' allAreMatchingRegex assert bapply compressExtPattern extPattern hasDims
 #' hasLength hasNames hasNoDuplicates isADir isAFile isAGitRepo isASystemCommand
