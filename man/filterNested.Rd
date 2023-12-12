@@ -18,14 +18,12 @@ Ignore case in pattern match.}
 \item{fixed}{\code{logical(1)}.
 Perform a fixed instead of regular expression match.}
 }
+\value{
+Modified object, containing only matching rows.
+}
 \description{
 Filter a nested data frame by a matching pattern across all columns.
 }
 \note{
 Updated 2023-12-12.
-}
-\seealso{
-\itemize{
-\item https://github.com/Bioconductor/IRanges/issues/51
-}
 }
