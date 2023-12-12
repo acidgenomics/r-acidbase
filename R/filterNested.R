@@ -1,3 +1,4 @@
+## FIXME Move this to AcidPlyr from AcidBase.
 ## FIXME Make this a generic and allow dispatch on data.frame, DFrame.
 
 
@@ -18,8 +19,7 @@
 #' @param fixed `logical(1)`.
 #' Perform a fixed instead of regular expression match.
 #'
-#' @seealso
-#' - https://github.com/Bioconductor/IRanges/issues/51
+#' @return Modified object, containing only matching rows.
 filterNested <- function(object, pattern, ignoreCase = FALSE) {
     assert(
         validObject(object),
