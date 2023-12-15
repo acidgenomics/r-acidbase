@@ -2,9 +2,12 @@
 % Please edit documentation in R/dupes.R
 \name{dupes}
 \alias{dupes}
+\alias{notDupes}
 \title{Extract duplicated values}
 \usage{
 dupes(x)
+
+notDupes(x)
 }
 \arguments{
 \item{x}{\code{vector}.}
@@ -22,8 +25,10 @@ Updated 2023-09-26.
 }
 \examples{
 ## character ====
-x <- c("ccc", "aaa", "bbb", "ccc", "bbb")
-x <- dupes(x)
+vec <- c("ccc", "aaa", "bbb", "ccc", "bbb")
+x <- dupes(vec)
+print(x)
+x <- notDupes(vec)
 print(x)
 }
 \seealso{

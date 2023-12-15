@@ -15,8 +15,10 @@
 #'
 #' @examples
 #' ## character ====
-#' x <- c("ccc", "aaa", "bbb", "ccc", "bbb")
-#' x <- dupes(x)
+#' vec <- c("ccc", "aaa", "bbb", "ccc", "bbb")
+#' x <- dupes(vec)
+#' print(x)
+#' x <- notDupes(vec)
 #' print(x)
 dupes <- function(x) {
     assert(is.atomic(x))
@@ -24,6 +26,21 @@ dupes <- function(x) {
         return(x[0L]) # nolint
     }
     idx <- isDuplicate(x)
+    vals <- x[idx]
+    out <- unique(vals)
+    out
+}
+
+
+
+#' @export
+#' @rdname dupes
+notDupes <- function(x) {
+    assert(is.atomic(x))
+    if (hasNoDuplicates(x)) {
+        return(x)
+    }
+    idx <- !isDuplicate(x)
     vals <- x[idx]
     out <- unique(vals)
     out
