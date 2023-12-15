@@ -26,6 +26,7 @@ NULL
     function(x, table, simplify = FALSE) {
         assert(
             hasLength(x),
+            !anyNA(x),
             hasNoDuplicates(x),
             hasLength(table),
             isFlag(simplify)
