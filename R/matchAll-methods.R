@@ -10,7 +10,7 @@
 #' Unlist match list into a positional vector.
 #'
 #' @examples
-#' ## vector ====
+#' ## character ====
 #' x <- c("c", "b", "a")
 #' table <- c("a", "b", "c", "a", "b", "c")
 #' i <- matchAll(x = x, table = table, simplify = FALSE)
