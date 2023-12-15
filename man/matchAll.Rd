@@ -41,7 +41,7 @@ of all position matches of the argument defined in \code{x}.
 Updated 2023-12-15.
 }
 \examples{
-## vector ====
+## character ====
 x <- c("c", "b", "a")
 table <- c("a", "b", "c", "a", "b", "c")
 i <- matchAll(x = x, table = table, simplify = FALSE)
