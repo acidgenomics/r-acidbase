@@ -1,5 +1,16 @@
 # Release notes
 
+## AcidBase 0.7.3 (2023-12-15)
+
+New functions:
+
+- `matchAll`: Variant of base `match()` that returns all positional matches
+  of `x` in `table`, instead of only returning the first match. Differs from
+  base `match()` in that the function always errors on any match failures
+  instead of returning `NA`.
+- `notDupes`: Works like `dupes()`, but only returns values that are not
+  duplicated.
+
 ## AcidBase 0.7.2 (2023-11-10)
 
 Minor changes:
