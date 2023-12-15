@@ -52,6 +52,12 @@ NULL
 #' @usage logRatioToFoldChange(object, ...)
 NULL
 
+#' @rdname matchAll
+#' @name matchAll
+#' @export
+#' @usage matchAll(x, table, ...)
+NULL
+
 #' @rdname matchNested
 #' @name matchNested
 #' @export
