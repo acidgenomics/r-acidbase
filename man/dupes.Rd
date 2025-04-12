@@ -21,7 +21,7 @@ Returns empty vector of length 0 when no duplicates are detected.
 Extract duplicated values
 }
 \note{
-Updated 2023-09-26.
+Updated 2025-04-12.
 }
 \examples{
 ## character ====
