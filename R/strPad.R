@@ -38,7 +38,9 @@ strPad <- function(x, width, side = c("left", "right"), pad = " ") {
     diff <- width - nchar(x)
     y <- unlist(Map(
         f = function(pad, times) {
-            paste0(rep(x = pad, times = times), collapse = "")
+            x <- rep(x = pad, times = times)
+            x <- paste(x, sep = "", collapse = "") # nolint
+            x
         },
         times = diff,
         MoreArgs = list(pad = pad)

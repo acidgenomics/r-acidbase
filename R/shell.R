@@ -138,7 +138,7 @@ shell <-
                     )
                 )
             }
-            msg <- paste0(msg, collapse = "\n")
+            msg <- paste(msg, sep = "", collapse = "\n") # nolint
             .abort(msg)
         }
         if (isTRUE(returnStdout)) {

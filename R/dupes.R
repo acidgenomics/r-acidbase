@@ -1,7 +1,7 @@
 #' Extract duplicated values
 #'
 #' @export
-#' @note Updated 2023-09-26.
+#' @note Updated 2025-04-12.
 #'
 #' @param x `vector`.
 #'
@@ -21,6 +21,9 @@
 #' x <- notDupes(vec)
 #' print(x)
 dupes <- function(x) {
+    if (is.null(x)) {
+        return(NULL)
+    }
     assert(is.atomic(x))
     if (hasNoDuplicates(x)) {
         return(x[0L]) # nolint
@@ -36,6 +39,9 @@ dupes <- function(x) {
 #' @export
 #' @rdname dupes
 notDupes <- function(x) {
+    if (is.null(x)) {
+        return(NULL)
+    }
     assert(is.atomic(x))
     if (hasNoDuplicates(x)) {
         return(x)
