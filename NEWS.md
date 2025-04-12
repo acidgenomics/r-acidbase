@@ -4,6 +4,9 @@
 
 Minor changes:
 
+- `dupes` and `notDupes`: Need to early return `NULL` before `is.atomic` check,
+  as R 4.5 has a breaking change in `is.atomic` that now returns `FALSE` for
+  `NULL`, where is previously returned `TRUE`.
 - Decreased R dependency from 4.3 to 4.0 for better backwards compatibility
   on legacy Ubuntu LTS systems.
 
