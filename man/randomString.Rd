@@ -17,7 +17,7 @@ Number of characters to return. Length of string.}
 Generate a random string
 }
 \note{
-Updated 2023-08-01.
+Updated 2025-04-12.
 }
 \examples{
 x <- randomString()

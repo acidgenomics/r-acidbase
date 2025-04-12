@@ -1,7 +1,7 @@
 #' Generate a random string
 #'
 #' @export
-#' @note Updated 2023-08-01.
+#' @note Updated 2025-04-12.
 #'
 #' @param n `integer(1)`.
 #' Number of characters to return. Length of string.
@@ -20,6 +20,6 @@ randomString <- function(n = 10L) {
         seq(from = 0L, to = 9L, by = 1L)
     )
     x <- sample(x = x, size = n)
-    x <- paste0(x, collapse = "")
+    x <- paste(x, sep = "", collapse = "") # nolint
     x
 }
