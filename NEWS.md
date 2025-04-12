@@ -1,5 +1,12 @@
 # Release notes
 
+## AcidBase 0.7.4 (2024-04-12)
+
+Minor changes:
+
+- Decreased R dependency from 4.3 to 4.0 for better backwards compatibility
+  on legacy Ubuntu LTS systems.
+
 ## AcidBase 0.7.3 (2023-12-15)
 
 New functions:
