@@ -45,7 +45,7 @@ NULL
 
 
 ## Updated 2021-02-04.
-.rankMatrix <- # nolint
+.rankMatrix <-
     function(
         x,
         MARGIN, # nolint
@@ -64,7 +64,7 @@ NULL
 
 ## Note that use of `which()` here will omit `NA` intentionally.
 ## Updated 2021-08-13.
-.bidirRank <- # nolint
+.bidirRank <-
     function(x, tiesMethod) {
         ## Set any zero values to NA.
         ## > x[x == 0L] <- NA
@@ -78,7 +78,7 @@ NULL
 
 
 ## Updated 2021-08-13.
-.bidirRankMatrix <- # nolint
+.bidirRankMatrix <-
     function(
         x,
         MARGIN, # nolint

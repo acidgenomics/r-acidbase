@@ -35,8 +35,10 @@ NULL
 ## > t(scale(t(object), center = TRUE, scale = TRUE))
 ## Updated 2022-11-17.
 `zscore,matrix` <- # nolint
-    function(object, MARGIN = 1L) {
-        # nolint
+    function(
+        object,
+        MARGIN = 1L # nolint
+    ) {
         assert(
             isFALSE(anyNA(object)),
             isInt(MARGIN),
