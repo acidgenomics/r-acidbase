@@ -41,10 +41,13 @@ test_that("Zero propagation", {
         0L
     )
     expect_identical(
-        round(geometricMean(
-            seq(from = 1L, to = 5L, by = 1L),
-            zeroPropagate = TRUE
-        ), digits = 6L),
+        round(
+            geometricMean(
+                seq(from = 1L, to = 5L, by = 1L),
+                zeroPropagate = TRUE
+            ),
+            digits = 6L
+        ),
         2.605171
     )
 })

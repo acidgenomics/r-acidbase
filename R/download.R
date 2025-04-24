@@ -32,10 +32,7 @@
 #' print(out)
 #' file.remove(out)
 download <-
-    function(url,
-             destfile,
-             quiet = FALSE,
-             ...) {
+    function(url, destfile, quiet = FALSE, ...) {
         assert(
             requireNamespaces("utils"),
             isString(url),
@@ -54,7 +51,8 @@ download <-
         if (isFALSE(quiet)) {
             .alert(sprintf(
                 "Downloading {.url %s} to {.file %s}.",
-                url, destfile
+                url,
+                destfile
             ))
         }
         ## Ensure that warnings are converted to errors here.
@@ -72,7 +70,8 @@ download <-
         if (!identical(status, 0L)) {
             .abort(sprintf(
                 "Failed to download {.url %s} to {.file %s} successfully.",
-                url, destfile
+                url,
+                destfile
             ))
         }
         if (is.numeric(timeout)) {

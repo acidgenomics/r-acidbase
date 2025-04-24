@@ -26,7 +26,6 @@
 NULL
 
 
-
 #' @rdname gitBranch
 #' @export
 gitCurrentBranch <- function(repo = getwd()) {
@@ -46,12 +45,10 @@ gitCurrentBranch <- function(repo = getwd()) {
 }
 
 
-
 #' @rdname gitBranch
 #' @export
 gitDefaultBranch <-
-    function(repo = getwd(),
-             remote = "origin") {
+    function(repo = getwd(), remote = "origin") {
         assert(
             isAGitRepo(repo),
             isString(remote),

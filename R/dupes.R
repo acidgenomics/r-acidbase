@@ -35,7 +35,6 @@ dupes <- function(x) {
 }
 
 
-
 #' @export
 #' @rdname dupes
 notDupes <- function(x) {

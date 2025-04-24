@@ -25,7 +25,6 @@
 NULL
 
 
-
 ## Updated 2023-09-21.
 `showHeader,ANY` <- # nolint
     function(object) {
@@ -38,7 +37,6 @@ NULL
         cat(x, "\n", sep = "")
         invisible(NULL)
     }
-
 
 
 ## Updated 2023-10-06.
@@ -66,7 +64,8 @@ NULL
                 if (hasLength(d, n = 2L)) {
                     y <- sprintf(
                         "with %s rows and %s columns",
-                        d[[1L]], d[[2L]]
+                        d[[1L]],
+                        d[[2L]]
                     )
                     x <- paste(x, y)
                 }
@@ -93,7 +92,6 @@ NULL
         cat(x, "\n", sep = "")
         invisible(NULL)
     }
-
 
 
 #' @rdname showHeader

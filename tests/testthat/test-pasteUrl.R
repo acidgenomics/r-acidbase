@@ -61,21 +61,25 @@ test_that("Encoding support", {
 test_that("Trailing slashes", {
     expect_identical(
         object = pasteUrl(
-            "ftp.ncbi.nlm.nih.gov", "genomes/",
+            "ftp.ncbi.nlm.nih.gov",
+            "genomes/",
             protocol = "ftp"
         ),
         expected = "ftp://ftp.ncbi.nlm.nih.gov/genomes/"
     )
     expect_identical(
         object = pasteUrl(
-            "ftp.ncbi.nlm.nih.gov", "genomes", "/",
+            "ftp.ncbi.nlm.nih.gov",
+            "genomes",
+            "/",
             protocol = "ftp"
         ),
         expected = "ftp://ftp.ncbi.nlm.nih.gov/genomes/"
     )
     expect_identical(
         object = pasteUrl(
-            "ftp.ncbi.nlm.nih.gov", "genomes//",
+            "ftp.ncbi.nlm.nih.gov",
+            "genomes//",
             protocol = "ftp"
         ),
         expected = "ftp://ftp.ncbi.nlm.nih.gov/genomes//"
@@ -99,7 +103,8 @@ test_that("Error if not URL", {
 test_that("Error on recycling", {
     expect_error(
         object = pasteUrl(
-            "bioconductor.org", c("aaa", "bbb"),
+            "bioconductor.org",
+            c("aaa", "bbb"),
             protocol = "https"
         ),
         regexp = "Recycling"
@@ -109,7 +114,9 @@ test_that("Error on recycling", {
 test_that("Error on NA", {
     expect_error(
         pasteUrl(
-            "ftp.ncbi.nlm.nih.gov", "genomes", NA_character_,
+            "ftp.ncbi.nlm.nih.gov",
+            "genomes",
+            NA_character_,
             protocol = "ftp"
         ),
         regexp = "character strings"

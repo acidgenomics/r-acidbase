@@ -1,7 +1,5 @@
 ## Consider allowing an override for not allowing duplicates in the table.
 
-
-
 #' @name matchNested
 #' @inherit AcidGenerics::matchNested
 #'
@@ -46,7 +44,6 @@
 NULL
 
 
-
 ## Updated 2023-09-21.
 `matchNested,list` <- # nolint
     function(x, table) {
@@ -67,7 +64,6 @@ NULL
         out <- df[["idx"]][idx]
         out
     }
-
 
 
 ## Updated 2023-09-21.
@@ -94,11 +90,9 @@ NULL
     }
 
 
-
 ## Updated 2023-04-26.
 `matchNested,DFrame` <- # nolint
     `matchNested,data.frame`
-
 
 
 #' @rdname matchNested

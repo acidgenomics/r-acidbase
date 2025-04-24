@@ -67,7 +67,6 @@
 NULL
 
 
-
 ## Modified version of:
 ## > getS3method(
 ## >     f = "compressFile",
@@ -78,10 +77,12 @@ NULL
 #' @rdname compress
 #' @export
 compress <-
-    function(file,
-             ext = c("gz", "bz2", "xz", "zip"),
-             remove = FALSE,
-             overwrite = FALSE) {
+    function(
+        file,
+        ext = c("gz", "bz2", "xz", "zip"),
+        remove = FALSE,
+        overwrite = FALSE
+    ) {
         assert(
             isString(file),
             isFlag(remove),
@@ -182,7 +183,6 @@ compress <-
     }
 
 
-
 ## Modified version of:
 ## > getS3method(
 ## >     f = "decompressFile",
@@ -200,9 +200,7 @@ compress <-
 #' @rdname compress
 #' @export
 decompress <-
-    function(file,
-             remove = FALSE,
-             overwrite = FALSE) {
+    function(file, remove = FALSE, overwrite = FALSE) {
         assert(
             isString(file),
             isFlag(remove),
@@ -216,7 +214,8 @@ decompress <-
                 pattern = compressExtPattern,
                 text = file,
                 ignore.case = TRUE
-            ) + 1L
+            ) +
+                1L
         )
         destfile <- gsub(
             pattern = sprintf("[.]%s$", ext),

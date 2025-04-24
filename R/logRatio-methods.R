@@ -21,7 +21,6 @@
 NULL
 
 
-
 ## Updated 2022-09-22.
 `foldChangeToLogRatio,numeric` <- # nolint
     function(object, base = 2L) {
@@ -35,7 +34,6 @@ NULL
         object <- log(object, base)
         object
     }
-
 
 
 ## Updated 2022-09-22.
@@ -53,7 +51,6 @@ NULL
     }
 
 
-
 #' @rdname logRatio
 #' @export
 setMethod(
@@ -61,7 +58,6 @@ setMethod(
     signature = signature(object = "numeric"),
     definition = `foldChangeToLogRatio,numeric`
 )
-
 
 
 #' @rdname logRatio

@@ -28,7 +28,6 @@
 NULL
 
 
-
 ## Updated 2019-10-22.
 `coerceToList,Annotated` <- # nolint
     function(object) {
@@ -42,7 +41,6 @@ NULL
         names(out) <- slotNames(object)
         out
     }
-
 
 
 #' @rdname coerceToList

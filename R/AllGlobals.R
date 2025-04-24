@@ -14,7 +14,6 @@
 barcodePattern <- ")_([ACGT_]{6,})(_[0-9]+)?$"
 
 
-
 ## genomeMetadataNames =========================================================
 
 #' Slot names in metadata containing genome information
@@ -29,7 +28,6 @@ barcodePattern <- ")_([ACGT_]{6,})(_[0-9]+)?$"
 genomeMetadataNames <- c("organism", "genomeBuild", "ensemblRelease")
 
 
-
 ## lanePattern =================================================================
 
 #' Sequencing lane grep pattern
@@ -42,7 +40,6 @@ genomeMetadataNames <- c("organism", "genomeBuild", "ensemblRelease")
 #' @examples
 #' lanePattern
 lanePattern <- "_L([[:digit:]]{3})"
-
 
 
 ## metadataDenylist ============================================================
@@ -85,7 +82,6 @@ metadataDenylist <- sort(c(
 ))
 
 
-
 ## metricsCols =================================================================
 
 #' Quality control metric columns
@@ -110,7 +106,6 @@ metricsCols <- c(
     "log10FeaturesPerCount",
     "mitoRatio"
 )
-
 
 
 ## updateMessage ===============================================================

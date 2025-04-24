@@ -16,7 +16,8 @@
 #' print(x)
 randomString <- function(n = 10L) {
     x <- c(
-        LETTERS, letters,
+        LETTERS,
+        letters,
         seq(from = 0L, to = 9L, by = 1L)
     )
     x <- sample(x = x, size = n)

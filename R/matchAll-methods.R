@@ -20,7 +20,6 @@
 NULL
 
 
-
 ## Updated 2023-12-15.
 `matchAll,vector` <- # nolint
     function(x, table, simplify = FALSE) {
@@ -50,7 +49,6 @@ NULL
     }
 
 
-
 `matchAll,character` <- # nolint
     `matchAll,vector`
 
@@ -59,7 +57,6 @@ NULL
 
 `matchAll,numeric` <- # nolint
     `matchAll,vector`
-
 
 
 #' @rdname matchAll

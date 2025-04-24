@@ -32,7 +32,6 @@
 NULL
 
 
-
 ## Alternatively, can consider using `data.table::frank()` instead of
 ## `base::rank()`, for speed. This adds an additional dependency, so avoid at
 ## the moment.
@@ -45,13 +44,14 @@ NULL
     }
 
 
-
 ## Updated 2021-02-04.
 .rankMatrix <- # nolint
-    function(x,
-             MARGIN, # nolint
-             decreasing,
-             tiesMethod) {
+    function(
+        x,
+        MARGIN, # nolint
+        decreasing,
+        tiesMethod
+    ) {
         apply(
             X = x,
             MARGIN = MARGIN,
@@ -60,7 +60,6 @@ NULL
             tiesMethod = tiesMethod
         )
     }
-
 
 
 ## Note that use of `which()` here will omit `NA` intentionally.
@@ -78,12 +77,13 @@ NULL
     }
 
 
-
 ## Updated 2021-08-13.
 .bidirRankMatrix <- # nolint
-    function(x,
-             MARGIN, # nolint
-             tiesMethod) {
+    function(
+        x,
+        MARGIN, # nolint
+        tiesMethod
+    ) {
         apply(
             X = x,
             MARGIN = MARGIN,
@@ -93,13 +93,14 @@ NULL
     }
 
 
-
 ## Updated 2021-02-04.
 `rankedMatrix,matrix` <- # nolint
-    function(object,
-             MARGIN = 2L, # nolint
-             method = c("increasing", "decreasing", "bidirectional"),
-             tiesMethod) {
+    function(
+        object,
+        MARGIN = 2L, # nolint
+        method = c("increasing", "decreasing", "bidirectional"),
+        tiesMethod
+    ) {
         assert(
             hasLength(object),
             isInt(MARGIN)
@@ -129,7 +130,6 @@ NULL
 
 formals(`rankedMatrix,matrix`)[["tiesMethod"]] <- # nolint
     formals(rank)[["ties.method"]]
-
 
 
 #' @rdname rankedMatrix

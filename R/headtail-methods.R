@@ -20,13 +20,13 @@
 NULL
 
 
-
 ## Updated 2023-09-20.
 `headtail,atomic` <- # nolint
     function(x, n = 2L) {
         assert(
             is.atomic(x),
-            is.integer(n), isTRUE(n > 0L)
+            is.integer(n),
+            isTRUE(n > 0L)
         )
         if (length(x) <= n * 2L) {
             out <- paste(x, collapse = " ")
@@ -40,14 +40,15 @@ NULL
     }
 
 
-
 ## Updated 2023-09-20.
 `headtail,matrix` <- # nolint
     function(x, n = 2L) {
         assert(
             requireNamespaces("utils"),
-            isTRUE(nrow(x) > 0L), isTRUE(ncol(x) > 0L),
-            is.integer(n), isTRUE(n > 0L)
+            isTRUE(nrow(x) > 0L),
+            isTRUE(ncol(x) > 0L),
+            is.integer(n),
+            isTRUE(n > 0L)
         )
         if (nrow(x) <= n * 2L || ncol(x) <= n * 2L) {
             out <- x[
@@ -136,7 +137,6 @@ NULL
     }
 
 
-
 ## Updated 2019-07-22.
 `headtail,data.frame` <- # nolint
     `headtail,matrix`
@@ -148,7 +148,6 @@ NULL
 ## Updated 2020-10-07.
 `headtail,vector` <- # nolint
     `headtail,atomic`
-
 
 
 #' @describeIn headtail Same method as `matrix`.

@@ -29,8 +29,7 @@
 #' )
 #' path <- c(dir, url)
 #' parentDir(path = path)
-parentDirectory <- function(path,
-                            n = 1L) {
+parentDirectory <- function(path, n = 1L) {
     assert(
         isCharacter(path),
         isInt(n),
@@ -74,7 +73,9 @@ parentDirectory <- function(path,
             n <= length(x),
             msg = sprintf(
                 "Invalid parent (%s = %d) for '%s'.",
-                "n", n, path
+                "n",
+                n,
+                path
             )
         )
         x <- x[1L:(length(x) - n)]
@@ -102,7 +103,6 @@ parentDirectory <- function(path,
     names(x) <- names
     x
 }
-
 
 
 #' @rdname parentDirectory

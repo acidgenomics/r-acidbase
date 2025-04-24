@@ -25,9 +25,7 @@
 #' @examples
 #' ram(type = "total", units = "GB")
 #' ram(type = "free", units = "GB")
-ram <- function(type = c("total", "free"),
-                units = "GB",
-                digits = 0L) {
+ram <- function(type = c("total", "free"), units = "GB", digits = 0L) {
     assert(
         requireNamespaces(c("memuse", "utils")),
         isString(units),

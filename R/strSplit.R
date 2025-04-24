@@ -81,7 +81,6 @@ strSplit <- function(x, split, fixed = TRUE, n = Inf) {
 }
 
 
-
 #' Split a string into a finite number of capture groups
 #'
 #' @note Updated 2023-09-22.
@@ -142,7 +141,6 @@ strSplit <- function(x, split, fixed = TRUE, n = Inf) {
         USE.NAMES = FALSE
     )
 }
-
 
 
 #' Split a string into an finite number of capture groups

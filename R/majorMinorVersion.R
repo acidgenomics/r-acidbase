@@ -30,7 +30,6 @@ majorMinorVersion <- function(x) {
 }
 
 
-
 #' @rdname majorMinorVersion
 #' @export
 minorVersion <- function(x) {

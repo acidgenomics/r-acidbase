@@ -13,11 +13,16 @@ test_that("Infinite, fixed", {
         ),
         expected = matrix(
             data = c(
-                "TSPAN6", "ENST00000373020",
-                "TSPAN6", "ENST00000494424",
-                "TSPAN6", "ENST00000496771",
-                "TSPAN6", "ENST00000612152",
-                "TSPAN6", "ENST00000614008"
+                "TSPAN6",
+                "ENST00000373020",
+                "TSPAN6",
+                "ENST00000494424",
+                "TSPAN6",
+                "ENST00000496771",
+                "TSPAN6",
+                "ENST00000612152",
+                "TSPAN6",
+                "ENST00000614008"
             ),
             nrow = 5L,
             ncol = 2L,
@@ -41,11 +46,16 @@ test_that("Infinite, regex", {
         ),
         expected = matrix(
             data = c(
-                "TSPAN6", "ENST00000373020",
-                "TSPAN6", "ENST00000494424",
-                "TSPAN6", "ENST00000496771",
-                "TSPAN6", "ENST00000612152",
-                "TSPAN6", "ENST00000614008"
+                "TSPAN6",
+                "ENST00000373020",
+                "TSPAN6",
+                "ENST00000494424",
+                "TSPAN6",
+                "ENST00000496771",
+                "TSPAN6",
+                "ENST00000612152",
+                "TSPAN6",
+                "ENST00000614008"
             ),
             nrow = 5L,
             ncol = 2L,
@@ -68,9 +78,12 @@ test_that("Fixed, finite", {
         ),
         expected = matrix(
             data = c(
-                "aaaa", "bbb : cc",
-                "ddddd", "e",
-                "ff", "gg : hh : ii"
+                "aaaa",
+                "bbb : cc",
+                "ddddd",
+                "e",
+                "ff",
+                "gg : hh : ii"
             ),
             nrow = 3L,
             ncol = 2L,
@@ -90,9 +103,15 @@ test_that("Fixed, finite", {
         ),
         expected = matrix(
             data = c(
-                "a", "b", "c:d:e:f",
-                "g", "h", "i:j",
-                "k", "l", "m"
+                "a",
+                "b",
+                "c:d:e:f",
+                "g",
+                "h",
+                "i:j",
+                "k",
+                "l",
+                "m"
             ),
             nrow = 3L,
             ncol = 3L,
@@ -116,10 +135,14 @@ test_that("Regex, finite", {
         ),
         expected = matrix(
             data = c(
-                "aaaa", "bbb::ccccc",
-                "aa", "bb",
-                "aaa", "bbbb::::ccc:ddddd",
-                "a", "b"
+                "aaaa",
+                "bbb::ccccc",
+                "aa",
+                "bb",
+                "aaa",
+                "bbbb::::ccc:ddddd",
+                "a",
+                "b"
             ),
             nrow = 4L,
             ncol = 2L,
@@ -139,9 +162,15 @@ test_that("Regex, finite", {
         ),
         expected = matrix(
             data = c(
-                "a", "b", "c:::d::e:f",
-                "g", "h", "i",
-                "j", "k", "l:m"
+                "a",
+                "b",
+                "c:::d::e:f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "k",
+                "l:m"
             ),
             nrow = 3L,
             ncol = 3L,

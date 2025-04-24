@@ -17,7 +17,6 @@
 NULL
 
 
-
 ## Updated 2023-09-11.
 `euclidean,numeric` <- # nolint
     function(x, y) {
@@ -29,7 +28,6 @@ NULL
         )
         sqrt(sum((x - y)^2L))
     }
-
 
 
 #' @rdname euclidean
