@@ -18,7 +18,6 @@
 NULL
 
 
-
 ## Necessary for dplyr mutate calls.
 ## Updated 2021-02-02.
 `sem,AsIs` <- # nolint
@@ -27,14 +26,12 @@ NULL
     }
 
 
-
 ## Updated 2022-04-29.
 `sem,numeric` <- # nolint
     function(x) {
         assert(requireNamespaces("stats"))
         sqrt(stats::var(x) / length(x))
     }
-
 
 
 #' @rdname sem

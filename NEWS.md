@@ -1,4 +1,8 @@
-# Release notes
+## AcidBase 0.7.5 (2025-04-24)
+
+Minor changes:
+
+- Updated code formatting to use air conventions.
 
 ## AcidBase 0.7.4 (2024-04-12)
 

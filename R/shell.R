@@ -48,15 +48,17 @@
 #' )
 #' print(x)
 shell <-
-    function(command,
-             args = character(),
-             env = NULL,
-             wd = getwd(),
-             print = TRUE,
-             stderrFile = NULL,
-             stdoutFile = NULL,
-             stderrToStdout = FALSE,
-             returnStdout = FALSE) {
+    function(
+        command,
+        args = character(),
+        env = NULL,
+        wd = getwd(),
+        print = TRUE,
+        stderrFile = NULL,
+        stdoutFile = NULL,
+        stderrToStdout = FALSE,
+        returnStdout = FALSE
+    ) {
         assert(
             requireNamespaces("processx"),
             isString(command),

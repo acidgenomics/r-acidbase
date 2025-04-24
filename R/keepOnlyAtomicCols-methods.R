@@ -23,7 +23,6 @@
 NULL
 
 
-
 ## Updated 2023-09-08.
 `keepOnlyAtomicCols,data.frame` <- # nolint
     function(object) {
@@ -41,11 +40,9 @@ NULL
     }
 
 
-
 ## Updated 2023-09-08.
 `keepOnlyAtomicCols,DFrame` <- # nolint
     `keepOnlyAtomicCols,data.frame`
-
 
 
 #' @rdname keepOnlyAtomicCols

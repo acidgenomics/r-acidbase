@@ -67,7 +67,6 @@ strMatch <- function(x, pattern, fixed = FALSE) {
 }
 
 
-
 #' Get the number of expected capture groups in a regular expression
 #'
 #' @note Updated 2023-09-25.

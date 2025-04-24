@@ -7,13 +7,11 @@
 "_PACKAGE"
 
 
-
 ## Classes =====================================================================
 
 #' @importClassesFrom BiocGenerics AsIs
 #' @importClassesFrom S4Vectors Annotated DFrame
 NULL
-
 
 
 ## S4 generics and methods =====================================================
@@ -25,7 +23,6 @@ NULL
 #' unique unlist
 #' @importFrom S4Vectors head metadata metadata<- na.omit tail
 NULL
-
 
 
 ## Standard functions ==========================================================

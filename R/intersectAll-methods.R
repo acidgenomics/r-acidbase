@@ -15,13 +15,11 @@
 NULL
 
 
-
 ## Updated 2020-08-18.
 `intersectAll,list` <- # nolint
     function(object) {
         Reduce(f = intersect, x = object)
     }
-
 
 
 #' @rdname intersectAll
