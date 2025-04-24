@@ -54,11 +54,13 @@
 #' )
 #' testing(aaa, bbb)
 standardizeCall <-
-    function(which = sys.parent(n = 1L),
-             defaults = TRUE,
-             expandDots = TRUE,
-             return = c("call", "list"),
-             verbose = getOption(x = "verbose", default = FALSE)) {
+    function(
+        which = sys.parent(n = 1L),
+        defaults = TRUE,
+        expandDots = TRUE,
+        return = c("call", "list"),
+        verbose = getOption(x = "verbose", default = FALSE)
+    ) {
         assert(
             isInt(which),
             isTRUE(which >= 0L),
@@ -133,12 +135,8 @@ standardizeCall <-
             print(list(match.call = call))
         }
         assert(is.call(call))
-        switch(EXPR = return,
-            call = call,
-            list = list
-        )
+        switch(EXPR = return, call = call, list = list)
     }
-
 
 
 ## Detect `.local()` inside an S4 method.

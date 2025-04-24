@@ -23,8 +23,7 @@
 #' printString(c("hello", "world"))
 #' printString(datasets::mtcars, max = 2L)
 printString <-
-    function(x, ...,
-             max = getOption(x = "max.print", default = 100L)) {
+    function(x, ..., max = getOption(x = "max.print", default = 100L)) {
         assert(
             requireNamespaces("utils"),
             isInt(max)

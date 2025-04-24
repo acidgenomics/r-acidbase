@@ -5,7 +5,8 @@ vec2 <- vec1^2L
 means <- c(vec1 = 2.605171, vec2 = 6.786916)
 
 test_that("foldChangeToLogRatio", {
-    expect_equal( # nolint
+    expect_equal(
+        # nolint
         object = foldChangeToLogRatio(fc),
         expected = lr
     )
@@ -16,7 +17,8 @@ test_that("foldChangeToLogRatio", {
 })
 
 test_that("logRatioToFoldChange", {
-    expect_equal( # nolint
+    expect_equal(
+        # nolint
         object = logRatioToFoldChange(lr),
         expected = fc
     )

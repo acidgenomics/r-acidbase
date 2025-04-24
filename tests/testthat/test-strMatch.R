@@ -7,9 +7,15 @@ test_that("All strings match", {
         ),
         expected = matrix(
             data = c(
-                "a-b", "a", "b",
-                "c-d", "c", "d",
-                "e-f", "e", "f"
+                "a-b",
+                "a",
+                "b",
+                "c-d",
+                "c",
+                "d",
+                "e-f",
+                "e",
+                "f"
             ),
             nrow = 3L,
             ncol = 3L,
@@ -40,8 +46,12 @@ test_that("Some strings match", {
         ),
         expected = matrix(
             data = c(
-                "a-b", "a", "b",
-                "c-d", "c", "d",
+                "a-b",
+                "a",
+                "b",
+                "c-d",
+                "c",
+                "d",
                 rep(NA_character_, 6L)
             ),
             nrow = 4L,

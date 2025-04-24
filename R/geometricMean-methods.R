@@ -36,7 +36,6 @@
 NULL
 
 
-
 ## Necessary for dplyr mutate calls.
 ## Updated 2021-02-02.
 `geometricMean,AsIs` <- # nolint
@@ -45,10 +44,10 @@ NULL
     }
 
 
-
 ## Updated 2020-02-02.
 `geometricMean,matrix` <- # nolint
-    function(x, MARGIN = 2L) { # nolint
+    function(x, MARGIN = 2L) {
+        # nolint
         apply(
             X = x,
             MARGIN = MARGIN,
@@ -57,12 +56,9 @@ NULL
     }
 
 
-
 ## Updated 2020-02-02.
 `geometricMean,numeric` <- # nolint
-    function(x,
-             removeNa = TRUE,
-             zeroPropagate = FALSE) {
+    function(x, removeNa = TRUE, zeroPropagate = FALSE) {
         assert(
             isFlag(removeNa),
             isFlag(zeroPropagate)
@@ -83,7 +79,6 @@ NULL
             )
         }
     }
-
 
 
 #' @rdname geometricMean

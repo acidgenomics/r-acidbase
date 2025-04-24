@@ -18,7 +18,6 @@
 NULL
 
 
-
 ## Alternative approach:
 ## > scale(object, center = TRUE, scale = TRUE)
 ## Updated 2023-01-30.
@@ -32,12 +31,12 @@ NULL
     }
 
 
-
 ## Alternative approach:
 ## > t(scale(t(object), center = TRUE, scale = TRUE))
 ## Updated 2022-11-17.
 `zscore,matrix` <- # nolint
-    function(object, MARGIN = 1L) { # nolint
+    function(object, MARGIN = 1L) {
+        # nolint
         assert(
             isFALSE(anyNA(object)),
             isInt(MARGIN),
@@ -52,7 +51,6 @@ NULL
         out <- t(out)
         out
     }
-
 
 
 #' @rdname zscore

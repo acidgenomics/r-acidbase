@@ -31,7 +31,6 @@
 NULL
 
 
-
 #' @describeIn modifyPathString
 #' Note that input defined in `x` is reversed internally, so the first element
 #' in the vector is added to the end of the path string.
@@ -52,7 +51,6 @@ addToPathEnd <- function(x, var = "PATH") {
 }
 
 
-
 #' @rdname modifyPathString
 #' @export
 addToPathStart <- function(x, var = "PATH") {
@@ -69,7 +67,6 @@ addToPathStart <- function(x, var = "PATH") {
     do.call(what = Sys.setenv, args = y) # nolint
     invisible(Sys.getenv(x = var))
 }
-
 
 
 #' @rdname modifyPathString
@@ -95,7 +92,6 @@ removeFromPath <- function(x, var = "PATH") {
 }
 
 
-
 ## Return functions ============================================================
 #' Collapse the input to a `PATH` string.
 #'
@@ -113,7 +109,6 @@ collapseToPathString <- function(x) {
     assert(isCharacter(x))
     paste(x, sep = ":", collapse = ":")
 }
-
 
 
 #' Split path string environment variable
@@ -142,7 +137,6 @@ splitPathString <- function(x = Sys.getenv("PATH")) {
     assert(isCharacter(x))
     x
 }
-
 
 
 #' Unique path string

@@ -39,7 +39,6 @@
 NULL
 
 
-
 #' @rdname methodDefinition
 #' @export
 ## Updated 2021-08-13.
@@ -63,7 +62,8 @@ methodFunction <- function(f, signature, package) {
         error = function(e) {
             .abort(sprintf(
                 "Failed to locate {.fun %s} generic in {.pkg %s} package.",
-                f, package
+                f,
+                package
             ))
         }
     )
@@ -99,7 +99,6 @@ methodFunction <- function(f, signature, package) {
 }
 
 
-
 #' @rdname methodDefinition
 #' @export
 ## Updated 2019-07-29.
@@ -113,7 +112,6 @@ methodFormals <- function(f, signature, package) {
 }
 
 
-
 ## Updated 2019-07-29.
 .extractLocal <- function(definition) {
     assert(.hasLocal(definition))
@@ -122,7 +120,6 @@ methodFormals <- function(f, signature, package) {
     assert(is.function(local))
     local
 }
-
 
 
 ## Updated 2019-07-29.

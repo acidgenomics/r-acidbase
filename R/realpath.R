@@ -33,7 +33,6 @@ realpath <- function(path) {
 }
 
 
-
 ## Updated 2022-05-31.
 .normalizePath <-
     function(path, mustWork) {

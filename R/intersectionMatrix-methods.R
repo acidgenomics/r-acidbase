@@ -16,7 +16,6 @@
 NULL
 
 
-
 ## Updated 2023-04-26.
 `intersectionMatrix,DFrame` <- # nolint
     function(object) {
@@ -26,7 +25,6 @@ NULL
     }
 
 
-
 ## Updated 2021-08-13.
 `intersectionMatrix,data.frame` <- # nolint
     function(object) {
@@ -34,7 +32,6 @@ NULL
         object <- as.list(object)
         intersectionMatrix(object)
     }
-
 
 
 ## Updated 2020-08-18.
@@ -77,7 +74,6 @@ NULL
     }
 
 
-
 ## Recommended method for handling matrix to list column coercion:
 ## https://stackoverflow.com/questions/6819804/
 ## Can't use `as.list()` directly here.
@@ -88,7 +84,6 @@ NULL
         object <- as.data.frame(object)
         intersectionMatrix(object)
     }
-
 
 
 #' @rdname intersectionMatrix

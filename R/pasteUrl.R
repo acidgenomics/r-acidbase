@@ -56,8 +56,7 @@
 #' x <- pasteUrl(vec, protocol = "https")
 #' print(x)
 pasteUrl <-
-    function(...,
-             protocol = c("none", "https", "http", "ftp", "rsync", "s3")) {
+    function(..., protocol = c("none", "https", "http", "ftp", "rsync", "s3")) {
         dots <- list(...)
         assert(
             hasLength(dots),
