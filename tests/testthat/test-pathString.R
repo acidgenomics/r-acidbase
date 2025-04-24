@@ -38,6 +38,7 @@ test_that("modifyPathString : extra and duplicate elements", {
         file.path("", "usr", "sbin")
     )
     var <- "TESTPATH"
+    ## nolint start
     Sys.setenv(
         "TESTPATH" = paste(
             file.path("", "usr", "local", "bin"),
@@ -45,6 +46,7 @@ test_that("modifyPathString : extra and duplicate elements", {
             sep = ":"
         )
     )
+    ## nolint end
     addToPathEnd(x = x, var = var)
     expect_identical(
         object = Sys.getenv(var),
@@ -78,7 +80,7 @@ test_that("modifyPathString : extra and duplicate elements", {
             sep = ":"
         )
     )
-    Sys.unsetenv(var)
+    Sys.unsetenv(var) # nolint
 })
 
 test_that("uniquePathString", {
