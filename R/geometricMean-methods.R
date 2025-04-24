@@ -46,8 +46,10 @@ NULL
 
 ## Updated 2020-02-02.
 `geometricMean,matrix` <- # nolint
-    function(x, MARGIN = 2L) {
-        # nolint
+    function(
+        x,
+        MARGIN = 2L # nolint
+    ) {
         apply(
             X = x,
             MARGIN = MARGIN,
