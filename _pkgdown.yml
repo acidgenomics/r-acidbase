@@ -16,3 +16,91 @@ news:
 template:
   bootstrap: 5
 url: https://r.acidgenomics.com/packages/acidbase
+reference:
+  - title: Constants
+    contents:
+      - matches("Pattern$")
+      - barcodePattern
+      - genomeMetadataNames
+      - lanePattern
+      - metadataDenylist
+      - metricsCols
+      - updateMessage
+  - title: Math and statistics
+    contents:
+      - euclidean
+      - foldChangeToLogRatio
+      - geometricMean
+      - headtail
+      - intersectAll
+      - intersectionMatrix
+      - logRatioToFoldChange
+      - rankedMatrix
+      - sem
+      - zscore
+  - title: Data manipulation
+    contents:
+      - dupes
+      - keepOnlyAtomicCols
+      - matchAll
+      - matchNested
+      - notDupes
+  - title: String utilities
+    contents:
+      - starts_with("str")
+      - printString
+      - truncateString
+  - title: File and path utilities
+    contents:
+      - basenameSansExt
+      - compress
+      - decompress
+      - fileDepth
+      - fileExt
+      - initDir
+      - parentDir
+      - parentDirectory
+      - realpath
+      - tempdir2
+      - unlink2
+  - title: Path string manipulation
+    contents:
+      - addToPathEnd
+      - addToPathStart
+      - collapseToPathString
+      - removeFromPath
+      - splitPathString
+      - uniquePathString
+  - title: System utilities
+    contents:
+      - cpus
+      - gitCurrentBranch
+      - gitDefaultBranch
+      - quietly
+      - ram
+      - randomString
+      - shell
+  - title: Version utilities
+    contents:
+      - majorMinorVersion
+      - majorVersion
+      - minorVersion
+      - sanitizeVersion
+  - title: Download and URL
+    contents:
+      - download
+      - pasteUrl
+  - title: Display and S4 helpers
+    contents:
+      - showHeader
+      - showSlotInfo
+      - simpleClass
+      - pkgCacheDir
+  - title: Metaprogramming
+    contents:
+      - appendToBody
+      - classContains
+      - coerceToList
+      - methodFormals
+      - methodFunction
+      - standardizeCall
