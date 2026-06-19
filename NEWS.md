@@ -1,3 +1,9 @@
+## AcidBase 0.7.6 (2026-06-19)
+
+License changes:
+
+- Switched from AGPL-3.0 to Apache-2.0.
+
 ## AcidBase 0.7.5 (2025-04-24)
 
 Minor changes:
