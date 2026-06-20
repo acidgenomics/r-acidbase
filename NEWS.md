@@ -1,3 +1,10 @@
+## AcidBase 0.7.7 (2026-06-20)
+
+Minor changes:
+
+- Fix lints introduced by the 2026-06-19 global `.lintr` ruleset; remove
+  per-package `.lintr` in favour of global `~/.lintr`.
+
 ## AcidBase 0.7.6 (2026-06-19)
 
 License changes:
