@@ -37,11 +37,11 @@ ram <- function(type = c("total", "free"), units = "GB", digits = 0L) {
         "total" = "totalram",
         "free" = "freeram"
     )
-    sysinfo <- memuse::Sys.meminfo()
+    sysinfo <- memuse::Sys.meminfo() # nolint
     assert(is(sysinfo, "sysinfo"))
     memuse <- sysinfo[[key]]
     assert(is(memuse, "memuse"))
-    bytes <- memuse::mu.size(memuse, as.is = FALSE)
+    bytes <- memuse::mu.size(memuse, as.is = FALSE) # nolint
     assert(is.numeric(bytes))
     bytes <- structure(bytes, class = "object_size") # nolint
     str <- format(

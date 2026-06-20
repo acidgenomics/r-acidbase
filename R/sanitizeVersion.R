@@ -17,7 +17,7 @@ sanitizeVersion <- function(x) {
     ## Strip trailing "+" (e.g. "Python 2.7.15+").
     x <- sub("\\+$", "", x)
     ## Strip quotes (e.g. `java -version` returns '"12.0.1"').
-    x <- gsub("\"", "", x)
+    x <- gsub("\"", "", x, fixed = TRUE)
     ## Strip hyphenated terminator.(e.g. `java -version` returns "1.8.0_212").
     x <- sub("(-|_).+$", "", x)
     x <- sub("\\.([0-9]+)[-a-z]+[0-9]+?$", ".\\1", x)

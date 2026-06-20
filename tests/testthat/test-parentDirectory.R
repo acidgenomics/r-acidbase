@@ -21,7 +21,7 @@ test_that("Names handling", {
 })
 
 test_that("URL", {
-    url <- pasteUrl(
+    fullUrl <- pasteUrl(
         "r.acidgenomics.com",
         "packages",
         "acidbase",
@@ -29,13 +29,14 @@ test_that("URL", {
         "parentDirectory.html",
         protocol = "https"
     )
+    expectedUrl <- pasteUrl(
+        "r.acidgenomics.com",
+        "packages",
+        "acidbase",
+        protocol = "https"
+    )
     expect_identical(
-        object = parentDir(url, n = 2L),
-        expected = url <- pasteUrl(
-            "r.acidgenomics.com",
-            "packages",
-            "acidbase",
-            protocol = "https"
-        )
+        object = parentDir(fullUrl, n = 2L),
+        expected = expectedUrl
     )
 })
