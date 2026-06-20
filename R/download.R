@@ -60,6 +60,7 @@ download <-
             expr = utils::download.file(
                 url = url,
                 destfile = destfile,
+                mode = "wb",
                 quiet = quiet,
                 ...
             ),

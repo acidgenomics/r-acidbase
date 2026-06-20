@@ -114,9 +114,7 @@ compress <-
             assert(requireNamespaces(c("utils", "withr")))
             withr::with_dir(
                 new = dirname(file),
-                code = {
-                    utils::zip(zipfile = destfile, files = basename(file))
-                }
+                code = utils::zip(zipfile = destfile, files = basename(file))
             )
             if (isTRUE(remove)) {
                 file.remove(file)
@@ -132,11 +130,7 @@ compress <-
         assert(is.function(fun))
         inn <- file(description = file, open = "rb")
         on.exit(
-            expr = {
-                if (!is.null(inn)) {
-                    close(inn)
-                }
-            }
+            expr = if (!is.null(inn)) close(inn)
         )
         outComplete <- FALSE
         out <- fun(description = destfile, open = "wb")
@@ -271,11 +265,7 @@ decompress <-
         assert(is.function(fun))
         inn <- fun(file, open = "rb")
         on.exit(
-            expr = {
-                if (!is.null(inn)) {
-                    close(inn)
-                }
-            }
+            expr = if (!is.null(inn)) close(inn)
         )
         outComplete <- FALSE
         out <- file(destfile, open = "wb")
