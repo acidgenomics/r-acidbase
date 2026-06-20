@@ -34,7 +34,7 @@ strRemoveEmpty <- function(x, naOk = TRUE, spacesOk = TRUE) {
         ok <- !grepl(pattern = "^\\s+$", x = x)
         x <- x[ok]
     }
-    ok <- nchar(x) != 0L
+    ok <- nzchar(x, keepNA = TRUE)
     ok[is.na(ok)] <- naOk
     x <- x[ok]
     x

@@ -19,7 +19,8 @@ test_that("data.frame", {
             c("b", "bb", "bbb"),
             c("c", "cc", "ccc"),
             c("d", "dd", "ddd")
-        ))
+        )),
+        stringsAsFactors = FALSE
     )
     expect_identical(
         object = matchNested(x = x, table = table),

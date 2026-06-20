@@ -97,9 +97,9 @@ NULL
 `rankedMatrix,matrix` <- # nolint
     function(
         object,
+        tiesMethod,
         MARGIN = 2L, # nolint
-        method = c("increasing", "decreasing", "bidirectional"),
-        tiesMethod
+        method = c("increasing", "decreasing", "bidirectional")
     ) {
         assert(
             hasLength(object),

@@ -88,13 +88,13 @@ test_that("two-dimensional arrays", {
             "Hornet 4 Drive"
         )
     )
-    for (object in list(
+    for (x in list(
         "DFrame" = as(object, "DFrame"),
         "data.frame" = as.data.frame(object),
         "matrix" = as.matrix(object)
     )) {
         expect_identical(
-            object = intersectionMatrix(object),
+            object = intersectionMatrix(x),
             expected = matrix(
                 data = c(
                     TRUE,
